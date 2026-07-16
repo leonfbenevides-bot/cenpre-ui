@@ -2,7 +2,7 @@ import { PageHero } from "../components/PageHero";
 import { NewsCard } from "../components/NewsCard";
 import { TabsPills } from "../components/Tabs";
 import type { BibliotecaContent } from "../content/types";
-import { PageShell, Breadcrumb } from "./shared";
+import { PageShell, Breadcrumb, FormatoPillLabel } from "./shared";
 
 export interface BibliotecaConteudosProps {
   content: BibliotecaContent;
@@ -24,7 +24,7 @@ export function BibliotecaConteudos({ content }: BibliotecaConteudosProps) {
             const doFormato = itens.filter((i) => i.formato === formato);
             return {
               value: formato,
-              label: formato,
+              label: <FormatoPillLabel formato={formato} />,
               content: doFormato.length > 0 ? (
                 <div className="grid gap-6 pt-6 md:grid-cols-3">
                   {doFormato.map((i) => <NewsCard key={i.title} {...i} />)}

@@ -8,6 +8,8 @@ import { JobCard } from "../components/JobCard";
 import { NewsCard } from "../components/NewsCard";
 import { AccordionList } from "../components/Accordion";
 import { SectionHeading } from "../components/SectionHeading";
+import { AudienceSwitcher } from "../components/AudienceSwitcher";
+import { FileTextIcon, SearchIcon, UsersIcon, BuildingIcon } from "../components/Icons";
 import type { UnidadeContent } from "../content/types";
 import { Brand, nav, TopicCard, SiteFooter } from "./shared";
 import platformIllustration from "../assets/platform-illustration.png";
@@ -42,7 +44,7 @@ export interface TemplateUnidadeProps {
  * `content` — uma nova unidade é um novo arquivo em `src/content/`, sem duplicar JSX.
  */
 export function TemplateUnidade({ content }: TemplateUnidadeProps) {
-  const { hero, kpis, topicos, vagas, depoimentos, motivos, noticias, faq, contato } = content;
+  const { hero, numeros, topicos, vagas, depoimentos, motivos, noticias, faq, contato } = content;
   return (
     <div className="bg-white">
       <Header brand={Brand} navItems={nav} ctaLabel="Acessar plataforma" />
@@ -68,10 +70,24 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
           />
         </section>
 
-        {/* KPIs */}
+        {/* O CENPRE em números */}
         <section className="mx-auto max-w-content px-6 py-14 md:px-[72px]">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {kpis.map((k) => <FeatureCard key={k.title} icon={k.icon} title={k.title} description={k.description} />)}
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading eyebrow={numeros.eyebrow} title={numeros.title} className="max-w-xl" />
+            <div className="flex flex-wrap gap-3">
+              <Button variant="secondary" className="border-magenta-200 bg-magenta-100 text-magenta-700 hover:bg-magenta-200" leftIcon={<FileTextIcon size={16} />}>
+                {numeros.primaryLabel}
+              </Button>
+              <Button variant="secondary" leftIcon={<SearchIcon size={16} />}>{numeros.secondaryLabel}</Button>
+            </div>
+          </div>
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {numeros.stats.map((s) => (
+              <div key={s.label}>
+                <p className="font-display text-2xl font-semibold text-magenta-700 md:text-3xl">{s.value}</p>
+                <p className="mt-1.5 text-sm text-charcoal-300">{s.label}</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -150,6 +166,14 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
       </main>
 
       <SiteFooter contato={contato} />
+
+      <AudienceSwitcher
+        value="aluno"
+        options={[
+          { value: "aluno", label: "Sou um aluno ou Egresso", icon: <UsersIcon size={16} />, href: "#" },
+          { value: "empresa", label: "Sou uma empresa", icon: <BuildingIcon size={16} />, href: "#" },
+        ]}
+      />
     </div>
   );
 }

@@ -35,7 +35,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative overflow-hidden bg-magenta-800 px-6 py-16 text-white md:px-[72px] md:py-20",
+        "relative overflow-hidden bg-magenta-800 py-16 text-white md:py-20",
         className,
       )}
     >
@@ -50,7 +50,7 @@ export function PageHero({
       />
       <div
         className={cn(
-          "relative mx-auto max-w-content",
+          "relative mx-auto max-w-content px-6 md:px-[72px]",
           media && "grid items-center gap-10 md:grid-cols-2",
         )}
       >

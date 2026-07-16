@@ -13,7 +13,7 @@ import { AudienceSwitcher } from "../components/AudienceSwitcher";
 import { SearchIcon, ArrowRightIcon, UsersIcon, BuildingIcon } from "../components/Icons";
 import { cn } from "@/lib/cn";
 import type { EmpresaContent } from "../content/types";
-import { Brand, nav, TopicCard, SiteFooter } from "./shared";
+import { Brand, nav, TopicCard, SiteFooter, FormatoPillLabel } from "./shared";
 import platformIllustration from "../assets/platform-illustration.png";
 
 function PartnerCard({ name, category, vagasAbertas, href }: EmpresaContent["parceiros"][number]) {
@@ -27,7 +27,7 @@ function PartnerCard({ name, category, vagasAbertas, href }: EmpresaContent["par
         </span>
       </div>
       <div className="mt-auto flex items-center justify-between border-t border-ash-200 pt-3 text-[13px] font-semibold">
-        <span className="text-charcoal-300">{vagasAbertas} {vagasAbertas === 1 ? "vaga aberta" : "vagas abertas"}</span>
+        <span className="text-success-700">{vagasAbertas} {vagasAbertas === 1 ? "vaga aberta" : "vagas abertas"}</span>
         <a href={href} className="inline-flex items-center gap-1 text-magenta-700 hover:text-magenta-800">
           Ver perfil <ArrowRightIcon size={14} />
         </a>
@@ -213,7 +213,7 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
                 const itens = biblioteca.itens.filter((i) => i.formato === formato);
                 return {
                   value: formato,
-                  label: formato,
+                  label: <FormatoPillLabel formato={formato} />,
                   content: itens.length > 0 ? (
                     <div className="grid gap-6 pt-6 md:grid-cols-3">
                       {itens.map((i) => <NewsCard key={i.title} {...i} />)}
@@ -228,7 +228,7 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
         </section>
 
         {/* FAQ Empresas */}
-        <section className="mx-auto max-w-prose px-6 pb-16">
+        <section className="mx-auto max-w-content px-6 py-16 md:px-[72px]">
           <SectionHeading
             className="mb-6"
             title="Perguntas Frequentes de Empresas"

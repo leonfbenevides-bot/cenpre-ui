@@ -18,8 +18,14 @@ export interface UnidadeContent {
     title: string;
     description: string;
   };
-  /** Números/da prova social (Desde 2001, +600 empresas…). */
-  kpis: { icon: ReactNode; title: string; description: string }[];
+  /** Faixa "O CENPRE EM NÚMEROS" (título + CTAs + 4 números magenta). */
+  numeros: {
+    eyebrow: string;
+    title: string;
+    primaryLabel: string;
+    secondaryLabel: string;
+    stats: { value: string; label: string }[];
+  };
   /** Tópicos "como conectamos" (orientações, vagas, currículo, dúvidas). */
   topicos: { icon: ReactNode; title: string; description: string; cta: string; href: string }[];
   /** Vagas em destaque no painel (a lista completa vive na plataforma). */

@@ -3,7 +3,7 @@ import { TemplateUnidade } from "./TemplateUnidade";
 import { campos } from "../content/campos";
 
 const meta: Meta<typeof TemplateUnidade> = {
-  title: "Páginas/Template - Unidade",
+  title: "Páginas/Home - Aluno (Unidade)",
   component: TemplateUnidade,
   parameters: { layout: "fullscreen" },
 };

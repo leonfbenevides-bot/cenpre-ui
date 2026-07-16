@@ -5,6 +5,7 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { PlatformCTA } from "../components/PlatformCTA";
 import { ArrowRightIcon, ChevronRightIcon } from "../components/Icons";
+import { PenLine, Video, Mic, MonitorPlay, FileText } from "lucide-react";
 import type { UnidadeContent } from "../content/types";
 import platformIllustration from "../assets/platform-illustration.png";
 
@@ -44,6 +45,25 @@ export function TopicCard({ icon, title, description, cta, href }: TopicCardProp
         {cta} <ArrowRightIcon size={15} />
       </a>
     </Card>
+  );
+}
+
+const formatoIcons: Record<string, ReactNode> = {
+  Blog: <PenLine size={15} />,
+  Vídeos: <Video size={15} />,
+  Podcasts: <Mic size={15} />,
+  Webinars: <MonitorPlay size={15} />,
+  Workshops: <MonitorPlay size={15} />,
+  Artigos: <FileText size={15} />,
+};
+
+/** Label de pill da Biblioteca de Conteúdos: ícone do formato + nome. */
+export function FormatoPillLabel({ formato }: { formato: string }) {
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      {formatoIcons[formato] && <span aria-hidden>{formatoIcons[formato]}</span>}
+      {formato}
+    </span>
   );
 }
 

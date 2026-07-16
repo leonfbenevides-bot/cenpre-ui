@@ -45,6 +45,13 @@ const preset: Omit<Config, "content"> = {
           400: "#3c4b57",
           500: "#303e49",
         },
+        // Feedback positivo (ex.: "N vagas abertas"). Valor aproximado do
+        // verde do Figma — confirmar hex exato quando o MCP estiver autenticado.
+        success: {
+          100: "#e8f5ee",
+          600: "#22935a",
+          700: "#1e7d46",
+        },
         brand: {
           DEFAULT: "#b4365b",
           strong: "#922243",

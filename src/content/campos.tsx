@@ -1,5 +1,5 @@
 import {
-  BriefcaseIcon, BuildingIcon, UsersIcon, ShieldCheckIcon, GraduationCapIcon,
+  BriefcaseIcon, UsersIcon, ShieldCheckIcon, GraduationCapIcon,
   FileTextIcon, SparklesIcon, ClockIcon,
 } from "../components/Icons";
 import heroOffice from "../assets/hero-office.jpg";
@@ -19,12 +19,18 @@ export const campos: UnidadeContent = {
       "O CENPRE reúne oportunidades, orientações de estágio, documentos, convênios e conteúdos para aproximar alunos, egressos e empresas do mercado de trabalho.",
   },
 
-  kpis: [
-    { icon: <ShieldCheckIcon size={22} />, title: "Desde 2001", description: "Mais de 20 anos de atuação em carreiras e empregabilidade na UCAM." },
-    { icon: <BuildingIcon size={22} />, title: "+ de 600 empresas", description: "Rede de instituições que oferecem estágio e emprego aos nossos alunos." },
-    { icon: <UsersIcon size={22} />, title: "Milhares de alunos", description: "Estudantes e egressos conectados ao mercado de trabalho." },
-    { icon: <BriefcaseIcon size={22} />, title: "Plataforma própria", description: "Vagas, convênios e conteúdos reunidos em um só ambiente digital." },
-  ],
+  numeros: {
+    eyebrow: "O CENPRE em números",
+    title: "Desenvolvendo, orientando, gerindo e recrutando.",
+    primaryLabel: "Veja as oportunidades",
+    secondaryLabel: "Acessar a Plataforma",
+    stats: [
+      { value: "+ de 5.000", label: "alunos inseridos no mercado" },
+      { value: "+ de 600", label: "empresas parceiras conveniadas" },
+      { value: "Desde 2001", label: "conectando aluno e oportunidade" },
+      { value: "+ de 98%", label: "de satisfação e sucesso" },
+    ],
+  },
 
   topicos: [
     { icon: <GraduationCapIcon size={22} />, title: "Orientações de estágio", description: "Estágio obrigatório e não obrigatório, documentos, certificados e prazos e orientações por curso.", cta: "Saiba mais", href: "#" },
