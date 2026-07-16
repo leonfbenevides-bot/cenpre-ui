@@ -27,4 +27,7 @@ export {
   ShieldCheck as ShieldCheckIcon,
   Sparkles as SparklesIcon,
   Clock as ClockIcon,
+  Handshake as HandshakeIcon,
+  ClipboardList as ClipboardListIcon,
+  MessageCircleQuestion as FaqIcon,
 } from "lucide-react";

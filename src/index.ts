@@ -57,5 +57,8 @@ export * as Icons from "./components/Icons";
 
 // Páginas e conteúdo (modelo multi-unidade)
 export { TemplateUnidade, type TemplateUnidadeProps } from "./pages/TemplateUnidade";
-export type { UnidadeContent } from "./content/types";
+export { HomeEmpresa, type HomeEmpresaProps } from "./pages/HomeEmpresa";
+export type { UnidadeContent, EmpresaContent } from "./content/types";
 export { campos } from "./content/campos";
+export { empresa } from "./content/empresa";
+export { AudienceSwitcher, type AudienceSwitcherProps, type AudienceOption } from "./components/AudienceSwitcher";

@@ -67,7 +67,7 @@ screenshots de referência). Componentes da lib já cobrem a maior parte:
 | Página | Blocos principais | Componentes prontos? |
 |---|---|---|
 | Home Aluno (Template - Unidade) | tudo | ✅ implementada (`TemplateUnidade`) |
-| Home Empresa | hero, stats, convênio, depoimentos, FAQ empresas | ✅ blocos prontos; falta compor a página |
+| Home Empresa | hero, ofertas, convênio, conveniadas, stats, biblioteca, FAQ | ✅ implementada (`HomeEmpresa`, conteúdo em `content/empresa.tsx`) |
 | Subpáginas Aluno: orientações de estágio, currículo, convênios, cadastro | `PageHero`, `Tabs`/pills, `Accordion`, `DocCard`, `StepCard`, `ContactForm` | ✅ blocos prontos; falta compor |
 | Subpáginas Empresa: por que ser parceiro, cadastro de convênio | idem + `LogoBand`, formulário de lead | ✅ blocos prontos; falta compor |
 | Painel de vagas (listagem + busca) | filtros, `JobCard`, `Pagination` | ⚠️ falta componente de filtro/busca |
@@ -75,8 +75,11 @@ screenshots de referência). Componentes da lib já cobrem a maior parte:
 | Biblioteca de conteúdos / listagem de notícias | `NewsCard`, `Pagination`, filtro por tag | ✅ blocos prontos; falta compor |
 | Sobre nós / institucional | `PageHero`, `FeatureCard`, `SectionHeading` | ✅ blocos prontos; falta compor |
 
-Sugestão de ordem: **Home Empresa → subpáginas Aluno → vagas → artigo/biblioteca →
-institucional** (segue o valor para o usuário e reaproveita composição).
+Sugestão de ordem: **subpáginas Aluno → vagas → artigo/biblioteca → institucional**
+(segue o valor para o usuário e reaproveita composição).
+
+O que é comum às páginas (marca, nav, `TopicCard`, footer) vive em
+`src/pages/shared.tsx` — use-o ao compor páginas novas.
 
 ## 5. Checklist de qualidade (definição de pronto por página)
 
