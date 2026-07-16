@@ -16,6 +16,8 @@ vagas externa.
 | Referência | Link |
 |---|---|
 | Figma (fonte da verdade visual) | https://www.figma.com/design/rJQ9FsS9Y5sg8RjkCkDHhA/UCAM-SITE?node-id=2666-89499 |
+| Storybook publicado (componentes ao vivo) | https://cenpre-ui.vercel.app |
+| Repositório | https://github.com/leonfbenevides-bot/cenpre-ui |
 | Plataforma de vagas (Symplicity) | https://ucam-csm.symplicity.com/ |
 | Contato CENPRE (geral) | atendimento.cenpre@ucam-campos.br |
 | Contato convênios | convenio.estagio@ucam-campos.br · (22) 2726-2419 · WhatsApp (22) 99618-0786 |
@@ -103,17 +105,16 @@ institucional** (segue o valor para o usuário e reaproveita composição).
 
 ## 7. Storybook publicado (handoff visual canônico)
 
-`npm run build-storybook` gera `storybook-static/` — site estático com os
-componentes **reais**. Publique e compartilhe o link:
+**Ao vivo: https://cenpre-ui.vercel.app** (projeto `cenpre-ui` na Vercel).
+
+Para atualizar depois de mudar componentes:
 
 ```bash
-# Vercel
-npx vercel deploy storybook-static --prod
-# ou Netlify
-npx netlify deploy --dir=storybook-static --prod
-# ou Chromatic (histórico visual + review de UI)
-npx chromatic --project-token=<token>
+npm run build-storybook
+cd storybook-static && npx vercel link --yes --project cenpre-ui && npx vercel deploy --prod --yes
 ```
+
+(O `link` é necessário de novo porque o build limpa a pasta `storybook-static/`.)
 
 ## 8. Repositório
 

@@ -18,6 +18,8 @@ npm run build-storybook # gera storybook-static/ (site estático p/ compartilhar
 npm run typecheck      # valida os tipos
 ```
 
+**Storybook publicado: https://cenpre-ui.vercel.app**
+
 ### Compartilhar via Storybook (recomendado)
 `npm run build-storybook` produz `storybook-static/` — um site estático que renderiza os **componentes React reais** (não uma réplica). Faça deploy dessa pasta para compartilhar por link: **Vercel / Netlify / GitHub Pages** (`storybook-static/`) ou **Chromatic** (`npx chromatic`). É a forma canônica de handoff visual — sem risco de divergir do código.
 
