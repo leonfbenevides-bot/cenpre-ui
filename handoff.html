@@ -1,0 +1,510 @@
+<title>CENPRE UI — Handoff de componentes</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f9fafb;
+    --surface-2: #f1f3f5;
+    --border: #e2e6e9;
+    --border-strong: #d6dce0;
+    --text: #303e49;
+    --text-muted: #415260;
+    --text-faint: #758493;
+    --brand: #b4365b;
+    --brand-strong: #922243;
+    --brand-soft: #fff0f5;
+    --brand-on-soft: #b4365b;
+    --code-bg: #f1f3f5;
+    --shadow: 0 1px 2px rgba(48, 62, 73, .05), 0 8px 24px -16px rgba(48, 62, 73, .25);
+    --mono: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
+    --sans: "Work Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #19222a;
+      --surface: #1f2a32;
+      --surface-2: #26333c;
+      --border: #33424c;
+      --border-strong: #3d4d58;
+      --text: #eef2f5;
+      --text-muted: #b3c0ca;
+      --text-faint: #7d8b96;
+      --brand: #ef86a6;
+      --brand-strong: #f494b2;
+      --brand-soft: #2c1a22;
+      --brand-on-soft: #f7b6c9;
+      --code-bg: #141c22;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #ffffff; --surface: #f9fafb; --surface-2: #f1f3f5; --border: #e2e6e9; --border-strong: #d6dce0;
+    --text: #303e49; --text-muted: #415260; --text-faint: #758493;
+    --brand: #b4365b; --brand-strong: #922243; --brand-soft: #fff0f5; --brand-on-soft: #b4365b;
+    --code-bg: #f1f3f5; --shadow: 0 1px 2px rgba(48,62,73,.05), 0 8px 24px -16px rgba(48,62,73,.25);
+  }
+  :root[data-theme="dark"] {
+    --bg: #19222a; --surface: #1f2a32; --surface-2: #26333c; --border: #33424c; --border-strong: #3d4d58;
+    --text: #eef2f5; --text-muted: #b3c0ca; --text-faint: #7d8b96;
+    --brand: #ef86a6; --brand-strong: #f494b2; --brand-soft: #2c1a22; --brand-on-soft: #f7b6c9;
+    --code-bg: #141c22; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px -18px rgba(0,0,0,.6);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--sans); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1, h2, h3 { text-wrap: balance; line-height: 1.15; margin: 0; }
+  code, pre { font-family: var(--mono); }
+  :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* Topbar */
+  .topbar {
+    position: sticky; top: 0; z-index: 30;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar .row { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brandmark { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; }
+  .brandmark .dot { width: 26px; height: 26px; border-radius: 7px; background: var(--brand); display: grid; place-items: center; color: #fff; font-size: 13px; font-weight: 800; }
+  .topbar .meta { color: var(--text-faint); font-size: 13px; }
+  .toggle {
+    border: 1px solid var(--border-strong); background: var(--surface); color: var(--text-muted);
+    height: 34px; padding: 0 12px; border-radius: 8px; cursor: pointer; font: inherit; font-size: 13px;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .toggle:hover { border-color: var(--brand); color: var(--brand); }
+
+  /* Hero */
+  .hero { padding: 56px 0 40px; border-bottom: 1px solid var(--border); }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--brand); }
+  .hero h1 { font-size: clamp(30px, 4.5vw, 46px); font-weight: 700; letter-spacing: -.02em; margin: 14px 0 0; }
+  .hero p { font-size: 18px; color: var(--text-muted); max-width: 60ch; margin: 14px 0 0; }
+  .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .pill { font-size: 12.5px; font-weight: 600; padding: 5px 11px; border-radius: 100px; background: var(--brand-soft); color: var(--brand-on-soft); border: 1px solid color-mix(in srgb, var(--brand) 22%, transparent); }
+  .install { margin-top: 22px; display: inline-flex; align-items: center; gap: 12px; background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; font-family: var(--mono); font-size: 13.5px; color: var(--text); }
+  .install .sig { color: var(--brand); user-select: none; }
+
+  /* Layout */
+  .layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 40px 0 80px; align-items: start; }
+  nav.side { position: sticky; top: 76px; display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
+  nav.side .grouplabel { font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-faint); margin: 16px 0 6px; }
+  nav.side a { color: var(--text-muted); padding: 5px 10px; border-radius: 7px; }
+  nav.side a:hover { background: var(--surface-2); color: var(--text); text-decoration: none; }
+
+  section.block { scroll-margin-top: 80px; margin-bottom: 56px; }
+  section.block > h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .14em; color: var(--brand); font-weight: 700; padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+  .lead { color: var(--text-muted); max-width: 68ch; margin: -8px 0 24px; }
+
+  /* Swatches */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 10px; }
+  .sw { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface); }
+  .sw .chip { height: 54px; }
+  .sw .info { padding: 8px 10px; }
+  .sw .nm { font-size: 12.5px; font-weight: 600; }
+  .sw .hx { font-family: var(--mono); font-size: 11.5px; color: var(--text-faint); text-transform: uppercase; }
+
+  /* Scales */
+  .scale { display: flex; flex-direction: column; gap: 8px; }
+  .scale .r { display: flex; align-items: center; gap: 14px; }
+  .scale .r .k { width: 96px; font-family: var(--mono); font-size: 12.5px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .scale .r .bar { height: 14px; background: var(--brand); border-radius: 3px; opacity: .85; }
+  .type-row { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--border); }
+  .type-row .k { width: 96px; font-family: var(--mono); font-size: 12px; color: var(--text-faint); }
+  .radius-row { display:flex; gap:16px; flex-wrap:wrap; }
+  .radius-demo { text-align:center; font-size:12px; color:var(--text-faint); }
+  .radius-demo .b { width:80px; height:56px; background:var(--brand-soft); border:1px solid color-mix(in srgb, var(--brand) 30%, transparent); margin-bottom:6px; }
+
+  /* Component cards */
+  .comp { border: 1px solid var(--border); border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 18px; }
+  .comp .head { padding: 18px 20px; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--border); }
+  .comp .head h3 { font-size: 18px; font-family: var(--mono); font-weight: 600; letter-spacing: -.01em; }
+  .comp .head p { margin: 6px 0 0; color: var(--text-muted); font-size: 14px; max-width: 62ch; }
+  .cat { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-faint); white-space: nowrap; padding-top: 4px; }
+  .comp .body { padding: 4px 20px 18px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-faint); font-weight: 600; padding: 12px 10px 8px; border-bottom: 1px solid var(--border); }
+  table td { padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table tr:last-child td { border-bottom: 0; }
+  table td.p { font-family: var(--mono); color: var(--text); white-space: nowrap; }
+  table td.t { font-family: var(--mono); color: var(--brand); font-size: 12.5px; }
+  table td.d { color: var(--text-muted); }
+  .subhead { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--text-faint); font-weight: 600; margin: 18px 0 8px; }
+  .states { display: flex; flex-wrap: wrap; gap: 6px; }
+  .state { font-size: 12px; font-family: var(--mono); padding: 4px 9px; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--border); color: var(--text-muted); }
+  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; overflow-x: auto; font-size: 13px; line-height: 1.55; margin: 8px 0 0; }
+  pre .tok-tag { color: var(--brand); }
+  pre .tok-attr { color: var(--text-muted); }
+  pre .tok-str { color: #2f8f6b; }
+  @media (prefers-color-scheme: dark) { pre .tok-str { color: #6fd0a6; } }
+  :root[data-theme="dark"] pre .tok-str { color: #6fd0a6; }
+  :root[data-theme="light"] pre .tok-str { color: #2f8f6b; }
+
+  .note { background: var(--brand-soft); border: 1px solid color-mix(in srgb, var(--brand) 24%, transparent); border-radius: 10px; padding: 14px 16px; color: var(--text); font-size: 14px; }
+  .bp { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 10px; }
+  .bp .b { border: 1px solid var(--border); border-radius: 10px; padding: 14px; background: var(--surface); }
+  .bp .b .n { font-family: var(--mono); font-weight: 600; }
+  .bp .b .v { color: var(--text-faint); font-size: 13px; }
+
+  footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--text-faint); font-size: 13px; }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; gap: 0; }
+    nav.side { position: static; flex-direction: row; flex-wrap: wrap; gap: 6px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    nav.side .grouplabel { width: 100%; margin: 8px 0 2px; }
+    .comp .head { flex-direction: column; }
+  }
+</style>
+
+<div class="topbar">
+  <div class="wrap row">
+    <div class="brandmark"><span class="dot">C</span> CENPRE&nbsp;UI</div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <span class="meta">Handoff · v0.1</span>
+      <button class="toggle" id="themeToggle" aria-label="Alternar tema">
+        <span id="themeIcon">◐</span><span id="themeLabel">Tema</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Design System · CENPRE Carreiras (UCAM)</div>
+    <h1>Biblioteca de componentes para o dev</h1>
+    <p>Tokens extraídos do Figma e componentes tipados em <strong>React + TypeScript + Tailwind</strong>, no padrão shadcn/ui (CVA + Radix + Lucide). Esta página é a especificação de handoff: tokens, props, estados e breakpoints.</p>
+    <div class="stack">
+      <span class="pill">React 18</span>
+      <span class="pill">TypeScript</span>
+      <span class="pill">Tailwind CSS</span>
+      <span class="pill">Radix UI</span>
+      <span class="pill">CVA</span>
+      <span class="pill">Lucide</span>
+    </div>
+    <div class="install"><span class="sig">$</span> npm install &amp;&amp; npm run dev</div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="side" aria-label="Índice">
+    <div class="grouplabel">Fundações</div>
+    <a href="#cores">Cores</a>
+    <a href="#spacing">Spacing &amp; Radius</a>
+    <a href="#tipografia">Tipografia &amp; Ícones</a>
+    <div class="grouplabel">Primitivos</div>
+    <a href="#button">Button</a>
+    <a href="#tag">Tag</a>
+    <a href="#input">Input / Textarea</a>
+    <a href="#avatar">Avatar / IconChip</a>
+    <div class="grouplabel">Composição</div>
+    <a href="#cards">Cards</a>
+    <a href="#jobcard">JobCard</a>
+    <a href="#pagination">Pagination / LogoBand</a>
+    <div class="grouplabel">Interativos</div>
+    <a href="#accordion">Accordion</a>
+    <a href="#tabs">Tabs</a>
+    <div class="grouplabel">Blocos</div>
+    <a href="#blocos">Hero · Contato · CTA · Header · Footer</a>
+    <div class="grouplabel">Geral</div>
+    <a href="#breakpoints">Breakpoints</a>
+  </nav>
+
+  <main>
+    <!-- CORES -->
+    <section class="block" id="cores">
+      <h2>Cores</h2>
+      <p class="lead">Marca em escala <strong>magenta</strong> (primária = <code>magenta-700</code>). Neutros em <strong>ash</strong> (fundos/bordas) e <strong>charcoal</strong> (texto). Em Tailwind: <code>bg-magenta-700</code>, <code>text-charcoal-500</code>, <code>border-ash-300</code>.</p>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#fff0f5"></div><div class="info"><div class="nm">magenta 100</div><div class="hx">#fff0f5</div></div></div>
+        <div class="sw"><div class="chip" style="background:#ffdde8"></div><div class="info"><div class="nm">magenta 200</div><div class="hx">#ffdde8</div></div></div>
+        <div class="sw"><div class="chip" style="background:#fcb9ce"></div><div class="info"><div class="nm">magenta 300</div><div class="hx">#fcb9ce</div></div></div>
+        <div class="sw"><div class="chip" style="background:#f494b2"></div><div class="info"><div class="nm">magenta 400</div><div class="hx">#f494b2</div></div></div>
+        <div class="sw"><div class="chip" style="background:#ea7095"></div><div class="info"><div class="nm">magenta 500</div><div class="hx">#ea7095</div></div></div>
+        <div class="sw"><div class="chip" style="background:#d64e76"></div><div class="info"><div class="nm">magenta 600</div><div class="hx">#d64e76</div></div></div>
+        <div class="sw"><div class="chip" style="background:#b4365b"></div><div class="info"><div class="nm">magenta 700 ★</div><div class="hx">#b4365b</div></div></div>
+        <div class="sw"><div class="chip" style="background:#922243"></div><div class="info"><div class="nm">magenta 800</div><div class="hx">#922243</div></div></div>
+        <div class="sw"><div class="chip" style="background:#70132f"></div><div class="info"><div class="nm">magenta 900</div><div class="hx">#70132f</div></div></div>
+        <div class="sw"><div class="chip" style="background:#530e23"></div><div class="info"><div class="nm">magenta 1000</div><div class="hx">#530e23</div></div></div>
+      </div>
+      <div style="height:14px"></div>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#f9fafb"></div><div class="info"><div class="nm">ash 100</div><div class="hx">#f9fafb</div></div></div>
+        <div class="sw"><div class="chip" style="background:#f1f3f5"></div><div class="info"><div class="nm">ash 200</div><div class="hx">#f1f3f5</div></div></div>
+        <div class="sw"><div class="chip" style="background:#e2e6e9"></div><div class="info"><div class="nm">ash 300</div><div class="hx">#e2e6e9</div></div></div>
+        <div class="sw"><div class="chip" style="background:#d6dce0"></div><div class="info"><div class="nm">ash 400</div><div class="hx">#d6dce0</div></div></div>
+        <div class="sw"><div class="chip" style="background:#939eaa"></div><div class="info"><div class="nm">ash 600</div><div class="hx">#939eaa</div></div></div>
+        <div class="sw"><div class="chip" style="background:#758493"></div><div class="info"><div class="nm">charcoal 100</div><div class="hx">#758493</div></div></div>
+        <div class="sw"><div class="chip" style="background:#566574"></div><div class="info"><div class="nm">charcoal 200</div><div class="hx">#566574</div></div></div>
+        <div class="sw"><div class="chip" style="background:#415260"></div><div class="info"><div class="nm">charcoal 300</div><div class="hx">#415260</div></div></div>
+        <div class="sw"><div class="chip" style="background:#3c4b57"></div><div class="info"><div class="nm">charcoal 400</div><div class="hx">#3c4b57</div></div></div>
+        <div class="sw"><div class="chip" style="background:#303e49"></div><div class="info"><div class="nm">charcoal 500</div><div class="hx">#303e49</div></div></div>
+      </div>
+    </section>
+
+    <!-- SPACING -->
+    <section class="block" id="spacing">
+      <h2>Spacing &amp; Radius</h2>
+      <p class="lead">Escala de espaçamento do arquivo (px), exposta como <code>spacing.token-*</code>. Raios: <code>chip</code>, <code>card</code>, <code>pill</code>.</p>
+      <div class="scale">
+        <div class="r"><span class="k">token-4</span><span class="bar" style="width:4px"></span></div>
+        <div class="r"><span class="k">token-8</span><span class="bar" style="width:8px"></span></div>
+        <div class="r"><span class="k">token-12</span><span class="bar" style="width:12px"></span></div>
+        <div class="r"><span class="k">token-16</span><span class="bar" style="width:16px"></span></div>
+        <div class="r"><span class="k">token-20</span><span class="bar" style="width:20px"></span></div>
+        <div class="r"><span class="k">token-24</span><span class="bar" style="width:24px"></span></div>
+        <div class="r"><span class="k">token-32</span><span class="bar" style="width:32px"></span></div>
+        <div class="r"><span class="k">token-40</span><span class="bar" style="width:40px"></span></div>
+        <div class="r"><span class="k">token-48</span><span class="bar" style="width:48px"></span></div>
+        <div class="r"><span class="k">token-64</span><span class="bar" style="width:64px"></span></div>
+        <div class="r"><span class="k">token-80</span><span class="bar" style="width:80px"></span></div>
+        <div class="r"><span class="k">token-96</span><span class="bar" style="width:96px"></span></div>
+      </div>
+      <div class="subhead">Radius</div>
+      <div class="radius-row">
+        <div class="radius-demo"><div class="b" style="border-radius:8px"></div>chip · 8px</div>
+        <div class="radius-demo"><div class="b" style="border-radius:16px"></div>card · 16px</div>
+        <div class="radius-demo"><div class="b" style="border-radius:100px"></div>pill · 100px</div>
+      </div>
+    </section>
+
+    <!-- TIPOGRAFIA -->
+    <section class="block" id="tipografia">
+      <h2>Tipografia &amp; Ícones</h2>
+      <p class="lead">Fonte de produção: <strong>Work Sans</strong> (títulos e corpo). Ícones: <strong><a href="https://lucide.dev/icons/" target="_blank" rel="noreferrer">Lucide</a></strong> via <code>lucide-react</code>, padrão do shadcn.</p>
+      <div>
+        <div class="type-row"><span class="k">32 / bold</span><span style="font-size:32px;font-weight:700;letter-spacing:-.02em">Título de seção</span></div>
+        <div class="type-row"><span class="k">18 / semibold</span><span style="font-size:18px;font-weight:600">Título de card</span></div>
+        <div class="type-row"><span class="k">16 / regular</span><span style="font-size:16px">Texto de corpo padrão para leitura confortável.</span></div>
+        <div class="type-row"><span class="k">13 / semibold</span><span style="font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brand)">Eyebrow</span></div>
+      </div>
+    </section>
+
+    <!-- BUTTON -->
+    <section class="block" id="button">
+      <h2>Primitivos</h2>
+      <div class="comp">
+        <div class="head"><div><h3>Button</h3><p>Botão base com variants (CVA). Suporta <code>asChild</code> para virar link mantendo o estilo.</p></div><span class="cat">Primitivo</span></div>
+        <div class="body">
+          <table>
+            <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td class="p">variant</td><td class="t">"primary" | "secondary" | "ghost" | "link"</td><td class="p">"primary"</td><td class="d">Estilo visual.</td></tr>
+              <tr><td class="p">size</td><td class="t">"sm" | "md" | "lg"</td><td class="p">"md"</td><td class="d">Tamanho.</td></tr>
+              <tr><td class="p">fullWidth</td><td class="t">boolean</td><td class="p">false</td><td class="d">Ocupa 100% da largura.</td></tr>
+              <tr><td class="p">leftIcon / rightIcon</td><td class="t">ReactNode</td><td class="p">—</td><td class="d">Ícone antes/depois do texto.</td></tr>
+              <tr><td class="p">asChild</td><td class="t">boolean</td><td class="p">false</td><td class="d">Renderiza o filho (ex.: &lt;a&gt;) com o estilo do botão.</td></tr>
+            </tbody>
+          </table>
+          <div class="subhead">Estados</div>
+          <div class="states"><span class="state">default</span><span class="state">hover</span><span class="state">active</span><span class="state">focus-visible</span><span class="state">disabled</span></div>
+          <div class="subhead">Uso</div>
+<pre><span class="tok-tag">&lt;Button</span> <span class="tok-attr">variant</span>=<span class="tok-str">"primary"</span> <span class="tok-attr">size</span>=<span class="tok-str">"md"</span><span class="tok-tag">&gt;</span>Enviar contato<span class="tok-tag">&lt;/Button&gt;</span>
+<span class="tok-tag">&lt;Button</span> <span class="tok-attr">asChild</span><span class="tok-tag">&gt;&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-str">"/vagas"</span><span class="tok-tag">&gt;</span>Ver vagas<span class="tok-tag">&lt;/a&gt;&lt;/Button&gt;</span></pre>
+        </div>
+      </div>
+
+      <!-- TAG -->
+      <div class="comp" id="tag">
+        <div class="head"><div><h3>Tag</h3><p>Pílula/badge. Usada em cards de vaga (área, fonte, modalidade) e eyebrows.</p></div><span class="cat">Primitivo</span></div>
+        <div class="body">
+          <table>
+            <thead><tr><th>Prop</th><th>Tipo</th><th>Default</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td class="p">tone</td><td class="t">"neutral" | "brand" | "accent"</td><td class="p">"neutral"</td><td class="d"><code>brand</code> = CENPRE (magenta); <code>accent</code> = parceiros (CIEE/NUBE).</td></tr>
+              <tr><td class="p">size</td><td class="t">"sm" | "md"</td><td class="p">"md"</td><td class="d">Tamanho.</td></tr>
+            </tbody>
+          </table>
+          <div class="subhead">Uso</div>
+<pre><span class="tok-tag">&lt;Tag&gt;</span>Marketing<span class="tok-tag">&lt;/Tag&gt;</span>  <span class="tok-tag">&lt;Tag</span> <span class="tok-attr">tone</span>=<span class="tok-str">"brand"</span><span class="tok-tag">&gt;</span>CENPRE<span class="tok-tag">&lt;/Tag&gt;</span>  <span class="tok-tag">&lt;Tag</span> <span class="tok-attr">tone</span>=<span class="tok-str">"accent"</span><span class="tok-tag">&gt;</span>NUBE<span class="tok-tag">&lt;/Tag&gt;</span></pre>
+        </div>
+      </div>
+
+      <!-- INPUT -->
+      <div class="comp" id="input">
+        <div class="head"><div><h3>Input · Textarea</h3><p>Campos rotulados e acessíveis (<code>label</code>, <code>aria-invalid</code>, <code>aria-describedby</code>).</p></div><span class="cat">Primitivo</span></div>
+        <div class="body">
+          <table>
+            <thead><tr><th>Prop</th><th>Tipo</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td class="p">label</td><td class="t">string</td><td class="d">Rótulo associado por <code>htmlFor</code>.</td></tr>
+              <tr><td class="p">hint</td><td class="t">ReactNode</td><td class="d">Texto de apoio abaixo do campo.</td></tr>
+              <tr><td class="p">error</td><td class="t">string</td><td class="d">Ativa o estado de erro + mensagem.</td></tr>
+              <tr><td class="p">leftIcon</td><td class="t">ReactNode</td><td class="d">Ícone interno (só Input).</td></tr>
+              <tr><td class="p">…props</td><td class="t">Input/TextareaHTMLAttributes</td><td class="d">value, onChange, placeholder, disabled…</td></tr>
+            </tbody>
+          </table>
+          <div class="subhead">Estados</div>
+          <div class="states"><span class="state">default</span><span class="state">focus</span><span class="state">disabled</span><span class="state">error</span></div>
+        </div>
+      </div>
+
+      <!-- AVATAR -->
+      <div class="comp" id="avatar">
+        <div class="head"><div><h3>Avatar · IconChip</h3><p>Avatar de empresa (logo/iniciais/ícone) e chip de ícone (base de módulos, passos, documentos).</p></div><span class="cat">Primitivo</span></div>
+        <div class="body">
+          <table>
+            <thead><tr><th>Componente</th><th>Props</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td class="p">Avatar</td><td class="t">src, fallback, icon, size</td><td class="d">Logo da empresa; fallback por iniciais ou ícone.</td></tr>
+              <tr><td class="p">IconChip</td><td class="t">size, tone</td><td class="d">Quadrado arredondado com ícone (24px) como children.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="block" id="cards">
+      <h2>Composição</h2>
+      <div class="comp">
+        <div class="head"><div><h3>Card · FeatureCard · StepCard · DocCard</h3><p>Família de cards sobre o <code>Card</code> base (fundo ash-100, borda ash-300, radius 16).</p></div><span class="cat">Composição</span></div>
+        <div class="body">
+          <table>
+            <thead><tr><th>Componente</th><th>Props</th><th>Uso</th></tr></thead>
+            <tbody>
+              <tr><td class="p">Card</td><td class="t">as, padding, interactive</td><td class="d">Container base.</td></tr>
+              <tr><td class="p">FeatureCard</td><td class="t">icon, title, description</td><td class="d">Módulos da plataforma e "O CENPRE em números".</td></tr>
+              <tr><td class="p">StepCard</td><td class="t">number, title, description, icon?</td><td class="d">Passos numerados (badge magenta).</td></tr>
+              <tr><td class="p">DocCard</td><td class="t">label, icon, items[]</td><td class="d">Documentos por etapa (Início/Durante/Encerramento).</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="comp" id="jobcard">
+        <div class="head"><div><h3>JobCard</h3><p>Card de vaga com avatar da empresa, tags, localização, bolsa e ação. Serve em grid ou lista.</p></div><span class="cat">Composição</span></div>
+        <div class="body">
+          <table>
+            <thead><tr><th>Prop</th><th>Tipo</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td class="p">title / company</td><td class="t">string</td><td class="d">Cargo e empresa.</td></tr>
+              <tr><td class="p">area / source / modality</td><td class="t">string</td><td class="d">Tags: área, fonte (CENPRE/NUBE), modalidade.</td></tr>
+              <tr><td class="p">location / salary</td><td class="t">string</td><td class="d">Localização e bolsa.</td></tr>
+              <tr><td class="p">logoSrc</td><td class="t">string</td><td class="d">Logo da empresa (Avatar).</td></tr>
+              <tr><td class="p">actionLabel / href / onAction</td><td class="t">string / () =&gt; void</td><td class="d">Botão (default "Ver vaga" → plataforma).</td></tr>
+            </tbody>
+          </table>
+<pre><span class="tok-tag">&lt;JobCard</span> <span class="tok-attr">area</span>=<span class="tok-str">"Marketing"</span> <span class="tok-attr">source</span>=<span class="tok-str">"CENPRE"</span> <span class="tok-attr">modality</span>=<span class="tok-str">"Estágio"</span>
+  <span class="tok-attr">title</span>=<span class="tok-str">"Assistente de Marketing"</span> <span class="tok-attr">company</span>=<span class="tok-str">"Tech Solutions"</span>
+  <span class="tok-attr">location</span>=<span class="tok-str">"Campos dos Goytacazes, RJ"</span> <span class="tok-attr">salary</span>=<span class="tok-str">"R$ 1.000,00 + Benefícios"</span> <span class="tok-tag">/&gt;</span></pre>
+        </div>
+      </div>
+
+      <div class="comp" id="pagination">
+        <div class="head"><div><h3>Pagination · LogoBand</h3><p>Paginação (Anterior/números/Próximo) e faixa de logos de parceiros (Centrais de Estágio).</p></div><span class="cat">Composição</span></div>
+        <div class="body">
+          <table>
+            <thead><tr><th>Componente</th><th>Props</th></tr></thead>
+            <tbody>
+              <tr><td class="p">Pagination</td><td class="t">page, totalPages, onPageChange, siblingCount?</td></tr>
+              <tr><td class="p">LogoBand</td><td class="t">items: {'{'} name, src?, href? {'}'}[]</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCORDION -->
+    <section class="block" id="accordion">
+      <h2>Interativos <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint)">· acessibilidade via Radix (teclado + ARIA)</span></h2>
+      <div class="comp">
+        <div class="head"><div><h3>Accordion</h3><p>FAQ acessível sobre Radix. API composável ou atalho <code>AccordionList</code>.</p></div><span class="cat">Interativo</span></div>
+        <div class="body">
+          <table>
+            <thead><tr><th>API</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td class="p">Accordion / AccordionItem / AccordionTrigger / AccordionContent</td><td class="d">Composição completa (shadcn-style).</td></tr>
+              <tr><td class="p">AccordionList</td><td class="d"><span class="t" style="font-family:var(--mono)">items, type ("single" | "multiple"), collapsible</span> — atalho para FAQ.</td></tr>
+            </tbody>
+          </table>
+<pre><span class="tok-tag">&lt;AccordionList</span> <span class="tok-attr">items</span>={'{'}[{'{'} <span class="tok-attr">question</span>: <span class="tok-str">"..."</span>, <span class="tok-attr">answer</span>: <span class="tok-str">"..."</span> {'}'}]{'}'} <span class="tok-tag">/&gt;</span></pre>
+        </div>
+      </div>
+
+      <div class="comp" id="tabs">
+        <div class="head"><div><h3>Tabs</h3><p>Abas em "pílula" (ativa magenta). API composável ou atalho <code>TabsPills</code>.</p></div><span class="cat">Interativo</span></div>
+        <div class="body">
+          <table>
+            <thead><tr><th>API</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td class="p">Tabs / TabsList / TabsTrigger / TabsContent</td><td class="d">Composição completa.</td></tr>
+              <tr><td class="p">TabsPills</td><td class="d"><span class="t" style="font-family:var(--mono)">items: {'{'} value, label, content {'}'}[]</span> — atalho.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCOS -->
+    <section class="block" id="blocos">
+      <h2>Blocos de página</h2>
+      <div class="comp">
+        <div class="body" style="padding-top:16px">
+          <table>
+            <thead><tr><th>Componente</th><th>Props principais</th><th>Uso</th></tr></thead>
+            <tbody>
+              <tr><td class="p">PageHero</td><td class="t">eyebrow, title, subtitle, actions, pills, breadcrumb, align</td><td class="d">Hero em fundo magenta.</td></tr>
+              <tr><td class="p">ContactForm</td><td class="t">title, description, contactLines, onSubmit</td><td class="d">"FALE COM A GENTE" responsivo (empilha no mobile).</td></tr>
+              <tr><td class="p">PlatformCTA</td><td class="t">title, description, primaryHref/onPrimary, secondaryLabel, media</td><td class="d">Faixa da Plataforma CENPRE.</td></tr>
+              <tr><td class="p">Header</td><td class="t">brand, navItems[], ctaLabel/ctaHref, aside</td><td class="d">Navbar; menu hambúrguer no mobile.</td></tr>
+              <tr><td class="p">Footer</td><td class="t">brand, columns[], contact, legal</td><td class="d">Rodapé com colunas e contato.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- BREAKPOINTS -->
+    <section class="block" id="breakpoints">
+      <h2>Breakpoints</h2>
+      <p class="lead">Mobile-first (padrão Tailwind). Referências do design: <strong>mobile 390px</strong> e <strong>desktop 1440px</strong> (conteúdo <code>max-w-content</code> = 1296px).</p>
+      <div class="bp">
+        <div class="b"><div class="n">sm</div><div class="v">≥ 640px</div></div>
+        <div class="b"><div class="n">md</div><div class="v">≥ 768px</div></div>
+        <div class="b"><div class="n">lg</div><div class="v">≥ 1024px</div></div>
+        <div class="b"><div class="n">content</div><div class="v">1296px máx.</div></div>
+      </div>
+      <div style="height:20px"></div>
+      <div class="note"><strong>Convenções shadcn/ui:</strong> variants tipadas com CVA · acessibilidade dos interativos via Radix · <code>cn()</code> (clsx + tailwind-merge) para merge de classes · componentes são fonte no repositório (copy-in) — o time adapta livremente.</div>
+    </section>
+
+    <footer>CENPRE UI · Handoff de componentes · Universidade Candido Mendes — CENPRE Carreiras</footer>
+  </main>
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("themeToggle");
+    var icon = document.getElementById("themeIcon");
+    var label = document.getElementById("themeLabel");
+    function apply(mode) {
+      if (mode === "system") { root.removeAttribute("data-theme"); }
+      else { root.setAttribute("data-theme", mode); }
+      var effective = mode === "system"
+        ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+        : mode;
+      icon.textContent = effective === "dark" ? "☾" : "☀";
+      label.textContent = mode === "system" ? "Auto" : (effective === "dark" ? "Escuro" : "Claro");
+    }
+    var order = ["system", "light", "dark"];
+    var current = 0;
+    try { var saved = localStorage.getItem("cenpre-theme"); if (saved) current = Math.max(0, order.indexOf(saved)); } catch (e) {}
+    apply(order[current]);
+    btn.addEventListener("click", function () {
+      current = (current + 1) % order.length;
+      apply(order[current]);
+      try { localStorage.setItem("cenpre-theme", order[current]); } catch (e) {}
+    });
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+      if (order[current] === "system") apply("system");
+    });
+  })();
+</script>

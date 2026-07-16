@@ -1,0 +1,64 @@
+/* CENPRE Carreiras — estilos base + tokens como CSS variables.
+   Tailwind consome os tokens via tailwind.config.ts; as CSS vars abaixo
+   permitem uso em CSS puro e futura temática (dark mode, unidades). */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Work+Sans:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Marca */
+  --cenpre-magenta-100: #fff0f5;
+  --cenpre-magenta-200: #ffdde8;
+  --cenpre-magenta-300: #fcb9ce;
+  --cenpre-magenta-400: #f494b2;
+  --cenpre-magenta-500: #ea7095;
+  --cenpre-magenta-600: #d64e76;
+  --cenpre-magenta-700: #b4365b;
+  --cenpre-magenta-800: #922243;
+  --cenpre-magenta-900: #70132f;
+  --cenpre-magenta-1000: #530e23;
+
+  /* Neutros */
+  --cenpre-ash-100: #f9fafb;
+  --cenpre-ash-200: #f1f3f5;
+  --cenpre-ash-300: #e2e6e9;
+  --cenpre-ash-400: #d6dce0;
+  --cenpre-ash-600: #939eaa;
+  --cenpre-charcoal-100: #758493;
+  --cenpre-charcoal-200: #566574;
+  --cenpre-charcoal-300: #415260;
+  --cenpre-charcoal-400: #3c4b57;
+  --cenpre-charcoal-500: #303e49;
+
+  /* Semânticos */
+  --cenpre-brand: var(--cenpre-magenta-700);
+  --cenpre-brand-strong: var(--cenpre-magenta-800);
+  --cenpre-brand-soft: var(--cenpre-magenta-100);
+  --cenpre-text-title: var(--cenpre-charcoal-500);
+  --cenpre-text-body: var(--cenpre-charcoal-400);
+  --cenpre-border: var(--cenpre-ash-300);
+
+  /* Foco acessível — anel duplo (offset branco + anel da marca), estilo shadcn */
+  --cenpre-focus-offset: #ffffff;
+  --cenpre-focus-ring: 0 0 0 2px var(--cenpre-focus-offset), 0 0 0 4px rgba(180, 54, 91, 0.45);
+}
+
+@layer base {
+  html {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: var(--cenpre-text-body);
+  }
+  body {
+    background: #ffffff;
+  }
+  /* Foco visível e consistente para todos os interativos. */
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: none;
+    box-shadow: var(--cenpre-focus-ring);
+    border-radius: 8px;
+  }
+}
