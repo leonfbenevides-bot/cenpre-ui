@@ -58,7 +58,24 @@ export * as Icons from "./components/Icons";
 // Páginas e conteúdo (modelo multi-unidade)
 export { TemplateUnidade, type TemplateUnidadeProps } from "./pages/TemplateUnidade";
 export { HomeEmpresa, type HomeEmpresaProps } from "./pages/HomeEmpresa";
-export type { UnidadeContent, EmpresaContent } from "./content/types";
+export { OrientacoesEstagio, type OrientacoesEstagioProps } from "./pages/OrientacoesEstagio";
+export { Curriculo, type CurriculoProps } from "./pages/Curriculo";
+export { EmpresasConveniadas, type EmpresasConveniadasProps } from "./pages/EmpresasConveniadas";
+export { CadastroConvenio, type CadastroConvenioProps } from "./pages/CadastroConvenio";
+export { PorQueSerParceiro, type PorQueSerParceiroProps } from "./pages/PorQueSerParceiro";
+export { PainelVagas, type PainelVagasProps } from "./pages/PainelVagas";
+export { Artigo, type ArtigoProps } from "./pages/Artigo";
+export { SobreNos, type SobreNosProps } from "./pages/SobreNos";
+export { BibliotecaConteudos, type BibliotecaConteudosProps } from "./pages/BibliotecaConteudos";
+export { PageShell, Breadcrumb, PlatformSection, SiteFooter, ContactLines, TopicCard } from "./pages/shared";
+export type {
+  UnidadeContent, EmpresaContent, SubHero, OrientacoesContent, CurriculoContent,
+  ConveniadasContent, CadastroConvenioContent, ParceiroContent, VagasContent,
+  ArtigoContent, SobreNosContent, BibliotecaContent,
+} from "./content/types";
 export { campos } from "./content/campos";
 export { empresa } from "./content/empresa";
+export { orientacoes, curriculo } from "./content/paginas-aluno";
+export { conveniadas, cadastroConvenio, parceiro } from "./content/paginas-empresa";
+export { vagas, artigoExemplo, sobreNos, biblioteca } from "./content/paginas-conteudo";
 export { AudienceSwitcher, type AudienceSwitcherProps, type AudienceOption } from "./components/AudienceSwitcher";

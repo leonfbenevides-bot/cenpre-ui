@@ -83,3 +83,83 @@ export interface EmpresaContent {
   faq: { question: string; answer: string }[];
   contato: UnidadeContent["contato"];
 }
+
+/** Hero padrão das subpáginas (PageHero magenta com breadcrumb). */
+export interface SubHero {
+  title: string;
+  subtitle: string;
+  /** Trilha após "Início" (ex.: ["Alunos e Egressos", "Currículo"]). */
+  breadcrumb: string[];
+}
+
+export interface OrientacoesContent {
+  hero: SubHero;
+  /** Faixa da Lei do Estágio abaixo do hero. */
+  lei: { label: string; text: string };
+  escolas: { icon: ReactNode; nome: string; cursos: string; badge?: string; href: string }[];
+  /** DocCards "O que você precisa em cada etapa". */
+  etapas: { label: string; icon: ReactNode; items: string[] }[];
+}
+
+export interface CurriculoContent {
+  hero: SubHero;
+  intro: { eyebrow: string; title: string; description: string };
+  /** Colunas "Já tenho currículo" / "Não tenho currículo" com passos numerados. */
+  caminhos: { badge: string; title: string; steps: string[] }[];
+  dicas: { title: string; items: string[] };
+}
+
+export interface ConveniadasContent {
+  hero: SubHero;
+  aviso: { title: string; text: string };
+  indicacao: { title: string; text: string };
+}
+
+export interface CadastroConvenioContent {
+  hero: SubHero;
+  intro: { title: string; description: string };
+  passos: { title: string; description: string }[];
+  duvidas: { title: string };
+}
+
+export interface ParceiroContent {
+  hero: SubHero;
+  intro: { eyebrow: string; title: string; description: string };
+  beneficios: { title: string; description: string }[];
+}
+
+export interface VagasContent {
+  hero: SubHero;
+  /** Fontes dos filtros (sem "Todas", que a página adiciona). */
+  fontes: string[];
+  vagas: UnidadeContent["vagas"];
+}
+
+export interface ArtigoContent {
+  breadcrumb: string[];
+  tags: { label: string; tone: "brand" | "accent" | "neutral" }[];
+  title: string;
+  author: string;
+  date: string;
+  readTime: string;
+  cover?: string;
+  /** Corpo: parágrafos e citações na ordem de leitura. */
+  body: { type: "p" | "quote"; text: string; cite?: string }[];
+  autor: { nome: string; bio: string };
+  categorias: string[];
+  relacionados: UnidadeContent["noticias"];
+}
+
+export interface SobreNosContent {
+  hero: SubHero;
+  eyebrow: string;
+  paragraphs: string[];
+  ctaLabel: string;
+  href: string;
+}
+
+export interface BibliotecaContent {
+  hero: SubHero;
+  formatos: string[];
+  itens: (UnidadeContent["noticias"][number] & { formato: string })[];
+}

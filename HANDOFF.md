@@ -64,22 +64,27 @@ não JSX**.
 Prototipado no Figma e validado em HTML durante o design (pasta `UCAM/` tem os
 screenshots de referência). Componentes da lib já cobrem a maior parte:
 
-| Página | Blocos principais | Componentes prontos? |
+**Todas as páginas do Figma estão implementadas** em `src/pages/`, cada uma com
+story em "Páginas/…" e conteúdo tipado em `src/content/`:
+
+| Página | Componente | Conteúdo |
 |---|---|---|
-| Home Aluno (Template - Unidade) | tudo | ✅ implementada (`TemplateUnidade`) |
-| Home Empresa | hero, ofertas, convênio, conveniadas, stats, biblioteca, FAQ | ✅ implementada (`HomeEmpresa`, conteúdo em `content/empresa.tsx`) |
-| Subpáginas Aluno: orientações de estágio, currículo, convênios, cadastro | `PageHero`, `Tabs`/pills, `Accordion`, `DocCard`, `StepCard`, `ContactForm` | ✅ blocos prontos; falta compor |
-| Subpáginas Empresa: por que ser parceiro, cadastro de convênio | idem + `LogoBand`, formulário de lead | ✅ blocos prontos; falta compor |
-| Painel de vagas (listagem + busca) | filtros, `JobCard`, `Pagination` | ⚠️ falta componente de filtro/busca |
-| Artigo / notícia (hero, corpo, relacionados) | `PageHero`, tipografia de artigo, `NewsCard` | ⚠️ falta estilo de corpo de artigo (prose) |
-| Biblioteca de conteúdos / listagem de notícias | `NewsCard`, `Pagination`, filtro por tag | ✅ blocos prontos; falta compor |
-| Sobre nós / institucional | `PageHero`, `FeatureCard`, `SectionHeading` | ✅ blocos prontos; falta compor |
+| Home Aluno (Template - Unidade) | `TemplateUnidade` | `content/campos.tsx` |
+| Home Empresa | `HomeEmpresa` | `content/empresa.tsx` |
+| Orientações de Estágio | `OrientacoesEstagio` | `content/paginas-aluno.tsx` |
+| Currículo | `Curriculo` | `content/paginas-aluno.tsx` |
+| Empresas conveniadas | `EmpresasConveniadas` | `content/paginas-empresa.tsx` |
+| Cadastro de Convênio | `CadastroConvenio` | `content/paginas-empresa.tsx` |
+| Por que ser parceiro | `PorQueSerParceiro` | `content/paginas-empresa.tsx` |
+| Vagas e Oportunidades (busca/filtro/paginação) | `PainelVagas` | `content/paginas-conteudo.tsx` |
+| Artigo / notícia | `Artigo` | `content/paginas-conteudo.tsx` |
+| Biblioteca de Conteúdos | `BibliotecaConteudos` | `content/paginas-conteudo.tsx` |
+| Sobre nós | `SobreNos` | `content/paginas-conteudo.tsx` |
 
-Sugestão de ordem: **subpáginas Aluno → vagas → artigo/biblioteca → institucional**
-(segue o valor para o usuário e reaproveita composição).
-
-O que é comum às páginas (marca, nav, `TopicCard`, footer) vive em
-`src/pages/shared.tsx` — use-o ao compor páginas novas.
+O que é comum às páginas vive em `src/pages/shared.tsx`: `PageShell` (Header +
+PlatformCTA + Footer), `Breadcrumb`, `TopicCard`, `ContactLines`, `SiteFooter`.
+Use-o ao compor páginas novas. O trabalho restante do dev é **plugar rotas +
+dados reais** (ver decisões em aberto), não construir telas.
 
 ## 5. Checklist de qualidade (definição de pronto por página)
 
