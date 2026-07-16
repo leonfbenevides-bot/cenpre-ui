@@ -3,6 +3,8 @@
 Biblioteca de componentes do **CENPRE Carreiras (UCAM)** — **React + TypeScript + Tailwind**, no padrão **shadcn/ui** (CVA + Radix UI + `cn`).
 Feita para **handoff de desenvolvimento**: tokens de design extraídos do Figma, componentes tipados com props/estados e blocos de página prontos.
 
+> **Vai desenvolver o site?** Comece pelo **[HANDOFF.md](./HANDOFF.md)** — contexto de produto, arquitetura multi-unidade (content model), roadmap de páginas, checklist de qualidade e decisões em aberto.
+
 ---
 
 ## Começando

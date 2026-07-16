@@ -54,3 +54,8 @@ export { Footer, type FooterProps, type FooterColumn } from "./components/Footer
 
 // Ícones
 export * as Icons from "./components/Icons";
+
+// Páginas e conteúdo (modelo multi-unidade)
+export { TemplateUnidade, type TemplateUnidadeProps } from "./pages/TemplateUnidade";
+export type { UnidadeContent } from "./content/types";
+export { campos } from "./content/campos";

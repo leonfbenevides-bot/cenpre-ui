@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { TemplateUnidade } from "./TemplateUnidade";
+import { campos } from "../content/campos";
 
 const meta: Meta<typeof TemplateUnidade> = {
   title: "Páginas/Template - Unidade",
@@ -9,4 +10,5 @@ const meta: Meta<typeof TemplateUnidade> = {
 export default meta;
 type Story = StoryObj<typeof TemplateUnidade>;
 
-export const Padrao: Story = {};
+/** Home da unidade Campos dos Goytacazes — conteúdo em `src/content/campos.tsx`. */
+export const Campos: Story = { args: { content: campos } };
