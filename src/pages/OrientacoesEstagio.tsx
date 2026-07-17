@@ -25,19 +25,20 @@ export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
 
       {/* Lei do Estágio */}
       <section className="border-b border-magenta-200 bg-magenta-100">
-        <p className="mx-auto flex max-w-content flex-wrap items-center gap-2 px-6 py-4 text-sm text-charcoal-400 md:px-[72px]">
+        <p className="mx-auto flex max-w-content flex-wrap items-center gap-2 px-6 py-4 text-sm text-charcoal-400 md:px-gutter">
           <FileTextIcon size={16} className="shrink-0 text-magenta-700" aria-hidden />
           <strong className="text-magenta-800">{lei.label}</strong> {lei.text}
         </p>
       </section>
 
       {/* Tipos de estágio */}
-      <section className="mx-auto max-w-content px-6 pt-14 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 pt-14 md:px-gutter">
         <SectionHeading eyebrow={tiposEstagio.eyebrow} title={tiposEstagio.title} />
         <div className="mt-5">
           <TabsPills
-            items={tiposEstagio.tabs.map((t) => ({
-              value: t.label,
+            items={tiposEstagio.tabs.map((t, i) => ({
+              // valor sem espaços: o Radix usa isso em ids/aria-controls.
+              value: `tipo-${i}`,
               label: t.label,
               content: (
                 <Card className="mt-4 bg-ash-100 text-[15px] leading-relaxed text-charcoal-400">{t.text}</Card>
@@ -48,7 +49,7 @@ export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
       </section>
 
       {/* Por escola e curso */}
-      <section className="mx-auto max-w-content px-6 py-14 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 py-14 md:px-gutter">
         <SectionHeading eyebrow="Estágio obrigatório" title="Por escola e curso"
           subtitle="O estágio obrigatório é definido no projeto pedagógico do curso. Clique na sua escola para ver as condicionalidades." />
         <ul className="mt-8 flex flex-col gap-3">
@@ -60,7 +61,7 @@ export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
                 </span>
                 <span className="flex-1">
                   <span className="block text-sm font-semibold text-charcoal-500 group-hover:text-magenta-700">{e.nome}</span>
-                  <span className="text-[13px] text-charcoal-100">{e.cursos}</span>
+                  <span className="text-[13px] text-charcoal-200">{e.cursos}</span>
                 </span>
                 {e.badge && <Tag tone="brand" size="sm" className="shrink-0">{e.badge}</Tag>}
               </a>
@@ -71,7 +72,7 @@ export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
 
       {/* Documentos por etapa */}
       <section className="bg-ash-100 py-16">
-        <div className="mx-auto max-w-content px-6 md:px-[72px]">
+        <div className="mx-auto max-w-content px-6 md:px-gutter">
           <SectionHeading eyebrow="Documentos" title="O que você precisa em cada etapa" />
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {etapas.map((et) => <DocCard key={et.label} label={et.label} icon={et.icon} items={et.items} />)}
@@ -80,7 +81,7 @@ export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
       </section>
 
       {/* FAQ agrupada — estágio não obrigatório */}
-      <section className="mx-auto max-w-content px-6 py-16 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 py-16 md:px-gutter">
         <SectionHeading eyebrow={faq.eyebrow} title={faq.title} subtitle={faq.description} className="max-w-2xl" />
         <div className="mt-8 flex flex-col gap-6">
           {faq.grupos.map((g) => (

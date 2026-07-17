@@ -9,13 +9,37 @@ import { PenLine, Video, Mic, MonitorPlay, FileText } from "lucide-react";
 import type { UnidadeContent } from "../content/types";
 import platformIllustration from "../assets/platform-illustration.png";
 
+/**
+ * Mapa de rotas do site (placeholder até o app definir o roteamento real).
+ * Use estas constantes em vez de `href="#"` — documentam o destino pretendido.
+ */
+export const rotas = {
+  inicio: "/",
+  vagas: "/vagas",
+  conteudos: "/conteudos",
+  biblioteca: "/conteudos/biblioteca",
+  cadastroConvenio: "/empresa/cadastro-de-convenio",
+  plataforma: "https://ucam-csm.symplicity.com/",
+} as const;
+
 /** Marca CENPRE usada no Header/HeroBanner de todas as páginas. */
 export const Brand = (
   <span className="flex items-center gap-2">
     <span className="grid h-7 w-7 place-items-center rounded-[7px] bg-magenta-700 text-xs font-extrabold text-white">C</span>
     <span className="flex flex-col leading-none">
       <span className="text-magenta-800">CENPRE</span>
-      <span className="text-[10px] font-medium text-charcoal-100">Centro de Práticas Empresariais</span>
+      <span className="text-[10px] font-medium text-charcoal-300">Centro de Práticas Empresariais</span>
+    </span>
+  </span>
+);
+
+/** Variante da marca para fundos escuros (HeroBanner) — texto claro, contraste AA. */
+export const BrandOnDark = (
+  <span className="flex items-center gap-2">
+    <span className="grid h-7 w-7 place-items-center rounded-[7px] bg-magenta-700 text-xs font-extrabold text-white">C</span>
+    <span className="flex flex-col leading-none">
+      <span className="text-white">CENPRE</span>
+      <span className="text-[10px] font-medium text-ash-300">Centro de Práticas Empresariais</span>
     </span>
   </span>
 );
@@ -71,15 +95,11 @@ export function FormatoPillLabel({ formato }: { formato: string }) {
 export function Breadcrumb({ trail }: { trail: string[] }) {
   return (
     <span className="flex flex-wrap items-center gap-1.5 text-[13px] text-white/70">
-      <a href="#" className="hover:text-white">Início</a>
+      <a href={rotas.inicio} className="hover:text-white">Início</a>
       {trail.map((item, i) => (
         <span key={item} className="flex items-center gap-1.5">
           <ChevronRightIcon size={13} aria-hidden />
-          {i === trail.length - 1 ? (
-            <span className="text-white">{item}</span>
-          ) : (
-            <a href="#" className="hover:text-white">{item}</a>
-          )}
+          <span className={i === trail.length - 1 ? "text-white" : undefined}>{item}</span>
         </span>
       ))}
     </span>
@@ -89,7 +109,7 @@ export function Breadcrumb({ trail }: { trail: string[] }) {
 /** Seção de encerramento com o CTA da Plataforma CENPRE (igual em todas as páginas). */
 export function PlatformSection() {
   return (
-    <section className="mx-auto max-w-container px-6 py-10 md:px-[72px]">
+    <section className="mx-auto max-w-container px-6 py-10 md:px-gutter">
       <PlatformCTA
         title="Mais do que uma plataforma completa, nós acompanhamos todas as etapas."
         primaryLabel="Acessar a plataforma" secondaryLabel="Fale conosco" trust="Processos 100% seguros"
@@ -149,7 +169,7 @@ export function SiteFooter({ contato = contatoPadrao }: { contato?: UnidadeConte
         { title: "Empresa", links: [{ label: "Por que ser parceiro", href: "#" }, { label: "Cadastro de convênio", href: "#" }, { label: "Empresas conveniadas", href: "#" }, { label: "Perguntas de empresas", href: "#" }] },
         { title: "Institucional", links: [{ label: "Sobre nós", href: "#" }, { label: "Biblioteca de conteúdos", href: "#" }, { label: "Perguntas frequentes", href: "#" }, { label: "Plataforma CENPRE", href: "#" }] },
       ]}
-      contact={<>{contato.emailGeral}<br /><br /><span className="text-ash-600">Equipe de convênio</span><br />{contato.emailConvenio}<br />{contato.telefone} · WhatsApp {contato.whatsapp}</>}
+      contact={<>{contato.emailGeral}<br /><br /><span className="text-ash-400">Equipe de convênio</span><br />{contato.emailConvenio}<br />{contato.telefone} · WhatsApp {contato.whatsapp}</>}
       legal="© 2026 CENPRE Carreiras · Universidade Candido Mendes. Todos os direitos reservados."
     />
   );

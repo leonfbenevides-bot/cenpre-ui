@@ -40,7 +40,7 @@ export const AccordionTrigger = forwardRef<
       >
         {children}
         <span
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-pill text-charcoal-100 transition-colors group-hover:text-magenta-700 group-data-[state=open]:bg-magenta-100 group-data-[state=open]:text-magenta-700"
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-pill text-charcoal-200 transition-colors group-hover:text-magenta-700 group-data-[state=open]:bg-magenta-100 group-data-[state=open]:text-magenta-700"
           aria-hidden
         >
           <PlusIcon size={18} className="group-data-[state=open]:hidden" />

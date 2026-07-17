@@ -11,7 +11,7 @@ import { SectionHeading } from "../components/SectionHeading";
 import { AudienceSwitcher } from "../components/AudienceSwitcher";
 import { FileTextIcon, SearchIcon, UsersIcon, BuildingIcon } from "../components/Icons";
 import type { UnidadeContent } from "../content/types";
-import { Brand, nav, TopicCard, SiteFooter } from "./shared";
+import { Brand, BrandOnDark, nav, rotas, TopicCard, SiteFooter } from "./shared";
 import platformIllustration from "../assets/platform-illustration.png";
 
 function Testimonial({ name, course, quote }: { name: string; course: string; quote: string }) {
@@ -24,7 +24,7 @@ function Testimonial({ name, course, quote }: { name: string; course: string; qu
         </span>
         <span className="text-sm">
           <span className="block font-semibold text-charcoal-500">{name}</span>
-          <span className="text-charcoal-100">{course}</span>
+          <span className="text-charcoal-200">{course}</span>
         </span>
       </div>
     </div>
@@ -50,13 +50,14 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
       <Header brand={Brand} navItems={nav} ctaLabel="Acessar plataforma" />
 
       <main>
-        <section className="mx-auto max-w-container px-6 py-10 md:px-[72px]">
+        <section className="mx-auto max-w-container px-6 py-10 md:px-gutter">
           <Carousel
             ariaLabel="Destaques"
             slides={[
               <HeroBanner
+                as="h1"
                 image={hero.image}
-                brand={Brand}
+                brand={BrandOnDark}
                 title={hero.title}
                 description={hero.description}
                 actions={
@@ -71,7 +72,7 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
         </section>
 
         {/* O CENPRE em números */}
-        <section className="mx-auto max-w-content px-6 py-14 md:px-[72px]">
+        <section className="mx-auto max-w-content px-6 py-14 md:px-gutter">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading eyebrow={numeros.eyebrow} title={numeros.title} className="max-w-xl" />
             <div className="flex flex-wrap gap-3">
@@ -92,7 +93,7 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
         </section>
 
         {/* Como conectamos */}
-        <section className="mx-auto max-w-content px-6 py-14 md:px-[72px]">
+        <section className="mx-auto max-w-content px-6 py-14 md:px-gutter">
           <SectionHeading align="center" className="mx-auto" eyebrow="Entenda o impacto"
             title="Entenda como conectamos talentos e oportunidades"
             subtitle="Uma jornada integrada entre alunos, egressos e empresas por meio de estágios, vagas, convênios e suporte." />
@@ -103,11 +104,11 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
 
         {/* Painel de vagas */}
         <section className="bg-ash-100 py-16">
-          <div className="mx-auto max-w-content px-6 md:px-[72px]">
+          <div className="mx-auto max-w-content px-6 md:px-gutter">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <SectionHeading eyebrow="Oportunidades" title="Painel de vagas"
                 subtitle="Estágios e empregos do CENPRE e de centrais parceiras." />
-              <Button variant="secondary" asChild><a href="#">Ver todas as vagas</a></Button>
+              <Button variant="secondary" asChild><a href={rotas.vagas}>Ver todas as vagas</a></Button>
             </div>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {vagas.map((j) => <JobCard key={j.title} {...j} actionLabel="Tenho interesse" />)}
@@ -116,7 +117,7 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
         </section>
 
         {/* Depoimentos */}
-        <section className="mx-auto max-w-content px-6 py-16 md:px-[72px]">
+        <section className="mx-auto max-w-content px-6 py-16 md:px-gutter">
           <SectionHeading eyebrow="Depoimentos" title="Histórias de quem já passou pelo CENPRE" />
           <div className="mt-8">
             <Carousel ariaLabel="Depoimentos" slides={[
@@ -129,7 +130,7 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
 
         {/* Por que escolher o CENPRE */}
         <section className="bg-ash-100 py-16">
-          <div className="mx-auto max-w-content px-6 md:px-[72px]">
+          <div className="mx-auto max-w-content px-6 md:px-gutter">
             <SectionHeading align="center" className="mx-auto" eyebrow="Por que o CENPRE"
               title="Motivos para escolher o CENPRE" />
             <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -139,10 +140,10 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
         </section>
 
         {/* Últimas notícias */}
-        <section className="mx-auto max-w-content px-6 py-16 md:px-[72px]">
+        <section className="mx-auto max-w-content px-6 py-16 md:px-gutter">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading eyebrow="Conteúdos" title="Últimas notícias" />
-            <Button variant="secondary" asChild><a href="#">Ver todos</a></Button>
+            <Button variant="secondary" asChild><a href={rotas.conteudos}>Ver todos</a></Button>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {noticias.map((n) => <NewsCard key={n.title} {...n} />)}
@@ -156,7 +157,7 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
         </section>
 
         {/* CTA - Plataforma CENPRE */}
-        <section className="mx-auto max-w-container px-6 py-10 md:px-[72px]">
+        <section className="mx-auto max-w-container px-6 py-10 md:px-gutter">
           <PlatformCTA
             title="Mais do que uma plataforma completa, nós acompanhamos todas as etapas."
             primaryLabel="Acessar a plataforma" secondaryLabel="Fale conosco" trust="Processos 100% seguros"

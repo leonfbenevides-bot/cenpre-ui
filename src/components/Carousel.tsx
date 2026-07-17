@@ -39,6 +39,10 @@ export function Carousel({
     }
   }
 
+  /* eslint-disable jsx-a11y/no-noninteractive-element-interactions,
+     jsx-a11y/no-noninteractive-tabindex --
+     Padrão WAI-ARIA de carrossel: região focável com navegação por setas.
+     O linter marca teclado em elemento não interativo, mas aqui é intencional. */
   return (
     <div
       className={cn("relative", className)}

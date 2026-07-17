@@ -25,7 +25,7 @@ export function Header({ brand, navItems, ctaLabel = "Acessar plataforma", ctaHr
   const [open, setOpen] = useState(false);
   return (
     <header className={cn("sticky top-0 z-40 border-b border-ash-200 bg-white", className)}>
-      <div className="mx-auto flex h-16 max-w-container items-center justify-between gap-6 px-6 md:px-[72px]">
+      <div className="mx-auto flex h-16 max-w-container items-center justify-between gap-6 px-6 md:px-gutter">
         <div className="flex items-center gap-2 font-bold text-magenta-800">
           {brand ?? "CENPRE"}
         </div>

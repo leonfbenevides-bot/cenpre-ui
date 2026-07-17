@@ -93,8 +93,10 @@ dados reais** (ver decisões em aberto), não construir telas.
       Figma); `max-w-content` (1296px) para o miolo.
 - [ ] Estados: hover/active/focus-visible em tudo que é clicável; foco visível via
       anel global do `globals.css`.
-- [ ] Acessibilidade: aba a11y do Storybook sem violações; landmarks
+- [ ] Acessibilidade: `npm run test:a11y` (axe em todas as páginas, desktop e
+      mobile — precisa do Storybook rodando) sem violações sérias; landmarks
       (`header/main/footer/nav`), um `h1` por página, `alt` real nas imagens.
+      Texto pequeno: use `charcoal-200+` sobre claro e `ash-400+` sobre escuro.
 - [ ] Conteúdo vem de `UnidadeContent`/props — nada de texto de unidade hardcoded
       em componente.
 - [ ] Story criada (páginas em `Páginas/…`, blocos em suas categorias).

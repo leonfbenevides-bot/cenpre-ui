@@ -42,7 +42,8 @@ export function PainelVagas({ content }: PainelVagasProps) {
     <PageShell>
       <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
 
-      <section className="mx-auto max-w-content px-6 py-12 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 py-12 md:px-gutter">
+        <h2 className="sr-only">Vagas disponíveis</h2>
         <div className="flex flex-col gap-3 md:flex-row md:items-center">
           <Input
             aria-label="Buscar vaga"
@@ -72,7 +73,7 @@ export function PainelVagas({ content }: PainelVagasProps) {
           </div>
         </div>
 
-        <p className="mt-5 text-sm text-charcoal-100" aria-live="polite">
+        <p className="mt-5 text-sm text-charcoal-200" aria-live="polite">
           {filtradas.length} {filtradas.length === 1 ? "vaga disponível" : "vagas disponíveis"}
         </p>
 
@@ -80,7 +81,7 @@ export function PainelVagas({ content }: PainelVagasProps) {
           {visiveis.map((v) => <JobCard key={v.title} {...v} actionLabel="Tenho interesse" />)}
         </div>
         {filtradas.length === 0 && (
-          <p className="mt-6 text-sm text-charcoal-100">Nenhuma vaga encontrada — tente outra busca ou fonte.</p>
+          <p className="mt-6 text-sm text-charcoal-200">Nenhuma vaga encontrada — tente outra busca ou fonte.</p>
         )}
 
         {totalPaginas > 1 && (

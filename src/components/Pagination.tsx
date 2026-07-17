@@ -41,7 +41,7 @@ export function Pagination({ page, totalPages, onPageChange, siblingCount = 5, c
       <ul className="flex items-center gap-1">
         {pages.map((p, i) =>
           p === "…" ? (
-            <li key={`gap-${i}`} className="px-2 text-sm text-charcoal-100">
+            <li key={`gap-${i}`} className="px-2 text-sm text-charcoal-200">
               …
             </li>
           ) : (

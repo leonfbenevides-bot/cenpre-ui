@@ -80,7 +80,7 @@ export function App() {
         }
       />
 
-      <main className="mx-auto max-w-content px-6 md:px-[72px]">
+      <main className="mx-auto max-w-content px-6 md:px-gutter">
         <Group title="Botões">
           <div className="flex flex-wrap items-center gap-3">
             <Button>Primário</Button>

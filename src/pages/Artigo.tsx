@@ -27,7 +27,7 @@ export function Artigo({ content }: ArtigoProps) {
             {tags.map((t) => <Tag key={t.label} tone={t.tone} size="sm" className="uppercase">{t.label}</Tag>)}
           </div>
           <h1 className="font-display text-3xl font-semibold leading-[1.15] text-white md:text-4xl">{title}</h1>
-          <p className="text-sm text-ash-600">
+          <p className="text-sm text-ash-400">
             <span className="font-semibold text-white">{author}</span> · {date} · {readTime}
           </p>
         </div>
@@ -39,7 +39,7 @@ export function Artigo({ content }: ArtigoProps) {
           {cover ? (
             <img src={cover} alt="" className="aspect-[16/9] w-full object-cover" />
           ) : (
-            <div className="grid aspect-[16/9] w-full place-items-center text-charcoal-100">
+            <div className="grid aspect-[16/9] w-full place-items-center text-charcoal-200">
               <span className="flex flex-col items-center gap-2 text-xs"><ImageIcon size={22} aria-hidden />Imagem de capa do artigo</span>
             </div>
           )}
@@ -69,12 +69,12 @@ export function Artigo({ content }: ArtigoProps) {
         {/* Autor e categorias */}
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           <Card padding="sm" className="bg-ash-100">
-            <p className="text-xs font-medium uppercase tracking-[0.1em] text-charcoal-100">Sobre o autor</p>
+            <p className="text-xs font-medium uppercase tracking-[0.1em] text-charcoal-200">Sobre o autor</p>
             <h2 className="mt-2 text-base font-semibold text-charcoal-500">{autor.nome}</h2>
             <p className="mt-1 text-[13px] leading-relaxed text-charcoal-400">{autor.bio}</p>
           </Card>
           <Card padding="sm" className="bg-ash-100">
-            <p className="text-xs font-medium uppercase tracking-[0.1em] text-charcoal-100">Categorias</p>
+            <p className="text-xs font-medium uppercase tracking-[0.1em] text-charcoal-200">Categorias</p>
             <div className="mt-3 flex flex-wrap gap-1.5">
               {categorias.map((c) => <Tag key={c} tone="neutral" size="sm">{c}</Tag>)}
             </div>
@@ -84,7 +84,7 @@ export function Artigo({ content }: ArtigoProps) {
 
       {/* Relacionados */}
       <section className="bg-ash-100 py-14">
-        <div className="mx-auto max-w-content px-6 md:px-[72px]">
+        <div className="mx-auto max-w-content px-6 md:px-gutter">
           <SectionHeading title="Conteúdos relacionados" />
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {relacionados.map((n) => <NewsCard key={n.title} {...n} />)}

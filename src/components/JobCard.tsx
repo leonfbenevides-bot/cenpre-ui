@@ -63,7 +63,7 @@ export function JobCard({
         <p className="text-[13px] text-charcoal-300">{company}</p>
       </div>
       <p className="flex items-center gap-1.5 text-[13px] text-charcoal-300">
-        <MapPinIcon size={14} className="shrink-0 text-charcoal-100" />
+        <MapPinIcon size={14} className="shrink-0 text-charcoal-200" />
         {location}
       </p>
       <div className="mt-auto flex flex-col gap-3 pt-1">

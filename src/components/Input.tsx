@@ -37,7 +37,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           disabled && "bg-ash-100 opacity-60 shadow-none",
         )}
       >
-        {leftIcon && <span className="shrink-0 text-charcoal-100" aria-hidden>{leftIcon}</span>}
+        {leftIcon && <span className="shrink-0 text-charcoal-200" aria-hidden>{leftIcon}</span>}
         <input
           ref={ref}
           id={inputId}
@@ -45,7 +45,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
           className={cn(
-            "w-full bg-transparent text-[14px] text-charcoal-500 outline-none placeholder:text-charcoal-100 focus-visible:shadow-none",
+            "w-full bg-transparent text-[14px] text-charcoal-500 outline-none placeholder:text-charcoal-200 focus-visible:shadow-none",
             className,
           )}
           {...props}
@@ -56,7 +56,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           {error}
         </p>
       ) : hint ? (
-        <p id={`${inputId}-hint`} className="text-xs text-charcoal-100">
+        <p id={`${inputId}-hint`} className="text-xs text-charcoal-200">
           {hint}
         </p>
       ) : null}

@@ -52,7 +52,7 @@ export function NewsCard({
           <div className="aspect-[16/10] w-full" aria-hidden />
         )}
       </div>
-      <p className="text-xs text-charcoal-100">
+      <p className="text-xs text-charcoal-200">
         {author} · {date}
       </p>
       <h3 className="text-base font-semibold leading-snug text-charcoal-500 group-hover:text-magenta-700">

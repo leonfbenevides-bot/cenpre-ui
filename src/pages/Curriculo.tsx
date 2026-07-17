@@ -52,33 +52,33 @@ export function Curriculo({ content }: CurriculoProps) {
     <PageShell>
       <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
 
-      <section className="mx-auto max-w-content px-6 pt-14 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 pt-14 md:px-gutter">
         <SectionHeading eyebrow={intro.eyebrow} title={intro.title} subtitle={intro.description} />
       </section>
 
       {/* Faixa de dica */}
-      <section className="mx-auto max-w-content px-6 pt-8 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 pt-8 md:px-gutter">
         <p className="flex items-center gap-3 rounded-chip bg-magenta-100 px-5 py-4 text-sm font-semibold text-charcoal-500">
           <SparklesIcon size={18} className="shrink-0 text-magenta-700" aria-hidden />
           {dica}
         </p>
       </section>
 
-      <section className="mx-auto max-w-content px-6 py-10 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 py-10 md:px-gutter">
         <div className="grid items-start gap-5 md:grid-cols-2">
           {caminhos.map((c, i) => <Caminho key={c.title} {...c} tone={i === 0 ? "brand" : "neutral"} />)}
         </div>
       </section>
 
       {/* FAQ do currículo */}
-      <section className="mx-auto max-w-content px-6 pb-14 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 pb-14 md:px-gutter">
         <SectionHeading eyebrow={faq.eyebrow} title={faq.title} />
         <AccordionList className="mt-4" items={faq.itens} />
       </section>
 
       {/* Dicas */}
       <section className="bg-ash-100 py-14">
-        <div className="mx-auto max-w-content px-6 md:px-[72px]">
+        <div className="mx-auto max-w-content px-6 md:px-gutter">
           <SectionHeading title={dicas.title} />
           <ul className="mt-6 grid gap-3 md:grid-cols-2">
             {dicas.items.map((d) => (

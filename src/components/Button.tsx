@@ -9,7 +9,7 @@ import { cn } from "@/lib/cn";
  * - size: sm | md | lg
  */
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 font-semibold rounded-chip transition-[color,background-color,border-color,box-shadow] disabled:pointer-events-none disabled:border-transparent disabled:bg-ash-200 disabled:text-charcoal-100 disabled:shadow-none",
+  "inline-flex items-center justify-center gap-2 font-semibold rounded-chip transition-[color,background-color,border-color,box-shadow] disabled:pointer-events-none disabled:border-transparent disabled:bg-ash-200 disabled:text-charcoal-200 disabled:shadow-none",
   {
     variants: {
       variant: {

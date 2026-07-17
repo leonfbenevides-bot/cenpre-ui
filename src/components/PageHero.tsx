@@ -50,7 +50,7 @@ export function PageHero({
       />
       <div
         className={cn(
-          "relative mx-auto max-w-content px-6 md:px-[72px]",
+          "relative mx-auto max-w-content px-6 md:px-gutter",
           media && "grid items-center gap-10 md:grid-cols-2",
         )}
       >

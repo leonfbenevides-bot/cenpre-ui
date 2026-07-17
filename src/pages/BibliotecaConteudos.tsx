@@ -18,7 +18,8 @@ export function BibliotecaConteudos({ content }: BibliotecaConteudosProps) {
     <PageShell>
       <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
 
-      <section className="mx-auto max-w-content px-6 py-12 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 py-12 md:px-gutter">
+        <h2 className="sr-only">Conteúdos por formato</h2>
         <TabsPills
           items={formatos.map((formato) => {
             const doFormato = itens.filter((i) => i.formato === formato);
@@ -30,7 +31,7 @@ export function BibliotecaConteudos({ content }: BibliotecaConteudosProps) {
                   {doFormato.map((i) => <NewsCard key={i.title} {...i} />)}
                 </div>
               ) : (
-                <p className="pt-6 text-sm text-charcoal-100">Conteúdos de {formato.toLowerCase()} em breve.</p>
+                <p className="pt-6 text-sm text-charcoal-200">Conteúdos de {formato.toLowerCase()} em breve.</p>
               ),
             };
           })}

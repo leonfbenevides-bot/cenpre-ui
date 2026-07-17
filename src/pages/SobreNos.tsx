@@ -15,7 +15,7 @@ export function SobreNos({ content }: SobreNosProps) {
     <PageShell>
       <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
 
-      <section className="mx-auto max-w-content px-6 py-14 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 py-14 md:px-gutter">
         <SectionHeading eyebrow={eyebrow} title="Nossa trajetória" />
         <div className="mt-6 grid gap-x-10 gap-y-5 md:grid-cols-2">
           {paragraphs.map((p) => (

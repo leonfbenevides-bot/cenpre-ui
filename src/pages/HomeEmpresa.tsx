@@ -13,7 +13,7 @@ import { AudienceSwitcher } from "../components/AudienceSwitcher";
 import { SearchIcon, ArrowRightIcon, UsersIcon, BuildingIcon } from "../components/Icons";
 import { cn } from "@/lib/cn";
 import type { EmpresaContent } from "../content/types";
-import { Brand, nav, TopicCard, SiteFooter, FormatoPillLabel } from "./shared";
+import { Brand, nav, rotas, TopicCard, SiteFooter, FormatoPillLabel } from "./shared";
 import platformIllustration from "../assets/platform-illustration.png";
 
 function PartnerCard({ name, category, vagasAbertas, href }: EmpresaContent["parceiros"][number]) {
@@ -23,11 +23,11 @@ function PartnerCard({ name, category, vagasAbertas, href }: EmpresaContent["par
         <Avatar fallback={name[0]} size="sm" />
         <span>
           <span className="block text-sm font-semibold text-charcoal-500">{name}</span>
-          <span className="text-xs text-charcoal-100">{category}</span>
+          <span className="text-xs text-charcoal-200">{category}</span>
         </span>
       </div>
       <div className="mt-auto flex items-center justify-between border-t border-ash-200 pt-3 text-[13px] font-semibold">
-        <span className="text-success-600">{vagasAbertas} {vagasAbertas === 1 ? "vaga aberta" : "vagas abertas"}</span>
+        <span className="text-success-700">{vagasAbertas} {vagasAbertas === 1 ? "vaga aberta" : "vagas abertas"}</span>
         <a href={href} className="inline-flex items-center gap-1 text-magenta-700 hover:text-magenta-800">
           Ver perfil <ArrowRightIcon size={14} />
         </a>
@@ -83,7 +83,7 @@ function Parceiros({ parceiros, categorias }: Pick<EmpresaContent, "parceiros" |
         {visiveis.map((p) => <PartnerCard key={p.name} {...p} />)}
       </div>
       {visiveis.length === 0 && (
-        <p className="mt-6 text-sm text-charcoal-100">Nenhuma empresa encontrada — tente outra busca ou categoria.</p>
+        <p className="mt-6 text-sm text-charcoal-200">Nenhuma empresa encontrada — tente outra busca ou categoria.</p>
       )}
     </>
   );
@@ -109,7 +109,7 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
       <main>
         {/* Hero Empresa (fundo claro) */}
         <section className="border-b border-ash-200 bg-magenta-100/40">
-          <div className="mx-auto max-w-content px-6 py-16 md:px-[72px] md:py-20">
+          <div className="mx-auto max-w-content px-6 py-16 md:px-gutter md:py-20">
             <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-magenta-700">Para empresas e organizações</p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.12] text-charcoal-500 md:text-5xl">
               {hero.title}
@@ -125,7 +125,7 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
         </section>
 
         {/* O que oferecemos */}
-        <section className="mx-auto max-w-content px-6 py-14 md:px-[72px]">
+        <section className="mx-auto max-w-content px-6 py-14 md:px-gutter">
           <SectionHeading eyebrow="O que oferecemos" title="Tudo que sua empresa precisa em um só lugar" />
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {ofertas.map((o) => <TopicCard key={o.title} {...o} />)}
@@ -134,10 +134,10 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
 
         {/* Guia do convênio */}
         <section className="bg-ash-100 py-16">
-          <div className="mx-auto max-w-content px-6 md:px-[72px]">
+          <div className="mx-auto max-w-content px-6 md:px-gutter">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <SectionHeading eyebrow="Guia completo" title="Entenda como funciona o convênio" />
-              <Button asChild><a href="#">Quero saber mais</a></Button>
+              <Button asChild><a href={rotas.cadastroConvenio}>Quero saber mais</a></Button>
             </div>
             <div className="mt-6">
               <AccordionList
@@ -147,7 +147,7 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
                   ) : (
                     <span className="flex flex-wrap items-baseline gap-2">
                       {item.question}
-                      <span className="text-[13px] font-medium text-charcoal-100">· em produção</span>
+                      <span className="text-[13px] font-medium text-charcoal-200">· em produção</span>
                     </span>
                   ),
                   answer: item.answer ?? "Conteúdo em produção — em breve nesta seção.",
@@ -158,25 +158,25 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
         </section>
 
         {/* Empresas conveniadas */}
-        <section className="mx-auto max-w-content px-6 py-16 md:px-[72px]">
+        <section className="mx-auto max-w-content px-6 py-16 md:px-gutter">
           <SectionHeading eyebrow="Parceiros CENPRE" title="Empresas conveniadas" />
           <Parceiros parceiros={parceiros} categorias={categorias} />
         </section>
 
         {/* Stats */}
         <section className="bg-charcoal-500 py-14">
-          <div className="mx-auto grid max-w-content gap-10 px-6 text-center sm:grid-cols-2 md:px-[72px] lg:grid-cols-4">
+          <div className="mx-auto grid max-w-content gap-10 px-6 text-center sm:grid-cols-2 md:px-gutter lg:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label}>
                 <p className="font-display text-3xl font-semibold text-white">{s.value}</p>
-                <p className="mt-1 text-sm text-ash-600">{s.label}</p>
+                <p className="mt-1 text-sm text-ash-400">{s.label}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Sobre nós */}
-        <section className="mx-auto max-w-content px-6 py-16 md:px-[72px]">
+        <section className="mx-auto max-w-content px-6 py-16 md:px-gutter">
           <SectionHeading eyebrow="Nossa história" title="Sobre nós" />
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             {sobre.paragraphs.map((p) => (
@@ -190,10 +190,10 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
 
         {/* Últimas notícias */}
         <section className="bg-ash-100 py-16">
-          <div className="mx-auto max-w-content px-6 md:px-[72px]">
+          <div className="mx-auto max-w-content px-6 md:px-gutter">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <SectionHeading eyebrow="Conteúdos" title="Últimas notícias" />
-              <Button variant="secondary" asChild><a href="#">Ver todos</a></Button>
+              <Button variant="secondary" asChild><a href={rotas.conteudos}>Ver todos</a></Button>
             </div>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {noticias.map((n) => <NewsCard key={n.title} {...n} className="bg-transparent" />)}
@@ -202,10 +202,10 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
         </section>
 
         {/* Biblioteca de conteúdos */}
-        <section className="mx-auto max-w-content px-6 py-16 md:px-[72px]">
+        <section className="mx-auto max-w-content px-6 py-16 md:px-gutter">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading eyebrow="Aprenda com a gente" title="Biblioteca de Conteúdos" />
-            <Button variant="secondary" asChild><a href="#">Ver todos</a></Button>
+            <Button variant="secondary" asChild><a href={rotas.biblioteca}>Ver todos</a></Button>
           </div>
           <div className="mt-8">
             <TabsPills
@@ -219,7 +219,7 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
                       {itens.map((i) => <NewsCard key={i.title} {...i} />)}
                     </div>
                   ) : (
-                    <p className="pt-6 text-sm text-charcoal-100">Conteúdos de {formato.toLowerCase()} em breve.</p>
+                    <p className="pt-6 text-sm text-charcoal-200">Conteúdos de {formato.toLowerCase()} em breve.</p>
                   ),
                 };
               })}
@@ -228,7 +228,7 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
         </section>
 
         {/* FAQ Empresas */}
-        <section className="mx-auto max-w-content px-6 py-16 md:px-[72px]">
+        <section className="mx-auto max-w-content px-6 py-16 md:px-gutter">
           <SectionHeading
             className="mb-6"
             title="Perguntas Frequentes de Empresas"
@@ -238,7 +238,7 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
         </section>
 
         {/* CTA - Plataforma CENPRE */}
-        <section className="mx-auto max-w-container px-6 py-10 md:px-[72px]">
+        <section className="mx-auto max-w-container px-6 py-10 md:px-gutter">
           <PlatformCTA
             title="Mais do que uma plataforma completa, nós acompanhamos todas as etapas."
             primaryLabel="Acessar a plataforma" secondaryLabel="Fale conosco" trust="Processos 100% seguros"

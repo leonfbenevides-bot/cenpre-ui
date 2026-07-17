@@ -11,6 +11,8 @@ export interface HeroBannerProps {
   description?: ReactNode;
   /** Ações (ex.: "Tenho interesse!" + "Saber mais"). */
   actions?: ReactNode;
+  /** Tag do título. Use "h1" quando o banner for o hero principal da página. @default "h2" */
+  as?: "h1" | "h2";
   className?: string;
 }
 
@@ -19,7 +21,7 @@ export interface HeroBannerProps {
  * esquerda para legibilidade e o conteúdo (marca + título + CTAs) por cima.
  * Pensado para rodar dentro do `Carousel` (slides de hero) ou isolado.
  */
-export function HeroBanner({ image, imageAlt = "", brand, title, description, actions, className }: HeroBannerProps) {
+export function HeroBanner({ image, imageAlt = "", brand, title, description, actions, as: Heading = "h2", className }: HeroBannerProps) {
   return (
     <section
       className={cn(
@@ -51,7 +53,7 @@ export function HeroBanner({ image, imageAlt = "", brand, title, description, ac
       />
       <div className="flex max-w-xl flex-col gap-4 p-8 md:p-14">
         {brand && <div className="flex items-center gap-2 font-semibold">{brand}</div>}
-        <h2 className="font-display text-3xl font-semibold leading-tight md:text-[40px]">{title}</h2>
+        <Heading className="font-display text-3xl font-semibold leading-tight md:text-[40px]">{title}</Heading>
         {description && <p className="max-w-md leading-relaxed text-ash-200">{description}</p>}
         {actions && <div className="mt-2 flex flex-wrap gap-3">{actions}</div>}
       </div>

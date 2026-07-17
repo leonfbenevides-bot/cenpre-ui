@@ -5,7 +5,7 @@ import { AccordionList } from "../components/Accordion";
 import { SectionHeading } from "../components/SectionHeading";
 import { ArrowRightIcon } from "../components/Icons";
 import type { CadastroConvenioContent } from "../content/types";
-import { PageShell, Breadcrumb } from "./shared";
+import { PageShell, Breadcrumb, rotas } from "./shared";
 
 export interface CadastroConvenioProps {
   content: CadastroConvenioContent;
@@ -22,7 +22,7 @@ export function CadastroConvenio({ content }: CadastroConvenioProps) {
     <PageShell>
       <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
 
-      <section className="mx-auto max-w-content px-6 py-14 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 py-14 md:px-gutter">
         <SectionHeading title={intro.title} subtitle={intro.description} />
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {passos.map((p, i) => <StepCard key={p.title} number={i + 1} title={p.title} description={p.description} />)}
@@ -30,7 +30,7 @@ export function CadastroConvenio({ content }: CadastroConvenioProps) {
       </section>
 
       {/* Documentos e dados necessários */}
-      <section className="mx-auto max-w-content px-6 pb-14 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 pb-14 md:px-gutter">
         <SectionHeading eyebrow={documentos.eyebrow} title={documentos.title} subtitle={documentos.subtitle} />
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {documentos.itens.map((d) => (
@@ -47,10 +47,10 @@ export function CadastroConvenio({ content }: CadastroConvenioProps) {
 
       {/* FAQ em duas colunas */}
       <section className="bg-ash-100 py-16">
-        <div className="mx-auto grid max-w-content gap-10 px-6 md:grid-cols-[minmax(0,380px)_1fr] md:px-[72px]">
+        <div className="mx-auto grid max-w-content gap-10 px-6 md:grid-cols-[minmax(0,380px)_1fr] md:px-gutter">
           <div>
             <SectionHeading eyebrow={faq.eyebrow} title={faq.title} subtitle={faq.description} />
-            <a href="#" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-magenta-700 hover:text-magenta-800">
+            <a href={rotas.plataforma} className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-magenta-700 hover:text-magenta-800">
               {faq.ctaLabel} <ArrowRightIcon size={15} />
             </a>
           </div>

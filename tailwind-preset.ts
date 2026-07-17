@@ -52,7 +52,8 @@ const preset: Omit<Config, "content"> = {
           100: "#e6f9ee",
           500: "#3fcb7a",
           600: "#2aa65f",
-          700: "#1f8c4e",
+          // 700: contraste 5.04:1 sobre branco — use para TEXTO pequeno (AA).
+          700: "#1a7f46",
         },
         brand: {
           DEFAULT: "#b4365b",
@@ -94,6 +95,8 @@ const preset: Omit<Config, "content"> = {
         "token-64": "64px",
         "token-80": "80px",
         "token-96": "96px",
+        // Margem lateral do conteúdo no desktop (Figma: 72px em todas as páginas).
+        gutter: "72px",
       },
       borderRadius: {
         chip: "8px",

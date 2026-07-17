@@ -42,7 +42,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
           className={cn(
-            "w-full resize-y bg-transparent text-[14px] text-charcoal-500 outline-none placeholder:text-charcoal-100 focus-visible:shadow-none",
+            "w-full resize-y bg-transparent text-[14px] text-charcoal-500 outline-none placeholder:text-charcoal-200 focus-visible:shadow-none",
             className,
           )}
           {...props}
@@ -53,7 +53,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
           {error}
         </p>
       ) : hint ? (
-        <p id={`${fieldId}-hint`} className="text-xs text-charcoal-100">
+        <p id={`${fieldId}-hint`} className="text-xs text-charcoal-200">
           {hint}
         </p>
       ) : null}

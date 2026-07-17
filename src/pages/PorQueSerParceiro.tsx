@@ -17,7 +17,7 @@ export function PorQueSerParceiro({ content }: PorQueSerParceiroProps) {
     <PageShell>
       <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
 
-      <section className="mx-auto max-w-content px-6 py-14 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 py-14 md:px-gutter">
         <SectionHeading eyebrow={intro.eyebrow} title={intro.title} subtitle={intro.description} />
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {beneficios.map((b, i) => (

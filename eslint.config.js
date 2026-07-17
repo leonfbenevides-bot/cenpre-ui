@@ -17,6 +17,12 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    // Scripts utilitários Node (ex.: auditoria de a11y). `axe` é injetado na
+    // página via addScriptTag e avaliado no browser.
+    files: ["scripts/**/*.mjs"],
+    languageOptions: { globals: { ...globals.node, ...globals.browser, axe: "readonly" } },
+  },
+  {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       globals: { ...globals.browser },
