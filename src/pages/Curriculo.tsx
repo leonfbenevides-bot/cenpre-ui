@@ -1,7 +1,8 @@
 import { PageHero } from "../components/PageHero";
 import { Card } from "../components/Card";
+import { AccordionList } from "../components/Accordion";
 import { SectionHeading } from "../components/SectionHeading";
-import { CheckIcon } from "../components/Icons";
+import { CheckIcon, SparklesIcon } from "../components/Icons";
 import { cn } from "@/lib/cn";
 import type { CurriculoContent } from "../content/types";
 import { PageShell, Breadcrumb } from "./shared";
@@ -46,16 +47,33 @@ export interface CurriculoProps {
  * plataforma) com passos numerados · dicas para um bom currículo.
  */
 export function Curriculo({ content }: CurriculoProps) {
-  const { hero, intro, caminhos, dicas } = content;
+  const { hero, intro, dica, caminhos, faq, dicas } = content;
   return (
     <PageShell>
       <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
 
-      <section className="mx-auto max-w-content px-6 py-14 md:px-[72px]">
+      <section className="mx-auto max-w-content px-6 pt-14 md:px-[72px]">
         <SectionHeading eyebrow={intro.eyebrow} title={intro.title} subtitle={intro.description} />
-        <div className="mt-8 grid items-start gap-5 md:grid-cols-2">
+      </section>
+
+      {/* Faixa de dica */}
+      <section className="mx-auto max-w-content px-6 pt-8 md:px-[72px]">
+        <p className="flex items-center gap-3 rounded-chip bg-magenta-100 px-5 py-4 text-sm font-semibold text-charcoal-500">
+          <SparklesIcon size={18} className="shrink-0 text-magenta-700" aria-hidden />
+          {dica}
+        </p>
+      </section>
+
+      <section className="mx-auto max-w-content px-6 py-10 md:px-[72px]">
+        <div className="grid items-start gap-5 md:grid-cols-2">
           {caminhos.map((c, i) => <Caminho key={c.title} {...c} tone={i === 0 ? "brand" : "neutral"} />)}
         </div>
+      </section>
+
+      {/* FAQ do currículo */}
+      <section className="mx-auto max-w-content px-6 pb-14 md:px-[72px]">
+        <SectionHeading eyebrow={faq.eyebrow} title={faq.title} />
+        <AccordionList className="mt-4" items={faq.itens} />
       </section>
 
       {/* Dicas */}

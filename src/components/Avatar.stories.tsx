@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from "./Avatar";
 import { IconChip } from "./IconChip";
+import { iconArg } from "../lib/storybook-controls";
 import { Building2, Briefcase, GraduationCap } from "lucide-react";
 
 const meta: Meta<typeof Avatar> = {
   title: "Primitivos/Avatar & IconChip",
   component: Avatar,
   tags: ["autodocs"],
+  argTypes: { icon: iconArg },
 };
 export default meta;
 type Story = StoryObj<typeof Avatar>;

@@ -7,6 +7,7 @@ const meta: Meta<typeof PageHero> = {
   component: PageHero,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen" },
+  argTypes: { breadcrumb: { table: { disable: true } }, actions: { table: { disable: true } }, pills: { table: { disable: true } }, media: { table: { disable: true } } },
 };
 export default meta;
 type Story = StoryObj<typeof PageHero>;

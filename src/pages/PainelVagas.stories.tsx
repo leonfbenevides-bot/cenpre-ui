@@ -6,6 +6,8 @@ const meta: Meta<typeof PainelVagas> = {
   title: "Páginas/Vagas e Oportunidades",
   component: PainelVagas,
   parameters: { layout: "fullscreen" },
+  // O conteúdo é um objeto tipado grande — edite em src/content/, não no painel.
+  argTypes: { content: { table: { disable: true } } },
 };
 export default meta;
 type Story = StoryObj<typeof PainelVagas>;

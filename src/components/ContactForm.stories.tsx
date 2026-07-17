@@ -6,6 +6,7 @@ const meta: Meta<typeof ContactForm> = {
   component: ContactForm,
   tags: ["autodocs"],
   parameters: { layout: "padded" },
+  argTypes: { contactLines: { table: { disable: true } }, onSubmit: { table: { disable: true } } },
 };
 export default meta;
 type Story = StoryObj<typeof ContactForm>;

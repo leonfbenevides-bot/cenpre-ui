@@ -6,6 +6,7 @@ const meta: Meta<typeof PlatformCTA> = {
   component: PlatformCTA,
   tags: ["autodocs"],
   parameters: { layout: "padded" },
+  argTypes: { media: { table: { disable: true } } },
 };
 export default meta;
 type Story = StoryObj<typeof PlatformCTA>;

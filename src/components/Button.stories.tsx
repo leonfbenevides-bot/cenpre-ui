@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
+import { iconArgSm, hidden } from "../lib/storybook-controls";
 import { ArrowRight } from "lucide-react";
 
 const meta: Meta<typeof Button> = {
@@ -12,6 +13,9 @@ const meta: Meta<typeof Button> = {
     size: { control: "inline-radio", options: ["xs", "sm", "md", "lg"] },
     fullWidth: { control: "boolean" },
     disabled: { control: "boolean" },
+    leftIcon: iconArgSm,
+    rightIcon: iconArgSm,
+    asChild: hidden,
   },
 };
 export default meta;

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { FeatureCard } from "./FeatureCard";
+import { iconArg, iconName } from "../lib/storybook-controls";
 import { Briefcase, FileText, ShieldCheck } from "lucide-react";
 
 const meta: Meta<typeof FeatureCard> = {
@@ -7,10 +8,11 @@ const meta: Meta<typeof FeatureCard> = {
   component: FeatureCard,
   tags: ["autodocs"],
   args: {
-    icon: <Briefcase />,
+    icon: iconName("estagio"),
     title: "Vagas e oportunidades",
     description: "Estágios e empregos do CENPRE e de parceiros.",
   },
+  argTypes: { icon: iconArg },
   parameters: { layout: "padded" },
 };
 export default meta;

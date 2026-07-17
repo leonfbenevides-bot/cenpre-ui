@@ -6,6 +6,8 @@ const meta: Meta<typeof EmpresasConveniadas> = {
   title: "Páginas/Empresa/Empresas conveniadas",
   component: EmpresasConveniadas,
   parameters: { layout: "fullscreen" },
+  // O conteúdo é um objeto tipado grande — edite em src/content/, não no painel.
+  argTypes: { content: { table: { disable: true } } },
 };
 export default meta;
 type Story = StoryObj<typeof EmpresasConveniadas>;

@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "./Input";
 import { Textarea } from "./Textarea";
+import { iconArgSm } from "../lib/storybook-controls";
 
 const meta: Meta<typeof Input> = {
   title: "Primitivos/Input",
   component: Input,
   tags: ["autodocs"],
   args: { label: "Email", placeholder: "seu@email.com" },
+  argTypes: { leftIcon: iconArgSm },
   parameters: { layout: "padded" },
 };
 export default meta;

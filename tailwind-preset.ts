@@ -45,12 +45,14 @@ const preset: Omit<Config, "content"> = {
           400: "#3c4b57",
           500: "#303e49",
         },
-        // Feedback positivo (ex.: "N vagas abertas"). Valor aproximado do
-        // verde do Figma — confirmar hex exato quando o MCP estiver autenticado.
+        // Feedback positivo (ex.: "N vagas abertas").
+        // 500 = variável oficial do Figma `brand/secondary/green` (#3FCB7A);
+        // 600/700 são derivados para texto pequeno com contraste AA.
         success: {
-          100: "#e8f5ee",
-          600: "#22935a",
-          700: "#1e7d46",
+          100: "#e6f9ee",
+          500: "#3fcb7a",
+          600: "#2aa65f",
+          700: "#1f8c4e",
         },
         brand: {
           DEFAULT: "#b4365b",

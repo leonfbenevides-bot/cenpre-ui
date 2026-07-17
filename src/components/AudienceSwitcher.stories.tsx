@@ -11,6 +11,7 @@ const options = [
 const meta: Meta<typeof AudienceSwitcher> = {
   title: "Blocos/AudienceSwitcher",
   component: AudienceSwitcher,
+  argTypes: { options: { table: { disable: true } } },
   args: { options, value: "empresa", floating: false },
 };
 export default meta;

@@ -5,9 +5,10 @@
 (`UCAM/screenshot_*_set.png`, `*_fixed.png`, mobile refs). Evidências pós-correção
 em `UCAM/auditoria/*.png` (desktop + mobile das 11 páginas).
 
-> ⚠️ **Pendência de método:** a conferência contra o **Figma ao vivo** (valores
-> exatos de spacing/hex via MCP) ainda depende de autenticar o conector Figma
-> (`/mcp` → figma). Os itens marcados 🔎 devem ser revisados nessa segunda passada.
+> ✅ **2ª passada concluída (17/07/2026)** contra o **Figma ao vivo** via MCP:
+> variáveis do arquivo extraídas (`get_variable_defs`) e estrutura de frames
+> conferida (`get_metadata` + screenshots dos nodes). Resultados na tabela abaixo
+> (itens 9–13).
 
 ## Achados e status
 
@@ -21,6 +22,11 @@ em `UCAM/auditoria/*.png` (desktop + mobile das 11 páginas).
 | 6 | Biblioteca (página e seção da Home Empresa) — pills | Figma tem ícone em cada pill de formato; implementação era só texto | detalhe visual | baixo | ✅ corrigido — `FormatoPillLabel` (ícones Lucide por formato) |
 | 7 | Storybook — nome da story | Home principal aparecia como "Template - Unidade" (difícil de achar) | organização | baixo | ✅ renomeada para "Páginas/Home - Aluno (Unidade)" |
 | 8 | NewsCards / capa de artigo | Figma usa fotos reais; implementação mostra placeholder cinza | assets | — | ⏳ **pendência de conteúdo** (não é bug): aguarda banco de imagens do CENPRE (decisão nº 5 do HANDOFF) |
+| 9 | Token verde | Hex provisório divergia do oficial | cor/token | médio | ✅ corrigido — variável do Figma `brand/secondary/green` = **#3FCB7A** → `success-500`; texto usa `success-600` derivado (contraste AA em 13px) |
+| 10 | Orientações de Estágio | Faltavam 2 seções do Figma: tabs "Obrigatório ou não obrigatório?" e FAQ agrupada "Estágio não obrigatório: tudo o que você precisa saber" (7 grupos, 28 perguntas) | seção faltante | **crítico** | ✅ implementadas (copy transcrito do node `3268:48454` e `3414:50891`) |
+| 11 | Currículo | Faltavam 2 seções: faixa de dica ("aumenta em até 3x…") e FAQ "Perguntas sobre o currículo" | seção faltante | **crítico** | ✅ implementadas (nodes `3230:130258` e `3260:48416`) |
+| 12 | Cadastro de Convênio | Faltavam 2 seções: "Documentos e dados necessários" (3 cards) e FAQ em duas colunas; havia seção extra de contatos que não existe no Figma | seção faltante/extra | **crítico** | ✅ implementadas + seção extra removida (nodes `3345:49849` e `3275:49529`) |
+| 13 | Tipografia | Escala oficial do arquivo: Inter Text sm 14/20 · md 16/24 · lg 18/28 · Display md 36/44 (-2) — implementação compatível | tipografia | — | ✅ verificado, sem ajuste necessário |
 
 ## Itens verificados sem desvio
 
@@ -30,9 +36,10 @@ em `UCAM/auditoria/*.png` (desktop + mobile das 11 páginas).
 - Responsivo 390px: heros, grades empilhadas, switcher compactado, filtros de vagas.
 - Breadcrumbs e navegação padrão em todas as subpáginas.
 
-## Segunda passada (quando o Figma MCP estiver autenticado)
+## Variáveis oficiais extraídas do Figma (referência)
 
-1. Hex exato do verde "vagas abertas" → ajustar token `success` se divergir.
-2. Escala de spacing seção a seção (py-14/16 vs valores do Figma).
-3. Tamanhos tipográficos dos display headings (32/40/48) nos heros.
-4. Ícones exatos das pills da biblioteca e das escolas (Orientações).
+- **Cores:** magenta 100–800 e ash/charcoal batem 1:1 com o preset ✓ ·
+  `brand/secondary/green` #3FCB7A · tags de artigo: Pink 700 #C11574 / 50 #FDF2FA ·
+  Blue light 700 #026AA2 / 50 #F0F9FF (candidatas a tokens `tag-*` se o dev precisar).
+- **Tipografia:** Inter — Text sm 14/20 · md 16/24 · lg 18/28 · Display md 36/44 (-2%).
+- **Sombra:** Shadow/xs `0 1 2 rgba(16,24,40,.05)` ≈ `shadow-button` ✓.

@@ -102,16 +102,33 @@ export interface OrientacoesContent {
   hero: SubHero;
   /** Faixa da Lei do Estágio abaixo do hero. */
   lei: { label: string; text: string };
+  /** Tabs "Obrigatório ou não obrigatório?" (pills + painel de texto). */
+  tiposEstagio: {
+    eyebrow: string;
+    title: string;
+    tabs: { label: string; text: string }[];
+  };
   escolas: { icon: ReactNode; nome: string; cursos: string; badge?: string; href: string }[];
   /** DocCards "O que você precisa em cada etapa". */
   etapas: { label: string; icon: ReactNode; items: string[] }[];
+  /** FAQ agrupada "Estágio não obrigatório: tudo o que você precisa saber". */
+  faq: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    grupos: { titulo: string; subtitulo: string; itens: { question: string; answer: string }[] }[];
+  };
 }
 
 export interface CurriculoContent {
   hero: SubHero;
   intro: { eyebrow: string; title: string; description: string };
+  /** Faixa de dica logo após a intro. */
+  dica: string;
   /** Colunas "Já tenho currículo" / "Não tenho currículo" com passos numerados. */
   caminhos: { badge: string; title: string; steps: string[] }[];
+  /** FAQ "Perguntas sobre o currículo". */
+  faq: { eyebrow: string; title: string; itens: { question: string; answer: string }[] };
   dicas: { title: string; items: string[] };
 }
 
@@ -125,7 +142,21 @@ export interface CadastroConvenioContent {
   hero: SubHero;
   intro: { title: string; description: string };
   passos: { title: string; description: string }[];
-  duvidas: { title: string };
+  /** Cards "Documentos e dados necessários". */
+  documentos: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    itens: { icon: ReactNode; title: string; text: string }[];
+  };
+  /** FAQ em duas colunas (texto à esquerda, accordion à direita). */
+  faq: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    ctaLabel: string;
+    itens: { question: string; answer: string }[];
+  };
 }
 
 export interface ParceiroContent {

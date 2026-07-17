@@ -6,6 +6,8 @@ const meta: Meta<typeof HomeEmpresa> = {
   title: "Páginas/Home - Empresa",
   component: HomeEmpresa,
   parameters: { layout: "fullscreen" },
+  // O conteúdo é um objeto tipado grande — edite em src/content/, não no painel.
+  argTypes: { content: { table: { disable: true } } },
 };
 export default meta;
 type Story = StoryObj<typeof HomeEmpresa>;

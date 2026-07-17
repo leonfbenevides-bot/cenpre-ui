@@ -27,7 +27,7 @@ function PartnerCard({ name, category, vagasAbertas, href }: EmpresaContent["par
         </span>
       </div>
       <div className="mt-auto flex items-center justify-between border-t border-ash-200 pt-3 text-[13px] font-semibold">
-        <span className="text-success-700">{vagasAbertas} {vagasAbertas === 1 ? "vaga aberta" : "vagas abertas"}</span>
+        <span className="text-success-600">{vagasAbertas} {vagasAbertas === 1 ? "vaga aberta" : "vagas abertas"}</span>
         <a href={href} className="inline-flex items-center gap-1 text-magenta-700 hover:text-magenta-800">
           Ver perfil <ArrowRightIcon size={14} />
         </a>

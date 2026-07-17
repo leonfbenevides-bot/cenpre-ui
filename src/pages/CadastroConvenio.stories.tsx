@@ -6,6 +6,8 @@ const meta: Meta<typeof CadastroConvenio> = {
   title: "Páginas/Empresa/Cadastro de Convênio",
   component: CadastroConvenio,
   parameters: { layout: "fullscreen" },
+  // O conteúdo é um objeto tipado grande — edite em src/content/, não no painel.
+  argTypes: { content: { table: { disable: true } } },
 };
 export default meta;
 type Story = StoryObj<typeof CadastroConvenio>;

@@ -7,6 +7,7 @@ const meta: Meta<typeof Header> = {
   component: Header,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen" },
+  argTypes: { brand: { table: { disable: true } }, aside: { table: { disable: true } } },
 };
 export default meta;
 type Story = StoryObj<typeof Header>;

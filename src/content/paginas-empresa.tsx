@@ -1,3 +1,4 @@
+import { BuildingIcon, FileTextIcon, ClipboardListIcon } from "../components/Icons";
 import type { ConveniadasContent, CadastroConvenioContent, ParceiroContent } from "./types";
 
 /** Subpágina Empresa — Empresas conveniadas (listagem em construção). */
@@ -36,7 +37,28 @@ export const cadastroConvenio: CadastroConvenioContent = {
     { title: "Homologação em até 5 dias úteis", description: "Após a assinatura da empresa, a equipe do CENPRE homologa o convênio dentro deste prazo." },
     { title: "Empresa liberada para publicar vagas", description: "Com o convênio homologado, sua empresa já pode cadastrar vagas e acessar currículos na plataforma." },
   ],
-  duvidas: { title: "Dúvidas? Fale com a equipe de convênios" },
+  documentos: {
+    eyebrow: "Documentos",
+    title: "Documentos e dados necessários",
+    subtitle: "Tenha estes itens em mãos antes de iniciar o cadastro para agilizar a formalização do convênio.",
+    itens: [
+      { icon: <BuildingIcon size={20} />, title: "Dados da empresa", text: "CNPJ, razão social e endereço da empresa para o cadastro na plataforma." },
+      { icon: <FileTextIcon size={20} />, title: "Responsável Legal", text: "Nome completo, CPF e e-mail de quem tem poderes para assinar o convênio digitalmente." },
+      { icon: <ClipboardListIcon size={20} />, title: "Contrato Social ou Estatuto", text: "Documento que comprova que o Responsável Legal pode representar a empresa." },
+    ],
+  },
+
+  faq: {
+    eyebrow: "Dúvidas frequentes",
+    title: "Dúvidas comuns sobre o cadastro",
+    description: "Reunimos as perguntas mais comuns de empresas parceiras durante o processo de cadastro.",
+    ctaLabel: "Saber mais sobre o cadastro",
+    itens: [
+      { question: "1 - Quem pode assinar o convênio pela empresa?", answer: "O Responsável Legal indicado no contrato social ou estatuto da empresa. Esse é o nome solicitado no passo 2 do cadastro." },
+      { question: "2 - Preciso pagar alguma taxa para o cadastro?", answer: "Não. O cadastro e a manutenção do convênio com o CENPRE são gratuitos para empresas parceiras." },
+      { question: "3 - Posso cadastrar mais de uma unidade ou filial?", answer: "Sim. Cada unidade ou filial com CNPJ próprio precisa de um cadastro de convênio individual, seguindo os mesmos 6 passos." },
+    ],
+  },
 };
 
 /** Subpágina Empresa — Por que ser parceiro do CENPRE. */

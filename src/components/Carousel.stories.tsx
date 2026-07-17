@@ -5,6 +5,7 @@ const meta: Meta<typeof Carousel> = {
   title: "Interativos/Carousel",
   component: Carousel,
   tags: ["autodocs"],
+  argTypes: { slides: { table: { disable: true } } },
 };
 export default meta;
 type Story = StoryObj<typeof Carousel>;

@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { StepCard } from "./StepCard";
+import { iconArg } from "../lib/storybook-controls";
 
 const meta: Meta<typeof StepCard> = {
   title: "Composição/StepCard",
   component: StepCard,
   tags: ["autodocs"],
   args: { number: 1, title: "Acesse e crie seu perfil", description: "Entre na plataforma e complete os seus dados." },
+  argTypes: { icon: iconArg },
   parameters: { layout: "padded" },
 };
 export default meta;

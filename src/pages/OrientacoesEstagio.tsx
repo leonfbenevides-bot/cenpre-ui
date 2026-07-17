@@ -1,6 +1,9 @@
 import { PageHero } from "../components/PageHero";
 import { DocCard } from "../components/DocCard";
 import { Tag } from "../components/Tag";
+import { Card } from "../components/Card";
+import { TabsPills } from "../components/Tabs";
+import { AccordionList } from "../components/Accordion";
 import { SectionHeading } from "../components/SectionHeading";
 import { FileTextIcon } from "../components/Icons";
 import type { OrientacoesContent } from "../content/types";
@@ -15,7 +18,7 @@ export interface OrientacoesEstagioProps {
  * escolas e cursos (condicionalidades) · documentos por etapa (DocCards).
  */
 export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
-  const { hero, lei, escolas, etapas } = content;
+  const { hero, lei, tiposEstagio, escolas, etapas, faq } = content;
   return (
     <PageShell>
       <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
@@ -26,6 +29,22 @@ export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
           <FileTextIcon size={16} className="shrink-0 text-magenta-700" aria-hidden />
           <strong className="text-magenta-800">{lei.label}</strong> {lei.text}
         </p>
+      </section>
+
+      {/* Tipos de estágio */}
+      <section className="mx-auto max-w-content px-6 pt-14 md:px-[72px]">
+        <SectionHeading eyebrow={tiposEstagio.eyebrow} title={tiposEstagio.title} />
+        <div className="mt-5">
+          <TabsPills
+            items={tiposEstagio.tabs.map((t) => ({
+              value: t.label,
+              label: t.label,
+              content: (
+                <Card className="mt-4 bg-ash-100 text-[15px] leading-relaxed text-charcoal-400">{t.text}</Card>
+              ),
+            }))}
+          />
+        </div>
       </section>
 
       {/* Por escola e curso */}
@@ -57,6 +76,20 @@ export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {etapas.map((et) => <DocCard key={et.label} label={et.label} icon={et.icon} items={et.items} />)}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ agrupada — estágio não obrigatório */}
+      <section className="mx-auto max-w-content px-6 py-16 md:px-[72px]">
+        <SectionHeading eyebrow={faq.eyebrow} title={faq.title} subtitle={faq.description} className="max-w-2xl" />
+        <div className="mt-8 flex flex-col gap-6">
+          {faq.grupos.map((g) => (
+            <Card key={g.titulo} className="border-ash-200 bg-ash-100/60">
+              <h3 className="font-display text-xl font-semibold text-charcoal-500">{g.titulo}</h3>
+              <p className="mt-1 text-sm font-medium text-magenta-700">{g.subtitulo}</p>
+              <AccordionList className="mt-2" items={g.itens} />
+            </Card>
+          ))}
         </div>
       </section>
     </PageShell>

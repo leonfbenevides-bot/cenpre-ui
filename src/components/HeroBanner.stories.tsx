@@ -8,6 +8,7 @@ const meta: Meta<typeof HeroBanner> = {
   title: "Blocos/HeroBanner",
   component: HeroBanner,
   tags: ["autodocs"],
+  argTypes: { brand: { table: { disable: true } }, actions: { table: { disable: true } } },
 };
 export default meta;
 type Story = StoryObj<typeof HeroBanner>;

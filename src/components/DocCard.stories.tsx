@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { DocCard } from "./DocCard";
+import { iconArg, iconName } from "../lib/storybook-controls";
 import { FileText, CalendarDays, CircleCheck } from "lucide-react";
 
 const meta: Meta<typeof DocCard> = {
@@ -8,9 +9,10 @@ const meta: Meta<typeof DocCard> = {
   tags: ["autodocs"],
   args: {
     label: "Início",
-    icon: <FileText size={20} />,
+    icon: iconName("documento"),
     items: ["Manual de estágio", "Emissão do TCE", "Declaração de matrícula", "Plano de atividades"],
   },
+  argTypes: { icon: iconArg },
   parameters: { layout: "padded" },
 };
 export default meta;
