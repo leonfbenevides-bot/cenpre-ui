@@ -15,6 +15,8 @@ export interface UnidadeContent {
   hero: {
     /** Imagem de fundo do banner (import de `src/assets`). */
     image: string;
+    /** Recorte do "modelo" sobreposto à direita (PNG/WebP com transparência) — profundidade. */
+    foreground?: string;
     title: string;
     description: string;
   };
@@ -28,6 +30,26 @@ export interface UnidadeContent {
   };
   /** Tópicos "como conectamos" (orientações, vagas, currículo, dúvidas). */
   topicos: { icon: ReactNode; title: string; description: string; cta: string; href: string }[];
+  /** Diagrama "jornada" Aluno × Empresa em torno do hub CENPRE. */
+  jornada: {
+    aluno: { label: string; nos: { icon: ReactNode; label: string }[] };
+    empresa: { label: string; nos: { icon: ReactNode; label: string }[] };
+  };
+  /** Faixa "Entenda como o estágio funciona" (accordion + legislação + foto). */
+  guiaEstagio: {
+    eyebrow: string;
+    title: string;
+    ctaLabel: string;
+    itens: {
+      question: string;
+      answer: string;
+      /** Só o 1º item costuma trazer a citação da legislação em destaque. */
+      legislacao?: { label: string; titulo: string; texto: string; linkLabel: string };
+    }[];
+    imagem: string;
+  };
+  /** Fontes disponíveis para o filtro do painel de vagas (ex.: CENPRE, NUBE). */
+  vagasFontes: string[];
   /** Vagas em destaque no painel (a lista completa vive na plataforma). */
   vagas: {
     area: string;
@@ -39,9 +61,24 @@ export interface UnidadeContent {
     salary: string;
     href: string;
   }[];
-  depoimentos: { name: string; course: string; quote: string }[];
-  /** Motivos para escolher o CENPRE. */
+  depoimentos: { name: string; course: string; quote: string; titulo: string; foto?: string; rating?: number }[];
+  /** Motivos para escolher o CENPRE (faixa magenta, 4 cards). */
   motivos: { icon: ReactNode; title: string; description: string }[];
+  /** Empresas onde egressos atuam — faixa de logos após os depoimentos. */
+  logosParceiros: { titulo: string; logos: { nome: string; src: string }[] };
+  /** Cards "Tudo o que você precisa em um só lugar" (Plataforma CENPRE Carreiras). */
+  plataformaFeatures: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    modulos: { icon: ReactNode; title: string; description: string }[];
+    comoComecar: { titulo: string; passos: { titulo: string; descricao: string }[] };
+    documentosNecessarios: { titulo: string; itens: string[]; ctaLabel: string };
+  };
+  /** Faixa de palavras-chave entre "logos parceiras" e "Sobre nós". */
+  ticker: string[];
+  /** "Sobre nós" resumido, embutido na home (a página completa vive em `paginas-conteudo`). */
+  sobreNosResumo: { eyebrow: string; paragraphs: string[]; ctaLabel: string; href: string };
   noticias: {
     author: string;
     date: string;
@@ -52,6 +89,16 @@ export interface UnidadeContent {
     /** Capa 16:10; sem ela o card mostra um placeholder neutro. */
     image?: string;
   }[];
+  /** Biblioteca de Conteúdos resumida, embutida na home. */
+  bibliotecaResumo: {
+    eyebrow: string;
+    title: string;
+    verMaisLabel: string;
+    formatos: string[];
+    itens: { formato: string; author: string; date: string; title: string; excerpt: string; tags: string[]; href: string; image?: string }[];
+  };
+  /** Intro da FAQ em 2 colunas (título + descrição + CTA à esquerda, accordion à direita). */
+  faqIntro: { title: string; description: string; ctaLabel: string; href: string };
   faq: { question: string; answer: string }[];
   contato: {
     emailGeral: string;
@@ -67,11 +114,17 @@ export interface UnidadeContent {
  */
 export interface EmpresaContent {
   hero: {
+    /** Imagem de fundo do banner (import de `src/assets`). Mesmo tratamento do hero do aluno. */
+    image: string;
+    /** Recorte do "modelo" sobreposto à direita — profundidade (igual ao aluno). */
+    foreground?: string;
     title: string;
     description: string;
     primaryLabel: string;
     secondaryLabel: string;
   };
+  /** Faixa "O CENPRE em números" (igual à home do aluno — números institucionais). */
+  numeros: UnidadeContent["numeros"];
   /** Cards "Tudo que sua empresa precisa em um só lugar". */
   ofertas: { icon: ReactNode; title: string; description: string; cta: string; href: string }[];
   /** Accordion "Entenda como funciona o convênio" (1 a 5). */
@@ -85,7 +138,10 @@ export interface EmpresaContent {
   sobre: { paragraphs: string[]; ctaLabel: string; href: string };
   noticias: UnidadeContent["noticias"];
   /** Biblioteca de conteúdos: pills de formato + itens por formato. */
-  biblioteca: { formatos: string[]; itens: (UnidadeContent["noticias"][number] & { formato: string })[] };
+  biblioteca: {
+    formatos: string[];
+    itens: (UnidadeContent["noticias"][number] & { formato: string })[];
+  };
   faq: { question: string; answer: string }[];
   contato: UnidadeContent["contato"];
 }
