@@ -6,8 +6,8 @@ import { NewsCard } from "../components/NewsCard";
 import { AccordionList } from "../components/Accordion";
 import { Carousel } from "../components/Carousel";
 import { Avatar } from "../components/Avatar";
-import { JourneyDiagram } from "../components/JourneyDiagram";
 import { StepCard } from "../components/StepCard";
+import { TabsPills } from "../components/Tabs";
 import {
   ArrowRightIcon,
   ArrowUpRightIcon,
@@ -18,7 +18,7 @@ import {
   StarIcon,
 } from "../components/Icons";
 import type { UnidadeContent, EmpresaContent } from "../content/types";
-import { SiteFooter, KeywordTicker } from "./shared";
+import { SiteFooter, KeywordTicker, FormatoPillLabel } from "./shared";
 import heroScene1 from "../assets/student-hero-1.jpg";
 import heroScene2 from "../assets/student-hero-2.jpg";
 import editorialImg from "../assets/student-walking.jpg";
@@ -109,7 +109,6 @@ export function HomeRedesign({
   const {
     numeros,
     topicos,
-    jornada,
     guiaEstagio,
     vagas,
     depoimentos,
@@ -118,16 +117,19 @@ export function HomeRedesign({
     plataformaFeatures,
     ticker,
     noticias,
+    bibliotecaResumo,
     faq,
     contato,
   } = alunoContent;
   const {
     hero: empHero,
     ofertas,
+    convenio,
     parceiros,
     stats,
     sobre,
     noticias: noticiasEmpresa,
+    biblioteca,
     faq: faqEmpresa,
   } = empresaContent;
 
@@ -556,11 +558,6 @@ export function HomeRedesign({
             </div>
           </section>
 
-          {/* =================== DIAGRAMA DA JORNADA =================== */}
-          <section className="mx-auto max-w-container px-6 pb-24 md:px-gutter">
-            <JourneyDiagram aluno={jornada.aluno} empresa={jornada.empresa} />
-          </section>
-
           {/* =================== GUIA DO ESTÁGIO =================== */}
           <section className="bg-magenta-100/60">
             <div className="mx-auto max-w-container px-6 py-24 md:px-gutter md:py-32">
@@ -830,6 +827,50 @@ export function HomeRedesign({
             </div>
           </section>
 
+          {/* =================== BIBLIOTECA DE CONTEÚDOS =================== */}
+          <section className="mx-auto max-w-container px-6 py-24 md:px-gutter">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-xl">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-magenta-700">
+                  {bibliotecaResumo.eyebrow}
+                </p>
+                <h2 className="font-editorial text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.03] tracking-[-0.015em] text-charcoal-500">
+                  {bibliotecaResumo.title}
+                </h2>
+              </div>
+              <a
+                href="/conteudos/biblioteca"
+                className="inline-flex items-center gap-2 text-[15px] font-semibold text-magenta-700 hover:text-magenta-800"
+              >
+                {bibliotecaResumo.verMaisLabel}
+                <ArrowRightIcon size={16} />
+              </a>
+            </div>
+            <div className="mt-10">
+              <TabsPills
+                items={bibliotecaResumo.formatos.map((formato) => {
+                  const itens = bibliotecaResumo.itens.filter((it) => it.formato === formato);
+                  return {
+                    value: formato,
+                    label: <FormatoPillLabel formato={formato} />,
+                    content:
+                      itens.length > 0 ? (
+                        <div className="grid gap-6 pt-6 md:grid-cols-3">
+                          {itens.map((it) => (
+                            <NewsCard key={it.title} {...it} />
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="pt-6 text-sm text-charcoal-300">
+                          Conteúdos de {formato.toLowerCase()} em breve.
+                        </p>
+                      ),
+                  };
+                })}
+              />
+            </div>
+          </section>
+
           {/* =============== PLATAFORMA CENPRE CARREIRAS =============== */}
           <section className="bg-white py-24">
             <div className="mx-auto max-w-container px-6 md:px-gutter">
@@ -1020,6 +1061,45 @@ export function HomeRedesign({
             </div>
           </section>
 
+          {/* =================== GUIA DO CONVÊNIO =================== */}
+          <section className="bg-magenta-100/60">
+            <div className="mx-auto max-w-container px-6 py-24 md:px-gutter md:py-32">
+              <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                <div className="max-w-xl">
+                  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-magenta-700">
+                    Guia completo
+                  </p>
+                  <h2 className="font-editorial text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.03] tracking-[-0.015em] text-charcoal-500">
+                    Entenda como funciona o convênio
+                  </h2>
+                </div>
+                <Button
+                  variant="secondary"
+                  className="border-magenta-700 text-magenta-700 hover:bg-white"
+                >
+                  Quero saber mais
+                </Button>
+              </div>
+              <div className="mt-10">
+                <AccordionList
+                  items={convenio.map((item) => ({
+                    question: item.answer ? (
+                      item.question
+                    ) : (
+                      <span className="flex flex-wrap items-baseline gap-2">
+                        {item.question}
+                        <span className="text-[13px] font-medium text-charcoal-300">
+                          · em produção
+                        </span>
+                      </span>
+                    ),
+                    answer: item.answer ?? "Conteúdo em produção — em breve nesta seção.",
+                  }))}
+                />
+              </div>
+            </div>
+          </section>
+
           {/* =================== EMPRESAS CONVENIADAS =================== */}
           <section className="mx-auto max-w-container px-6 py-24 md:px-gutter">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -1153,6 +1233,50 @@ export function HomeRedesign({
                   <NewsCard key={n.title} {...n} />
                 ))}
               </div>
+            </div>
+          </section>
+
+          {/* =================== BIBLIOTECA DE CONTEÚDOS =================== */}
+          <section className="mx-auto max-w-container px-6 py-24 md:px-gutter">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-xl">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-magenta-700">
+                  Aprenda com a gente
+                </p>
+                <h2 className="font-editorial text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.03] tracking-[-0.015em] text-charcoal-500">
+                  Biblioteca de Conteúdos
+                </h2>
+              </div>
+              <a
+                href="/conteudos/biblioteca"
+                className="inline-flex items-center gap-2 text-[15px] font-semibold text-magenta-700 hover:text-magenta-800"
+              >
+                Ver mais no blog
+                <ArrowRightIcon size={16} />
+              </a>
+            </div>
+            <div className="mt-10">
+              <TabsPills
+                items={biblioteca.formatos.map((formato) => {
+                  const itens = biblioteca.itens.filter((it) => it.formato === formato);
+                  return {
+                    value: formato,
+                    label: <FormatoPillLabel formato={formato} />,
+                    content:
+                      itens.length > 0 ? (
+                        <div className="grid gap-6 pt-6 md:grid-cols-3">
+                          {itens.map((it) => (
+                            <NewsCard key={it.title} {...it} />
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="pt-6 text-sm text-charcoal-300">
+                          Conteúdos de {formato.toLowerCase()} em breve.
+                        </p>
+                      ),
+                  };
+                })}
+              />
             </div>
           </section>
 
