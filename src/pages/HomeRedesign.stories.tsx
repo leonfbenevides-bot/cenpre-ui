@@ -1,0 +1,26 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import { HomeRedesign } from "./HomeRedesign";
+import { campos } from "../content/campos";
+import { empresa } from "../content/empresa";
+
+const meta: Meta<typeof HomeRedesign> = {
+  title: "Páginas/★ Home — Redesign (piloto)",
+  component: HomeRedesign,
+  parameters: { layout: "fullscreen" },
+  args: { alunoContent: campos, empresaContent: empresa },
+  argTypes: {
+    alunoContent: { table: { disable: true } },
+    empresaContent: { table: { disable: true } },
+  },
+};
+export default meta;
+type Story = StoryObj<typeof HomeRedesign>;
+
+/**
+ * PILOTO da direção "Editorial Aspiracional": tipografia display Fraunces,
+ * fotografia cinematográfica, composição editorial. "Sou aluno" × "Sou
+ * empresa" é uma página só — a tab troca o conteúdo por estado, sem reload.
+ */
+export const Aluno: Story = { args: { defaultPerfil: "aluno" } };
+
+export const Empresa: Story = { args: { defaultPerfil: "empresa" } };
