@@ -6,6 +6,8 @@ import { NewsCard } from "../components/NewsCard";
 import { AccordionList } from "../components/Accordion";
 import { Carousel } from "../components/Carousel";
 import { Avatar } from "../components/Avatar";
+import { JourneyDiagram } from "../components/JourneyDiagram";
+import { StepCard } from "../components/StepCard";
 import {
   ArrowRightIcon,
   ArrowUpRightIcon,
@@ -16,7 +18,7 @@ import {
   StarIcon,
 } from "../components/Icons";
 import type { UnidadeContent, EmpresaContent } from "../content/types";
-import { SiteFooter } from "./shared";
+import { SiteFooter, KeywordTicker } from "./shared";
 import heroScene1 from "../assets/student-hero-1.jpg";
 import heroScene2 from "../assets/student-hero-2.jpg";
 import editorialImg from "../assets/student-walking.jpg";
@@ -104,7 +106,21 @@ export function HomeRedesign({
   const [perfil, setPerfil] = useState<"aluno" | "empresa">(defaultPerfil);
   const isAluno = perfil === "aluno";
 
-  const { numeros, topicos, vagas, depoimentos, motivos, noticias, faq, contato } = alunoContent;
+  const {
+    numeros,
+    topicos,
+    jornada,
+    guiaEstagio,
+    vagas,
+    depoimentos,
+    logosParceiros,
+    motivos,
+    plataformaFeatures,
+    ticker,
+    noticias,
+    faq,
+    contato,
+  } = alunoContent;
   const {
     hero: empHero,
     ofertas,
@@ -540,6 +556,73 @@ export function HomeRedesign({
             </div>
           </section>
 
+          {/* =================== DIAGRAMA DA JORNADA =================== */}
+          <section className="mx-auto max-w-container px-6 pb-24 md:px-gutter">
+            <JourneyDiagram aluno={jornada.aluno} empresa={jornada.empresa} />
+          </section>
+
+          {/* =================== GUIA DO ESTÁGIO =================== */}
+          <section className="bg-magenta-100/60">
+            <div className="mx-auto max-w-container px-6 py-24 md:px-gutter md:py-32">
+              <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                <div className="max-w-xl">
+                  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-magenta-700">
+                    {guiaEstagio.eyebrow}
+                  </p>
+                  <h2 className="font-editorial text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.03] tracking-[-0.015em] text-charcoal-500">
+                    {guiaEstagio.title}
+                  </h2>
+                </div>
+                <Button
+                  variant="secondary"
+                  className="border-magenta-700 text-magenta-700 hover:bg-white"
+                >
+                  {guiaEstagio.ctaLabel}
+                </Button>
+              </div>
+              <div className="mt-10">
+                <AccordionList
+                  items={guiaEstagio.itens.map((item) => ({
+                    question: item.question,
+                    answer: (
+                      <>
+                        <p>{item.answer}</p>
+                        {item.legislacao && (
+                          <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-ash-300 bg-white p-6 sm:flex-row sm:items-end sm:justify-between">
+                            <div>
+                              <p className="text-sm font-medium text-charcoal-400">
+                                {item.legislacao.label}
+                              </p>
+                              <p className="mt-1 font-editorial text-lg font-semibold text-charcoal-500">
+                                {item.legislacao.titulo}
+                              </p>
+                              <p className="mt-1 max-w-xl text-[15px] leading-relaxed text-charcoal-300">
+                                {item.legislacao.texto}
+                              </p>
+                            </div>
+                            <a
+                              href="/"
+                              className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-magenta-700 hover:text-magenta-800"
+                            >
+                              {item.legislacao.linkLabel} <ArrowRightIcon size={15} />
+                            </a>
+                          </div>
+                        )}
+                      </>
+                    ),
+                  }))}
+                />
+              </div>
+              <div className="relative mt-16 overflow-hidden rounded-3xl shadow-2xl">
+                <img
+                  src={guiaEstagio.imagem}
+                  alt="Equipe do CENPRE orientando estudantes"
+                  className="h-[325px] w-full object-cover"
+                />
+              </div>
+            </div>
+          </section>
+
           {/* ===================== PAINEL DE VAGAS ===================== */}
           <section className="mx-auto max-w-container px-6 py-24 md:px-gutter">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -703,6 +786,26 @@ export function HomeRedesign({
             />
           </section>
 
+          {/* =================== LOGOS DE PARCEIROS =================== */}
+          <section className="border-y border-ash-300 py-16">
+            <div className="mx-auto max-w-container px-6 md:px-gutter">
+              <p className="text-center font-editorial text-xl text-charcoal-400">
+                {logosParceiros.titulo}
+              </p>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+                {logosParceiros.logos.map((l) => (
+                  <img
+                    key={l.nome}
+                    src={l.src}
+                    alt={l.nome}
+                    title={l.nome}
+                    className="h-8 w-auto object-contain opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0"
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* ===================== NOTÍCIAS ===================== */}
           <section className="bg-ash-100/60">
             <div className="mx-auto max-w-container px-6 py-24 md:px-gutter">
@@ -726,6 +829,77 @@ export function HomeRedesign({
               </div>
             </div>
           </section>
+
+          {/* =============== PLATAFORMA CENPRE CARREIRAS =============== */}
+          <section className="bg-white py-24">
+            <div className="mx-auto max-w-container px-6 md:px-gutter">
+              <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                <div className="max-w-xl">
+                  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-magenta-700">
+                    {plataformaFeatures.eyebrow}
+                  </p>
+                  <h2 className="font-editorial text-[clamp(2rem,4vw,3.25rem)] font-semibold leading-[1.03] tracking-[-0.015em] text-charcoal-500">
+                    {plataformaFeatures.title}
+                  </h2>
+                </div>
+                <p className="max-w-md text-lg leading-relaxed text-charcoal-400">
+                  {plataformaFeatures.description}
+                </p>
+              </div>
+
+              <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+                {plataformaFeatures.modulos.map((m) => (
+                  <div
+                    key={m.title}
+                    className="flex flex-col gap-3 rounded-2xl border border-ash-300 p-6"
+                  >
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-magenta-100 text-magenta-700">
+                      {m.icon}
+                    </span>
+                    <h3 className="text-base font-semibold text-charcoal-500">{m.title}</h3>
+                    <p className="text-[13px] leading-relaxed text-charcoal-300">{m.description}</p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-14 text-xs font-semibold uppercase tracking-[0.2em] text-magenta-700">
+                {plataformaFeatures.comoComecar.titulo}
+              </p>
+              <div className="mt-5 grid gap-5 md:grid-cols-3">
+                {plataformaFeatures.comoComecar.passos.map((p, i) => (
+                  <StepCard
+                    key={p.titulo}
+                    number={i + 1}
+                    title={p.titulo}
+                    description={p.descricao}
+                  />
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center justify-between gap-6 rounded-2xl bg-ash-100/60 p-8">
+                <div>
+                  <h3 className="text-base font-semibold text-charcoal-500">
+                    {plataformaFeatures.documentosNecessarios.titulo}
+                  </h3>
+                  <ul className="mt-3 flex flex-wrap gap-x-8 gap-y-2">
+                    {plataformaFeatures.documentosNecessarios.itens.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm text-charcoal-400">
+                        <span className="text-magenta-700" aria-hidden>
+                          ✓
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <Button className="shrink-0">
+                  {plataformaFeatures.documentosNecessarios.ctaLabel}
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          <KeywordTicker items={ticker} />
 
           {/* ===================== FAQ ===================== */}
           <section className="mx-auto max-w-container px-6 py-24 md:px-gutter">
