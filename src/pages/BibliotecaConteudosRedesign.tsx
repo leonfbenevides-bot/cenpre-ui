@@ -4,7 +4,8 @@ import { Button } from "../components/Button";
 import { NewsCard } from "../components/NewsCard";
 import { TabsPills } from "../components/Tabs";
 import type { BibliotecaContent } from "../content/types";
-import { PageShell, Breadcrumb, FormatoPillLabel } from "./shared";
+import { PageShell, Breadcrumb, FormatoPillLabel, FormatoEmptyState } from "./shared";
+import ctaImg from "../assets/hero-empresa-model.webp";
 
 export interface BibliotecaConteudosRedesignProps {
   content: BibliotecaContent;
@@ -40,9 +41,9 @@ export function BibliotecaConteudosRedesign({ content }: BibliotecaConteudosRede
                     ))}
                   </div>
                 ) : (
-                  <p className="pt-6 text-sm text-charcoal-200">
-                    Conteúdos de {formato.toLowerCase()} em breve.
-                  </p>
+                  <div className="pt-6">
+                    <FormatoEmptyState formato={formato} />
+                  </div>
                 ),
             };
           })}
@@ -53,6 +54,7 @@ export function BibliotecaConteudosRedesign({ content }: BibliotecaConteudosRede
         <EditorialCTA
           eyebrow="Plataforma CENPRE"
           title="Mais do que uma plataforma completa, nós acompanhamos todas as etapas."
+          image={ctaImg}
           actions={
             <>
               <Button size="lg">Acessar a plataforma</Button>

@@ -20,6 +20,7 @@ import {
   Linkedin,
   Youtube,
   MessageCircle,
+  Sparkles,
 } from "lucide-react";
 import type { UnidadeContent } from "../content/types";
 import platformIllustration from "../assets/platform-illustration.png";
@@ -168,11 +169,11 @@ export function Marquee({
 /** Faixa de palavras-chave entre "logos parceiras" e "Sobre nós" (Figma: "blocks"). */
 export function KeywordTicker({ items }: { items: string[] }) {
   return (
-    <div className="border-y border-ash-300 bg-charcoal-500 py-6">
+    <div className="border-y border-ash-300 bg-white py-6">
       <Marquee durationSeconds={26}>
         {items.map((item) => (
           <span key={item} className="flex items-center gap-x-6 pr-6">
-            <span className="whitespace-nowrap font-display text-lg font-medium uppercase tracking-[0.08em] text-white/85 md:text-xl">
+            <span className="whitespace-nowrap font-display text-lg font-medium uppercase tracking-[0.08em] text-charcoal-400 md:text-xl">
               {item}
             </span>
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-magenta-500" aria-hidden />
@@ -342,6 +343,37 @@ export function FormatoPillLabel({ formato }: { formato: string }) {
       {formatoIcons[formato] && <span aria-hidden>{formatoIcons[formato]}</span>}
       {formato}
     </span>
+  );
+}
+
+/**
+ * Empty state de uma aba de formato sem conteúdo ainda — ícone do formato num
+ * círculo, título e descrição, dentro de um contorno tracejado. Substitui a
+ * frase solta "Conteúdos de X em breve." pelas abas vazias da Biblioteca.
+ */
+export function FormatoEmptyState({ formato }: { formato: string }) {
+  return (
+    <div className="flex flex-col items-center gap-4 rounded-3xl border-2 border-dashed border-ash-300 bg-white/60 px-6 py-16 text-center">
+      <span
+        className="grid h-14 w-14 place-items-center rounded-full bg-magenta-100 text-magenta-700"
+        aria-hidden
+      >
+        {formatoIcons[formato] ? (
+          <span className="[&>svg]:h-6 [&>svg]:w-6">{formatoIcons[formato]}</span>
+        ) : (
+          <Sparkles size={22} />
+        )}
+      </span>
+      <div>
+        <p className="text-base font-semibold text-charcoal-500">
+          Conteúdos de {formato.toLowerCase()} em breve
+        </p>
+        <p className="mt-1.5 max-w-sm text-sm leading-relaxed text-charcoal-300">
+          Estamos preparando este formato. Enquanto isso, dá uma olhada nos outros conteúdos
+          disponíveis.
+        </p>
+      </div>
+    </div>
   );
 }
 

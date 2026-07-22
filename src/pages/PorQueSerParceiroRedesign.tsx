@@ -6,6 +6,7 @@ import { Card } from "../components/Card";
 import { ShieldCheckIcon, HandHeartIcon } from "../components/Icons";
 import type { ParceiroContent } from "../content/types";
 import { PageShell, Breadcrumb, HeroPill } from "./shared";
+import ctaImg from "../assets/hero-empresa-model.webp";
 
 export interface PorQueSerParceiroRedesignProps {
   content: ParceiroContent;
@@ -61,6 +62,7 @@ export function PorQueSerParceiroRedesign({ content }: PorQueSerParceiroRedesign
         <EditorialCTA
           eyebrow="Seja parceiro"
           title="Fortaleça sua marca entre os talentos UCAM."
+          image={ctaImg}
           actions={
             <>
               <Button size="lg">Cadastrar minha empresa</Button>

@@ -8,6 +8,7 @@ import { Carousel } from "../components/Carousel";
 import { Avatar } from "../components/Avatar";
 import { StepCard } from "../components/StepCard";
 import { TabsPills } from "../components/Tabs";
+import { Tag } from "../components/Tag";
 import {
   ArrowRightIcon,
   ArrowUpRightIcon,
@@ -16,9 +17,17 @@ import {
   UsersIcon,
   BuildingIcon,
   StarIcon,
+  ShieldCheckIcon,
 } from "../components/Icons";
 import type { UnidadeContent, EmpresaContent } from "../content/types";
-import { SiteFooter, KeywordTicker, FormatoPillLabel, Marquee, CompactNewsCard } from "./shared";
+import {
+  SiteFooter,
+  KeywordTicker,
+  FormatoPillLabel,
+  FormatoEmptyState,
+  Marquee,
+  CompactNewsCard,
+} from "./shared";
 // Fotos avulsas para o hero — cada uma é de uma cena/modelo diferente (nunca do
 // mesmo conjunto casado usado nas colagens abaixo).
 import heroScene1 from "../assets/hero-scene-1.jpg";
@@ -27,7 +36,7 @@ import heroScene3 from "../assets/hero-aluno-campus.jpg";
 import empHero1 from "../assets/hero-empresa-bg.jpg";
 import empHero2 from "../assets/hero-office.jpg";
 // Cutouts avulsos para os banners de CTA (sem par "fundo" usado em outra seção).
-import ctaImgAluno from "../assets/hero-student-1.webp";
+import ctaImgAluno from "../assets/hero-aluno-model.webp";
 import ctaImgEmpresa from "../assets/hero-student-2.webp";
 // Conjuntos casados (mesma sessão/modelo) — usados só em colagens, nunca soltos.
 import studentHero1 from "../assets/student-hero-1.jpg";
@@ -851,7 +860,11 @@ export function HomeRedesign({
                     items={bibliotecaResumo.formatos
                       .filter((formato) => formato !== "Podcasts")
                       .map((formato) => {
-                        const itens = bibliotecaResumo.itens.filter((it) => it.formato === formato);
+                        // Layout de 2 colunas (ao lado das notícias) — mostra só os 2
+                        // primeiros pra nunca sobrar um card órfão numa linha incompleta.
+                        const itens = bibliotecaResumo.itens
+                          .filter((it) => it.formato === formato)
+                          .slice(0, 2);
                         return {
                           value: formato,
                           label: <FormatoPillLabel formato={formato} />,
@@ -863,9 +876,9 @@ export function HomeRedesign({
                                 ))}
                               </div>
                             ) : (
-                              <p className="pt-6 text-sm text-charcoal-300">
-                                Conteúdos de {formato.toLowerCase()} em breve.
-                              </p>
+                              <div className="pt-6">
+                                <FormatoEmptyState formato={formato} />
+                              </div>
                             ),
                         };
                       })}
@@ -940,7 +953,7 @@ export function HomeRedesign({
                   ))}
                 </div>
 
-                <div className="mt-8 flex flex-wrap items-center justify-between gap-6 rounded-2xl bg-ash-100/60 p-8">
+                <div className="mt-8 flex flex-wrap items-center justify-between gap-6 rounded-2xl border border-ash-300 bg-ash-100 p-8">
                   <div>
                     <h3 className="text-base font-semibold text-charcoal-500">
                       {plataformaFeatures.documentosNecessarios.titulo}
@@ -949,7 +962,7 @@ export function HomeRedesign({
                       {plataformaFeatures.documentosNecessarios.itens.map((item) => (
                         <li
                           key={item}
-                          className="flex items-center gap-2 text-sm text-charcoal-400"
+                          className="flex items-center gap-2 text-sm font-medium text-charcoal-500"
                         >
                           <span className="text-magenta-700" aria-hidden>
                             ✓
@@ -1124,16 +1137,36 @@ export function HomeRedesign({
                       question: item.answer ? (
                         item.question
                       ) : (
-                        <span className="flex flex-wrap items-baseline gap-2">
+                        <span className="flex flex-wrap items-center gap-2.5">
                           {item.question}
-                          <span className="text-[13px] font-medium text-charcoal-300">
-                            · em produção
-                          </span>
+                          <Tag tone="neutral" size="sm">
+                            Em produção
+                          </Tag>
                         </span>
                       ),
                       answer: item.answer ?? "Conteúdo em produção — em breve nesta seção.",
                     }))}
                   />
+                </div>
+                <div className="mt-12 flex flex-col items-start gap-5 rounded-3xl bg-charcoal-500 p-8 text-white sm:flex-row sm:items-center md:p-10">
+                  <span
+                    className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/10 text-magenta-300"
+                    aria-hidden
+                  >
+                    <ShieldCheckIcon size={26} />
+                  </span>
+                  <div className="flex-1">
+                    <p className="font-editorial text-xl font-semibold leading-snug">
+                      Dúvidas no meio do processo? A equipe de convênios acompanha sua empresa do
+                      cadastro à homologação.
+                    </p>
+                  </div>
+                  <a
+                    href="/"
+                    className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-white hover:text-white/80"
+                  >
+                    Falar com a equipe <ArrowRightIcon size={15} />
+                  </a>
                 </div>
               </div>
             </section>
@@ -1275,7 +1308,9 @@ export function HomeRedesign({
                     items={biblioteca.formatos
                       .filter((formato) => formato !== "Podcasts")
                       .map((formato) => {
-                        const itens = biblioteca.itens.filter((it) => it.formato === formato);
+                        const itens = biblioteca.itens
+                          .filter((it) => it.formato === formato)
+                          .slice(0, 2);
                         return {
                           value: formato,
                           label: <FormatoPillLabel formato={formato} />,
@@ -1287,9 +1322,9 @@ export function HomeRedesign({
                                 ))}
                               </div>
                             ) : (
-                              <p className="pt-6 text-sm text-charcoal-300">
-                                Conteúdos de {formato.toLowerCase()} em breve.
-                              </p>
+                              <div className="pt-6">
+                                <FormatoEmptyState formato={formato} />
+                              </div>
                             ),
                         };
                       })}
