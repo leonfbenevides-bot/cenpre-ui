@@ -23,7 +23,7 @@ import { SiteFooter, KeywordTicker, FormatoPillLabel, Marquee, CompactNewsCard }
 // mesmo conjunto casado usado nas colagens abaixo).
 import heroScene1 from "../assets/hero-scene-1.jpg";
 import heroScene2 from "../assets/hero-scene-2.jpg";
-import heroScene3 from "../assets/hero-aluno-bg.jpg";
+import heroScene3 from "../assets/hero-aluno-campus.jpg";
 import empHero1 from "../assets/hero-empresa-bg.jpg";
 import empHero2 from "../assets/hero-office.jpg";
 // Cutouts avulsos para os banners de CTA (sem par "fundo" usado em outra seção).
@@ -185,7 +185,7 @@ export function HomeRedesign({
       ),
       sub: "Orientação de currículo, entrevistas e carreira — para você chegar mais preparado em cada oportunidade.",
       image: heroScene3,
-      alt: "Estudante da UCAM em ambiente colaborativo de trabalho",
+      alt: "Estudante da UCAM em trajes formais no campus",
       primary: "Tenho interesse",
       secondary: "Explorar vagas",
     },
