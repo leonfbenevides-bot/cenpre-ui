@@ -58,14 +58,36 @@ export function Foo({ tone, className, children, ...props }: FooProps) {
 ## Adicionar uma página
 
 As páginas do site vivem em `src/pages/` e são montadas **só com componentes da lib**.
+A direção visual em uso é o redesign "Editorial Aspiracional" — **toda página nova
+deve nascer como `*Redesign.tsx`**, não no padrão literal fiel ao Figma (ver
+[HANDOFF.md](./HANDOFF.md) para o porquê).
 
 1. Reaproveite os blocos comuns de [`src/pages/shared.tsx`](./src/pages/shared.tsx)
-   (`PageShell`, `Breadcrumb`, `TopicCard`, `ContactLines`, `SiteFooter`).
+   (`PageShell`, `Breadcrumb`, `TopicCard`, `ContactLines`, `SiteFooter`,
+   `FormatoEmptyState`) e os blocos editoriais de `src/components/`
+   (`EditorialPageHero`, `EditorialHeading`, `EditorialCTA`, `ImageMosaic`).
 2. Todo texto/dado da página entra tipado em `src/content/` (contrato em
    [`src/content/types.ts`](./src/content/types.ts)) — a página só recebe `content`/props.
-3. Crie a story em `Páginas/…`.
-4. Consulte [`src/pages/TemplateUnidade.tsx`](./src/pages/TemplateUnidade.tsx) como referência
+3. Crie a story em `Páginas/★ Redesign/…` (siga o agrupamento existente: Aluno/Empresa/
+   Conteúdos/Institucional).
+4. Consulte [`src/pages/HomeRedesign.tsx`](./src/pages/HomeRedesign.tsx) como referência
    de composição antes de inventar uma seção nova.
+5. Hero de subpágina **não leva foto** — use `EditorialPageHero` sem `media` (bloco
+   tipográfico charcoal + textura). Foto nova só se o usuário fornecer um asset
+   dedicado para aquela página (ver [IMAGENS.md](./IMAGENS.md)).
+6. Fechamento da página: `EditorialCTA` (com `platformCta={false}` no `PageShell`)
+   em vez do `PlatformCTA` padrão, para manter a casca visual consistente até o fim
+   da página. Se sobrar um cutout avulso não usado em nenhuma outra seção da mesma
+   página, passe em `image` — nunca repita a mesma imagem dentro da página.
+
+### Página fiel ao Figma × Redesign
+
+O padrão literal ao Figma (`PageHero`, `SectionHeading`, `PlatformCTA`) só existe
+hoje como fonte de conteúdo de referência — os componentes `.tsx` ficam no repo,
+mas **não têm mais story no Storybook** (removidas em 22/07/2026). Não crie página
+nova nesse padrão; se for portar conteúdo de uma página fiel existente para o
+redesign, o `content`/props geralmente já dá pra reaproveitar 1:1 — só a casca
+visual muda.
 
 ## Definition of Done (por componente/página)
 

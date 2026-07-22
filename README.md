@@ -43,7 +43,7 @@ Extraídos do arquivo Figma "UCAM SITE". Definidos em `tailwind.config.ts` (clas
 | **Charcoal (texto)**     | `100 #758493` · `200 #566574` · `300 #415260` · `400 #3c4b57` (corpo) · `500 #303e49` (títulos)                                                                               |
 | **Spacing**              | escala `4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 48 · 56 · 64 · 80 · 96` (px) — `spacing.token-*`                                                                                |
 | **Radius**               | `chip 8px` · `card 16px` · `pill 100px`                                                                                                                                       |
-| **Fonte**                | **Work Sans** (títulos/display — `font-display`) · **Inter** (corpo/UI — `font-sans`, padrão)                                                                                 |
+| **Fonte**                | **Work Sans** (títulos/display — `font-display`) · **Inter** (corpo/UI — `font-sans`, padrão) · **Fraunces** (display editorial — `font-editorial`, só nas páginas `*Redesign`) |
 | **Ícones**               | [Lucide](https://lucide.dev/icons/) (`lucide-react`) — padrão shadcn                                                                                                          |
 
 Uso em Tailwind: `bg-magenta-700`, `text-charcoal-500`, `border-ash-300`, `rounded-card`, `p-token-24`.
@@ -96,6 +96,28 @@ Estados interativos: **default · hover · active · focus-visible** (anel globa
 | `PlatformCTA` | `title`, `description`, `primaryHref/onPrimary`, `secondaryLabel`, `media`                |
 | `Header`      | `brand`, `navItems[]`, `ctaLabel/ctaHref`, `aside` — menu hambúrguer no mobile            |
 | `Footer`      | `brand`, `columns[]`, `contact`, `legal`                                                  |
+
+### Blocos do redesign editorial ("Editorial Aspiracional")
+
+Usados nas páginas `*Redesign.tsx` (stories `Páginas/★ Redesign/…`) — ver
+[HANDOFF.md](./HANDOFF.md) para a direção visual e o mapa página fiel × redesign.
+
+| Componente          | Props principais                                                                                    | Onde fica                |
+| -------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------- |
+| `EditorialPageHero`  | mesma API do `PageHero` (`eyebrow`, `title`, `subtitle`, `actions`, `pills`, `breadcrumb`, `media`)     | `src/components/`         |
+| `EditorialHeading`   | `eyebrow`, `title`, `subtitle`, `align`, `size` (md/lg), `tone` (light/dark)                            | `src/components/`         |
+| `EditorialCTA`       | `eyebrow`, `title`, `actions`, `image`/`imageAlt` (cutout opcional à direita)                           | `src/components/`         |
+| `ImageMosaic`        | `images[]` (3-4, mesma pessoa/sessão), `ringTone` — colagem sobreposta com blocos de acento magenta      | `src/components/`         |
+| `Marquee`            | `children`, `durationSeconds` — faixa que rola sozinha (duplica o conteúdo por baixo do capô)            | `src/pages/shared.tsx`    |
+| `KeywordTicker`      | `items[]` — usa `Marquee` por baixo, fundo branco, separador em bolinha magenta                          | `src/pages/shared.tsx`    |
+| `CompactNewsCard`    | `image`, `date`, `title`, `href` — card de notícia compacto (rail lateral)                               | `src/pages/shared.tsx`    |
+| `FormatoEmptyState`  | `formato` — empty state ilustrado de uma aba de formato sem conteúdo ainda                              | `src/pages/shared.tsx`    |
+
+> `EditorialCTA` com `image`: o `<img>` usa `absolute inset-y-0` (top+bottom) com
+> largura fixa — **precisa de `h-full` explícito**, senão o navegador calcula a
+> altura pela proporção intrínseca da imagem em vez de esticar pro container e o
+> cutout sai cortado pelo `overflow-hidden` (bug de CSS real, já caiu nessa uma
+> vez).
 
 ---
 
