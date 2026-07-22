@@ -18,12 +18,20 @@ export function EmpresasConveniadas({ content }: EmpresasConveniadasProps) {
   const { hero, aviso, indicacao } = content;
   return (
     <PageShell>
-      <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
+      <PageHero
+        breadcrumb={<Breadcrumb trail={hero.breadcrumb} />}
+        title={hero.title}
+        subtitle={hero.subtitle}
+      />
 
       <section className="mx-auto max-w-content px-6 py-14 md:px-gutter">
         <SectionHeading title="Lista de empresas conveniadas" />
         <div className="mt-6 max-w-xl">
-          <Input aria-label="Buscar empresa conveniada" placeholder="Buscar empresa conveniada..." leftIcon={<SearchIcon size={16} />} />
+          <Input
+            aria-label="Buscar empresa conveniada"
+            placeholder="Buscar empresa conveniada..."
+            leftIcon={<SearchIcon size={16} />}
+          />
         </div>
         <Card className="mt-6 flex max-w-xl flex-col items-center gap-2 bg-ash-100 text-center">
           <ClockIcon size={22} className="text-charcoal-200" aria-hidden />

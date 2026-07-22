@@ -54,9 +54,21 @@ export function JobCard({
     >
       <Avatar src={logoSrc} alt={company} icon={<BuildingIcon size={22} />} />
       <div className="flex flex-wrap items-center gap-1.5">
-        {area && <Tag tone="neutral" size="sm">{area}</Tag>}
-        {source && <Tag tone={source.toUpperCase() === "CENPRE" ? "brand" : "accent"} size="sm">{source}</Tag>}
-        {modality && <Tag tone="neutral" size="sm">{modality}</Tag>}
+        {area && (
+          <Tag tone="neutral" size="sm">
+            {area}
+          </Tag>
+        )}
+        {source && (
+          <Tag tone={source.toUpperCase() === "CENPRE" ? "brand" : "accent"} size="sm">
+            {source}
+          </Tag>
+        )}
+        {modality && (
+          <Tag tone="neutral" size="sm">
+            {modality}
+          </Tag>
+        )}
       </div>
       <div className="flex flex-col gap-0.5">
         <h3 className="text-[15px] font-semibold text-charcoal-500">{title}</h3>

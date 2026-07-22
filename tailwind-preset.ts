@@ -73,13 +73,10 @@ const preset: Omit<Config, "content"> = {
           "sans-serif",
         ],
         // Títulos/display — Work Sans. Use `font-display` em H1/H2/H3 e heros.
-        display: [
-          "Work Sans",
-          "Inter",
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif",
-        ],
+        display: ["Work Sans", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        // Display editorial dos heros/títulos grandes. Mantido em Work Sans
+        // (a fonte da marca) — o "editorial" aqui é a escala/peso, não a fonte.
+        editorial: ["Work Sans", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       spacing: {
         "token-4": "4px",
@@ -108,11 +105,17 @@ const preset: Omit<Config, "content"> = {
         content: "1296px",
         prose: "820px",
       },
+      backgroundImage: {
+        // Faixa contínua da seção "Entenda como conectamos" — gradiente radial
+        // suave (glow central) que espelha o fundo `bg-diagram` do Figma.
+        diagram: "radial-gradient(72% 90% at 50% 88%, #ffffff 0%, #f7f8fa 42%, #eef1f4 100%)",
+      },
       boxShadow: {
         // Escala de elevação — espelha os effect styles "Elevation/*" do Figma.
         button: "0 1px 2px 0 rgba(48, 62, 73, 0.05)",
         card: "0 1px 2px 0 rgba(48, 62, 73, 0.06), 0 4px 10px -3px rgba(48, 62, 73, 0.07)",
-        "card-hover": "0 2px 4px -1px rgba(48, 62, 73, 0.06), 0 12px 24px -6px rgba(48, 62, 73, 0.12)",
+        "card-hover":
+          "0 2px 4px -1px rgba(48, 62, 73, 0.06), 0 12px 24px -6px rgba(48, 62, 73, 0.12)",
         popover: "0 4px 8px -2px rgba(48, 62, 73, 0.06), 0 16px 32px -8px rgba(48, 62, 73, 0.12)",
         modal: "0 8px 16px -4px rgba(48, 62, 73, 0.08), 0 32px 56px -16px rgba(48, 62, 73, 0.20)",
       },
@@ -125,10 +128,17 @@ const preset: Omit<Config, "content"> = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        // Entrada editorial — sobe + fade (page-load com stagger via animationDelay).
+        "reveal-up": {
+          from: { opacity: "0", transform: "translateY(24px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": { from: { opacity: "0" }, to: { opacity: "1" } },
       },
       animation: {
         "accordion-down": "accordion-down 0.22s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "reveal-up": "reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
       },
     },
   },

@@ -30,10 +30,18 @@ const faq = [
 
 export const FAQ: Story = {
   args: { items: faq, type: "single" },
-  render: (args) => <div style={{ width: 640, maxWidth: "100%" }}><AccordionList {...args} /></div>,
+  render: (args) => (
+    <div style={{ width: 640, maxWidth: "100%" }}>
+      <AccordionList {...args} />
+    </div>
+  ),
 };
 
 export const MultiploAberto: Story = {
   args: { items: faq, type: "multiple" },
-  render: (args) => <div style={{ width: 640, maxWidth: "100%" }}><AccordionList {...args} /></div>,
+  render: (args) => (
+    <div style={{ width: 640, maxWidth: "100%" }}>
+      <AccordionList {...args} />
+    </div>
+  ),
 };

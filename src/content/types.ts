@@ -61,7 +61,14 @@ export interface UnidadeContent {
     salary: string;
     href: string;
   }[];
-  depoimentos: { name: string; course: string; quote: string; titulo: string; foto?: string; rating?: number }[];
+  depoimentos: {
+    name: string;
+    course: string;
+    quote: string;
+    titulo: string;
+    foto?: string;
+    rating?: number;
+  }[];
   /** Motivos para escolher o CENPRE (faixa magenta, 4 cards). */
   motivos: { icon: ReactNode; title: string; description: string }[];
   /** Empresas onde egressos atuam — faixa de logos após os depoimentos. */
@@ -95,7 +102,16 @@ export interface UnidadeContent {
     title: string;
     verMaisLabel: string;
     formatos: string[];
-    itens: { formato: string; author: string; date: string; title: string; excerpt: string; tags: string[]; href: string; image?: string }[];
+    itens: {
+      formato: string;
+      author: string;
+      date: string;
+      title: string;
+      excerpt: string;
+      tags: string[];
+      href: string;
+      image?: string;
+    }[];
   };
   /** Intro da FAQ em 2 colunas (título + descrição + CTA à esquerda, accordion à direita). */
   faqIntro: { title: string; description: string; ctaLabel: string; href: string };

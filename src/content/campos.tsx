@@ -7,10 +7,22 @@ import {
   WalletIcon,
   HandshakeIcon,
 } from "../components/Icons";
-import { Headphones, Send, Award, ListChecks, CheckCircle2, Building2, LayoutGrid, Headset } from "lucide-react";
+import {
+  Headphones,
+  Send,
+  Award,
+  ListChecks,
+  CheckCircle2,
+  Building2,
+  LayoutGrid,
+  Headset,
+} from "lucide-react";
 import heroAlunoBg from "../assets/hero-aluno-bg.jpg";
 import heroAlunoModel from "../assets/hero-aluno-model.webp";
 import guiaEstagioEquipe from "../assets/guia-estagio-equipe.jpg";
+import newsCiclo from "../assets/news-1.jpg";
+import newsCurriculo from "../assets/news-2.jpg";
+import newsEstagio from "../assets/news-3.jpg";
 import depoimentoRafael from "../assets/avatars/depoimento-rafael.png";
 import depoimentoAndressa from "../assets/avatars/depoimento-andressa.png";
 import depoimentoMarcos from "../assets/avatars/depoimento-marcos.png";
@@ -312,23 +324,53 @@ export const campos: UnidadeContent = {
     description:
       "A Plataforma CENPRE Carreiras é o ambiente digital que centraliza oportunidades, serviços e a gestão de estágios — conectando você ao mercado de trabalho em poucos cliques.",
     modulos: [
-      { icon: <BriefcaseIcon size={22} />, title: "Vagas e oportunidades", description: "Estágios e empregos do CENPRE e de parceiros." },
-      { icon: <FileTextIcon size={22} />, title: "Currículo", description: "Crie ou envie o seu e fique visível a empresas." },
-      { icon: <ListChecks size={22} />, title: "Documentos de estágio", description: "Emita TCE, termos e relatórios online." },
-      { icon: <HandshakeIcon size={22} />, title: "Convênios", description: "Consulte as instituições conveniadas." },
-      { icon: <CheckCircle2 size={22} />, title: "Acompanhamento", description: "Siga candidaturas e a gestão do estágio." },
+      {
+        icon: <BriefcaseIcon size={22} />,
+        title: "Vagas e oportunidades",
+        description: "Estágios e empregos do CENPRE e de parceiros.",
+      },
+      {
+        icon: <FileTextIcon size={22} />,
+        title: "Currículo",
+        description: "Crie ou envie o seu e fique visível a empresas.",
+      },
+      {
+        icon: <ListChecks size={22} />,
+        title: "Documentos de estágio",
+        description: "Emita TCE, termos e relatórios online.",
+      },
+      {
+        icon: <HandshakeIcon size={22} />,
+        title: "Convênios",
+        description: "Consulte as instituições conveniadas.",
+      },
+      {
+        icon: <CheckCircle2 size={22} />,
+        title: "Acompanhamento",
+        description: "Siga candidaturas e a gestão do estágio.",
+      },
     ],
     comoComecar: {
       titulo: "COMO COMEÇAR",
       passos: [
-        { titulo: "Acesse e crie seu perfil", descricao: "Entre na plataforma e complete os seus dados." },
-        { titulo: "Cadastre seu currículo", descricao: "Envie ou monte o seu no Banco de Currículos." },
+        {
+          titulo: "Acesse e crie seu perfil",
+          descricao: "Entre na plataforma e complete os seus dados.",
+        },
+        {
+          titulo: "Cadastre seu currículo",
+          descricao: "Envie ou monte o seu no Banco de Currículos.",
+        },
         { titulo: "Candidate-se às vagas", descricao: "Aplique e acompanhe todo o processo." },
       ],
     },
     documentosNecessarios: {
       titulo: "Documentos necessários",
-      itens: ["Currículo atualizado", "Documento de identificação (RG e CPF)", "Comprovante de matrícula (para estágio)"],
+      itens: [
+        "Currículo atualizado",
+        "Documento de identificação (RG e CPF)",
+        "Comprovante de matrícula (para estágio)",
+      ],
       ctaLabel: "Acessar a plataforma",
     },
   },
@@ -364,6 +406,7 @@ export const campos: UnidadeContent = {
         "O ciclo reuniu estudantes de diferentes cursos em encontros voltados ao desenvolvimento acadêmico.",
       tags: ["Estudo", "UCAM"],
       href: "#",
+      image: newsCiclo,
     },
     {
       author: "Equipe CENPRE",
@@ -373,6 +416,7 @@ export const campos: UnidadeContent = {
         "Identifique os deslizes mais frequentes e saiba como corrigir antes da próxima candidatura.",
       tags: ["Currículo", "Carreira"],
       href: "#",
+      image: newsCurriculo,
     },
     {
       author: "Equipe CENPRE",
@@ -382,6 +426,7 @@ export const campos: UnidadeContent = {
         "Carga horária, bolsa-auxílio e documentação têm regras diferentes entre as modalidades.",
       tags: ["Estágio", "Orientação"],
       href: "#",
+      image: newsEstagio,
     },
   ],
 
@@ -396,7 +441,8 @@ export const campos: UnidadeContent = {
         author: "Plataforma",
         date: "10 de fev. de 2025",
         title: "Como aproveitar a Plataforma CENPRE Carreiras no dia a dia",
-        excerpt: "Cadastro de currículo, busca de vagas e acompanhamento de candidaturas em um só lugar.",
+        excerpt:
+          "Cadastro de currículo, busca de vagas e acompanhamento de candidaturas em um só lugar.",
         tags: ["Plataforma"],
         href: "#",
       },
@@ -405,7 +451,8 @@ export const campos: UnidadeContent = {
         author: "Estágio",
         date: "24 de jan. de 2025",
         title: "Checklist de documentos: o que levar antes de iniciar o estágio",
-        excerpt: "TCE, termo de compromisso e seguro contra acidentes — confira o que é exigido antes do primeiro dia.",
+        excerpt:
+          "TCE, termo de compromisso e seguro contra acidentes — confira o que é exigido antes do primeiro dia.",
         tags: ["Estágio"],
         href: "#",
       },
@@ -414,7 +461,8 @@ export const campos: UnidadeContent = {
         author: "Carreira",
         date: "08 de jan. de 2025",
         title: "Currículo: o que recrutadores realmente olham primeiro",
-        excerpt: "Os pontos que mais pesam na triagem, segundo quem recebe centenas de currículos por vaga.",
+        excerpt:
+          "Os pontos que mais pesam na triagem, segundo quem recebe centenas de currículos por vaga.",
         tags: ["Carreira"],
         href: "#",
       },

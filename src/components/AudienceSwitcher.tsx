@@ -20,10 +20,17 @@ export interface AudienceSwitcherProps {
 }
 
 /**
- * Seletor de perfil Aluno/Empresa — pílula flutuante na base da página que
- * alterna entre as duas jornadas da home. Opção ativa em magenta sólido.
+ * Seletor de perfil Aluno/Empresa (controle segmentado) — alterna entre as duas
+ * jornadas da home. No Figma fica **inline no meio da página** (após "O CENPRE em
+ * números"); passe `floating` para fixá-lo na base. Opção ativa em magenta-soft.
  */
-export function AudienceSwitcher({ options, value, onChange, floating = true, className }: AudienceSwitcherProps) {
+export function AudienceSwitcher({
+  options,
+  value,
+  onChange,
+  floating = true,
+  className,
+}: AudienceSwitcherProps) {
   return (
     <nav
       aria-label="Perfil de navegação"
@@ -38,17 +45,26 @@ export function AudienceSwitcher({ options, value, onChange, floating = true, cl
         const classes = cn(
           "inline-flex items-center gap-1.5 whitespace-nowrap rounded-pill px-3 py-2 text-xs font-semibold transition-colors sm:gap-2 sm:px-4 sm:text-sm",
           active
-            ? "bg-magenta-700 text-white hover:bg-magenta-800"
-            : "border border-ash-300 bg-white text-charcoal-400 hover:border-ash-400 hover:bg-ash-100",
+            ? "border border-magenta-200 bg-magenta-100 text-magenta-700"
+            : "text-charcoal-300 hover:bg-ash-100",
         );
         const content = (
           <>
-            {opt.icon && <span className="shrink-0" aria-hidden>{opt.icon}</span>}
+            {opt.icon && (
+              <span className="shrink-0" aria-hidden>
+                {opt.icon}
+              </span>
+            )}
             {opt.label}
           </>
         );
         return opt.href ? (
-          <a key={opt.value} href={opt.href} className={classes} aria-current={active ? "page" : undefined}>
+          <a
+            key={opt.value}
+            href={opt.href}
+            className={classes}
+            aria-current={active ? "page" : undefined}
+          >
             {content}
           </a>
         ) : (

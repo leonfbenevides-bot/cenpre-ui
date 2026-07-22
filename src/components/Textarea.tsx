@@ -30,7 +30,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
         className={cn(
           "rounded-chip border bg-white px-3.5 py-2.5 shadow-card transition-[border-color,box-shadow]",
           "focus-within:border-magenta-500 focus-within:ring-2 focus-within:ring-magenta-500/20",
-          error ? "border-magenta-600 focus-within:border-magenta-600 focus-within:ring-magenta-600/20" : "border-ash-400",
+          error
+            ? "border-magenta-600 focus-within:border-magenta-600 focus-within:ring-magenta-600/20"
+            : "border-ash-400",
           disabled && "bg-ash-100 opacity-60 shadow-none",
         )}
       >

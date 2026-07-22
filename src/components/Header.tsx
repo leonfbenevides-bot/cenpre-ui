@@ -21,7 +21,14 @@ export interface HeaderProps {
 /**
  * Header/navbar do produto. Nav horizontal no desktop, menu hambúrguer no mobile.
  */
-export function Header({ brand, navItems, ctaLabel = "Acessar plataforma", ctaHref, aside, className }: HeaderProps) {
+export function Header({
+  brand,
+  navItems,
+  ctaLabel = "Acessar plataforma",
+  ctaHref,
+  aside,
+  className,
+}: HeaderProps) {
   const [open, setOpen] = useState(false);
   return (
     <header className={cn("sticky top-0 z-40 border-b border-ash-200 bg-white", className)}>

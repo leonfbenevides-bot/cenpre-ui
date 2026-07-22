@@ -1,10 +1,5 @@
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import {
-  forwardRef,
-  type ComponentPropsWithoutRef,
-  type ElementRef,
-  type ReactNode,
-} from "react";
+import { forwardRef, type ComponentPropsWithoutRef, type ElementRef, type ReactNode } from "react";
 import { PlusIcon, MinusIcon } from "./Icons";
 import { cn } from "@/lib/cn";
 
@@ -20,7 +15,11 @@ export const AccordionItem = forwardRef<
   ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(function AccordionItem({ className, ...props }, ref) {
   return (
-    <AccordionPrimitive.Item ref={ref} className={cn("border-b border-ash-200", className)} {...props} />
+    <AccordionPrimitive.Item
+      ref={ref}
+      className={cn("border-b border-ash-200", className)}
+      {...props}
+    />
   );
 });
 
@@ -58,7 +57,7 @@ export const AccordionContent = forwardRef<
   return (
     <AccordionPrimitive.Content
       ref={ref}
-      className="overflow-hidden text-[15px] leading-relaxed text-charcoal-400 data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up"
+      className="overflow-hidden text-[15px] leading-relaxed text-charcoal-400 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
       {...props}
     >
       <div className={cn("pb-5 pr-8", className)}>{children}</div>
@@ -83,7 +82,12 @@ export interface AccordionListProps {
 }
 
 /** Atalho para renderizar uma lista de perguntas/respostas (FAQ). */
-export function AccordionList({ items, type = "single", collapsible = true, className }: AccordionListProps) {
+export function AccordionList({
+  items,
+  type = "single",
+  collapsible = true,
+  className,
+}: AccordionListProps) {
   const common = { className: cn("w-full", className) };
   const content = items.map((item, i) => {
     const value = item.value ?? `item-${i}`;

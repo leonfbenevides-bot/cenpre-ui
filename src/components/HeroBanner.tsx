@@ -5,6 +5,12 @@ export interface HeroBannerProps {
   /** URL da foto de fundo (full-bleed). Se ausente, usa um gradiente neutro. */
   image?: string;
   imageAlt?: string;
+  /**
+   * Recorte (PNG/WebP com transparência) sobreposto à direita, à frente do
+   * scrim, para dar profundidade — o "modelo" salta do fundo (padrão do Figma).
+   */
+  foreground?: string;
+  foregroundAlt?: string;
   /** Marca/logo acima do título. */
   brand?: ReactNode;
   title: ReactNode;
@@ -21,7 +27,18 @@ export interface HeroBannerProps {
  * esquerda para legibilidade e o conteúdo (marca + título + CTAs) por cima.
  * Pensado para rodar dentro do `Carousel` (slides de hero) ou isolado.
  */
-export function HeroBanner({ image, imageAlt = "", brand, title, description, actions, as: Heading = "h2", className }: HeroBannerProps) {
+export function HeroBanner({
+  image,
+  imageAlt = "",
+  foreground,
+  foregroundAlt = "",
+  brand,
+  title,
+  description,
+  actions,
+  as: Heading = "h2",
+  className,
+}: HeroBannerProps) {
   return (
     <section
       className={cn(
@@ -42,18 +59,29 @@ export function HeroBanner({ image, imageAlt = "", brand, title, description, ac
           aria-hidden
         />
       )}
-      {/* Scrim: escurece a esquerda para o texto ficar legível sobre a foto. */}
+      {/* Scrim: escurece a esquerda (texto legível) e mantém um leve véu à
+          direita para o recorte sobreposto ganhar profundidade sobre o fundo. */}
       <div
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "linear-gradient(to right, rgba(48,62,73,0.96) 0%, rgba(48,62,73,0.72) 42%, rgba(48,62,73,0) 78%)",
+            "linear-gradient(to right, rgba(48,62,73,0.97) 0%, rgba(48,62,73,0.76) 45%, rgba(48,62,73,0.34) 100%)",
         }}
         aria-hidden
       />
-      <div className="flex max-w-xl flex-col gap-4 p-8 md:p-14">
+      {/* Recorte do "modelo" — à frente do scrim, salta do fundo (profundidade). */}
+      {foreground && (
+        <img
+          src={foreground}
+          alt={foregroundAlt}
+          className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-3/5 object-contain object-right-bottom md:block"
+        />
+      )}
+      <div className="relative z-10 flex max-w-xl flex-col gap-4 p-8 md:p-14">
         {brand && <div className="flex items-center gap-2 font-semibold">{brand}</div>}
-        <Heading className="font-display text-3xl font-semibold leading-tight md:text-[40px]">{title}</Heading>
+        <Heading className="font-display text-3xl font-semibold leading-tight md:text-[40px]">
+          {title}
+        </Heading>
         {description && <p className="max-w-md leading-relaxed text-ash-200">{description}</p>}
         {actions && <div className="mt-2 flex flex-wrap gap-3">{actions}</div>}
       </div>

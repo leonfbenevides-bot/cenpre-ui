@@ -1,10 +1,5 @@
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-import {
-  forwardRef,
-  type ComponentPropsWithoutRef,
-  type ElementRef,
-  type ReactNode,
-} from "react";
+import { forwardRef, type ComponentPropsWithoutRef, type ElementRef, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 /**
@@ -19,7 +14,11 @@ export const TabsList = forwardRef<
   ComponentPropsWithoutRef<typeof TabsPrimitive.List>
 >(function TabsList({ className, ...props }, ref) {
   return (
-    <TabsPrimitive.List ref={ref} className={cn("inline-flex flex-wrap items-center gap-2", className)} {...props} />
+    <TabsPrimitive.List
+      ref={ref}
+      className={cn("inline-flex flex-wrap items-center gap-2", className)}
+      {...props}
+    />
   );
 });
 

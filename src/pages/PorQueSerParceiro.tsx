@@ -1,8 +1,9 @@
 import { PageHero } from "../components/PageHero";
 import { Card } from "../components/Card";
 import { SectionHeading } from "../components/SectionHeading";
+import { ShieldCheckIcon, HandHeartIcon } from "../components/Icons";
 import type { ParceiroContent } from "../content/types";
-import { PageShell, Breadcrumb } from "./shared";
+import { PageShell, Breadcrumb, HeroPill } from "./shared";
 
 export interface PorQueSerParceiroProps {
   content: ParceiroContent;
@@ -15,7 +16,17 @@ export function PorQueSerParceiro({ content }: PorQueSerParceiroProps) {
   const { hero, intro, beneficios } = content;
   return (
     <PageShell>
-      <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
+      <PageHero
+        breadcrumb={<Breadcrumb trail={hero.breadcrumb} />}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        pills={
+          <>
+            <HeroPill icon={<ShieldCheckIcon size={15} />}>Sem custo de adesão</HeroPill>
+            <HeroPill icon={<HandHeartIcon size={15} />}>Suporte dedicado</HeroPill>
+          </>
+        }
+      />
 
       <section className="mx-auto max-w-content px-6 py-14 md:px-gutter">
         <SectionHeading eyebrow={intro.eyebrow} title={intro.title} subtitle={intro.description} />
@@ -27,7 +38,9 @@ export function PorQueSerParceiro({ content }: PorQueSerParceiroProps) {
               </span>
               <span>
                 <h3 className="text-base font-semibold text-charcoal-500">{b.title}</h3>
-                <p className="mt-1.5 text-[14px] leading-relaxed text-charcoal-400">{b.description}</p>
+                <p className="mt-1.5 text-[14px] leading-relaxed text-charcoal-400">
+                  {b.description}
+                </p>
               </span>
             </Card>
           ))}

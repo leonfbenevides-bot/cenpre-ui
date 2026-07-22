@@ -2,12 +2,17 @@ import { PageHero } from "../components/PageHero";
 import { Card } from "../components/Card";
 import { AccordionList } from "../components/Accordion";
 import { SectionHeading } from "../components/SectionHeading";
-import { CheckIcon, SparklesIcon } from "../components/Icons";
+import { CheckIcon, SparklesIcon, UploadIcon, FileTextIcon } from "../components/Icons";
 import { cn } from "@/lib/cn";
 import type { CurriculoContent } from "../content/types";
-import { PageShell, Breadcrumb } from "./shared";
+import { PageShell, Breadcrumb, HeroPill } from "./shared";
 
-function Caminho({ badge, title, steps, tone }: CurriculoContent["caminhos"][number] & { tone: "brand" | "neutral" }) {
+function Caminho({
+  badge,
+  title,
+  steps,
+  tone,
+}: CurriculoContent["caminhos"][number] & { tone: "brand" | "neutral" }) {
   return (
     <Card padding="none" className="overflow-hidden">
       <p
@@ -50,7 +55,18 @@ export function Curriculo({ content }: CurriculoProps) {
   const { hero, intro, dica, caminhos, faq, dicas } = content;
   return (
     <PageShell>
-      <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
+      <PageHero
+        breadcrumb={<Breadcrumb trail={hero.breadcrumb} />}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        pills={
+          <>
+            <HeroPill icon={<UploadIcon size={15} />}>Upload rápido</HeroPill>
+            <HeroPill icon={<SparklesIcon size={15} />}>Criação do zero</HeroPill>
+            <HeroPill icon={<FileTextIcon size={15} />}>PDF, HTML ou Doc</HeroPill>
+          </>
+        }
+      />
 
       <section className="mx-auto max-w-content px-6 pt-14 md:px-gutter">
         <SectionHeading eyebrow={intro.eyebrow} title={intro.title} subtitle={intro.description} />
@@ -66,7 +82,9 @@ export function Curriculo({ content }: CurriculoProps) {
 
       <section className="mx-auto max-w-content px-6 py-10 md:px-gutter">
         <div className="grid items-start gap-5 md:grid-cols-2">
-          {caminhos.map((c, i) => <Caminho key={c.title} {...c} tone={i === 0 ? "brand" : "neutral"} />)}
+          {caminhos.map((c, i) => (
+            <Caminho key={c.title} {...c} tone={i === 0 ? "brand" : "neutral"} />
+          ))}
         </div>
       </section>
 

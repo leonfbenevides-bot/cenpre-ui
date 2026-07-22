@@ -17,5 +17,9 @@ export const Padrao: Story = {
     description: "Vagas, currículo, documentos e convênios em um só lugar.",
     primaryHref: "https://ucam-csm.symplicity.com",
   },
-  render: (args) => <div style={{ maxWidth: 1000 }}><PlatformCTA {...args} /></div>,
+  render: (args) => (
+    <div style={{ maxWidth: 1000 }}>
+      <PlatformCTA {...args} />
+    </div>
+  ),
 };

@@ -18,12 +18,20 @@ export const Pilulas: Story = {
           {
             value: "obrig",
             label: "Estágio Obrigatório",
-            content: <p style={{ color: "#3c4b57" }}>Parte da matriz curricular, requisito para concluir o curso.</p>,
+            content: (
+              <p style={{ color: "#3c4b57" }}>
+                Parte da matriz curricular, requisito para concluir o curso.
+              </p>
+            ),
           },
           {
             value: "nao",
             label: "Estágio Não Obrigatório",
-            content: <p style={{ color: "#3c4b57" }}>Atividade opcional que complementa a formação profissional.</p>,
+            content: (
+              <p style={{ color: "#3c4b57" }}>
+                Atividade opcional que complementa a formação profissional.
+              </p>
+            ),
           },
         ]}
       />

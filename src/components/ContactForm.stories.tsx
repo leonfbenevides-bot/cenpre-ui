@@ -14,7 +14,8 @@ type Story = StoryObj<typeof ContactForm>;
 export const Convenio: Story = {
   args: {
     title: "Dúvidas sobre o cadastro?",
-    description: "A equipe do CENPRE apoia a sua empresa em cada etapa do cadastro e da formalização do convênio.",
+    description:
+      "A equipe do CENPRE apoia a sua empresa em cada etapa do cadastro e da formalização do convênio.",
     contactLines: (
       <>
         E-mail: convenio.estagio@ucam-campos.br
@@ -24,5 +25,9 @@ export const Convenio: Story = {
     ),
     onSubmit: (v) => alert(JSON.stringify(v, null, 2)),
   },
-  render: (args) => <div style={{ maxWidth: 960 }}><ContactForm {...args} /></div>,
+  render: (args) => (
+    <div style={{ maxWidth: 960 }}>
+      <ContactForm {...args} />
+    </div>
+  ),
 };

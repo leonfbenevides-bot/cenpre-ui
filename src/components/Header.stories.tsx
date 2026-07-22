@@ -39,9 +39,28 @@ export const FooterPadrao: StoryObj<typeof Footer> = {
         </>
       }
       columns={[
-        { title: "Aluno/Egresso", links: [{ label: "Estágio", href: "#" }, { label: "Currículo", href: "#" }, { label: "Vagas", href: "#" }] },
-        { title: "Empresa", links: [{ label: "Por que ser parceiro", href: "#" }, { label: "Cadastro de convênio", href: "#" }] },
-        { title: "Institucional", links: [{ label: "Sobre nós", href: "#" }, { label: "Perguntas frequentes", href: "#" }] },
+        {
+          title: "Aluno/Egresso",
+          links: [
+            { label: "Estágio", href: "#" },
+            { label: "Currículo", href: "#" },
+            { label: "Vagas", href: "#" },
+          ],
+        },
+        {
+          title: "Empresa",
+          links: [
+            { label: "Por que ser parceiro", href: "#" },
+            { label: "Cadastro de convênio", href: "#" },
+          ],
+        },
+        {
+          title: "Institucional",
+          links: [
+            { label: "Sobre nós", href: "#" },
+            { label: "Perguntas frequentes", href: "#" },
+          ],
+        },
       ]}
       legal="© 2026 CENPRE Carreiras · Universidade Candido Mendes."
     />

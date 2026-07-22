@@ -13,14 +13,14 @@ UCAM), que **expande de Campos dos Goytacazes para todas as unidades e polos**, 
 conteúdo próprio (orientações, convênios, notícias, FAQ) e ponte para a plataforma de
 vagas externa.
 
-| Referência | Link |
-|---|---|
-| Figma (fonte da verdade visual) | https://www.figma.com/design/rJQ9FsS9Y5sg8RjkCkDHhA/UCAM-SITE?node-id=2666-89499 |
-| Storybook publicado (componentes ao vivo) | https://cenpre-ui.vercel.app |
-| Repositório | https://github.com/leonfbenevides-bot/cenpre-ui |
-| Plataforma de vagas (Symplicity) | https://ucam-csm.symplicity.com/ |
-| Contato CENPRE (geral) | atendimento.cenpre@ucam-campos.br |
-| Contato convênios | convenio.estagio@ucam-campos.br · (22) 2726-2419 · WhatsApp (22) 99618-0786 |
+| Referência                                | Link                                                                             |
+| ----------------------------------------- | -------------------------------------------------------------------------------- |
+| Figma (fonte da verdade visual)           | https://www.figma.com/design/rJQ9FsS9Y5sg8RjkCkDHhA/UCAM-SITE?node-id=2666-89499 |
+| Storybook publicado (componentes ao vivo) | https://cenpre-ui.vercel.app                                                     |
+| Repositório                               | https://github.com/leonfbenevides-bot/cenpre-ui                                  |
+| Plataforma de vagas (Symplicity)          | https://ucam-csm.symplicity.com/                                                 |
+| Contato CENPRE (geral)                    | atendimento.cenpre@ucam-campos.br                                                |
+| Contato convênios                         | convenio.estagio@ucam-campos.br · (22) 2726-2419 · WhatsApp (22) 99618-0786      |
 
 **Dois públicos, duas jornadas:** Alunos/Egressos (estágio, currículo, vagas,
 convênios, conteúdo) e Empresas (parceria, convênio, divulgação de vagas). O layout
@@ -67,19 +67,19 @@ screenshots de referência). Componentes da lib já cobrem a maior parte:
 **Todas as páginas do Figma estão implementadas** em `src/pages/`, cada uma com
 story em "Páginas/…" e conteúdo tipado em `src/content/`:
 
-| Página | Componente | Conteúdo |
-|---|---|---|
-| Home Aluno (Template - Unidade) | `TemplateUnidade` | `content/campos.tsx` |
-| Home Empresa | `HomeEmpresa` | `content/empresa.tsx` |
-| Orientações de Estágio | `OrientacoesEstagio` | `content/paginas-aluno.tsx` |
-| Currículo | `Curriculo` | `content/paginas-aluno.tsx` |
-| Empresas conveniadas | `EmpresasConveniadas` | `content/paginas-empresa.tsx` |
-| Cadastro de Convênio | `CadastroConvenio` | `content/paginas-empresa.tsx` |
-| Por que ser parceiro | `PorQueSerParceiro` | `content/paginas-empresa.tsx` |
-| Vagas e Oportunidades (busca/filtro/paginação) | `PainelVagas` | `content/paginas-conteudo.tsx` |
-| Artigo / notícia | `Artigo` | `content/paginas-conteudo.tsx` |
-| Biblioteca de Conteúdos | `BibliotecaConteudos` | `content/paginas-conteudo.tsx` |
-| Sobre nós | `SobreNos` | `content/paginas-conteudo.tsx` |
+| Página                                         | Componente            | Conteúdo                       |
+| ---------------------------------------------- | --------------------- | ------------------------------ |
+| Home Aluno (Template - Unidade)                | `TemplateUnidade`     | `content/campos.tsx`           |
+| Home Empresa                                   | `HomeEmpresa`         | `content/empresa.tsx`          |
+| Orientações de Estágio                         | `OrientacoesEstagio`  | `content/paginas-aluno.tsx`    |
+| Currículo                                      | `Curriculo`           | `content/paginas-aluno.tsx`    |
+| Empresas conveniadas                           | `EmpresasConveniadas` | `content/paginas-empresa.tsx`  |
+| Cadastro de Convênio                           | `CadastroConvenio`    | `content/paginas-empresa.tsx`  |
+| Por que ser parceiro                           | `PorQueSerParceiro`   | `content/paginas-empresa.tsx`  |
+| Vagas e Oportunidades (busca/filtro/paginação) | `PainelVagas`         | `content/paginas-conteudo.tsx` |
+| Artigo / notícia                               | `Artigo`              | `content/paginas-conteudo.tsx` |
+| Biblioteca de Conteúdos                        | `BibliotecaConteudos` | `content/paginas-conteudo.tsx` |
+| Sobre nós                                      | `SobreNos`            | `content/paginas-conteudo.tsx` |
 
 O que é comum às páginas vive em `src/pages/shared.tsx`: `PageShell` (Header +
 PlatformCTA + Footer), `Breadcrumb`, `TopicCard`, `ContactLines`, `SiteFooter`.
@@ -104,14 +104,14 @@ dados reais** (ver decisões em aberto), não construir telas.
 
 ## 6. Decisões em aberto (responder antes de codar o site)
 
-| # | Decisão | Dono | Recomendação |
-|---|---|---|---|
-| 1 | Stack do site final | Dev + Leonardo | **Next.js (App Router) + Tailwind**, SSG por unidade; a lib entra copy-in com o preset |
-| 2 | Fonte das vagas: integração Symplicity (API/feed) ou curadoria manual? | UCAM/CENPRE | Começar com curadoria manual (campo `vagas` do content) + link "ver todas" para o Symplicity; integrar depois se houver API |
-| 3 | CMS para notícias/FAQ/unidades ou conteúdo em código? | Dev + UCAM | Fase 1 em código (arquivos `content/`); fase 2 CMS headless usando `UnidadeContent` como schema |
-| 4 | Hospedagem e domínio (subdomínio ucam?) | UCAM TI | Vercel/Netlify para começar; definir domínio cedo por causa de SEO |
-| 5 | Imagens reais (notícias, hero por unidade) e fotos institucionais | CENPRE | Cards de notícia hoje caem no placeholder cinza — pedir banco de imagens |
-| 6 | Formulários (fale conosco, cadastro de convênio): para onde vão os dados? | UCAM/CENPRE | E-mail via serviço (Resend/Formspree) na fase 1; `ContactForm` já expõe `onSubmit` |
+| #   | Decisão                                                                   | Dono           | Recomendação                                                                                                                |
+| --- | ------------------------------------------------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Stack do site final                                                       | Dev + Leonardo | **Next.js (App Router) + Tailwind**, SSG por unidade; a lib entra copy-in com o preset                                      |
+| 2   | Fonte das vagas: integração Symplicity (API/feed) ou curadoria manual?    | UCAM/CENPRE    | Começar com curadoria manual (campo `vagas` do content) + link "ver todas" para o Symplicity; integrar depois se houver API |
+| 3   | CMS para notícias/FAQ/unidades ou conteúdo em código?                     | Dev + UCAM     | Fase 1 em código (arquivos `content/`); fase 2 CMS headless usando `UnidadeContent` como schema                             |
+| 4   | Hospedagem e domínio (subdomínio ucam?)                                   | UCAM TI        | Vercel/Netlify para começar; definir domínio cedo por causa de SEO                                                          |
+| 5   | Imagens reais (notícias, hero por unidade) e fotos institucionais         | CENPRE         | Cards de notícia hoje caem no placeholder cinza — pedir banco de imagens                                                    |
+| 6   | Formulários (fale conosco, cadastro de convênio): para onde vão os dados? | UCAM/CENPRE    | E-mail via serviço (Resend/Formspree) na fase 1; `ContactForm` já expõe `onSubmit`                                          |
 
 ## 7. Storybook publicado (handoff visual canônico)
 

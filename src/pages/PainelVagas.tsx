@@ -3,10 +3,10 @@ import { PageHero } from "../components/PageHero";
 import { Input } from "../components/Input";
 import { JobCard } from "../components/JobCard";
 import { Pagination } from "../components/Pagination";
-import { SearchIcon } from "../components/Icons";
+import { SearchIcon, MapPinIcon, SendIcon } from "../components/Icons";
 import { cn } from "@/lib/cn";
 import type { VagasContent } from "../content/types";
-import { PageShell, Breadcrumb } from "./shared";
+import { PageShell, Breadcrumb, HeroPill } from "./shared";
 
 const POR_PAGINA = 6;
 
@@ -40,7 +40,18 @@ export function PainelVagas({ content }: PainelVagasProps) {
 
   return (
     <PageShell>
-      <PageHero breadcrumb={<Breadcrumb trail={hero.breadcrumb} />} title={hero.title} subtitle={hero.subtitle} />
+      <PageHero
+        breadcrumb={<Breadcrumb trail={hero.breadcrumb} />}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        pills={
+          <>
+            <HeroPill icon={<SearchIcon size={15} />}>Busca por área</HeroPill>
+            <HeroPill icon={<MapPinIcon size={15} />}>Filtragem por cidade</HeroPill>
+            <HeroPill icon={<SendIcon size={15} />}>Indicação direta</HeroPill>
+          </>
+        }
+      />
 
       <section className="mx-auto max-w-content px-6 py-12 md:px-gutter">
         <h2 className="sr-only">Vagas disponíveis</h2>
@@ -50,7 +61,10 @@ export function PainelVagas({ content }: PainelVagasProps) {
             placeholder="Buscar por cargo, área ou cidade..."
             leftIcon={<SearchIcon size={16} />}
             value={busca}
-            onChange={(e) => { setBusca(e.target.value); setPagina(1); }}
+            onChange={(e) => {
+              setBusca(e.target.value);
+              setPagina(1);
+            }}
             className="md:max-w-sm"
           />
           <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar por fonte">
@@ -58,7 +72,10 @@ export function PainelVagas({ content }: PainelVagasProps) {
               <button
                 key={f}
                 type="button"
-                onClick={() => { setFonte(f); setPagina(1); }}
+                onClick={() => {
+                  setFonte(f);
+                  setPagina(1);
+                }}
                 aria-pressed={fonte === f}
                 className={cn(
                   "rounded-pill px-4 py-1.5 text-[13px] font-semibold transition-colors",
@@ -78,10 +95,14 @@ export function PainelVagas({ content }: PainelVagasProps) {
         </p>
 
         <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {visiveis.map((v) => <JobCard key={v.title} {...v} actionLabel="Tenho interesse" />)}
+          {visiveis.map((v) => (
+            <JobCard key={v.title} {...v} actionLabel="Tenho interesse" />
+          ))}
         </div>
         {filtradas.length === 0 && (
-          <p className="mt-6 text-sm text-charcoal-200">Nenhuma vaga encontrada — tente outra busca ou fonte.</p>
+          <p className="mt-6 text-sm text-charcoal-200">
+            Nenhuma vaga encontrada — tente outra busca ou fonte.
+          </p>
         )}
 
         {totalPaginas > 1 && (

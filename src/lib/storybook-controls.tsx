@@ -1,8 +1,20 @@
 import type React from "react";
 import {
-  ArrowRightIcon, SearchIcon, BriefcaseIcon, BuildingIcon, UsersIcon,
-  ShieldCheckIcon, GraduationCapIcon, FileTextIcon, SparklesIcon, ClockIcon,
-  HandshakeIcon, ClipboardListIcon, CheckIcon, MapPinIcon, WalletIcon,
+  ArrowRightIcon,
+  SearchIcon,
+  BriefcaseIcon,
+  BuildingIcon,
+  UsersIcon,
+  ShieldCheckIcon,
+  GraduationCapIcon,
+  FileTextIcon,
+  SparklesIcon,
+  ClockIcon,
+  HandshakeIcon,
+  ClipboardListIcon,
+  CheckIcon,
+  MapPinIcon,
+  WalletIcon,
 } from "../components/Icons";
 
 /**

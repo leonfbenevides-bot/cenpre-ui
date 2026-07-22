@@ -94,7 +94,11 @@ export function Carousel({
       )}
 
       {dots && count > 1 && (
-        <div className="mt-4 flex justify-center gap-2" role="tablist" aria-label="Selecionar slide">
+        <div
+          className="mt-4 flex justify-center gap-2"
+          role="tablist"
+          aria-label="Selecionar slide"
+        >
           {slides.map((_, i) => (
             <button
               key={i}

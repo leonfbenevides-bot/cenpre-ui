@@ -23,7 +23,15 @@ export interface FooterProps {
 /**
  * Rodapé do produto: marca + colunas de navegação + contato + linha legal.
  */
-export function Footer({ brand, brandAction, columns, contact, legal, social, className }: FooterProps) {
+export function Footer({
+  brand,
+  brandAction,
+  columns,
+  contact,
+  legal,
+  social,
+  className,
+}: FooterProps) {
   return (
     <footer className={cn("bg-charcoal-500 text-ash-300", className)}>
       <div className="mx-auto max-w-container px-6 py-14 md:px-gutter">

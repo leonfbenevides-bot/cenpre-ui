@@ -3,17 +3,17 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/cn";
 
 export const tagVariants = cva(
-  "inline-flex items-center rounded-pill font-medium leading-none whitespace-nowrap",
+  "inline-flex items-center whitespace-nowrap rounded-pill font-medium leading-none",
   {
     variants: {
       tone: {
         neutral: "bg-ash-200 text-charcoal-300",
         brand: "bg-magenta-100 text-magenta-700",
-        accent: "bg-ash-100 text-charcoal-200 border border-ash-300",
+        accent: "border border-ash-300 bg-ash-100 text-charcoal-200",
       },
       size: {
-        sm: "text-[11px] px-2 py-0.5",
-        md: "text-xs px-2.5 py-1",
+        sm: "px-2 py-0.5 text-[11px]",
+        md: "px-2.5 py-1 text-xs",
       },
     },
     defaultVariants: { tone: "neutral", size: "md" },
@@ -24,8 +24,7 @@ export type TagTone = NonNullable<VariantProps<typeof tagVariants>["tone"]>;
 export type TagSize = NonNullable<VariantProps<typeof tagVariants>["size"]>;
 
 export interface TagProps
-  extends HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof tagVariants> {
+  extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof tagVariants> {
   children: ReactNode;
 }
 

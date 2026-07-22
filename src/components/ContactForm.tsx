@@ -50,14 +50,25 @@ export function ContactForm({
     setValues((v) => ({ ...v, [k]: e.target.value }));
 
   return (
-    <section className={cn("grid overflow-hidden rounded-card border border-ash-200 md:grid-cols-2", className)}>
+    <section
+      className={cn(
+        "grid overflow-hidden rounded-card border border-ash-200 md:grid-cols-2",
+        className,
+      )}
+    >
       <div className="flex flex-col justify-center gap-4 bg-ash-100 p-8 md:p-12">
         <span className="text-[13px] font-semibold uppercase tracking-[0.16em] text-magenta-700">
           {eyebrow}
         </span>
-        <h2 className="font-display text-[34px] font-semibold leading-[1.1] text-charcoal-500 md:text-[44px]">{title}</h2>
-        {description && <p className="text-base leading-relaxed text-charcoal-400">{description}</p>}
-        {contactLines && <div className="mt-2 text-sm leading-relaxed text-charcoal-300">{contactLines}</div>}
+        <h2 className="font-display text-[34px] font-semibold leading-[1.1] text-charcoal-500 md:text-[44px]">
+          {title}
+        </h2>
+        {description && (
+          <p className="text-base leading-relaxed text-charcoal-400">{description}</p>
+        )}
+        {contactLines && (
+          <div className="mt-2 text-sm leading-relaxed text-charcoal-300">{contactLines}</div>
+        )}
       </div>
 
       <form className="flex flex-col gap-4 bg-white p-8 md:p-12" onSubmit={handleSubmit} noValidate>

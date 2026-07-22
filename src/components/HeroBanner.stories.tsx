@@ -56,14 +56,14 @@ export const EmCarousel: Story = {
         slides={[
           <HeroBanner
             image={heroOffice}
-        brand={brand}
+            brand={brand}
             title="Conectando você ao seu futuro profissional."
             description="Oportunidades, orientações de estágio e conteúdos para aproximar alunos e empresas."
             actions={actions}
           />,
           <HeroBanner
             image={heroOffice}
-        brand={brand}
+            brand={brand}
             title="Sua empresa mais perto dos talentos da UCAM."
             description="Publique vagas, receba currículos qualificados e conte com o suporte do CENPRE."
             actions={actions}

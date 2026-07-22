@@ -4,12 +4,23 @@
 export { cn } from "./lib/cn";
 
 // Primitivos
-export { Button, buttonVariants, type ButtonProps, type ButtonVariant, type ButtonSize } from "./components/Button";
+export {
+  Button,
+  buttonVariants,
+  type ButtonProps,
+  type ButtonVariant,
+  type ButtonSize,
+} from "./components/Button";
 export { Tag, tagVariants, type TagProps, type TagTone, type TagSize } from "./components/Tag";
 export { Input, type InputProps } from "./components/Input";
 export { Textarea, type TextareaProps } from "./components/Textarea";
 export { Avatar, type AvatarProps, type AvatarSize } from "./components/Avatar";
-export { IconChip, type IconChipProps, type IconChipSize, type IconChipTone } from "./components/IconChip";
+export {
+  IconChip,
+  type IconChipProps,
+  type IconChipSize,
+  type IconChipTone,
+} from "./components/IconChip";
 export { Divider, type DividerProps } from "./components/Divider";
 
 // Composição
@@ -45,9 +56,20 @@ export {
   type TabsPillsProps,
 } from "./components/Tabs";
 
+// Blocos editoriais (redesign "Editorial Aspiracional")
+export { HeroCarousel, type HeroCarouselProps, type HeroSlide } from "./components/HeroCarousel";
+export { AudienceTabs, type AudienceTabsProps, type Audience } from "./components/AudienceTabs";
+export { EditorialHeading, type EditorialHeadingProps } from "./components/EditorialHeading";
+export { EditorialCTA, type EditorialCTAProps } from "./components/EditorialCTA";
+export { StatsGrid, type StatsGridProps, type StatItem } from "./components/StatsGrid";
+
 // Blocos
 export { PageHero, type PageHeroProps } from "./components/PageHero";
-export { ContactForm, type ContactFormProps, type ContactFormValues } from "./components/ContactForm";
+export {
+  ContactForm,
+  type ContactFormProps,
+  type ContactFormValues,
+} from "./components/ContactForm";
 export { PlatformCTA, type PlatformCTAProps } from "./components/PlatformCTA";
 export { Header, type HeaderProps, type NavItem } from "./components/Header";
 export { Footer, type FooterProps, type FooterColumn } from "./components/Footer";
@@ -67,15 +89,35 @@ export { PainelVagas, type PainelVagasProps } from "./pages/PainelVagas";
 export { Artigo, type ArtigoProps } from "./pages/Artigo";
 export { SobreNos, type SobreNosProps } from "./pages/SobreNos";
 export { BibliotecaConteudos, type BibliotecaConteudosProps } from "./pages/BibliotecaConteudos";
-export { PageShell, Breadcrumb, PlatformSection, SiteFooter, ContactLines, TopicCard } from "./pages/shared";
+export {
+  PageShell,
+  Breadcrumb,
+  PlatformSection,
+  SiteFooter,
+  ContactLines,
+  TopicCard,
+} from "./pages/shared";
 export type {
-  UnidadeContent, EmpresaContent, SubHero, OrientacoesContent, CurriculoContent,
-  ConveniadasContent, CadastroConvenioContent, ParceiroContent, VagasContent,
-  ArtigoContent, SobreNosContent, BibliotecaContent,
+  UnidadeContent,
+  EmpresaContent,
+  SubHero,
+  OrientacoesContent,
+  CurriculoContent,
+  ConveniadasContent,
+  CadastroConvenioContent,
+  ParceiroContent,
+  VagasContent,
+  ArtigoContent,
+  SobreNosContent,
+  BibliotecaContent,
 } from "./content/types";
 export { campos } from "./content/campos";
 export { empresa } from "./content/empresa";
 export { orientacoes, curriculo } from "./content/paginas-aluno";
 export { conveniadas, cadastroConvenio, parceiro } from "./content/paginas-empresa";
 export { vagas, artigoExemplo, sobreNos, biblioteca } from "./content/paginas-conteudo";
-export { AudienceSwitcher, type AudienceSwitcherProps, type AudienceOption } from "./components/AudienceSwitcher";
+export {
+  AudienceSwitcher,
+  type AudienceSwitcherProps,
+  type AudienceOption,
+} from "./components/AudienceSwitcher";

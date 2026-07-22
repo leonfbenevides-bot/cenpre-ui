@@ -12,6 +12,9 @@ type Story = StoryObj<typeof LogoBand>;
 
 export const Parceiros: Story = {
   args: {
-    items: ["CIEE", "NUBE", "Agiel", "ABRE", "CIDE", "IEL", "Universia"].map((name) => ({ name, href: "#" })),
+    items: ["CIEE", "NUBE", "Agiel", "ABRE", "CIDE", "IEL", "Universia"].map((name) => ({
+      name,
+      href: "#",
+    })),
   },
 };

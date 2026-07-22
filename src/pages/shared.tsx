@@ -10,8 +10,16 @@ import { ArrowRightIcon, ChevronRightIcon, FileTextIcon, SearchIcon } from "../c
 import { StepCard } from "../components/StepCard";
 import { AccordionList } from "../components/Accordion";
 import {
-  PenLine, Video, Mic, MonitorPlay, FileText,
-  Instagram, Twitter, Linkedin, Youtube, MessageCircle,
+  PenLine,
+  Video,
+  Mic,
+  MonitorPlay,
+  FileText,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Youtube,
+  MessageCircle,
 } from "lucide-react";
 import type { UnidadeContent } from "../content/types";
 import platformIllustration from "../assets/platform-illustration.png";
@@ -136,7 +144,9 @@ export function KeywordTicker({ items }: { items: string[] }) {
         {items.map((item, i) => (
           <span key={item} className="flex items-center gap-x-14">
             {i > 0 && <span className="h-6 w-px bg-ash-300" aria-hidden />}
-            <span className="whitespace-nowrap font-display text-xl text-charcoal-400/80">{item}</span>
+            <span className="whitespace-nowrap font-display text-xl text-charcoal-400/80">
+              {item}
+            </span>
           </span>
         ))}
       </div>
@@ -148,7 +158,11 @@ export function KeywordTicker({ items }: { items: string[] }) {
  * Seção "Tudo o que você precisa em um só lugar" (Plataforma CENPRE Carreiras):
  * módulos + "como começar" (StepCards) + documentos necessários com CTA.
  */
-export function PlataformaFeaturesSection({ content }: { content: UnidadeContent["plataformaFeatures"] }) {
+export function PlataformaFeaturesSection({
+  content,
+}: {
+  content: UnidadeContent["plataformaFeatures"];
+}) {
   const { eyebrow, title, description, modulos, comoComecar, documentosNecessarios } = content;
   return (
     <section className="bg-white py-16">
@@ -160,8 +174,14 @@ export function PlataformaFeaturesSection({ content }: { content: UnidadeContent
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {modulos.map((m) => (
-            <div key={m.title} className="flex flex-col gap-3 rounded-card border border-ash-300 p-6">
-              <span className="grid h-11 w-11 place-items-center rounded-chip bg-magenta-100 text-magenta-700" aria-hidden>
+            <div
+              key={m.title}
+              className="flex flex-col gap-3 rounded-card border border-ash-300 p-6"
+            >
+              <span
+                className="grid h-11 w-11 place-items-center rounded-chip bg-magenta-100 text-magenta-700"
+                aria-hidden
+              >
                 {m.icon}
               </span>
               <h3 className="text-base font-semibold text-charcoal-500">{m.title}</h3>
@@ -181,11 +201,15 @@ export function PlataformaFeaturesSection({ content }: { content: UnidadeContent
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-6 rounded-card bg-ash-100 p-6">
           <div>
-            <h3 className="text-base font-semibold text-charcoal-500">{documentosNecessarios.titulo}</h3>
+            <h3 className="text-base font-semibold text-charcoal-500">
+              {documentosNecessarios.titulo}
+            </h3>
             <ul className="mt-3 flex flex-wrap gap-x-8 gap-y-2">
               {documentosNecessarios.itens.map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-charcoal-400">
-                  <span className="text-magenta-700" aria-hidden>✓</span>
+                  <span className="text-magenta-700" aria-hidden>
+                    ✓
+                  </span>
                   {item}
                 </li>
               ))}
@@ -213,7 +237,9 @@ export function FaqTwoColumn({
     <section className="mx-auto max-w-content px-6 py-16 md:px-gutter">
       <div className="grid gap-10 md:grid-cols-[minmax(0,320px)_1fr]">
         <div>
-          <h2 className="font-display text-[28px] font-semibold leading-tight text-charcoal-500">{intro.title}</h2>
+          <h2 className="font-display text-[28px] font-semibold leading-tight text-charcoal-500">
+            {intro.title}
+          </h2>
           <p className="mt-3 text-[15px] leading-relaxed text-charcoal-300">{intro.description}</p>
           <a
             href={intro.href}
@@ -253,7 +279,9 @@ export function CarouselCounter({
           aria-label="Anterior"
           className="grid h-9 w-9 place-items-center rounded-pill border border-ash-300 text-charcoal-400 transition-colors hover:bg-ash-100 disabled:pointer-events-none disabled:opacity-40"
         >
-          <span className="rotate-180"><ArrowRightIcon size={16} /></span>
+          <span className="rotate-180">
+            <ArrowRightIcon size={16} />
+          </span>
         </button>
         <button
           type="button"
@@ -401,11 +429,25 @@ export function SiteFooter({ contato = contatoPadrao }: { contato?: UnidadeConte
       }
       social={
         <>
-          <a href={rotas.inicio} aria-label="Instagram" className="text-ash-400 hover:text-white"><Instagram size={18} /></a>
-          <a href={rotas.inicio} aria-label="X (Twitter)" className="text-ash-400 hover:text-white"><Twitter size={18} /></a>
-          <a href={rotas.inicio} aria-label="LinkedIn" className="text-ash-400 hover:text-white"><Linkedin size={18} /></a>
-          <a href={rotas.inicio} aria-label="YouTube" className="text-ash-400 hover:text-white"><Youtube size={18} /></a>
-          <a href={rotas.plataforma} aria-label="WhatsApp" className="text-ash-400 hover:text-white"><MessageCircle size={18} /></a>
+          <a href={rotas.inicio} aria-label="Instagram" className="text-ash-400 hover:text-white">
+            <Instagram size={18} />
+          </a>
+          <a href={rotas.inicio} aria-label="X (Twitter)" className="text-ash-400 hover:text-white">
+            <Twitter size={18} />
+          </a>
+          <a href={rotas.inicio} aria-label="LinkedIn" className="text-ash-400 hover:text-white">
+            <Linkedin size={18} />
+          </a>
+          <a href={rotas.inicio} aria-label="YouTube" className="text-ash-400 hover:text-white">
+            <Youtube size={18} />
+          </a>
+          <a
+            href={rotas.plataforma}
+            aria-label="WhatsApp"
+            className="text-ash-400 hover:text-white"
+          >
+            <MessageCircle size={18} />
+          </a>
         </>
       }
       columns={[

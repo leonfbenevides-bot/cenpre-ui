@@ -39,14 +39,12 @@ export default tseslint.config(
       "no-restricted-syntax": [
         "warn",
         {
-          selector:
-            "JSXAttribute[name.name='className'] Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+          selector: "JSXAttribute[name.name='className'] Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
           message:
             "Evite hex cru em className — use um token de cor (ex.: bg-magenta-700, text-charcoal-500).",
         },
         {
-          selector:
-            "JSXAttribute[name.name='className'] Literal[value=/\\[[^\\]]+\\]/]",
+          selector: "JSXAttribute[name.name='className'] Literal[value=/\\[[^\\]]+\\]/]",
           message:
             "Evite valores arbitrários do Tailwind (bg-[...], p-[...]) — use um token da escala (spacing token-*, rounded-card, etc.).",
         },

@@ -10,4 +10,6 @@ const meta: Meta<typeof JourneyDiagram> = {
 export default meta;
 type Story = StoryObj<typeof JourneyDiagram>;
 
-export const Padrao: Story = { args: { aluno: campos.jornada.aluno, empresa: campos.jornada.empresa } };
+export const Padrao: Story = {
+  args: { aluno: campos.jornada.aluno, empresa: campos.jornada.empresa },
+};

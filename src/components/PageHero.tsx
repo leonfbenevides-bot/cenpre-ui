@@ -34,10 +34,7 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section
-      className={cn(
-        "relative overflow-hidden bg-magenta-800 py-16 text-white md:py-20",
-        className,
-      )}
+      className={cn("relative overflow-hidden bg-magenta-800 py-16 text-white md:py-20", className)}
     >
       {/* Textura: pattern de bolinhas + glows radiais suaves (decor do design). */}
       <div
@@ -69,13 +66,13 @@ export function PageHero({
           <h1 className="max-w-prose font-display text-3xl font-semibold leading-tight md:text-5xl">
             {title}
           </h1>
-          {subtitle && <p className="max-w-prose text-base text-magenta-100 md:text-lg">{subtitle}</p>}
+          {subtitle && (
+            <p className="max-w-prose text-base text-magenta-100 md:text-lg">{subtitle}</p>
+          )}
           {pills && <div className="flex flex-wrap gap-2 pt-1">{pills}</div>}
           {actions && <div className="flex flex-wrap gap-3 pt-2">{actions}</div>}
         </div>
-        {media && (
-          <div className="hidden overflow-hidden rounded-card md:block">{media}</div>
-        )}
+        {media && <div className="hidden overflow-hidden rounded-card md:block">{media}</div>}
       </div>
     </section>
   );

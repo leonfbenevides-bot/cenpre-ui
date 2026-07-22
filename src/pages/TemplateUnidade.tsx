@@ -18,8 +18,18 @@ import { Filter, Star } from "lucide-react";
 import { cn } from "@/lib/cn";
 import type { UnidadeContent } from "../content/types";
 import {
-  Brand, BrandOnDark, nav, rotas, TopicCard, SiteFooter, NumerosSection,
-  KeywordTicker, PlataformaFeaturesSection, FaqTwoColumn, CarouselCounter, FormatoPillLabel,
+  Brand,
+  BrandOnDark,
+  nav,
+  rotas,
+  TopicCard,
+  SiteFooter,
+  NumerosSection,
+  KeywordTicker,
+  PlataformaFeaturesSection,
+  FaqTwoColumn,
+  CarouselCounter,
+  FormatoPillLabel,
 } from "./shared";
 import platformIllustration from "../assets/platform-illustration.png";
 
@@ -27,7 +37,14 @@ const VAGAS_POR_PAGINA = 6;
 const DEPOIMENTOS_POR_PAGINA = 4;
 const NOTICIAS_POR_PAGINA = 3;
 
-function Testimonial({ name, course, titulo, quote, foto, rating = 5 }: UnidadeContent["depoimentos"][number]) {
+function Testimonial({
+  name,
+  course,
+  titulo,
+  quote,
+  foto,
+  rating = 5,
+}: UnidadeContent["depoimentos"][number]) {
   return (
     <div className="flex h-full w-full flex-col gap-4 rounded-card border border-ash-300 bg-white p-7 shadow-card sm:w-[280px]">
       <div className="flex items-center gap-3.5">
@@ -35,7 +52,11 @@ function Testimonial({ name, course, titulo, quote, foto, rating = 5 }: UnidadeC
           <img src={foto} alt="" className="h-12 w-12 shrink-0 rounded-pill object-cover" />
         ) : (
           <span className="grid h-12 w-12 shrink-0 place-items-center rounded-pill bg-magenta-200 text-sm font-bold text-magenta-700">
-            {name.split(" ").map((w) => w[0]).slice(0, 2).join("")}
+            {name
+              .split(" ")
+              .map((w) => w[0])
+              .slice(0, 2)
+              .join("")}
           </span>
         )}
         <span className="text-sm">
@@ -49,7 +70,12 @@ function Testimonial({ name, course, titulo, quote, foto, rating = 5 }: UnidadeC
       </div>
       <div className="mt-auto flex items-center gap-1.5">
         {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} size={15} className={i < rating ? "fill-amber-400 text-amber-400" : "text-ash-300"} aria-hidden />
+          <Star
+            key={i}
+            size={15}
+            className={i < rating ? "fill-amber-400 text-amber-400" : "text-ash-300"}
+            aria-hidden
+          />
         ))}
         <span className="text-sm font-medium text-charcoal-500">{rating}/5</span>
       </div>
@@ -58,7 +84,10 @@ function Testimonial({ name, course, titulo, quote, foto, rating = 5 }: UnidadeC
 }
 
 /** Painel de vagas com busca, filtro por fonte e paginação numerada (Figma: também presente na home). */
-function PainelVagasHome({ vagas, vagasFontes: fontes }: Pick<UnidadeContent, "vagas" | "vagasFontes">) {
+function PainelVagasHome({
+  vagas,
+  vagasFontes: fontes,
+}: Pick<UnidadeContent, "vagas" | "vagasFontes">) {
   const [busca, setBusca] = useState("");
   const [fonte, setFonte] = useState("Todas");
   const [pagina, setPagina] = useState(1);
@@ -74,12 +103,17 @@ function PainelVagasHome({ vagas, vagasFontes: fontes }: Pick<UnidadeContent, "v
 
   const totalPaginas = Math.max(1, Math.ceil(filtradas.length / VAGAS_POR_PAGINA));
   const paginaAtual = Math.min(pagina, totalPaginas);
-  const visiveis = filtradas.slice((paginaAtual - 1) * VAGAS_POR_PAGINA, paginaAtual * VAGAS_POR_PAGINA);
+  const visiveis = filtradas.slice(
+    (paginaAtual - 1) * VAGAS_POR_PAGINA,
+    paginaAtual * VAGAS_POR_PAGINA,
+  );
 
   return (
     <>
       <div className="flex flex-wrap items-center gap-2">
-        <h2 className="flex-1 font-display text-[28px] font-semibold text-charcoal-400 md:text-[36px]">Painel de vagas</h2>
+        <h2 className="flex-1 font-display text-[28px] font-semibold text-charcoal-400 md:text-[36px]">
+          Painel de vagas
+        </h2>
         <button
           type="button"
           className="inline-flex shrink-0 items-center gap-2 rounded-chip border border-ash-300 px-5 py-3 text-base font-semibold text-charcoal-400 shadow-button"
@@ -91,7 +125,10 @@ function PainelVagasHome({ vagas, vagasFontes: fontes }: Pick<UnidadeContent, "v
           placeholder="Busque uma oportunidade"
           leftIcon={<SearchIcon size={18} />}
           value={busca}
-          onChange={(e) => { setBusca(e.target.value); setPagina(1); }}
+          onChange={(e) => {
+            setBusca(e.target.value);
+            setPagina(1);
+          }}
           className="w-full sm:w-[416px]"
         />
       </div>
@@ -101,7 +138,10 @@ function PainelVagasHome({ vagas, vagasFontes: fontes }: Pick<UnidadeContent, "v
           <button
             key={f}
             type="button"
-            onClick={() => { setFonte(f); setPagina(1); }}
+            onClick={() => {
+              setFonte(f);
+              setPagina(1);
+            }}
             aria-pressed={fonte === f}
             className={cn(
               "rounded-pill px-7 py-3 text-base font-semibold transition-colors",
@@ -116,10 +156,14 @@ function PainelVagasHome({ vagas, vagasFontes: fontes }: Pick<UnidadeContent, "v
       </div>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {visiveis.map((v) => <JobCard key={v.title} {...v} actionLabel="Tenho interesse" />)}
+        {visiveis.map((v) => (
+          <JobCard key={v.title} {...v} actionLabel="Tenho interesse" />
+        ))}
       </div>
       {filtradas.length === 0 && (
-        <p className="mt-6 text-center text-sm text-charcoal-200">Nenhuma vaga encontrada — tente outra busca ou fonte.</p>
+        <p className="mt-6 text-center text-sm text-charcoal-200">
+          Nenhuma vaga encontrada — tente outra busca ou fonte.
+        </p>
       )}
 
       {totalPaginas > 1 && (
@@ -143,18 +187,39 @@ export interface TemplateUnidadeProps {
  */
 export function TemplateUnidade({ content }: TemplateUnidadeProps) {
   const {
-    hero, numeros, topicos, jornada, guiaEstagio, vagasFontes, vagas, depoimentos, motivos,
-    logosParceiros, plataformaFeatures, ticker, sobreNosResumo, noticias, bibliotecaResumo,
-    faqIntro, faq, contato,
+    hero,
+    numeros,
+    topicos,
+    jornada,
+    guiaEstagio,
+    vagasFontes,
+    vagas,
+    depoimentos,
+    motivos,
+    logosParceiros,
+    plataformaFeatures,
+    ticker,
+    sobreNosResumo,
+    noticias,
+    bibliotecaResumo,
+    faqIntro,
+    faq,
+    contato,
   } = content;
 
   const [depoPage, setDepoPage] = useState(1);
   const totalDepoPages = Math.max(1, Math.ceil(depoimentos.length / DEPOIMENTOS_POR_PAGINA));
-  const depoVisiveis = depoimentos.slice((depoPage - 1) * DEPOIMENTOS_POR_PAGINA, depoPage * DEPOIMENTOS_POR_PAGINA);
+  const depoVisiveis = depoimentos.slice(
+    (depoPage - 1) * DEPOIMENTOS_POR_PAGINA,
+    depoPage * DEPOIMENTOS_POR_PAGINA,
+  );
 
   const [newsPage, setNewsPage] = useState(1);
   const totalNewsPages = Math.max(1, Math.ceil(noticias.length / NOTICIAS_POR_PAGINA));
-  const newsVisiveis = noticias.slice((newsPage - 1) * NOTICIAS_POR_PAGINA, newsPage * NOTICIAS_POR_PAGINA);
+  const newsVisiveis = noticias.slice(
+    (newsPage - 1) * NOTICIAS_POR_PAGINA,
+    newsPage * NOTICIAS_POR_PAGINA,
+  );
 
   return (
     <div className="bg-white">
@@ -176,7 +241,10 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
                 actions={
                   <>
                     <Button>Tenho interesse!</Button>
-                    <Button variant="ghost" className="border border-white/45 text-white hover:bg-white/10 hover:text-white">
+                    <Button
+                      variant="ghost"
+                      className="border border-white/45 text-white hover:bg-white/10 hover:text-white"
+                    >
                       Saber mais
                     </Button>
                   </>
@@ -197,8 +265,18 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
               floating={false}
               value="aluno"
               options={[
-                { value: "aluno", label: "Sou um aluno ou Egresso", icon: <UsersIcon size={16} />, href: rotas.inicio },
-                { value: "empresa", label: "Sou uma empresa", icon: <BuildingIcon size={16} />, href: rotas.homeEmpresa },
+                {
+                  value: "aluno",
+                  label: "Sou um aluno ou Egresso",
+                  icon: <UsersIcon size={16} />,
+                  href: rotas.inicio,
+                },
+                {
+                  value: "empresa",
+                  label: "Sou uma empresa",
+                  icon: <BuildingIcon size={16} />,
+                  href: rotas.homeEmpresa,
+                },
               ]}
             />
           </div>
@@ -212,7 +290,9 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
               subtitle="Uma jornada integrada entre alunos, egressos e empresas por meio de estágios, vagas, convênios e suporte."
             />
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {topicos.map((t) => <TopicCard key={t.title} {...t} />)}
+              {topicos.map((t) => (
+                <TopicCard key={t.title} {...t} />
+              ))}
             </div>
             <JourneyDiagram className="mt-10" aluno={jornada.aluno} empresa={jornada.empresa} />
           </div>
@@ -223,10 +303,17 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
           <div className="mx-auto max-w-content px-6 py-24 md:px-gutter">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div className="flex flex-col gap-2">
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-magenta-700">{guiaEstagio.eyebrow}</p>
-                <h2 className="max-w-xl font-display text-[36px] font-medium leading-tight text-charcoal-400">{guiaEstagio.title}</h2>
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-magenta-700">
+                  {guiaEstagio.eyebrow}
+                </p>
+                <h2 className="max-w-xl font-display text-[36px] font-medium leading-tight text-charcoal-400">
+                  {guiaEstagio.title}
+                </h2>
               </div>
-              <Button variant="secondary" className="border-magenta-700 text-magenta-700 hover:bg-white">
+              <Button
+                variant="secondary"
+                className="border-magenta-700 text-magenta-700 hover:bg-white"
+              >
                 {guiaEstagio.ctaLabel}
               </Button>
             </div>
@@ -241,11 +328,20 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
                       {item.legislacao && (
                         <div className="mt-5 flex flex-col gap-3 rounded-chip border border-ash-300 bg-white p-6 sm:flex-row sm:items-end sm:justify-between">
                           <div>
-                            <p className="text-sm font-medium text-charcoal-400">{item.legislacao.label}</p>
-                            <p className="mt-1 font-display text-lg font-semibold text-charcoal-500">{item.legislacao.titulo}</p>
-                            <p className="mt-1 max-w-xl text-[15px] leading-relaxed text-charcoal-300">{item.legislacao.texto}</p>
+                            <p className="text-sm font-medium text-charcoal-400">
+                              {item.legislacao.label}
+                            </p>
+                            <p className="mt-1 font-display text-lg font-semibold text-charcoal-500">
+                              {item.legislacao.titulo}
+                            </p>
+                            <p className="mt-1 max-w-xl text-[15px] leading-relaxed text-charcoal-300">
+                              {item.legislacao.texto}
+                            </p>
                           </div>
-                          <a href={rotas.inicio} className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-magenta-700 hover:text-magenta-800">
+                          <a
+                            href={rotas.inicio}
+                            className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-magenta-700 hover:text-magenta-800"
+                          >
                             {item.legislacao.linkLabel} <ArrowRightIcon size={15} />
                           </a>
                         </div>
@@ -257,7 +353,11 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
             </div>
 
             <div className="relative mt-16 overflow-hidden rounded-card">
-              <img src={guiaEstagio.imagem} alt="Equipe do CENPRE orientando estudantes" className="h-[325px] w-full object-cover" />
+              <img
+                src={guiaEstagio.imagem}
+                alt="Equipe do CENPRE orientando estudantes"
+                className="h-[325px] w-full object-cover"
+              />
             </div>
           </div>
         </section>
@@ -272,7 +372,9 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
         {/* Depoimentos */}
         <section className="flex flex-col items-center gap-20 pt-[72px]">
           <div className="mx-auto flex w-full max-w-content items-center justify-between px-6 md:px-gutter">
-            <h2 className="font-display text-[32px] font-semibold text-charcoal-500">Depoimentos dos alunos UCAM</h2>
+            <h2 className="font-display text-[32px] font-semibold text-charcoal-500">
+              Depoimentos dos alunos UCAM
+            </h2>
             <CarouselCounter
               page={depoPage}
               totalPages={totalDepoPages}
@@ -281,7 +383,9 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
             />
           </div>
           <div className="flex flex-wrap justify-center gap-8 px-6">
-            {depoVisiveis.map((d) => <Testimonial key={d.name} {...d} />)}
+            {depoVisiveis.map((d) => (
+              <Testimonial key={d.name} {...d} />
+            ))}
           </div>
 
           {/* Logos de empresas parceiras */}
@@ -306,13 +410,24 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
         {/* Por que escolher o CENPRE */}
         <section className="bg-magenta-800 px-6 py-20 md:px-gutter">
           <div className="mx-auto max-w-content">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-magenta-200">CENPRE CARREIRAS</p>
-            <h2 className="mt-3 font-display text-[40px] font-semibold text-white">Por que escolher o CENPRE</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-magenta-200">
+              CENPRE CARREIRAS
+            </p>
+            <h2 className="mt-3 font-display text-[40px] font-semibold text-white">
+              Por que escolher o CENPRE
+            </h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {motivos.map((m) => (
-                <div key={m.title} className="flex flex-col gap-4 rounded-[12px] bg-white px-6 py-7">
-                  <span className="text-magenta-700" aria-hidden>{m.icon}</span>
-                  <p className="font-display text-xl font-medium leading-snug text-charcoal-400">{m.title}</p>
+                <div
+                  key={m.title}
+                  className="flex flex-col gap-4 rounded-[12px] bg-white px-6 py-7"
+                >
+                  <span className="text-magenta-700" aria-hidden>
+                    {m.icon}
+                  </span>
+                  <p className="font-display text-xl font-medium leading-snug text-charcoal-400">
+                    {m.title}
+                  </p>
                   <p className="text-[15px] leading-snug text-charcoal-200">{m.description}</p>
                 </div>
               ))}
@@ -332,10 +447,15 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
             <SectionHeading eyebrow={sobreNosResumo.eyebrow} title="Sobre nós" />
             <div className="mt-6 grid gap-x-10 gap-y-5 md:grid-cols-2">
               {sobreNosResumo.paragraphs.map((p) => (
-                <p key={p.slice(0, 24)} className="text-[15px] leading-relaxed text-charcoal-400">{p}</p>
+                <p key={p.slice(0, 24)} className="text-[15px] leading-relaxed text-charcoal-400">
+                  {p}
+                </p>
               ))}
             </div>
-            <a href={sobreNosResumo.href} className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-magenta-700 hover:text-magenta-800">
+            <a
+              href={sobreNosResumo.href}
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-magenta-700 hover:text-magenta-800"
+            >
               {sobreNosResumo.ctaLabel} <ArrowRightIcon size={15} />
             </a>
           </div>
@@ -353,7 +473,9 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
             />
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {newsVisiveis.map((n) => <NewsCard key={n.title} {...n} />)}
+            {newsVisiveis.map((n) => (
+              <NewsCard key={n.title} {...n} />
+            ))}
           </div>
         </section>
 
@@ -361,7 +483,10 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
         <section className="mx-auto max-w-content px-6 py-16 md:px-gutter">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading eyebrow={bibliotecaResumo.eyebrow} title={bibliotecaResumo.title} />
-            <a href={rotas.biblioteca} className="inline-flex items-center gap-1.5 text-sm font-semibold text-magenta-700 hover:text-magenta-800">
+            <a
+              href={rotas.biblioteca}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-magenta-700 hover:text-magenta-800"
+            >
               {bibliotecaResumo.verMaisLabel} <ArrowRightIcon size={15} />
             </a>
           </div>
@@ -375,10 +500,14 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
                   content:
                     itens.length > 0 ? (
                       <div className="grid gap-6 pt-6 md:grid-cols-3">
-                        {itens.map((i) => <NewsCard key={i.title} {...i} />)}
+                        {itens.map((i) => (
+                          <NewsCard key={i.title} {...i} />
+                        ))}
                       </div>
                     ) : (
-                      <p className="pt-6 text-sm text-charcoal-200">Conteúdos de {formato.toLowerCase()} em breve.</p>
+                      <p className="pt-6 text-sm text-charcoal-200">
+                        Conteúdos de {formato.toLowerCase()} em breve.
+                      </p>
                     ),
                 };
               })}

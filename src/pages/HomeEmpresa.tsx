@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { Header } from "../components/Header";
+import { HeroBanner } from "../components/HeroBanner";
+import { Carousel } from "../components/Carousel";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import { Avatar } from "../components/Avatar";
@@ -13,7 +15,16 @@ import { AudienceSwitcher } from "../components/AudienceSwitcher";
 import { SearchIcon, ArrowRightIcon, UsersIcon, BuildingIcon } from "../components/Icons";
 import { cn } from "@/lib/cn";
 import type { EmpresaContent } from "../content/types";
-import { Brand, nav, rotas, TopicCard, SiteFooter, FormatoPillLabel } from "./shared";
+import {
+  Brand,
+  BrandOnDark,
+  nav,
+  rotas,
+  TopicCard,
+  SiteFooter,
+  FormatoPillLabel,
+  NumerosSection,
+} from "./shared";
 import platformIllustration from "../assets/platform-illustration.png";
 
 function PartnerCard({ name, category, vagasAbertas, href }: EmpresaContent["parceiros"][number]) {
@@ -27,8 +38,13 @@ function PartnerCard({ name, category, vagasAbertas, href }: EmpresaContent["par
         </span>
       </div>
       <div className="mt-auto flex items-center justify-between border-t border-ash-200 pt-3 text-[13px] font-semibold">
-        <span className="text-success-700">{vagasAbertas} {vagasAbertas === 1 ? "vaga aberta" : "vagas abertas"}</span>
-        <a href={href} className="inline-flex items-center gap-1 text-magenta-700 hover:text-magenta-800">
+        <span className="text-success-700">
+          {vagasAbertas} {vagasAbertas === 1 ? "vaga aberta" : "vagas abertas"}
+        </span>
+        <a
+          href={href}
+          className="inline-flex items-center gap-1 text-magenta-700 hover:text-magenta-800"
+        >
           Ver perfil <ArrowRightIcon size={14} />
         </a>
       </div>
@@ -80,10 +96,14 @@ function Parceiros({ parceiros, categorias }: Pick<EmpresaContent, "parceiros" |
         </div>
       </div>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {visiveis.map((p) => <PartnerCard key={p.name} {...p} />)}
+        {visiveis.map((p) => (
+          <PartnerCard key={p.name} {...p} />
+        ))}
       </div>
       {visiveis.length === 0 && (
-        <p className="mt-6 text-sm text-charcoal-200">Nenhuma empresa encontrada — tente outra busca ou categoria.</p>
+        <p className="mt-6 text-sm text-charcoal-200">
+          Nenhuma empresa encontrada — tente outra busca ou categoria.
+        </p>
       )}
     </>
   );
@@ -101,34 +121,90 @@ export interface HomeEmpresaProps {
  * com o seletor flutuante Aluno/Empresa.
  */
 export function HomeEmpresa({ content }: HomeEmpresaProps) {
-  const { hero, ofertas, convenio, parceiros, categorias, stats, sobre, noticias, biblioteca, faq, contato } = content;
+  const {
+    hero,
+    numeros,
+    ofertas,
+    convenio,
+    parceiros,
+    categorias,
+    stats,
+    sobre,
+    noticias,
+    biblioteca,
+    faq,
+    contato,
+  } = content;
   return (
     <div className="bg-white">
       <Header brand={Brand} navItems={nav} ctaLabel="Acessar plataforma" />
 
       <main>
-        {/* Hero Empresa (fundo claro) */}
-        <section className="border-b border-ash-200 bg-magenta-100/40">
-          <div className="mx-auto max-w-content px-6 py-16 md:px-gutter md:py-20">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-magenta-700">Para empresas e organizações</p>
-            <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.12] text-charcoal-500 md:text-5xl">
-              {hero.title}
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-charcoal-400">{hero.description}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button size="lg">{hero.primaryLabel}</Button>
-              <Button size="lg" variant="secondary" className="border-magenta-300 text-magenta-700 hover:bg-magenta-100">
-                {hero.secondaryLabel}
-              </Button>
-            </div>
-          </div>
+        {/* Hero Empresa — mesmo tratamento escuro/fotográfico do aluno (Figma). */}
+        <section className="mx-auto max-w-container px-6 py-10 md:px-gutter">
+          <Carousel
+            ariaLabel="Destaques para empresas"
+            slides={[
+              <HeroBanner
+                as="h1"
+                image={hero.image}
+                foreground={hero.foreground}
+                foregroundAlt=""
+                brand={BrandOnDark}
+                title={hero.title}
+                description={hero.description}
+                actions={
+                  <>
+                    <Button>{hero.primaryLabel}</Button>
+                    <Button
+                      variant="ghost"
+                      className="border border-white/45 text-white hover:bg-white/10 hover:text-white"
+                    >
+                      {hero.secondaryLabel}
+                    </Button>
+                  </>
+                }
+              />,
+            ]}
+          />
         </section>
 
-        {/* O que oferecemos */}
-        <section className="mx-auto max-w-content px-6 py-14 md:px-gutter">
-          <SectionHeading eyebrow="O que oferecemos" title="Tudo que sua empresa precisa em um só lugar" />
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            {ofertas.map((o) => <TopicCard key={o.title} {...o} />)}
+        {/* O CENPRE em números (Figma: presente também na home empresa) */}
+        <NumerosSection numeros={numeros} />
+
+        {/* Faixa contínua (Figma bg-diagram): seletor + "O que oferecemos". */}
+        <section className="bg-diagram">
+          <div className="mx-auto flex max-w-content justify-center px-6 pt-10 md:px-gutter">
+            <AudienceSwitcher
+              floating={false}
+              value="empresa"
+              options={[
+                {
+                  value: "aluno",
+                  label: "Sou um aluno ou Egresso",
+                  icon: <UsersIcon size={16} />,
+                  href: rotas.inicio,
+                },
+                {
+                  value: "empresa",
+                  label: "Sou uma empresa",
+                  icon: <BuildingIcon size={16} />,
+                  href: rotas.homeEmpresa,
+                },
+              ]}
+            />
+          </div>
+
+          <div className="mx-auto max-w-content px-6 pb-16 pt-10 md:px-gutter">
+            <SectionHeading
+              eyebrow="O que oferecemos"
+              title="Tudo que sua empresa precisa em um só lugar"
+            />
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              {ofertas.map((o) => (
+                <TopicCard key={o.title} {...o} />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -137,7 +213,9 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
           <div className="mx-auto max-w-content px-6 md:px-gutter">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <SectionHeading eyebrow="Guia completo" title="Entenda como funciona o convênio" />
-              <Button asChild><a href={rotas.cadastroConvenio}>Quero saber mais</a></Button>
+              <Button asChild>
+                <a href={rotas.cadastroConvenio}>Quero saber mais</a>
+              </Button>
             </div>
             <div className="mt-6">
               <AccordionList
@@ -147,7 +225,9 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
                   ) : (
                     <span className="flex flex-wrap items-baseline gap-2">
                       {item.question}
-                      <span className="text-[13px] font-medium text-charcoal-200">· em produção</span>
+                      <span className="text-[13px] font-medium text-charcoal-200">
+                        · em produção
+                      </span>
                     </span>
                   ),
                   answer: item.answer ?? "Conteúdo em produção — em breve nesta seção.",
@@ -180,10 +260,15 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
           <SectionHeading eyebrow="Nossa história" title="Sobre nós" />
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             {sobre.paragraphs.map((p) => (
-              <p key={p.slice(0, 24)} className="text-[15px] leading-relaxed text-charcoal-400">{p}</p>
+              <p key={p.slice(0, 24)} className="text-[15px] leading-relaxed text-charcoal-400">
+                {p}
+              </p>
             ))}
           </div>
-          <a href={sobre.href} className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-magenta-700 hover:text-magenta-800">
+          <a
+            href={sobre.href}
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-magenta-700 hover:text-magenta-800"
+          >
             {sobre.ctaLabel} <ArrowRightIcon size={15} />
           </a>
         </section>
@@ -193,10 +278,14 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
           <div className="mx-auto max-w-content px-6 md:px-gutter">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <SectionHeading eyebrow="Conteúdos" title="Últimas notícias" />
-              <Button variant="secondary" asChild><a href={rotas.conteudos}>Ver todos</a></Button>
+              <Button variant="secondary" asChild>
+                <a href={rotas.conteudos}>Ver todos</a>
+              </Button>
             </div>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {noticias.map((n) => <NewsCard key={n.title} {...n} className="bg-transparent" />)}
+              {noticias.map((n) => (
+                <NewsCard key={n.title} {...n} className="bg-transparent" />
+              ))}
             </div>
           </div>
         </section>
@@ -205,7 +294,9 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
         <section className="mx-auto max-w-content px-6 py-16 md:px-gutter">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading eyebrow="Aprenda com a gente" title="Biblioteca de Conteúdos" />
-            <Button variant="secondary" asChild><a href={rotas.biblioteca}>Ver todos</a></Button>
+            <Button variant="secondary" asChild>
+              <a href={rotas.biblioteca}>Ver todos</a>
+            </Button>
           </div>
           <div className="mt-8">
             <TabsPills
@@ -214,13 +305,18 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
                 return {
                   value: formato,
                   label: <FormatoPillLabel formato={formato} />,
-                  content: itens.length > 0 ? (
-                    <div className="grid gap-6 pt-6 md:grid-cols-3">
-                      {itens.map((i) => <NewsCard key={i.title} {...i} />)}
-                    </div>
-                  ) : (
-                    <p className="pt-6 text-sm text-charcoal-200">Conteúdos de {formato.toLowerCase()} em breve.</p>
-                  ),
+                  content:
+                    itens.length > 0 ? (
+                      <div className="grid gap-6 pt-6 md:grid-cols-3">
+                        {itens.map((i) => (
+                          <NewsCard key={i.title} {...i} />
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="pt-6 text-sm text-charcoal-200">
+                        Conteúdos de {formato.toLowerCase()} em breve.
+                      </p>
+                    ),
                 };
               })}
             />
@@ -241,21 +337,21 @@ export function HomeEmpresa({ content }: HomeEmpresaProps) {
         <section className="mx-auto max-w-container px-6 py-10 md:px-gutter">
           <PlatformCTA
             title="Mais do que uma plataforma completa, nós acompanhamos todas as etapas."
-            primaryLabel="Acessar a plataforma" secondaryLabel="Fale conosco" trust="Processos 100% seguros"
-            media={<img src={platformIllustration} alt="Plataforma CENPRE — painel de oportunidades" className="pointer-events-none absolute right-0 top-6 w-[112%] max-w-none" />}
+            primaryLabel="Acessar a plataforma"
+            secondaryLabel="Fale conosco"
+            trust="Processos 100% seguros"
+            media={
+              <img
+                src={platformIllustration}
+                alt="Plataforma CENPRE — painel de oportunidades"
+                className="pointer-events-none absolute right-0 top-6 w-[112%] max-w-none"
+              />
+            }
           />
         </section>
       </main>
 
       <SiteFooter contato={contato} />
-
-      <AudienceSwitcher
-        value="empresa"
-        options={[
-          { value: "aluno", label: "Sou um aluno ou Egresso", icon: <UsersIcon size={16} />, href: "#" },
-          { value: "empresa", label: "Sou uma empresa", icon: <BuildingIcon size={16} />, href: "#" },
-        ]}
-      />
     </div>
   );
 }

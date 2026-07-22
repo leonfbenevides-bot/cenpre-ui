@@ -14,13 +14,21 @@ type Story = StoryObj<typeof Pagination>;
 export const Interativa: Story = {
   render: () => {
     const [page, setPage] = useState(1);
-    return <div style={{ minWidth: 560 }}><Pagination page={page} totalPages={10} onPageChange={setPage} /></div>;
+    return (
+      <div style={{ minWidth: 560 }}>
+        <Pagination page={page} totalPages={10} onPageChange={setPage} />
+      </div>
+    );
   },
 };
 
 export const PoucasPaginas: Story = {
   render: () => {
     const [page, setPage] = useState(2);
-    return <div style={{ minWidth: 420 }}><Pagination page={page} totalPages={4} onPageChange={setPage} /></div>;
+    return (
+      <div style={{ minWidth: 420 }}>
+        <Pagination page={page} totalPages={4} onPageChange={setPage} />
+      </div>
+    );
   },
 };

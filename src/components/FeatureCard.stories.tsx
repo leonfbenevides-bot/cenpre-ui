@@ -23,9 +23,21 @@ export const Padrao: Story = {};
 export const Grid: Story = {
   render: () => (
     <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, maxWidth: 760 }}>
-      <FeatureCard icon={<Briefcase />} title="Vagas e oportunidades" description="Estágios e empregos do CENPRE e de parceiros." />
-      <FeatureCard icon={<FileText />} title="Documentos de estágio" description="Emita TCE, termos e relatórios online." />
-      <FeatureCard icon={<ShieldCheck />} title="Suporte em todas as etapas" description="Do cadastro à efetivação, com orientação." />
+      <FeatureCard
+        icon={<Briefcase />}
+        title="Vagas e oportunidades"
+        description="Estágios e empregos do CENPRE e de parceiros."
+      />
+      <FeatureCard
+        icon={<FileText />}
+        title="Documentos de estágio"
+        description="Emita TCE, termos e relatórios online."
+      />
+      <FeatureCard
+        icon={<ShieldCheck />}
+        title="Suporte em todas as etapas"
+        description="Do cadastro à efetivação, com orientação."
+      />
     </div>
   ),
 };

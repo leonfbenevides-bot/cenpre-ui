@@ -51,7 +51,9 @@ export function Avatar({ src, alt = "", fallback, icon, size = "md", className }
       ) : fallback ? (
         <span aria-hidden>{fallback.slice(0, 2).toUpperCase()}</span>
       ) : (
-        <span aria-hidden className="text-magenta-700">{icon}</span>
+        <span aria-hidden className="text-magenta-700">
+          {icon}
+        </span>
       )}
     </div>
   );

@@ -18,7 +18,10 @@ const HOST = process.env.SB_HOST ?? "http://localhost:6006";
 function chromePath() {
   const root = path.join(os.homedir(), "AppData", "Local", "ms-playwright");
   const dir = fs.readdirSync(root).find((d) => /^chromium-\d+$/.test(d));
-  if (!dir) throw new Error("Chromium do Playwright não encontrado — rode `npx playwright install chromium`.");
+  if (!dir)
+    throw new Error(
+      "Chromium do Playwright não encontrado — rode `npx playwright install chromium`.",
+    );
   for (const sub of ["chrome-win64", "chrome-win"]) {
     const exe = path.join(root, dir, sub, "chrome.exe");
     if (fs.existsSync(exe)) return exe;
@@ -34,10 +37,15 @@ const stories = Object.values(index.entries).filter(
 const browser = await chromium.launch({ executablePath: chromePath() });
 let totalSerious = 0;
 
-for (const viewport of [{ name: "desktop", width: 1440, height: 900 }, { name: "mobile", width: 390, height: 844 }]) {
+for (const viewport of [
+  { name: "desktop", width: 1440, height: 900 },
+  { name: "mobile", width: 390, height: 844 },
+]) {
   const page = await browser.newPage({ viewport });
   for (const story of stories) {
-    await page.goto(`${HOST}/iframe.html?id=${encodeURIComponent(story.id)}&viewMode=story`, { waitUntil: "networkidle" });
+    await page.goto(`${HOST}/iframe.html?id=${encodeURIComponent(story.id)}&viewMode=story`, {
+      waitUntil: "networkidle",
+    });
     await page.addScriptTag({ path: axePath });
     const result = await page.evaluate(() => axe.run(document, { resultTypes: ["violations"] }));
     const serious = result.violations.filter((v) => ["serious", "critical"].includes(v.impact));
@@ -58,5 +66,7 @@ for (const viewport of [{ name: "desktop", width: 1440, height: 900 }, { name: "
 }
 
 await browser.close();
-console.log(totalSerious === 0 ? "\nSem violações sérias ✓" : `\n${totalSerious} violações sérias/críticas ✗`);
+console.log(
+  totalSerious === 0 ? "\nSem violações sérias ✓" : `\n${totalSerious} violações sérias/críticas ✗`,
+);
 process.exit(totalSerious === 0 ? 0 : 1);

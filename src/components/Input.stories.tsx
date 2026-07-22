@@ -16,13 +16,12 @@ type Story = StoryObj<typeof Input>;
 
 export const Padrao: Story = {};
 export const ComHint: Story = { args: { hint: "Usaremos para retornar o contato." } };
-export const ComErro: Story = { args: { label: "Telefone", error: "Campo obrigatório", placeholder: "(22) 00000-0000" } };
+export const ComErro: Story = {
+  args: { label: "Telefone", error: "Campo obrigatório", placeholder: "(22) 00000-0000" },
+};
 export const Desabilitado: Story = { args: { disabled: true, value: "não editável" } };
 
+/** O `Textarea` ocupa 100% da largura do container (fill) — como no formulário real. */
 export const AreaDeTexto: StoryObj<typeof Textarea> = {
-  render: () => (
-    <div style={{ width: 360 }}>
-      <Textarea label="Mensagem" placeholder="Escreva a sua mensagem..." rows={4} />
-    </div>
-  ),
+  render: () => <Textarea label="Mensagem" placeholder="Escreva a sua mensagem..." rows={4} />,
 };

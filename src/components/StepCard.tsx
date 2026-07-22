@@ -31,7 +31,10 @@ export function StepCard({ number, title, description, icon, className }: StepCa
           <p className="text-[13px] leading-relaxed text-charcoal-400">{description}</p>
         </div>
         {icon && (
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-magenta-100 text-magenta-700" aria-hidden>
+          <span
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-magenta-100 text-magenta-700"
+            aria-hidden
+          >
             {icon}
           </span>
         )}

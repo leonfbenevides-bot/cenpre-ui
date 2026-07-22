@@ -21,6 +21,7 @@ npm run typecheck      # valida os tipos
 **Storybook publicado: https://cenpre-ui.vercel.app**
 
 ### Compartilhar via Storybook (recomendado)
+
 `npm run build-storybook` produz `storybook-static/` — um site estático que renderiza os **componentes React reais** (não uma réplica). Faça deploy dessa pasta para compartilhar por link: **Vercel / Netlify / GitHub Pages** (`storybook-static/`) ou **Chromatic** (`npx chromatic`). É a forma canônica de handoff visual — sem risco de divergir do código.
 
 Os componentes ficam em `src/components/` (copy-in, sem caixa-preta). Importe pelo barrel:
@@ -35,15 +36,15 @@ import { Button, JobCard, AccordionList } from "cenpre-ui"; // ou "@/index" no m
 
 Extraídos do arquivo Figma "UCAM SITE". Definidos em `tailwind.config.ts` (classes Tailwind) e em `src/styles/globals.css` (CSS vars para uso fora do Tailwind).
 
-| Grupo | Tokens |
-|---|---|
-| **Marca (magenta)** | `100 #fff0f5` · `200 #ffdde8` · `300 #fcb9ce` · `400 #f494b2` · `500 #ea7095` · `600 #d64e76` · **`700 #b4365b` (primária)** · `800 #922243` · `900 #70132f` · `1000 #530e23` |
-| **Ash (neutros claros)** | `100 #f9fafb` · `200 #f1f3f5` · `300 #e2e6e9` · `400 #d6dce0` · `600 #939eaa` |
-| **Charcoal (texto)** | `100 #758493` · `200 #566574` · `300 #415260` · `400 #3c4b57` (corpo) · `500 #303e49` (títulos) |
-| **Spacing** | escala `4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 48 · 56 · 64 · 80 · 96` (px) — `spacing.token-*` |
-| **Radius** | `chip 8px` · `card 16px` · `pill 100px` |
-| **Fonte** | **Work Sans** (títulos/display — `font-display`) · **Inter** (corpo/UI — `font-sans`, padrão) |
-| **Ícones** | [Lucide](https://lucide.dev/icons/) (`lucide-react`) — padrão shadcn |
+| Grupo                    | Tokens                                                                                                                                                                        |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Marca (magenta)**      | `100 #fff0f5` · `200 #ffdde8` · `300 #fcb9ce` · `400 #f494b2` · `500 #ea7095` · `600 #d64e76` · **`700 #b4365b` (primária)** · `800 #922243` · `900 #70132f` · `1000 #530e23` |
+| **Ash (neutros claros)** | `100 #f9fafb` · `200 #f1f3f5` · `300 #e2e6e9` · `400 #d6dce0` · `600 #939eaa`                                                                                                 |
+| **Charcoal (texto)**     | `100 #758493` · `200 #566574` · `300 #415260` · `400 #3c4b57` (corpo) · `500 #303e49` (títulos)                                                                               |
+| **Spacing**              | escala `4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 48 · 56 · 64 · 80 · 96` (px) — `spacing.token-*`                                                                                |
+| **Radius**               | `chip 8px` · `card 16px` · `pill 100px`                                                                                                                                       |
+| **Fonte**                | **Work Sans** (títulos/display — `font-display`) · **Inter** (corpo/UI — `font-sans`, padrão)                                                                                 |
+| **Ícones**               | [Lucide](https://lucide.dev/icons/) (`lucide-react`) — padrão shadcn                                                                                                          |
 
 Uso em Tailwind: `bg-magenta-700`, `text-charcoal-500`, `border-ash-300`, `rounded-card`, `p-token-24`.
 
@@ -54,43 +55,47 @@ Uso em Tailwind: `bg-magenta-700`, `text-charcoal-500`, `border-ash-300`, `round
 Estados interativos: **default · hover · active · focus-visible** (anel global acessível) **· disabled**. Todos aceitam `className` (mesclado via `tailwind-merge`).
 
 ### Primitivos
-| Componente | Props principais | Notas |
-|---|---|---|
-| `Button` | `variant` (primary/secondary/ghost/link), `size` (sm/md/lg), `fullWidth`, `leftIcon`, `rightIcon`, `asChild` | CVA; `asChild` renderiza `<a>` mantendo o estilo |
-| `Tag` | `tone` (neutral/brand/accent), `size` (sm/md) | Fontes parceiras (CIEE/NUBE) → `tone="accent"` |
-| `Input` | `label`, `hint`, `error`, `leftIcon` + props nativas | Acessível (`label`, `aria-invalid`, `aria-describedby`) |
-| `Textarea` | `label`, `hint`, `error`, `rows` | idem Input |
-| `Avatar` | `src`, `fallback` (iniciais), `icon`, `size` | logo de empresa no JobCard |
-| `IconChip` | `size`, `tone` | quadrado com ícone (módulos/passos/docs) |
-| `Divider` | `orientation` | |
+
+| Componente | Props principais                                                                                             | Notas                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| `Button`   | `variant` (primary/secondary/ghost/link), `size` (sm/md/lg), `fullWidth`, `leftIcon`, `rightIcon`, `asChild` | CVA; `asChild` renderiza `<a>` mantendo o estilo        |
+| `Tag`      | `tone` (neutral/brand/accent), `size` (sm/md)                                                                | Fontes parceiras (CIEE/NUBE) → `tone="accent"`          |
+| `Input`    | `label`, `hint`, `error`, `leftIcon` + props nativas                                                         | Acessível (`label`, `aria-invalid`, `aria-describedby`) |
+| `Textarea` | `label`, `hint`, `error`, `rows`                                                                             | idem Input                                              |
+| `Avatar`   | `src`, `fallback` (iniciais), `icon`, `size`                                                                 | logo de empresa no JobCard                              |
+| `IconChip` | `size`, `tone`                                                                                               | quadrado com ícone (módulos/passos/docs)                |
+| `Divider`  | `orientation`                                                                                                |                                                         |
 
 ### Composição
-| Componente | Props principais |
-|---|---|
-| `SectionHeading` | `eyebrow`, `title`, `subtitle`, `align`, `as` |
-| `Card` | `as`, `padding`, `interactive` |
-| `FeatureCard` | `icon`, `title`, `description` — cobre **módulos** e **números** |
-| `StepCard` | `number`, `title`, `description`, `icon` |
-| `DocCard` | `label`, `icon`, `items[]` |
-| `JobCard` | `title`, `company`, `area`, `source`, `modality`, `location`, `salary`, `logoSrc`, `actionLabel`, `href` |
-| `LogoBand` | `items[]` (`{name, src?, href?}`) — Centrais parceiras |
-| `Pagination` | `page`, `totalPages`, `onPageChange`, `siblingCount` |
-| `Carousel` | `slides[]`, `ariaLabel`, `arrows`, `dots` — acessível (setas/dots/teclado ← →) |
+
+| Componente       | Props principais                                                                                         |
+| ---------------- | -------------------------------------------------------------------------------------------------------- |
+| `SectionHeading` | `eyebrow`, `title`, `subtitle`, `align`, `as`                                                            |
+| `Card`           | `as`, `padding`, `interactive`                                                                           |
+| `FeatureCard`    | `icon`, `title`, `description` — cobre **módulos** e **números**                                         |
+| `StepCard`       | `number`, `title`, `description`, `icon`                                                                 |
+| `DocCard`        | `label`, `icon`, `items[]`                                                                               |
+| `JobCard`        | `title`, `company`, `area`, `source`, `modality`, `location`, `salary`, `logoSrc`, `actionLabel`, `href` |
+| `LogoBand`       | `items[]` (`{name, src?, href?}`) — Centrais parceiras                                                   |
+| `Pagination`     | `page`, `totalPages`, `onPageChange`, `siblingCount`                                                     |
+| `Carousel`       | `slides[]`, `ariaLabel`, `arrows`, `dots` — acessível (setas/dots/teclado ← →)                           |
 
 ### Interativos (Radix)
-| Componente | API |
-|---|---|
+
+| Componente  | API                                                                                                                                       |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `Accordion` | composável (`Accordion`/`AccordionItem`/`AccordionTrigger`/`AccordionContent`) **ou** atalho `AccordionList items={[{question, answer}]}` |
-| `Tabs` | composável (`Tabs`/`TabsList`/`TabsTrigger`/`TabsContent`) **ou** atalho `TabsPills items={[{value, label, content}]}` |
+| `Tabs`      | composável (`Tabs`/`TabsList`/`TabsTrigger`/`TabsContent`) **ou** atalho `TabsPills items={[{value, label, content}]}`                    |
 
 ### Blocos de página
-| Componente | Props principais |
-|---|---|
-| `PageHero` | `eyebrow`, `title`, `subtitle`, `actions`, `pills`, `breadcrumb`, `align` (fundo magenta) |
-| `ContactForm` | `title`, `description`, `contactLines`, `onSubmit` — "FALE COM A GENTE" responsivo |
-| `PlatformCTA` | `title`, `description`, `primaryHref/onPrimary`, `secondaryLabel`, `media` |
-| `Header` | `brand`, `navItems[]`, `ctaLabel/ctaHref`, `aside` — menu hambúrguer no mobile |
-| `Footer` | `brand`, `columns[]`, `contact`, `legal` |
+
+| Componente    | Props principais                                                                          |
+| ------------- | ----------------------------------------------------------------------------------------- |
+| `PageHero`    | `eyebrow`, `title`, `subtitle`, `actions`, `pills`, `breadcrumb`, `align` (fundo magenta) |
+| `ContactForm` | `title`, `description`, `contactLines`, `onSubmit` — "FALE COM A GENTE" responsivo        |
+| `PlatformCTA` | `title`, `description`, `primaryHref/onPrimary`, `secondaryLabel`, `media`                |
+| `Header`      | `brand`, `navItems[]`, `ctaLabel/ctaHref`, `aside` — menu hambúrguer no mobile            |
+| `Footer`      | `brand`, `columns[]`, `contact`, `legal`                                                  |
 
 ---
 
@@ -138,6 +143,7 @@ export default {
 4. **Estilos base:** importe `globals.css` uma vez na raiz do app (traz Work Sans, as CSS vars e o anel de foco acessível).
 
 ## Convenções (padrão shadcn/ui)
+
 - Variants tipadas com **CVA** (`class-variance-authority`).
 - Acessibilidade dos interativos via **Radix UI** (teclado + ARIA).
 - `cn()` para merge de classes; `className` sempre aceito para override.

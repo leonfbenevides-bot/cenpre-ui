@@ -18,7 +18,13 @@ function range(start: number, end: number) {
 /**
  * Paginação (Anterior / números / Próximo) com reticências.
  */
-export function Pagination({ page, totalPages, onPageChange, siblingCount = 5, className }: PaginationProps) {
+export function Pagination({
+  page,
+  totalPages,
+  onPageChange,
+  siblingCount = 5,
+  className,
+}: PaginationProps) {
   const pages: (number | "…")[] = [];
   if (totalPages <= siblingCount + 2) {
     pages.push(...range(1, totalPages));
@@ -33,9 +39,19 @@ export function Pagination({ page, totalPages, onPageChange, siblingCount = 5, c
   }
 
   return (
-    <nav className={cn("flex items-center justify-between gap-4", className)} aria-label="Paginação">
-      <Button variant="secondary" size="sm" disabled={page <= 1} onClick={() => onPageChange?.(page - 1)}>
-        <span className="rotate-180"><ArrowRightIcon size={16} /></span>
+    <nav
+      className={cn("flex items-center justify-between gap-4", className)}
+      aria-label="Paginação"
+    >
+      <Button
+        variant="secondary"
+        size="sm"
+        disabled={page <= 1}
+        onClick={() => onPageChange?.(page - 1)}
+      >
+        <span className="rotate-180">
+          <ArrowRightIcon size={16} />
+        </span>
         Anterior
       </Button>
       <ul className="flex items-center gap-1">
@@ -60,7 +76,12 @@ export function Pagination({ page, totalPages, onPageChange, siblingCount = 5, c
           ),
         )}
       </ul>
-      <Button variant="secondary" size="sm" disabled={page >= totalPages} onClick={() => onPageChange?.(page + 1)}>
+      <Button
+        variant="secondary"
+        size="sm"
+        disabled={page >= totalPages}
+        onClick={() => onPageChange?.(page + 1)}
+      >
         Próximo
         <ArrowRightIcon size={16} />
       </Button>
