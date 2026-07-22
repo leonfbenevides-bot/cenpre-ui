@@ -18,23 +18,33 @@ import {
   StarIcon,
 } from "../components/Icons";
 import type { UnidadeContent, EmpresaContent } from "../content/types";
-import { SiteFooter, KeywordTicker, FormatoPillLabel } from "./shared";
-import heroScene1 from "../assets/student-hero-1.jpg";
-import heroScene2 from "../assets/student-hero-2.jpg";
-import editorialImg from "../assets/student-walking.jpg";
+import { SiteFooter, KeywordTicker, FormatoPillLabel, Marquee, CompactNewsCard } from "./shared";
+// Fotos avulsas para o hero — cada uma é de uma cena/modelo diferente (nunca do
+// mesmo conjunto casado usado nas colagens abaixo).
+import heroScene1 from "../assets/hero-scene-1.jpg";
+import heroScene2 from "../assets/hero-scene-2.jpg";
+import heroScene3 from "../assets/hero-aluno-bg.jpg";
+import empHero1 from "../assets/hero-empresa-bg.jpg";
+import empHero2 from "../assets/hero-office.jpg";
+// Cutouts avulsos para os banners de CTA (sem par "fundo" usado em outra seção).
+import ctaImgAluno from "../assets/hero-student-1.webp";
+import ctaImgEmpresa from "../assets/hero-student-2.webp";
+// Conjuntos casados (mesma sessão/modelo) — usados só em colagens, nunca soltos.
+import studentHero1 from "../assets/student-hero-1.jpg";
+import studentHero2 from "../assets/student-hero-2.jpg";
+import studentWalking from "../assets/student-walking.jpg";
+import studentPortrait from "../assets/student-portrait-close.jpg";
+import professionalPortrait1 from "../assets/professional-portrait-1.jpg";
+import professionalPortrait2 from "../assets/professional-portrait-2.jpg";
+import professionalDeskBack from "../assets/professional-desk-back.jpg";
+import professionalDeskOverhead from "../assets/professional-desk-overhead.jpg";
+// Depoimento em destaque e "Sobre" (Empresa) — colagens já corretas, mantidas.
 import depoClose from "../assets/depo-close.jpg";
 import depoWide from "../assets/depo-wide.jpg";
-import depoPortrait from "../assets/student-portrait-close.jpg";
 import avatar1 from "../assets/avatar-1.jpg";
-import empHero1 from "../assets/hero-empresa-bg.jpg";
-import empHero2 from "../assets/professional-portrait-1.jpg";
-import empHero3 from "../assets/professional-portrait-2.jpg";
-import ofertasImg from "../assets/professional-desk-back.jpg";
 import emp1 from "../assets/emp-1.jpg";
 import emp2 from "../assets/emp-2.jpg";
 import emp3 from "../assets/emp-3.jpg";
-import ctaImgEmpresa from "../assets/professional-desk-overhead.jpg";
-import ctaImgAluno from "../assets/student-hero-2.jpg";
 
 /**
  * PILOTO — Home unificada no visual "Editorial Aspiracional" (Fraunces,
@@ -145,7 +155,7 @@ export function HomeRedesign({
       ),
       sub: "Oportunidades, orientações de estágio, convênios e conteúdos que aproximam alunos, egressos e empresas do mercado de trabalho.",
       image: heroScene1,
-      alt: "Estudante da UCAM estudando no campus",
+      alt: "Estudante da UCAM estudando entre plantas",
       primary: "Tenho interesse",
       secondary: "Explorar vagas",
     },
@@ -160,7 +170,7 @@ export function HomeRedesign({
       ),
       sub: "Da orientação de carreira ao primeiro emprego, o CENPRE acompanha cada etapa da sua jornada profissional.",
       image: heroScene2,
-      alt: "Estudante da UCAM caminhando pelo campus",
+      alt: "Estudante da UCAM em laboratório",
       primary: "Tenho interesse",
       secondary: "Explorar vagas",
     },
@@ -174,8 +184,8 @@ export function HomeRedesign({
         </>
       ),
       sub: "Orientação de currículo, entrevistas e carreira — para você chegar mais preparado em cada oportunidade.",
-      image: depoPortrait,
-      alt: "Estudante da UCAM ao ar livre",
+      image: heroScene3,
+      alt: "Estudante da UCAM em ambiente colaborativo de trabalho",
       primary: "Tenho interesse",
       secondary: "Explorar vagas",
     },
@@ -198,7 +208,7 @@ export function HomeRedesign({
       secondary: empHero.secondaryLabel,
     },
     {
-      kicker: "Estágio · Emprego · Convênios",
+      kicker: "Estágio · Emprego · Marca empregadora",
       title: (
         <>
           Publique vagas e receba
@@ -206,26 +216,11 @@ export function HomeRedesign({
           candidatos <span className="text-magenta-300">qualificados.</span>
         </>
       ),
-      sub: "Divulgação de vagas, captação de estagiários e gestão simplificada — com respaldo jurídico e agilidade.",
+      sub: "Divulgação de vagas, captação de estagiários e visibilidade da sua marca entre os talentos UCAM — com respaldo jurídico e agilidade.",
       image: empHero2,
       alt: "Profissional em escritório",
       primary: "Cadastrar minha empresa",
       secondary: "Ver como funciona",
-    },
-    {
-      kicker: "Marca empregadora",
-      title: (
-        <>
-          Fortaleça sua marca
-          <br />
-          entre os <span className="text-magenta-300">talentos UCAM.</span>
-        </>
-      ),
-      sub: "Acesso a currículos qualificados, suporte completo na formalização de estágios e visibilidade na plataforma.",
-      image: empHero3,
-      alt: "Profissional em ambiente corporativo",
-      primary: "Por que ser parceiro?",
-      secondary: "Fale com a gente",
     },
   ];
 
@@ -320,7 +315,7 @@ export function HomeRedesign({
         </header>
 
         {/* Conteúdo do hero (troca por slide) */}
-        <div className="relative z-10 mx-auto flex w-full max-w-container flex-1 flex-col justify-center px-6 pb-10 pt-8 md:px-gutter">
+        <div className="relative z-10 mx-auto flex w-full max-w-container flex-1 flex-col justify-end px-6 pb-10 pt-8 md:px-gutter">
           <div key={`txt-${perfil}-${i}`} className="max-w-2xl">
             <Reveal
               as="p"
@@ -531,21 +526,37 @@ export function HomeRedesign({
                 </ul>
               </div>
 
-              <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+              {/* Colagem (mesma estudante em 4 momentos do campus) */}
+              <div className="relative mx-auto h-[440px] w-full max-w-md lg:h-[560px] lg:max-w-none">
                 <div
                   aria-hidden
-                  className="absolute -right-4 -top-6 h-40 w-40 rounded-3xl bg-magenta-700/90"
+                  className="absolute -right-4 -top-6 h-32 w-32 rounded-3xl bg-magenta-700/90"
                 />
                 <div
                   aria-hidden
-                  className="absolute -bottom-8 -left-6 hidden h-28 w-28 rounded-2xl border border-magenta-200 bg-magenta-100 lg:block"
+                  className="absolute -bottom-8 -left-6 hidden h-24 w-24 rounded-2xl border border-magenta-200 bg-magenta-100 lg:block"
                 />
                 <img
-                  src={editorialImg}
-                  alt="Estudante da UCAM caminhando pelo campus"
-                  className="relative aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl shadow-charcoal-500/20"
+                  src={studentHero1}
+                  alt="Estudante da UCAM no campus, com o prédio ao fundo"
+                  className="absolute left-0 top-0 h-[60%] w-[58%] rounded-3xl object-cover shadow-2xl"
                 />
-                <div className="absolute -bottom-6 right-6 flex items-center gap-3 rounded-2xl border border-white/60 bg-white/80 p-4 shadow-xl shadow-charcoal-500/10 backdrop-blur-md">
+                <img
+                  src={studentHero2}
+                  alt="Estudante da UCAM caminhando pelo campus"
+                  className="absolute bottom-0 right-0 h-[64%] w-[50%] rounded-3xl object-cover shadow-2xl ring-4 ring-white"
+                />
+                <img
+                  src={studentWalking}
+                  alt="Detalhe da estudante caminhando pelo campus"
+                  className="absolute bottom-3 left-0 hidden h-[30%] w-[28%] rounded-2xl object-cover shadow-xl ring-4 ring-white sm:block"
+                />
+                <img
+                  src={studentPortrait}
+                  alt="Retrato em close da estudante da UCAM"
+                  className="absolute right-3 top-3 h-[28%] w-[26%] rounded-2xl object-cover shadow-xl ring-4 ring-white"
+                />
+                <div className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-2xl border border-white/60 bg-white/90 p-4 shadow-xl shadow-charcoal-500/10 backdrop-blur-md">
                   <span className="font-editorial text-3xl font-semibold text-magenta-700">
                     98%
                   </span>
@@ -785,89 +796,88 @@ export function HomeRedesign({
 
           {/* =================== LOGOS DE PARCEIROS =================== */}
           <section className="border-y border-ash-300 py-16">
-            <div className="mx-auto max-w-container px-6 md:px-gutter">
-              <p className="text-center font-editorial text-xl text-charcoal-400">
-                {logosParceiros.titulo}
-              </p>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+            <p className="mx-auto max-w-container px-6 text-center font-editorial text-xl text-charcoal-400 md:px-gutter">
+              {logosParceiros.titulo}
+            </p>
+            <div className="mt-10">
+              <Marquee durationSeconds={38}>
                 {logosParceiros.logos.map((l) => (
-                  <img
-                    key={l.nome}
-                    src={l.src}
-                    alt={l.nome}
-                    title={l.nome}
-                    className="h-8 w-auto object-contain opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0"
-                  />
+                  <span key={l.nome} className="flex shrink-0 items-center pr-14">
+                    <img
+                      src={l.src}
+                      alt={l.nome}
+                      title={l.nome}
+                      className="h-12 w-auto object-contain opacity-90 grayscale-[65%] transition-all hover:opacity-100 hover:grayscale-0 md:h-14"
+                    />
+                  </span>
                 ))}
-              </div>
+              </Marquee>
             </div>
           </section>
 
-          {/* ===================== NOTÍCIAS ===================== */}
+          {/* ============== CONTEÚDOS (biblioteca + últimas notícias) ============== */}
           <section className="bg-ash-100/60">
             <div className="mx-auto max-w-container px-6 py-24 md:px-gutter">
               <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                 <div className="max-w-xl">
                   <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-magenta-700">
-                    Conteúdos
+                    {bibliotecaResumo.eyebrow}
                   </p>
                   <h2 className="font-editorial text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.03] tracking-[-0.015em] text-charcoal-500">
-                    Últimas notícias
+                    {bibliotecaResumo.title}
                   </h2>
                 </div>
-                <Button variant="secondary" asChild>
-                  <a href="/conteudos">Ver todos</a>
-                </Button>
+                <a
+                  href="/conteudos/biblioteca"
+                  className="inline-flex items-center gap-2 text-[15px] font-semibold text-magenta-700 hover:text-magenta-800"
+                >
+                  {bibliotecaResumo.verMaisLabel}
+                  <ArrowRightIcon size={16} />
+                </a>
               </div>
-              <div className="mt-12 grid gap-6 md:grid-cols-3">
-                {noticias.map((n) => (
-                  <NewsCard key={n.title} {...n} />
-                ))}
+              <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
+                <TabsPills
+                  items={bibliotecaResumo.formatos
+                    .filter((formato) => formato !== "Podcasts")
+                    .map((formato) => {
+                      const itens = bibliotecaResumo.itens.filter((it) => it.formato === formato);
+                      return {
+                        value: formato,
+                        label: <FormatoPillLabel formato={formato} />,
+                        content:
+                          itens.length > 0 ? (
+                            <div className="grid gap-6 pt-6 sm:grid-cols-2">
+                              {itens.map((it) => (
+                                <NewsCard key={it.title} {...it} />
+                              ))}
+                            </div>
+                          ) : (
+                            <p className="pt-6 text-sm text-charcoal-300">
+                              Conteúdos de {formato.toLowerCase()} em breve.
+                            </p>
+                          ),
+                      };
+                    })}
+                />
+                <div className="border-t border-ash-300 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-editorial text-lg font-semibold text-charcoal-500">
+                      Últimas notícias
+                    </h3>
+                    <a
+                      href="/conteudos"
+                      className="text-xs font-semibold text-magenta-700 hover:text-magenta-800"
+                    >
+                      Ver todas
+                    </a>
+                  </div>
+                  <div className="mt-6 divide-y divide-ash-300">
+                    {noticias.map((n) => (
+                      <CompactNewsCard key={n.title} {...n} className="py-4 first:pt-0" />
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </section>
-
-          {/* =================== BIBLIOTECA DE CONTEÚDOS =================== */}
-          <section className="mx-auto max-w-container px-6 py-24 md:px-gutter">
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-xl">
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-magenta-700">
-                  {bibliotecaResumo.eyebrow}
-                </p>
-                <h2 className="font-editorial text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.03] tracking-[-0.015em] text-charcoal-500">
-                  {bibliotecaResumo.title}
-                </h2>
-              </div>
-              <a
-                href="/conteudos/biblioteca"
-                className="inline-flex items-center gap-2 text-[15px] font-semibold text-magenta-700 hover:text-magenta-800"
-              >
-                {bibliotecaResumo.verMaisLabel}
-                <ArrowRightIcon size={16} />
-              </a>
-            </div>
-            <div className="mt-10">
-              <TabsPills
-                items={bibliotecaResumo.formatos.map((formato) => {
-                  const itens = bibliotecaResumo.itens.filter((it) => it.formato === formato);
-                  return {
-                    value: formato,
-                    label: <FormatoPillLabel formato={formato} />,
-                    content:
-                      itens.length > 0 ? (
-                        <div className="grid gap-6 pt-6 md:grid-cols-3">
-                          {itens.map((it) => (
-                            <NewsCard key={it.title} {...it} />
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="pt-6 text-sm text-charcoal-300">
-                          Conteúdos de {formato.toLowerCase()} em breve.
-                        </p>
-                      ),
-                  };
-                })}
-              />
             </div>
           </section>
 
@@ -965,26 +975,18 @@ export function HomeRedesign({
           {/* ============================ CTA ============================ */}
           <section className="mx-auto max-w-container px-6 py-20 md:px-gutter">
             <div className="relative overflow-hidden rounded-[28px] bg-charcoal-500 px-8 py-16 text-white md:px-16 md:py-20">
+              <div
+                aria-hidden
+                className="absolute -right-16 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full opacity-40 blur-3xl"
+                style={{
+                  background: "radial-gradient(circle, rgba(180,54,91,0.7), transparent 70%)",
+                }}
+              />
               <img
                 src={ctaImgAluno}
                 alt=""
                 aria-hidden
-                className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[46%] object-cover object-center lg:block"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0 hidden lg:block"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #303e49 0%, #303e49 48%, rgba(48,62,73,0.82) 62%, rgba(48,62,73,0.25) 100%)",
-                }}
-              />
-              <div
-                aria-hidden
-                className="absolute -right-20 -top-20 h-80 w-80 rounded-full opacity-40 blur-3xl"
-                style={{
-                  background: "radial-gradient(circle, rgba(180,54,91,0.7), transparent 70%)",
-                }}
+                className="pointer-events-none absolute inset-y-0 right-6 hidden w-[34%] object-contain object-bottom drop-shadow-[0_24px_40px_rgba(0,0,0,0.4)] md:right-10 lg:block"
               />
               <p className="relative mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                 Comece agora
@@ -1047,15 +1049,35 @@ export function HomeRedesign({
                   ))}
                 </ul>
               </div>
-              <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+              {/* Colagem (mesmo profissional em 4 momentos do escritório) */}
+              <div className="relative mx-auto h-[440px] w-full max-w-md lg:h-[560px] lg:max-w-none">
                 <div
                   aria-hidden
-                  className="absolute -right-4 -top-6 h-40 w-40 rounded-3xl bg-magenta-700/90"
+                  className="absolute -right-4 -top-6 h-32 w-32 rounded-3xl bg-magenta-700/90"
+                />
+                <div
+                  aria-hidden
+                  className="absolute -bottom-8 -left-6 hidden h-24 w-24 rounded-2xl border border-magenta-200 bg-magenta-100 lg:block"
                 />
                 <img
-                  src={ofertasImg}
+                  src={professionalPortrait1}
                   alt="Profissional em ambiente de escritório"
-                  className="relative aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl shadow-charcoal-500/20"
+                  className="absolute left-0 top-0 h-[60%] w-[58%] rounded-3xl object-cover shadow-2xl"
+                />
+                <img
+                  src={professionalDeskBack}
+                  alt="Profissional trabalhando no computador, em escritório aberto"
+                  className="absolute bottom-0 right-0 h-[64%] w-[50%] rounded-3xl object-cover shadow-2xl ring-4 ring-white"
+                />
+                <img
+                  src={professionalDeskOverhead}
+                  alt="Vista de cima do profissional trabalhando na mesa"
+                  className="absolute bottom-3 left-0 hidden h-[30%] w-[28%] rounded-2xl object-cover shadow-xl ring-4 ring-white sm:block"
+                />
+                <img
+                  src={professionalPortrait2}
+                  alt="Retrato em close do profissional"
+                  className="absolute right-3 top-3 h-[28%] w-[26%] rounded-2xl object-cover shadow-xl ring-4 ring-white"
                 />
               </div>
             </div>
@@ -1212,71 +1234,69 @@ export function HomeRedesign({
             </div>
           </section>
 
-          {/* ===================== NOTÍCIAS ===================== */}
+          {/* ============== CONTEÚDOS (biblioteca + últimas notícias) ============== */}
           <section className="bg-ash-100/60">
             <div className="mx-auto max-w-container px-6 py-24 md:px-gutter">
               <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                 <div className="max-w-xl">
                   <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-magenta-700">
-                    Conteúdos
+                    Aprenda com a gente
                   </p>
                   <h2 className="font-editorial text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.03] tracking-[-0.015em] text-charcoal-500">
-                    Últimas notícias
+                    Biblioteca de Conteúdos
                   </h2>
                 </div>
-                <Button variant="secondary" asChild>
-                  <a href="/conteudos">Ver todos</a>
-                </Button>
+                <a
+                  href="/conteudos/biblioteca"
+                  className="inline-flex items-center gap-2 text-[15px] font-semibold text-magenta-700 hover:text-magenta-800"
+                >
+                  Ver mais no blog
+                  <ArrowRightIcon size={16} />
+                </a>
               </div>
-              <div className="mt-12 grid gap-6 md:grid-cols-3">
-                {noticiasEmpresa.map((n) => (
-                  <NewsCard key={n.title} {...n} />
-                ))}
+              <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
+                <TabsPills
+                  items={biblioteca.formatos
+                    .filter((formato) => formato !== "Podcasts")
+                    .map((formato) => {
+                      const itens = biblioteca.itens.filter((it) => it.formato === formato);
+                      return {
+                        value: formato,
+                        label: <FormatoPillLabel formato={formato} />,
+                        content:
+                          itens.length > 0 ? (
+                            <div className="grid gap-6 pt-6 sm:grid-cols-2">
+                              {itens.map((it) => (
+                                <NewsCard key={it.title} {...it} />
+                              ))}
+                            </div>
+                          ) : (
+                            <p className="pt-6 text-sm text-charcoal-300">
+                              Conteúdos de {formato.toLowerCase()} em breve.
+                            </p>
+                          ),
+                      };
+                    })}
+                />
+                <div className="border-t border-ash-300 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-editorial text-lg font-semibold text-charcoal-500">
+                      Últimas notícias
+                    </h3>
+                    <a
+                      href="/conteudos"
+                      className="text-xs font-semibold text-magenta-700 hover:text-magenta-800"
+                    >
+                      Ver todas
+                    </a>
+                  </div>
+                  <div className="mt-6 divide-y divide-ash-300">
+                    {noticiasEmpresa.map((n) => (
+                      <CompactNewsCard key={n.title} {...n} className="py-4 first:pt-0" />
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </section>
-
-          {/* =================== BIBLIOTECA DE CONTEÚDOS =================== */}
-          <section className="mx-auto max-w-container px-6 py-24 md:px-gutter">
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-xl">
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-magenta-700">
-                  Aprenda com a gente
-                </p>
-                <h2 className="font-editorial text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.03] tracking-[-0.015em] text-charcoal-500">
-                  Biblioteca de Conteúdos
-                </h2>
-              </div>
-              <a
-                href="/conteudos/biblioteca"
-                className="inline-flex items-center gap-2 text-[15px] font-semibold text-magenta-700 hover:text-magenta-800"
-              >
-                Ver mais no blog
-                <ArrowRightIcon size={16} />
-              </a>
-            </div>
-            <div className="mt-10">
-              <TabsPills
-                items={biblioteca.formatos.map((formato) => {
-                  const itens = biblioteca.itens.filter((it) => it.formato === formato);
-                  return {
-                    value: formato,
-                    label: <FormatoPillLabel formato={formato} />,
-                    content:
-                      itens.length > 0 ? (
-                        <div className="grid gap-6 pt-6 md:grid-cols-3">
-                          {itens.map((it) => (
-                            <NewsCard key={it.title} {...it} />
-                          ))}
-                        </div>
-                      ) : (
-                        <p className="pt-6 text-sm text-charcoal-300">
-                          Conteúdos de {formato.toLowerCase()} em breve.
-                        </p>
-                      ),
-                  };
-                })}
-              />
             </div>
           </section>
 
@@ -1303,26 +1323,18 @@ export function HomeRedesign({
           {/* ============================ CTA ============================ */}
           <section className="mx-auto max-w-container px-6 py-20 md:px-gutter">
             <div className="relative overflow-hidden rounded-[28px] bg-charcoal-500 px-8 py-16 text-white md:px-16 md:py-20">
+              <div
+                aria-hidden
+                className="absolute -right-16 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full opacity-40 blur-3xl"
+                style={{
+                  background: "radial-gradient(circle, rgba(180,54,91,0.7), transparent 70%)",
+                }}
+              />
               <img
                 src={ctaImgEmpresa}
                 alt=""
                 aria-hidden
-                className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[46%] object-cover object-center lg:block"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0 hidden lg:block"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #303e49 0%, #303e49 48%, rgba(48,62,73,0.82) 62%, rgba(48,62,73,0.25) 100%)",
-                }}
-              />
-              <div
-                aria-hidden
-                className="absolute -right-20 -top-20 h-80 w-80 rounded-full opacity-40 blur-3xl"
-                style={{
-                  background: "radial-gradient(circle, rgba(180,54,91,0.7), transparent 70%)",
-                }}
+                className="pointer-events-none absolute inset-y-0 right-6 hidden w-[34%] object-contain object-bottom drop-shadow-[0_24px_40px_rgba(0,0,0,0.4)] md:right-10 lg:block"
               />
               <p className="relative mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                 Seja parceiro

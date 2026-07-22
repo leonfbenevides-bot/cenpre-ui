@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import type { UnidadeContent } from "../content/types";
 import platformIllustration from "../assets/platform-illustration.png";
+import { cn } from "@/lib/cn";
 
 /**
  * Mapa de rotas do site (placeholder até o app definir o roteamento real).
@@ -136,20 +137,48 @@ export function NumerosSection({ numeros }: { numeros: UnidadeContent["numeros"]
   );
 }
 
+/**
+ * Faixa contínua que rola sozinha (a lista é duplicada por baixo do capô para
+ * o loop fechar sem salto) — pausa no hover, respeita `prefers-reduced-motion`.
+ */
+export function Marquee({
+  children,
+  durationSeconds = 32,
+  className,
+}: {
+  children: ReactNode;
+  durationSeconds?: number;
+  className?: string;
+}) {
+  return (
+    <div className={cn("overflow-hidden", className)}>
+      <div
+        className="flex w-max animate-marquee items-center hover:[animation-play-state:paused] motion-reduce:animate-none"
+        style={{ animationDuration: `${durationSeconds}s` }}
+      >
+        <div className="flex shrink-0 items-center">{children}</div>
+        <div className="flex shrink-0 items-center" aria-hidden="true">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /** Faixa de palavras-chave entre "logos parceiras" e "Sobre nós" (Figma: "blocks"). */
 export function KeywordTicker({ items }: { items: string[] }) {
   return (
-    <div className="border-y border-ash-300 py-12">
-      <div className="mx-auto flex max-w-content flex-wrap items-center justify-center gap-x-14 gap-y-3 px-6 md:px-gutter">
-        {items.map((item, i) => (
-          <span key={item} className="flex items-center gap-x-14">
-            {i > 0 && <span className="h-6 w-px bg-ash-300" aria-hidden />}
-            <span className="whitespace-nowrap font-display text-xl text-charcoal-400/80">
+    <div className="border-y border-ash-300 bg-charcoal-500 py-6">
+      <Marquee durationSeconds={26}>
+        {items.map((item) => (
+          <span key={item} className="flex items-center gap-x-6 pr-6">
+            <span className="whitespace-nowrap font-display text-lg font-medium uppercase tracking-[0.08em] text-white/85 md:text-xl">
               {item}
             </span>
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-magenta-500" aria-hidden />
           </span>
         ))}
-      </div>
+      </Marquee>
     </div>
   );
 }
@@ -313,6 +342,53 @@ export function FormatoPillLabel({ formato }: { formato: string }) {
       {formatoIcons[formato] && <span aria-hidden>{formatoIcons[formato]}</span>}
       {formato}
     </span>
+  );
+}
+
+/**
+ * Card compacto de notícia (linha com thumb pequena) — versão reduzida do
+ * `NewsCard`, para a lista "Últimas notícias" ao lado da Biblioteca de
+ * Conteúdos, sem disputar destaque com a grade principal.
+ */
+export function CompactNewsCard({
+  image,
+  imageAlt = "",
+  date,
+  title,
+  href,
+  className,
+}: {
+  image?: string;
+  imageAlt?: string;
+  date: string;
+  title: string;
+  href?: string;
+  className?: string;
+}) {
+  const Comp = href ? "a" : "div";
+  return (
+    <Comp
+      {...(href ? { href } : {})}
+      className={cn("group flex items-center gap-4 no-underline", className)}
+    >
+      <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-ash-200">
+        {image ? (
+          <img
+            src={image}
+            alt={imageAlt}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        ) : (
+          <div className="h-full w-full" aria-hidden />
+        )}
+      </div>
+      <div className="min-w-0">
+        <p className="text-xs text-charcoal-200">{date}</p>
+        <p className="mt-1 line-clamp-2 text-sm font-semibold leading-snug text-charcoal-500 group-hover:text-magenta-700">
+          {title}
+        </p>
+      </div>
+    </Comp>
   );
 }
 

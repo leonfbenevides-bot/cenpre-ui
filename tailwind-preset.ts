@@ -134,11 +134,15 @@ const preset: Omit<Config, "content"> = {
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in": { from: { opacity: "0" }, to: { opacity: "1" } },
+        // Faixa contínua (ticker/logos): desloca metade da largura — o conteúdo
+        // é duplicado no JSX para o loop fechar sem salto.
+        marquee: { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } },
       },
       animation: {
         "accordion-down": "accordion-down 0.22s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "reveal-up": "reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
+        marquee: "marquee 32s linear infinite",
       },
     },
   },
