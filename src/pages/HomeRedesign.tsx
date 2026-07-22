@@ -1002,7 +1002,7 @@ export function HomeRedesign({
                   src={ctaImgAluno}
                   alt=""
                   aria-hidden
-                  className="pointer-events-none absolute inset-y-0 right-6 hidden w-[34%] object-contain object-bottom drop-shadow-[0_24px_40px_rgba(0,0,0,0.4)] md:right-10 lg:block"
+                  className="pointer-events-none absolute inset-y-0 right-6 hidden h-full w-[34%] object-contain object-bottom drop-shadow-[0_24px_40px_rgba(0,0,0,0.4)] md:right-10 lg:block"
                 />
                 <p className="relative mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                   Comece agora
@@ -1350,7 +1350,7 @@ export function HomeRedesign({
                   src={ctaImgEmpresa}
                   alt=""
                   aria-hidden
-                  className="pointer-events-none absolute inset-y-0 right-6 hidden w-[34%] object-contain object-bottom drop-shadow-[0_24px_40px_rgba(0,0,0,0.4)] md:right-10 lg:block"
+                  className="pointer-events-none absolute inset-y-0 right-6 hidden h-full w-[34%] object-contain object-bottom drop-shadow-[0_24px_40px_rgba(0,0,0,0.4)] md:right-10 lg:block"
                 />
                 <p className="relative mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                   Seja parceiro
