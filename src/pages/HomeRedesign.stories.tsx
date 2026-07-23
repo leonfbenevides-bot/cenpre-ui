@@ -19,8 +19,8 @@ type Story = StoryObj<typeof HomeRedesign>;
 /**
  * PILOTO da direção "Editorial Aspiracional": tipografia display Fraunces,
  * fotografia cinematográfica, composição editorial. "Sou aluno" × "Sou
- * empresa" é uma página só — a tab troca o conteúdo por estado, sem reload.
+ * empresa" é uma página só — a tab (no hero e na faixa de perfil) troca o
+ * conteúdo inteiro por estado, incluindo o hero, sem reload. Uma única story
+ * (não duas) para não sugerir que são páginas diferentes.
  */
-export const Aluno: Story = { args: { defaultPerfil: "aluno" } };
-
-export const Empresa: Story = { args: { defaultPerfil: "empresa" } };
+export const Padrao: Story = { args: { defaultPerfil: "aluno" } };
