@@ -38,10 +38,11 @@ pessoa/sessão, fotos em ângulos/momentos diferentes. Isso muda como eu uso:
   dos dois formatos em algum lugar da página, nunca os dois em seções diferentes (senão
   é a mesma pessoa aparecendo duas vezes).
 - **Estoque atual está apertado**: as fotos avulsas boas já foram todas usadas nos
-  heros/CTAs da Home; os CTAs das 9 subpáginas reaproveitam os cutouts que sobraram
-  (`hero-student-2.webp`, `hero-aluno-model.webp`, `hero-empresa-model.webp`) revezando
-  entre páginas diferentes (nunca duas vezes na mesma página, mas repete entre páginas
-  distintas). Se quiser cutouts exclusivos por página, é hora de mandar fotos novas.
+  heros da Home. Os cutouts que sobraram (`hero-student-1/2.webp`, `hero-aluno-model.webp`,
+  `hero-empresa-model.webp`) **não devem mais ser usados em CTA** — o usuário rejeitou o
+  visual de recorte ali (ver nota abaixo). Os CTAs das 9 subpáginas e da Home ficam sem
+  foto por enquanto; se quiser CTA com foto, mande fotos **com fundo completo** (não
+  recorte) dedicadas a esse uso.
 
 ## Tipos de imagem e specs
 
@@ -58,10 +59,12 @@ pessoa/cena** (como no Figma). Se não der, uma cena de fundo neutra + um modelo
 coerente já funciona. Lembrete: cena de fundo e recorte da mesma pessoa contam como
 **uma imagem só** pra fins de "não repetir" (ver regra dos conjuntos casados acima).
 
-**Recorte também serve pro CTA de fechamento** (`EditorialCTA` com `image`): mesmo
-recorte de corpo inteiro/meio-corpo, mas sem precisar de cena de fundo — o CTA já tem
-fundo sólido (charcoal + glow magenta). Se o recorte já foi usado como "modelo de hero"
-em outra página, dá pra reaproveitar no CTA de uma página diferente (não é a mesma seção).
+**CTA de fechamento sem foto, por ora (23/07/2026):** `EditorialCTA` aceita um `image`
+opcional (cutout à direita), mas o usuário pediu pra **não usar recorte** nos CTAs — nem
+os limpos (fundo transparente) nem os com cena de mesa ao fundo. Testamos reaproveitar
+os cutouts que sobraram e não ficou bom. Até chegarem fotos **com fundo completo**
+dedicadas a CTA (não recorte), os CTAs ficam só com texto + glow magenta (o padrão
+default do componente, sem passar `image`).
 
 ## Receita de geração (prompt base)
 
