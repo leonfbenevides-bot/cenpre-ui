@@ -1,0 +1,243 @@
+{
+  "hero": {
+    "image": "src/assets/hero-empresa-bg.jpg",
+    "foreground": "src/assets/hero-empresa-model.webp",
+    "title": "Conecte-se aos talentos UCAM e fortaleça sua marca empregadora",
+    "description": "Empresas parceiras têm acesso a estudantes e egressos qualificados, gestão simplificada de estágios e suporte especializado em todo o processo.",
+    "primaryLabel": "Cadastrar minha empresa",
+    "secondaryLabel": "Por que ser parceiro?"
+  },
+  "numeros": {
+    "eyebrow": "O CENPRE em números",
+    "title": "Desenvolvendo, orientando, gerindo e recrutando.",
+    "primaryLabel": "Veja as oportunidades",
+    "secondaryLabel": "Acessar a Plataforma",
+    "stats": [
+      {
+        "value": "+ de 5.000",
+        "label": "alunos inseridos no mercado"
+      },
+      {
+        "value": "+ de 600",
+        "label": "empresas parceiras conveniadas"
+      },
+      {
+        "value": "Desde 2001",
+        "label": "conectando aluno e oportunidade"
+      },
+      {
+        "value": "+ de 98%",
+        "label": "de satisfação e sucesso"
+      }
+    ]
+  },
+  "ofertas": [
+    {
+      "icon": "handshake",
+      "title": "Convênios",
+      "description": "Lista de empresas conveniadas, processo de formalização e gestão do contrato de estágio com suporte do CENPRE.",
+      "cta": "Ver convênios",
+      "href": "/empresa/conveniadas"
+    },
+    {
+      "icon": "sparkles",
+      "title": "Por que ser parceiro",
+      "description": "Benefícios exclusivos: captação de talentos, fortalecimento da marca empregadora e acesso à rede UCAM.",
+      "cta": "Saiba mais",
+      "href": "/empresa/por-que-ser-parceiro"
+    },
+    {
+      "icon": "clipboard-list",
+      "title": "Cadastro de convênio",
+      "description": "Passo a passo para formalizar o convênio com a UCAM e começar a receber currículos e candidaturas.",
+      "cta": "Como funciona",
+      "href": "/empresa/cadastro-de-convenio"
+    },
+    {
+      "icon": "message-circle-question",
+      "title": "Perguntas de empresas",
+      "description": "Dúvidas sobre documentação, assinatura, prazos e gestão de estagiários? As respostas estão aqui.",
+      "cta": "Ver FAQ",
+      "href": "/empresa/cadastro-de-convenio#faq"
+    }
+  ],
+  "convenio": [
+    {
+      "question": "1 - O que é o convênio? Qual o seu objetivo?",
+      "answer": "O convênio é o instrumento jurídico que formaliza a parceria entre a empresa e a UCAM, autorizando a empresa a receber estagiários. É regulado pela Lei Nº 11.788/2008 e estabelece as responsabilidades de cada parte durante o período de estágio."
+    },
+    {
+      "question": "2 - Como cadastrar minha empresa",
+      "answer": "Cadastre a empresa na Plataforma CENPRE Carreiras e solicite o convênio na aba \"Estágio\" → \"Módulo de Estágio\" → \"Convênio\" → \"Novo Convênio\", selecionando o Responsável Legal e, em \"Campus\", a Universidade Candido Mendes. A vigência pode ser indeterminada."
+    },
+    {
+      "question": "3 - Quem deve assinar o convênio",
+      "answer": "O Responsável Legal indicado no contrato social ou estatuto da empresa (ou atualizado na Receita). A assinatura é digital: informe o CPF do Responsável Legal e valide com o token enviado por e-mail."
+    },
+    {
+      "question": "4 - Quais documentos são necessários",
+      "answer": "CNPJ, razão social e endereço da empresa; nome completo, CPF e e-mail do Responsável Legal; e o Contrato Social ou Estatuto que comprove que essa pessoa pode representar a empresa."
+    },
+    {
+      "question": "5 - Prazo de homologação e liberação de vagas",
+      "answer": "Após a assinatura da empresa, a equipe do CENPRE homologa o convênio em até 5 dias úteis. Com o convênio homologado, a empresa já pode cadastrar vagas e acessar currículos na plataforma."
+    }
+  ],
+  "parceiros": [
+    {
+      "name": "Tech Solutions",
+      "category": "Tecnologia",
+      "vagasAbertas": 4,
+      "href": "#"
+    },
+    {
+      "name": "Grupo ABC",
+      "category": "Indústria",
+      "vagasAbertas": 2,
+      "href": "#"
+    },
+    {
+      "name": "Hospital Regional",
+      "category": "Saúde",
+      "vagasAbertas": 3,
+      "href": "#"
+    },
+    {
+      "name": "StartupRJ",
+      "category": "Tecnologia",
+      "vagasAbertas": 1,
+      "href": "#"
+    },
+    {
+      "name": "Construtora Norte",
+      "category": "Indústria",
+      "vagasAbertas": 5,
+      "href": "#"
+    },
+    {
+      "name": "Escritório Menezes",
+      "category": "Educação",
+      "vagasAbertas": 2,
+      "href": "#"
+    }
+  ],
+  "categorias": ["Tecnologia", "Saúde", "Indústria", "Educação"],
+  "stats": [
+    {
+      "value": "Gratuito",
+      "label": "cadastro e convênio sem custo"
+    },
+    {
+      "value": "100% digital",
+      "label": "assinatura e gestão online"
+    },
+    {
+      "value": "5 dias úteis",
+      "label": "para homologação"
+    },
+    {
+      "value": "Suporte total",
+      "label": "do CENPRE"
+    }
+  ],
+  "sobre": {
+    "paragraphs": [
+      "Seja bem-vindo ao CENPRE — Centro de Práticas Empresariais, o núcleo de carreiras e empregabilidade da Universidade, criado em 2001 com a missão de apoiar o desenvolvimento profissional de nossos alunos e ex-alunos, conectando talentos ao mercado de trabalho.",
+      "Para as empresas, o CENPRE é a porta de entrada para a rede UCAM: convênios, divulgação de vagas, captação de estagiários e acompanhamento em todas as etapas do processo, com respaldo jurídico e agilidade na documentação."
+    ],
+    "ctaLabel": "Fique por dentro",
+    "href": "/institucional/sobre-nos"
+  },
+  "noticias": [
+    {
+      "author": "André Pacheco",
+      "date": "19 nov 2024",
+      "title": "Ciclo de Estudo PCL 2024.2",
+      "excerpt": "O ciclo reuniu estudantes de diferentes cursos em encontros voltados ao desenvolvimento acadêmico.",
+      "tags": ["Estudo", "UCAM"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/news-1.jpg"
+    },
+    {
+      "author": "Equipe CENPRE",
+      "date": "05 mar 2025",
+      "title": "5 erros comuns no currículo que afastam recrutadores",
+      "excerpt": "Identifique os deslizes mais frequentes e saiba como corrigir antes da próxima candidatura.",
+      "tags": ["Currículo", "Carreira"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/news-2.jpg"
+    },
+    {
+      "author": "Equipe CENPRE",
+      "date": "18 fev 2025",
+      "title": "Estágio obrigatório x não obrigatório",
+      "excerpt": "Carga horária, bolsa-auxílio e documentação têm regras diferentes entre as modalidades.",
+      "tags": ["Estágio", "Orientação"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/news-3.jpg"
+    },
+    {
+      "author": "Equipe CENPRE",
+      "date": "11 mai 2025",
+      "title": "Orienta Candido: do currículo à contratação",
+      "excerpt": "Encontro de orientação de carreira do CENPRE com dicas práticas para cada etapa da jornada até a contratação.",
+      "tags": ["Orienta Candido"],
+      "href": "/conteudos/artigo"
+    }
+  ],
+  "biblioteca": {
+    "formatos": ["Blog", "Vídeos", "Podcasts", "Workshops", "Artigos"],
+    "itens": [
+      {
+        "formato": "Blog",
+        "author": "Plataforma",
+        "date": "10 mar 2025",
+        "title": "Como aproveitar a Plataforma CENPRE para captar talentos",
+        "excerpt": "Do cadastro à triagem de currículos: um guia prático para o RH da sua empresa.",
+        "tags": ["Plataforma", "RH"],
+        "href": "/conteudos/artigo",
+        "image": "src/assets/blog-plataforma-captar-talentos.jpg"
+      },
+      {
+        "formato": "Blog",
+        "author": "Equipe CENPRE",
+        "date": "24 fev 2025",
+        "title": "Checklist de documentos: o que ter em mãos para iniciar o convênio",
+        "excerpt": "TCE, plano de atividades e seguro: organize a documentação e ganhe agilidade.",
+        "tags": ["Convênio", "Documentos"],
+        "href": "/conteudos/artigo",
+        "image": "src/assets/blog-checklist-convenio.jpg"
+      },
+      {
+        "formato": "Blog",
+        "author": "Equipe CENPRE",
+        "date": "12 fev 2025",
+        "title": "Supervisão: o que sua empresa precisa saber sobre estagiários",
+        "excerpt": "O papel do supervisor, avaliações semestrais e boas práticas de acompanhamento.",
+        "tags": ["Estágio", "Gestão"],
+        "href": "/conteudos/artigo",
+        "image": "src/assets/blog-supervisao-estagiarios.jpg"
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "Como cadastrar a minha empresa?",
+      "answer": "Acesse ucam-csm.symplicity.com, clique em \"Cadastro de Empresas\" e preencha os dados. Nossa equipe valida o cadastro e orienta os próximos passos."
+    },
+    {
+      "question": "Como solicitar convênio?",
+      "answer": "Após o cadastro na plataforma, solicite o convênio pelo formulário próprio. A equipe do CENPRE acompanha a formalização e a assinatura do termo."
+    },
+    {
+      "question": "Quem deve assinar o convênio?",
+      "answer": "O Termo de Convênio deve ser assinado pelo representante legal da empresa e pelo responsável da UCAM/CENPRE."
+    }
+  ],
+  "contato": {
+    "emailGeral": "atendimento.cenpre@ucam-campos.br",
+    "emailConvenio": "convenio.estagio@ucam-campos.br",
+    "telefone": "(22) 2726-2419",
+    "whatsapp": "(22) 99618-0786"
+  }
+}

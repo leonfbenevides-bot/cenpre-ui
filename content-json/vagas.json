@@ -1,0 +1,130 @@
+{
+  "hero": {
+    "title": "Vagas e Oportunidades",
+    "subtitle": "Estágios, empregos e oportunidades disponíveis via plataforma CENPRE e parceiros.",
+    "breadcrumb": ["Vagas e Oportunidades"]
+  },
+  "fontes": ["CENPRE", "NUBE", "Outros parceiros"],
+  "vagas": [
+    {
+      "area": "Marketing",
+      "source": "CENPRE",
+      "modality": "Estágio não obrigatório",
+      "title": "CRD — Centro de Referência Digital",
+      "company": "Marketing",
+      "location": "Rio de Janeiro | RJ",
+      "salary": "R$ 1.000,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Marketing",
+      "source": "CENPRE",
+      "modality": "Estágio não obrigatório",
+      "title": "Tribunal de Justiça do Estado do Rio de Janeiro",
+      "company": "Administração",
+      "location": "Rio de Janeiro | RJ",
+      "salary": "R$ 1.000,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Saúde",
+      "source": "CENPRE",
+      "modality": "Estágio obrigatório",
+      "title": "Hospital Universitário Pedro Ernesto",
+      "company": "Saúde",
+      "location": "Rio de Janeiro | RJ",
+      "salary": "R$ 900,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Administração",
+      "source": "NUBE",
+      "modality": "Estágio não obrigatório",
+      "title": "Secretaria Municipal de Educação",
+      "company": "Administração",
+      "location": "Campos dos Goytacazes | RJ",
+      "salary": "R$ 800,00 + VT",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Engenharia",
+      "source": "CENPRE",
+      "modality": "Estágio obrigatório",
+      "title": "Construtora Atlântica",
+      "company": "Engenharia",
+      "location": "Campos dos Goytacazes | RJ",
+      "salary": "R$ 1.100,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Educação",
+      "source": "NUBE",
+      "modality": "Estágio não obrigatório",
+      "title": "Escola Técnica Estadual",
+      "company": "Educação",
+      "location": "Campos dos Goytacazes | RJ",
+      "salary": "R$ 700,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Direito",
+      "source": "NUBE",
+      "modality": "Estágio não obrigatório",
+      "title": "Escritório Menezes Advocacia",
+      "company": "Direito",
+      "location": "Campos dos Goytacazes | RJ",
+      "salary": "R$ 1.200,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Tecnologia",
+      "source": "NUBE",
+      "modality": "Estágio não obrigatório",
+      "title": "Tech Solutions — Suporte N1",
+      "company": "Tecnologia",
+      "location": "Remoto",
+      "salary": "R$ 1.100,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Engenharia",
+      "source": "Outros parceiros",
+      "modality": "Estágio obrigatório",
+      "title": "Construtora Norte — Obras",
+      "company": "Engenharia",
+      "location": "Campos dos Goytacazes | RJ",
+      "salary": "R$ 950,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Educação",
+      "source": "CENPRE",
+      "modality": "Estágio obrigatório",
+      "title": "Colégio Candido Mendes",
+      "company": "Educação",
+      "location": "Campos dos Goytacazes | RJ",
+      "salary": "R$ 800,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Saúde",
+      "source": "NUBE",
+      "modality": "Estágio não obrigatório",
+      "title": "Clínica Vida — Fisioterapia",
+      "company": "Saúde",
+      "location": "Macaé | RJ",
+      "salary": "R$ 1.000,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Administração",
+      "source": "Outros parceiros",
+      "modality": "Emprego",
+      "title": "Grupo ABC — Analista Júnior",
+      "company": "Administração",
+      "location": "Campos dos Goytacazes | RJ",
+      "salary": "A combinar",
+      "href": "https://ucam-csm.symplicity.com/"
+    }
+  ]
+}

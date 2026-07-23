@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "title": "Por que ser parceiro do CENPRE?",
+    "subtitle": "Conecte sua empresa aos melhores talentos da UCAM. Acesso a currículos, suporte completo na formalização de estágios e fortalecimento da sua marca empregadora.",
+    "breadcrumb": ["Empresa", "Por que ser parceiro?"]
+  },
+  "intro": {
+    "eyebrow": "Parcerias CENPRE",
+    "title": "Benefícios de ser empresa parceira",
+    "description": "O convênio com o CENPRE/UCAM vai além da contratação de estagiários — é uma parceria estratégica que aproxima sua empresa de um ecossistema acadêmico ativo, com mais de 20 anos de experiência em empregabilidade."
+  },
+  "beneficios": [
+    {
+      "title": "Captação de talentos qualificados",
+      "description": "Acesso facilitado a estudantes e egressos qualificados nas áreas de Saúde, Direito, Engenharia, Gestão e Humanidades."
+    },
+    {
+      "title": "Suporte e facilidade na formalização",
+      "description": "O CENPRE cuida de toda a documentação do estágio: TCE, plano de atividades, relatórios e renovações."
+    },
+    {
+      "title": "Cumprimento da responsabilidade social",
+      "description": "Contribua diretamente com a formação de jovens profissionais e com o desenvolvimento da região."
+    },
+    {
+      "title": "Fortalecimento da marca empregadora",
+      "description": "Sua empresa em evidência na Plataforma CENPRE, vista por milhares de alunos e egressos conectados."
+    },
+    {
+      "title": "Projetos conjuntos com a universidade",
+      "description": "Possibilidade de eventos acadêmicos, cursos, treinamentos e parcerias em conjunto com a rede UCAM."
+    },
+    {
+      "title": "Aproximação com profissionais especializados",
+      "description": "Contato direto com professores e coordenadores de curso para capacitação e desenvolvimento de talentos."
+    }
+  ]
+}

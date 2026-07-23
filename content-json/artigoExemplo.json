@@ -1,0 +1,79 @@
+{
+  "breadcrumb": ["Conteúdos", "Artigos"],
+  "tags": [
+    {
+      "label": "Estudo",
+      "tone": "brand"
+    },
+    {
+      "label": "UCAM",
+      "tone": "accent"
+    }
+  ],
+  "title": "Ciclo de Estudo PCL 2024.2: Preparo, prática e impacto na formação acadêmica",
+  "author": "André Pacheco",
+  "date": "19 de novembro de 2024",
+  "readTime": "5 min de leitura",
+  "cover": "src/assets/news-1.jpg",
+  "body": [
+    {
+      "type": "p",
+      "text": "O Ciclo de Estudo PCL 2024.2 reuniu estudantes de diferentes cursos da UCAM em uma série de encontros voltados ao desenvolvimento acadêmico e profissional. Ao longo do semestre, os participantes aprofundaram conteúdos curriculares, praticaram metodologias ativas e fortaleceram competências essenciais para o mercado de trabalho."
+    },
+    {
+      "type": "quote",
+      "text": "A experiência do ciclo foi transformadora. Consegui conectar a teoria com situações reais do meu futuro campo profissional.",
+      "cite": "Estudante de Administração"
+    },
+    {
+      "type": "p",
+      "text": "Programado para atender as necessidades identificadas no perfil dos alunos, o ciclo contou com especialistas convidados, dinâmicas em grupo e produção de trabalhos aplicados. O resultado foi visível tanto no engajamento dos estudantes quanto nos indicadores de desempenho ao final do período letivo."
+    },
+    {
+      "type": "p",
+      "text": "O CENPRE acompanhou as iniciativas, orientando os participantes sobre oportunidades de estágio, criação de currículo e conexão com empresas parceiras. Muitos dos alunos que participaram do ciclo já relatam maior segurança na hora de buscar o primeiro emprego ou estágio."
+    }
+  ],
+  "autor": {
+    "nome": "André Pacheco",
+    "bio": "Coordenador de conteúdo do CENPRE, especialista em desenvolvimento profissional e carreiras universitárias."
+  },
+  "categorias": ["Estudo", "UCAM", "Carreira", "Estágio", "Mercado de trabalho"],
+  "relacionados": [
+    {
+      "author": "André Pacheco",
+      "date": "19 nov 2024",
+      "title": "Ciclo de Estudo PCL 2024.2",
+      "excerpt": "O ciclo reuniu estudantes de diferentes cursos em encontros voltados ao desenvolvimento acadêmico.",
+      "tags": ["Estudo", "UCAM"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/news-1.jpg"
+    },
+    {
+      "author": "Equipe CENPRE",
+      "date": "05 mar 2025",
+      "title": "5 erros comuns no currículo que afastam recrutadores",
+      "excerpt": "Identifique os deslizes mais frequentes e saiba como corrigir antes da próxima candidatura.",
+      "tags": ["Currículo", "Carreira"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/news-2.jpg"
+    },
+    {
+      "author": "Equipe CENPRE",
+      "date": "18 fev 2025",
+      "title": "Estágio obrigatório x não obrigatório",
+      "excerpt": "Carga horária, bolsa-auxílio e documentação têm regras diferentes entre as modalidades.",
+      "tags": ["Estágio", "Orientação"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/news-3.jpg"
+    },
+    {
+      "author": "Equipe CENPRE",
+      "date": "11 mai 2025",
+      "title": "Orienta Candido: do currículo à contratação",
+      "excerpt": "Encontro de orientação de carreira do CENPRE com dicas práticas para cada etapa da jornada até a contratação.",
+      "tags": ["Orienta Candido"],
+      "href": "/conteudos/artigo"
+    }
+  ]
+}

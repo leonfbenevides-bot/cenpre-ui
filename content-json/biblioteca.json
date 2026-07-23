@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "title": "Biblioteca de Conteúdos",
+    "subtitle": "Artigos, vídeos, podcasts e materiais para apoiar sua jornada de carreira, do primeiro currículo à efetivação.",
+    "breadcrumb": ["Conteúdos", "Biblioteca"]
+  },
+  "formatos": ["Blog", "Vídeos", "Podcasts", "Webinars", "Artigos"],
+  "itens": [
+    {
+      "formato": "Blog",
+      "author": "Plataforma",
+      "date": "10 fev 2025",
+      "title": "Como aproveitar a Plataforma CENPRE Carreiras no dia a dia",
+      "excerpt": "Cadastro de currículo, busca de vagas e acompanhamento de candidaturas em um só lugar.",
+      "tags": ["Plataforma"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/blog-plataforma-dia-a-dia.jpg"
+    },
+    {
+      "formato": "Blog",
+      "author": "Estágio",
+      "date": "24 jan 2025",
+      "title": "Checklist de documentos: o que levar antes de iniciar o estágio",
+      "excerpt": "TCE, termo de compromisso e seguro contra acidentes — confira o que é exigido antes do primeiro dia.",
+      "tags": ["Estágio"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/blog-checklist-documentos.jpg"
+    },
+    {
+      "formato": "Blog",
+      "author": "Carreira",
+      "date": "08 jan 2025",
+      "title": "Currículo: o que recrutadores realmente olham primeiro",
+      "excerpt": "Os pontos que mais pesam na triagem, segundo quem recebe centenas de currículos por vaga.",
+      "tags": ["Carreira", "Currículo"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/blog-curriculo-recrutadores.jpg"
+    },
+    {
+      "formato": "Blog",
+      "author": "Dicas do CENPRE",
+      "date": "02 abr 2025",
+      "title": "Processo seletivo: as etapas mais comuns e como se preparar para cada uma",
+      "excerpt": "Triagem de currículo, testes, dinâmica em grupo e entrevista — o que avaliam em cada fase.",
+      "tags": ["Seleção"],
+      "href": "/conteudos/artigo"
+    },
+    {
+      "formato": "Blog",
+      "author": "Dicas do CENPRE",
+      "date": "15 mar 2025",
+      "title": "Postura profissional: o que muda do ambiente acadêmico para o de trabalho",
+      "excerpt": "Comunicação, pontualidade e proatividade — comportamentos que pesam na avaliação do estagiário.",
+      "tags": ["Postura Profissional"],
+      "href": "/conteudos/artigo"
+    },
+    {
+      "formato": "Vídeos",
+      "author": "Assista CENPRE",
+      "date": "20 fev 2025",
+      "title": "Indicação: documentário sobre o mundo do trabalho para repensar sua carreira",
+      "excerpt": "Uma seleção de vídeos e documentários para inspirar sua jornada profissional.",
+      "tags": ["Assista CENPRE"],
+      "href": "/conteudos/artigo"
+    },
+    {
+      "formato": "Vídeos",
+      "author": "#UnaFacul",
+      "date": "05 fev 2025",
+      "title": "Dicas em vídeo: como se apresentar bem numa entrevista de estágio",
+      "excerpt": "Série em vídeo com orientações rápidas e diretas para o dia da entrevista.",
+      "tags": ["Vídeos"],
+      "href": "/conteudos/artigo"
+    },
+    {
+      "formato": "Webinars",
+      "author": "Aprenda CENPRE",
+      "date": "18 jan 2025",
+      "title": "Curso online: marketing pessoal e construção de imagem profissional",
+      "excerpt": "Indicação de curso gratuito para fortalecer sua presença profissional online.",
+      "tags": ["Aprenda CENPRE"],
+      "href": "/conteudos/artigo"
+    },
+    {
+      "formato": "Blog",
+      "author": "Plataforma",
+      "date": "10 mar 2025",
+      "title": "Como aproveitar a Plataforma CENPRE para captar talentos",
+      "excerpt": "Do cadastro à triagem de currículos: um guia prático para o RH da sua empresa.",
+      "tags": ["Plataforma", "RH"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/blog-plataforma-captar-talentos.jpg"
+    },
+    {
+      "formato": "Blog",
+      "author": "Equipe CENPRE",
+      "date": "24 fev 2025",
+      "title": "Checklist de documentos: o que ter em mãos para iniciar o convênio",
+      "excerpt": "TCE, plano de atividades e seguro: organize a documentação e ganhe agilidade.",
+      "tags": ["Convênio", "Documentos"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/blog-checklist-convenio.jpg"
+    },
+    {
+      "formato": "Blog",
+      "author": "Equipe CENPRE",
+      "date": "12 fev 2025",
+      "title": "Supervisão: o que sua empresa precisa saber sobre estagiários",
+      "excerpt": "O papel do supervisor, avaliações semestrais e boas práticas de acompanhamento.",
+      "tags": ["Estágio", "Gestão"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/blog-supervisao-estagiarios.jpg"
+    }
+  ]
+}

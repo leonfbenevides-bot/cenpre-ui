@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "title": "Empresas conveniadas",
+    "subtitle": "Consulte as empresas parceiras da UCAM ou indique uma nova empresa para convênio com o CENPRE.",
+    "breadcrumb": ["Empresa", "Convênios"]
+  },
+  "aviso": {
+    "title": "Lista em construção",
+    "text": "A planilha completa das empresas conveniadas está sendo integrada à plataforma e estará disponível em breve com filtros por área de atuação, cidade e tipo de vaga."
+  },
+  "indicacao": {
+    "title": "Quer indicar uma empresa?",
+    "text": "Entre em contato direto com nossa equipe de convênios:"
+  }
+}

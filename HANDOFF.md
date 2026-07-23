@@ -149,7 +149,7 @@ coluna "Decisão" como definitivo, salvo item 4 (ver nota abaixo).
 
 | #   | Tema                                                             | Decisão                                                                                                                                                                                                                                                                                      |
 | --- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Stack do site final                                              | **Next.js (App Router) + Tailwind**, SSG por unidade; a lib entra copy-in com o preset                                                                                                                                                                                                       |
+| 1   | Stack do site final                                              | **Next.js (App Router) + Tailwind**, SSG por unidade; a lib entra copy-in com o preset. ⚠️ **Em revisão (23/07/2026)** — feedback indica que o dev pode seguir com **Angular** em vez de Next.js; ver §9 antes de assumir esta linha como definitiva.                                        |
 | 2   | Fonte das vagas                                                  | Curadoria manual (campo `vagas` do content) + link "ver todas" para o Symplicity; integração via API fica para uma fase futura, se/quando o Symplicity oferecer feed                                                                                                                         |
 | 3   | CMS para notícias/FAQ/unidades                                   | Fase 1 em código (arquivos `content/`); fase 2 CMS headless usando `UnidadeContent` como schema                                                                                                                                                                                              |
 | 4   | Hospedagem e domínio                                             | Vercel/Netlify para começar. **Único item que segue pendente de fato** — não é decisão de projeto, depende do TI da UCAM ter/liberar o subdomínio (ex. `carreiras.ucam-campos.br`); definir cedo por causa de SEO                                                                            |
@@ -181,3 +181,80 @@ git push -u origin main
 Convenções de contribuição: seguir o padrão dos componentes existentes (CVA para
 variants, Radix para interativos, `className` sempre aceito, JSDoc em props não
 óbvias). Detalhes no [README.md](./README.md#convenções-padrão-shadcnui).
+
+## 9. Se o dev for de Angular (não React)
+
+Feedback recebido em 23/07/2026: o dev pode construir o site final em **Angular**,
+não em React/Next.js como estava definido no item 1 da §6. Isso **não invalida o
+trabalho feito aqui** — só muda o que é reaproveitável direto vs. o que precisa ser
+reconstruído.
+
+**Reaproveita sem trabalho extra:**
+
+- **Conteúdo/copy** — via [content-json/](./content-json/) (ver §10). Independe de
+  framework.
+- **Ícones** — usamos o set [Lucide](https://lucide.dev/), que tem pacote oficial
+  para Angular (`lucide-angular`) com **os mesmos nomes** de ícone (ex.:
+  `clipboard-list`). Os JSON de conteúdo já saem com o nome do ícone pronto para
+  esse pacote — ver tabela em §10.
+
+**Reaproveita com adaptação (mesmos valores, sintaxe diferente):**
+
+- **Tokens de design** (cores, spacing, radius, tipografia) — hoje vivem em
+  [tailwind-preset.ts](./tailwind-preset.ts), formato do Tailwind CSS **v3**. Se o
+  projeto Angular usar Tailwind v4 (caso de bibliotecas como o
+  [Zard UI](https://zardui.com), ver abaixo), a sintaxe de configuração muda (v4
+  usa `@theme` em CSS em vez de objeto JS), mas os **valores são os mesmos** — é
+  transcrição, não redesign.
+
+**Precisa ser reconstruído (não existe atalho):**
+
+- Os **componentes em si** (`src/components/*.tsx`) são código React (hooks, JSX,
+  Radix UI para acessibilidade, CVA para variantes) — não há tradução automática
+  para Angular. O dev reconstrói cada componente no ecossistema Angular, usando o
+  Storybook publicado (https://cenpre-ui.vercel.app) como referência visual/
+  comportamental (estados, espaçamento, responsivo).
+
+**Sobre o [Zard UI](https://zardui.com):** é, na prática, "o shadcn/ui do Angular"
+— mesma filosofia copy-paste (`npx zard-cli init`), Tailwind CSS v4, componentes
+com Signals. É uma boa base para o dev não partir do zero: os componentes que já
+temos (Button, Card, Tabs, Accordion, Tooltip etc., ver índice no
+[README.md](./README.md)) muito provavelmente têm equivalente direto no catálogo
+do Zard UI, já que ele espelha o mesmo catálogo do shadcn/ui que usamos aqui. Vale
+o dev conferir a lista de componentes do Zard UI e casar 1:1 com os nossos antes de
+começar a implementar do zero.
+
+**Ação recomendada:** confirmar com o dev se Angular é definitivo e, se sim,
+atualizar o item 1 da §6 (hoje ainda diz Next.js) para não deixar a decisão
+ambígua no documento.
+
+## 10. Conteúdo em JSON (para API ou app em qualquer framework)
+
+Todo objeto de [src/content/](./src/content/) tem uma versão espelho em JSON puro
+em **[content-json/](./content-json/)** — útil como contrato de API ou para
+popular um app que não seja React (Angular incluso).
+
+| Arquivo JSON            | Página(s) que usa           |
+| ----------------------- | --------------------------- |
+| `campos.json`           | Home Aluno (unidade Campos) |
+| `empresa.json`          | Home Empresa                |
+| `orientacoes.json`      | Orientações de Estágio      |
+| `curriculo.json`        | Currículo                   |
+| `conveniadas.json`      | Empresas conveniadas        |
+| `cadastroConvenio.json` | Cadastro de Convênio        |
+| `parceiro.json`         | Por que ser parceiro        |
+| `vagas.json`            | Vagas e Oportunidades       |
+| `artigoExemplo.json`    | Artigo / notícia (exemplo)  |
+| `sobreNos.json`         | Sobre nós                   |
+| `biblioteca.json`       | Biblioteca de Conteúdos     |
+
+**Regenerar depois de editar conteúdo:** `npm run export-json` (usa esbuild para
+resolver os `import` de imagem/JSX do TypeScript — não precisa de Node com suporte
+a JSX).
+
+**Único campo tratado especialmente — `icon`:** no código React esse campo é um
+componente (`<ClipboardListIcon />`); no JSON vira o nome kebab-case do ícone no
+Lucide (`"clipboard-list"`), o mesmo nome usado por `lucide-angular`,
+`lucide-vue` etc. Campos de imagem (`image`, `foreground`, `cover`) viram o
+caminho do arquivo-fonte em `src/assets/` — o dev decide onde hospedar essas
+imagens de fato; o caminho aqui é só para localizar o arquivo original.

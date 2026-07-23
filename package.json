@@ -19,7 +19,8 @@
     "format:check": "prettier --check .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test:a11y": "node scripts/a11y.mjs"
+    "test:a11y": "node scripts/a11y.mjs",
+    "export-json": "node scripts/export-content-json.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.2",
@@ -49,6 +50,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-storybook": "^0.11.1",
+    "esbuild": "^0.21.5",
     "globals": "^15.12.0",
     "playwright-core": "1.60",
     "postcss": "^8.4.47",

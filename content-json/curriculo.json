@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "title": "Currículo",
+    "subtitle": "Cadastre ou atualize seu currículo na Plataforma CENPRE. Candidate-se a apenas alguns cliques das melhores vagas de estágio e emprego.",
+    "breadcrumb": ["Alunos e Egressos", "Currículo"]
+  },
+  "intro": {
+    "eyebrow": "Currículo e carreira",
+    "title": "Escolha como quer começar",
+    "description": "Se já tem um currículo pronto, basta fazer o upload. Se ainda não tem, a própria plataforma permite criar um do zero em poucos minutos."
+  },
+  "dica": "Dica: um currículo atualizado aumenta em até 3x suas chances de ser chamado para entrevista.",
+  "caminhos": [
+    {
+      "badge": "Upload do arquivo",
+      "title": "Já tenho currículo",
+      "steps": [
+        "Na página inicial da Plataforma, clique em \"Adicionar um Currículo\".",
+        "Clique em \"Meus documentos\" e depois em \"Adicionar Novo\".",
+        "No campo \"Etiqueta\", dê um nome ao arquivo (sugestão: seu nome + CV).",
+        "Escolha o tipo de documento \"Currículo\", selecione o arquivo e clique em \"Enviar\".",
+        "Opcional: marque \"Visível às empresas\" para aparecer nas buscas de recrutadores.",
+        "Seu currículo ficará disponível em \"Meus documentos\"."
+      ]
+    },
+    {
+      "badge": "Criação na plataforma",
+      "title": "Não tenho currículo",
+      "steps": [
+        "Na página inicial da Plataforma, clique em \"Adicionar um Currículo\".",
+        "Clique em \"Criar do zero\" e depois em \"Salvar e Continuar\".",
+        "Em \"Personalizar suas seções\", escolha o que seu currículo vai mostrar.",
+        "Preencha cada seção: formação, experiências, habilidades e idiomas.",
+        "Revise o layout no botão \"Visualizar PDF\" e ajuste o que for preciso.",
+        "Ao finalizar, o documento é salvo em \"Meus documentos\" e já pode ser usado em candidaturas."
+      ]
+    }
+  ],
+  "faq": {
+    "eyebrow": "Dúvidas frequentes",
+    "title": "Perguntas sobre o currículo",
+    "itens": [
+      {
+        "question": "1 - Posso ter mais de um currículo cadastrado?",
+        "answer": "Sim. Você pode manter vários documentos em \"Meus documentos\" e escolher qual enviar em cada candidatura."
+      },
+      {
+        "question": "2 - Como edito meu currículo depois de enviado?",
+        "answer": "Acesse \"Meus documentos\" na Plataforma, selecione o currículo desejado e escolha a opção de editar. As alterações ficam disponíveis imediatamente."
+      },
+      {
+        "question": "3 - O que é o livro de currículos?",
+        "answer": "É um banco de currículos visível para empresas parceiras da UCAM. Aderir aumenta suas chances de ser encontrado para vagas de estágio e emprego."
+      }
+    ]
+  },
+  "dicas": {
+    "title": "Dicas para um bom currículo",
+    "items": [
+      "Inclua objetivo profissional claro e direto.",
+      "Liste experiências em ordem cronológica inversa (mais recente primeiro).",
+      "Mostre habilidades técnicas e idiomas com nível de proficiência.",
+      "Evite incluir foto, CPF, RG ou endereço completo.",
+      "Mantenha o arquivo em formato PDF e até 2 páginas."
+    ]
+  }
+}

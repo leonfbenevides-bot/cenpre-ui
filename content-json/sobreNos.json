@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "title": "Sobre nós",
+    "subtitle": "Conheça o CENPRE — Centro de Práticas Empresariais, o núcleo de carreiras e empregabilidade da Universidade Candido Mendes.",
+    "breadcrumb": ["Institucional", "Sobre nós"]
+  },
+  "eyebrow": "Nossa história",
+  "paragraphs": [
+    "Seja bem-vindo ao CENPRE – Centro de Práticas Empresariais, o núcleo de carreiras e empregabilidade da Universidade, criado em 2001 com a missão de apoiar o desenvolvimento profissional de nossos alunos e ex-alunos, conectando talentos ao mercado de trabalho.",
+    "Por meio de parcerias com instituições públicas e privadas, promovemos oportunidades de estágio e emprego, aproximando nossos estudantes das melhores experiências profissionais e auxiliando organizações na identificação de talentos para seus negócios.",
+    "O CENPRE é a referência para todas as ações relacionadas a estágios, oferecendo suporte na gestão e acompanhamento da documentação necessária para a formalização das atividades acadêmico-profissionais.",
+    "E não para por aí! O CENPRE promove palestras, conteúdos, eventos e iniciativas voltadas ao universo profissional, proporcionando mais aprendizado, networking e oportunidades para o desenvolvimento de carreira.",
+    "Agora, contamos também com a Plataforma CENPRE Carreiras: um ambiente digital que centraliza oportunidades, serviços e a gestão de estágios, fortalecendo a conexão entre nossos talentos e o mercado de trabalho."
+  ],
+  "ctaLabel": "Fazer contato",
+  "href": "mailto:atendimento.cenpre@ucam-campos.br"
+}

@@ -1,0 +1,524 @@
+{
+  "unidade": "Campos dos Goytacazes",
+  "hero": {
+    "image": "src/assets/hero-aluno-bg.jpg",
+    "foreground": "src/assets/hero-aluno-model.webp",
+    "title": "Conectando você ao seu futuro profissional.",
+    "description": "O CENPRE reúne oportunidades, orientações de estágio, documentos, convênios e conteúdos para aproximar alunos, egressos e empresas do mercado de trabalho."
+  },
+  "numeros": {
+    "eyebrow": "O CENPRE em números",
+    "title": "Desenvolvendo, orientando, gerindo e recrutando.",
+    "primaryLabel": "Veja as oportunidades",
+    "secondaryLabel": "Acessar a Plataforma",
+    "stats": [
+      {
+        "value": "+ de 5.000",
+        "label": "alunos inseridos no mercado"
+      },
+      {
+        "value": "+ de 600",
+        "label": "empresas parceiras conveniadas"
+      },
+      {
+        "value": "Desde 2001",
+        "label": "conectando aluno e oportunidade"
+      },
+      {
+        "value": "+ de 98%",
+        "label": "de satisfação e sucesso"
+      }
+    ]
+  },
+  "topicos": [
+    {
+      "icon": "graduation-cap",
+      "title": "Orientações de estágio",
+      "description": "Estágio obrigatório e não obrigatório, documentos, certificados e prazos e orientações por curso.",
+      "cta": "Saiba mais",
+      "href": "/aluno/orientacoes-de-estagio"
+    },
+    {
+      "icon": "briefcase",
+      "title": "Vagas e oportunidades",
+      "description": "Acesso a vagas, estágios, empregos e oportunidades por meio da plataforma CENPRE e parceiros.",
+      "cta": "Saiba mais",
+      "href": "/vagas"
+    },
+    {
+      "icon": "file-text",
+      "title": "Currículo e carreira",
+      "description": "Cadastro, orientação profissional e atualização na criação de currículo para novas oportunidades.",
+      "cta": "Saiba mais",
+      "href": "/aluno/curriculo"
+    },
+    {
+      "icon": "sparkles",
+      "title": "Ainda com dúvidas?",
+      "description": "Nossa equipe está pronta para te ajudar em qualquer etapa do processo.",
+      "cta": "Fale com a gente",
+      "href": "mailto:atendimento.cenpre@ucam-campos.br"
+    }
+  ],
+  "jornada": {
+    "aluno": {
+      "label": "Aluno",
+      "nos": [
+        {
+          "icon": "wallet",
+          "label": "Cadastro"
+        },
+        {
+          "icon": "sparkles",
+          "label": "Oportunidades"
+        },
+        {
+          "icon": "headphones",
+          "label": "Suporte"
+        },
+        {
+          "icon": "send",
+          "label": "Candidaturas"
+        },
+        {
+          "icon": "briefcase",
+          "label": "Estágio"
+        },
+        {
+          "icon": "file-text",
+          "label": "Currículo"
+        },
+        {
+          "icon": "award",
+          "label": "Certificados"
+        }
+      ]
+    },
+    "empresa": {
+      "label": "Empresa",
+      "nos": [
+        {
+          "icon": "wallet",
+          "label": "Cadastro"
+        },
+        {
+          "icon": "handshake",
+          "label": "Convênio"
+        },
+        {
+          "icon": "headphones",
+          "label": "Suporte"
+        },
+        {
+          "icon": "users",
+          "label": "Talentos"
+        },
+        {
+          "icon": "list-checks",
+          "label": "Seleção"
+        },
+        {
+          "icon": "file-text",
+          "label": "Documentos"
+        },
+        {
+          "icon": "check-circle-2",
+          "label": "Avaliação"
+        }
+      ]
+    }
+  },
+  "guiaEstagio": {
+    "eyebrow": "GUIA COMPLETO",
+    "title": "Entenda como o estágio funciona",
+    "ctaLabel": "Quero Saber mais",
+    "itens": [
+      {
+        "question": "1 - O que é o estágio? Qual o seu objetivo?",
+        "answer": "O estágio é um ato educativo supervisionado, desenvolvido no ambiente de trabalho, que visa à preparação do estudante para o exercício profissional. Seu principal objetivo é proporcionar a aplicação prática dos conhecimentos adquiridos no curso, contribuindo para o desenvolvimento de competências, habilidades e atitudes necessárias à formação profissional, além de promover a integração entre teoria e prática.",
+        "legislacao": {
+          "label": "LEGISLAÇÃO DO ESTÁGIO",
+          "titulo": "Lei Nº 11.788 de 25 de setembro de 2008",
+          "texto": "O estágio é fundamental para a formação de sua identidade profissional. Para aproveitar esta experiência com responsabilidade, confira aqui os direitos e deveres do estagiário:",
+          "linkLabel": "Acessar o link"
+        }
+      },
+      {
+        "question": "2 - Qual a diferença entre estágio obrigatório e não obrigatório?",
+        "answer": "O obrigatório faz parte da matriz curricular e é requisito para concluir o curso. O não obrigatório é opcional e complementa a formação. Os dois exigem formalização pelo Termo de Compromisso de Estágio (TCE)."
+      },
+      {
+        "question": "3 - Como formalizar o meu estágio?",
+        "answer": "Pela celebração do TCE, assinado pelo estudante, pela empresa concedente e pela UCAM/CENPRE. O estágio só começa após a aprovação do Plano de Atividades e a assinatura de todas as partes."
+      },
+      {
+        "question": "4 - Quais documentos são necessários em cada etapa?",
+        "answer": "No início: TCE, Plano de Atividades e seguro contra acidentes. Durante: Relatório de Acompanhamento e, se houver mudanças, Termo Aditivo. No encerramento: Termo de Realização de Estágio e Avaliação do Estagiário."
+      }
+    ],
+    "imagem": "src/assets/blog-plataforma-captar-talentos.jpg"
+  },
+  "vagasFontes": ["CENPRE", "NUBE", "Outros parceiros"],
+  "vagas": [
+    {
+      "area": "Marketing",
+      "source": "CENPRE",
+      "modality": "Estágio não obrigatório",
+      "title": "CRD — Centro de Referência Digital",
+      "company": "Marketing",
+      "location": "Rio de Janeiro | RJ",
+      "salary": "R$ 1.000,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Marketing",
+      "source": "CENPRE",
+      "modality": "Estágio não obrigatório",
+      "title": "Tribunal de Justiça do Estado do Rio de Janeiro",
+      "company": "Administração",
+      "location": "Rio de Janeiro | RJ",
+      "salary": "R$ 1.000,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Saúde",
+      "source": "CENPRE",
+      "modality": "Estágio obrigatório",
+      "title": "Hospital Universitário Pedro Ernesto",
+      "company": "Saúde",
+      "location": "Rio de Janeiro | RJ",
+      "salary": "R$ 900,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Administração",
+      "source": "NUBE",
+      "modality": "Estágio não obrigatório",
+      "title": "Secretaria Municipal de Educação",
+      "company": "Administração",
+      "location": "Campos dos Goytacazes | RJ",
+      "salary": "R$ 800,00 + VT",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Engenharia",
+      "source": "CENPRE",
+      "modality": "Estágio obrigatório",
+      "title": "Construtora Atlântica",
+      "company": "Engenharia",
+      "location": "Campos dos Goytacazes | RJ",
+      "salary": "R$ 1.100,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    },
+    {
+      "area": "Educação",
+      "source": "NUBE",
+      "modality": "Estágio não obrigatório",
+      "title": "Escola Técnica Estadual",
+      "company": "Educação",
+      "location": "Campos dos Goytacazes | RJ",
+      "salary": "R$ 700,00 + Benefícios",
+      "href": "https://ucam-csm.symplicity.com/"
+    }
+  ],
+  "depoimentos": [
+    {
+      "name": "Rafael de Almeida",
+      "course": "Administração",
+      "titulo": "Consegui o estágio em menos de um mês!",
+      "quote": "A plataforma do CENPRE me ajudou a encontrar uma vaga que combinava exatamente com o que eu buscava. O suporte na documentação.",
+      "foto": "src/assets/avatars/depoimento-rafael.png",
+      "rating": 5
+    },
+    {
+      "name": "Andressa Benevenutto",
+      "course": "Direito",
+      "titulo": "O CENPRE abriu portas que eu não imaginava.",
+      "quote": "Através do CENPRE, fechei convênio com um escritório de referência na cidade. A orientação sobre o termo de compromisso foi essencial.",
+      "foto": "src/assets/avatars/depoimento-andressa.png",
+      "rating": 5
+    },
+    {
+      "name": "Marcos Silva Pereira",
+      "course": "Administração",
+      "titulo": "Fui efetivado antes mesmo de terminar o curso!",
+      "quote": "O acompanhamento do CENPRE durante o estágio me deu segurança para negociar minha efetivação com a empresa.",
+      "foto": "src/assets/avatars/depoimento-marcos.png",
+      "rating": 5
+    },
+    {
+      "name": "Adriana Machado F.",
+      "course": "Engenharia Civil",
+      "titulo": "Currículo revisado, vaga garantida.",
+      "quote": "Com as dicas de currículo do CENPRE, consegui destacar minhas experiências e fui chamada para entrevista na primeira semana.",
+      "foto": "src/assets/avatars/depoimento-adriana.png",
+      "rating": 5
+    }
+  ],
+  "motivos": [
+    {
+      "icon": "award",
+      "title": "Mais de 20 anos de experiência",
+      "description": "Referência em carreiras e empregabilidade desde 2001."
+    },
+    {
+      "icon": "building-2",
+      "title": "+ de 600 empresas parceiras",
+      "description": "Conexão direta entre talentos e oportunidades reais."
+    },
+    {
+      "icon": "layout-grid",
+      "title": "Plataforma de vagas própria",
+      "description": "Currículo, vagas, documentos e convênios em um só lugar."
+    },
+    {
+      "icon": "headset",
+      "title": "Suporte em todas as etapas",
+      "description": "Equipe dedicada do cadastro à efetivação."
+    }
+  ],
+  "logosParceiros": {
+    "titulo": "Nossos alunos já trabalham em empresas como:",
+    "logos": [
+      {
+        "nome": "Ambev",
+        "src": "src/assets/logos/ambev.webp"
+      },
+      {
+        "nome": "Banco BGM",
+        "src": "src/assets/logos/banco-bgm.png"
+      },
+      {
+        "nome": "Bodytech",
+        "src": "src/assets/logos/bodytech.jpg"
+      },
+      {
+        "nome": "CSN",
+        "src": "src/assets/logos/csn.png"
+      },
+      {
+        "nome": "DASA",
+        "src": "src/assets/logos/dasa.jpg"
+      },
+      {
+        "nome": "Editora Globo",
+        "src": "src/assets/logos/editora-globo.jpg"
+      },
+      {
+        "nome": "FGV",
+        "src": "src/assets/logos/fgv.png"
+      },
+      {
+        "nome": "Halliburton",
+        "src": "src/assets/logos/halliburton.png"
+      },
+      {
+        "nome": "Prefeitura de Nova Friburgo",
+        "src": "src/assets/logos/nova-friburgo.png"
+      },
+      {
+        "nome": "Porto do Açu",
+        "src": "src/assets/logos/porto-do-acu.webp"
+      },
+      {
+        "nome": "Prefeitura Rio Saúde",
+        "src": "src/assets/logos/prefeitura-rio-saude.png"
+      },
+      {
+        "nome": "Sodexo",
+        "src": "src/assets/logos/sodexo.png"
+      },
+      {
+        "nome": "Transpetro",
+        "src": "src/assets/logos/transpetro.jpg"
+      },
+      {
+        "nome": "Unimed Campos",
+        "src": "src/assets/logos/unimed-campos.png"
+      },
+      {
+        "nome": "Vale",
+        "src": "src/assets/logos/vale.jpg"
+      }
+    ]
+  },
+  "plataformaFeatures": {
+    "eyebrow": "PLATAFORMA CENPRE CARREIRAS",
+    "title": "Tudo o que você precisa em um só lugar",
+    "description": "A Plataforma CENPRE Carreiras é o ambiente digital que centraliza oportunidades, serviços e a gestão de estágios — conectando você ao mercado de trabalho em poucos cliques.",
+    "modulos": [
+      {
+        "icon": "briefcase",
+        "title": "Vagas e oportunidades",
+        "description": "Estágios e empregos do CENPRE e de parceiros."
+      },
+      {
+        "icon": "file-text",
+        "title": "Currículo",
+        "description": "Crie ou envie o seu e fique visível a empresas."
+      },
+      {
+        "icon": "list-checks",
+        "title": "Documentos de estágio",
+        "description": "Emita TCE, termos e relatórios online."
+      },
+      {
+        "icon": "handshake",
+        "title": "Convênios",
+        "description": "Consulte as instituições conveniadas."
+      },
+      {
+        "icon": "check-circle-2",
+        "title": "Acompanhamento",
+        "description": "Siga candidaturas e a gestão do estágio."
+      }
+    ],
+    "comoComecar": {
+      "titulo": "COMO COMEÇAR",
+      "passos": [
+        {
+          "titulo": "Acesse e crie seu perfil",
+          "descricao": "Entre na plataforma e complete os seus dados."
+        },
+        {
+          "titulo": "Cadastre seu currículo",
+          "descricao": "Envie ou monte o seu no Banco de Currículos."
+        },
+        {
+          "titulo": "Candidate-se às vagas",
+          "descricao": "Aplique e acompanhe todo o processo."
+        }
+      ]
+    },
+    "documentosNecessarios": {
+      "titulo": "Documentos necessários",
+      "itens": [
+        "Currículo atualizado",
+        "Documento de identificação (RG e CPF)",
+        "Comprovante de matrícula (para estágio)"
+      ],
+      "ctaLabel": "Acessar a plataforma"
+    }
+  },
+  "ticker": [
+    "Universidade e mercado",
+    "Futuro profissional",
+    "Orientação de carreira",
+    "Talentos UCAM",
+    "Alunos e egressos",
+    "Banco de currículos"
+  ],
+  "sobreNosResumo": {
+    "eyebrow": "NOSSA HISTÓRIA",
+    "paragraphs": [
+      "Seja bem-vindo ao CENPRE – Centro de Práticas Empresariais, o núcleo de carreiras e empregabilidade da Universidade, criado em 2001 com a missão de apoiar o desenvolvimento profissional de nossos alunos e ex-alunos, conectando talentos ao mercado de trabalho.",
+      "Por meio de parcerias com instituições públicas e privadas, promovemos oportunidades de estágio e emprego, aproximando nossos estudantes das melhores experiências profissionais e auxiliando organizações na identificação de talentos para seus negócios.",
+      "O CENPRE é a referência para todas as ações relacionadas a estágios, oferecendo suporte na gestão e acompanhamento da documentação necessária para a formalização das atividades acadêmico-profissionais.",
+      "E não para por aí! O CENPRE promove palestras, conteúdos, eventos e iniciativas voltadas ao universo profissional, proporcionando mais aprendizado, networking e oportunidades para o desenvolvimento de carreira.",
+      "Agora, contamos também com a Plataforma CENPRE Carreiras: um ambiente digital que centraliza oportunidades, serviços e a gestão de estágios, fortalecendo a conexão entre nossos talentos e o mercado de trabalho."
+    ],
+    "ctaLabel": "Conheça nossa história",
+    "href": "/institucional/sobre-nos"
+  },
+  "noticias": [
+    {
+      "author": "André Pacheco",
+      "date": "19 nov 2024",
+      "title": "Ciclo de Estudo PCL 2024.2",
+      "excerpt": "O ciclo reuniu estudantes de diferentes cursos em encontros voltados ao desenvolvimento acadêmico.",
+      "tags": ["Estudo", "UCAM"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/news-1.jpg"
+    },
+    {
+      "author": "Equipe CENPRE",
+      "date": "05 mar 2025",
+      "title": "5 erros comuns no currículo que afastam recrutadores",
+      "excerpt": "Identifique os deslizes mais frequentes e saiba como corrigir antes da próxima candidatura.",
+      "tags": ["Currículo", "Carreira"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/news-2.jpg"
+    },
+    {
+      "author": "Equipe CENPRE",
+      "date": "18 fev 2025",
+      "title": "Estágio obrigatório x não obrigatório",
+      "excerpt": "Carga horária, bolsa-auxílio e documentação têm regras diferentes entre as modalidades.",
+      "tags": ["Estágio", "Orientação"],
+      "href": "/conteudos/artigo",
+      "image": "src/assets/news-3.jpg"
+    },
+    {
+      "author": "Equipe CENPRE",
+      "date": "11 mai 2025",
+      "title": "Orienta Candido: do currículo à contratação",
+      "excerpt": "Encontro de orientação de carreira do CENPRE com dicas práticas para cada etapa da jornada até a contratação.",
+      "tags": ["Orienta Candido"],
+      "href": "/conteudos/artigo"
+    }
+  ],
+  "bibliotecaResumo": {
+    "eyebrow": "Aprenda com a gente",
+    "title": "Biblioteca de Conteúdos",
+    "verMaisLabel": "Ver mais no blog",
+    "formatos": ["Blog", "Vídeos", "Podcasts", "Webinars", "Artigos"],
+    "itens": [
+      {
+        "formato": "Blog",
+        "author": "Plataforma",
+        "date": "10 de fev. de 2025",
+        "title": "Como aproveitar a Plataforma CENPRE Carreiras no dia a dia",
+        "excerpt": "Cadastro de currículo, busca de vagas e acompanhamento de candidaturas em um só lugar.",
+        "tags": ["Plataforma"],
+        "href": "/conteudos/artigo",
+        "image": "src/assets/blog-plataforma-dia-a-dia.jpg"
+      },
+      {
+        "formato": "Blog",
+        "author": "Estágio",
+        "date": "24 de jan. de 2025",
+        "title": "Checklist de documentos: o que levar antes de iniciar o estágio",
+        "excerpt": "TCE, termo de compromisso e seguro contra acidentes — confira o que é exigido antes do primeiro dia.",
+        "tags": ["Estágio"],
+        "href": "/conteudos/artigo",
+        "image": "src/assets/blog-checklist-documentos.jpg"
+      },
+      {
+        "formato": "Blog",
+        "author": "Carreira",
+        "date": "08 de jan. de 2025",
+        "title": "Currículo: o que recrutadores realmente olham primeiro",
+        "excerpt": "Os pontos que mais pesam na triagem, segundo quem recebe centenas de currículos por vaga.",
+        "tags": ["Carreira"],
+        "href": "/conteudos/artigo",
+        "image": "src/assets/blog-curriculo-recrutadores.jpg"
+      }
+    ]
+  },
+  "faqIntro": {
+    "title": "Perguntas Frequentes sobre o CENPRE",
+    "description": "Tire suas dúvidas sobre estágio, documentos e bolsa-auxílio.",
+    "ctaLabel": "Saber mais sobre",
+    "href": "/aluno/orientacoes-de-estagio#faq"
+  },
+  "faq": [
+    {
+      "question": "Como faço para encontrar vagas de estágio?",
+      "answer": "Acesse o Painel de Vagas ou a Plataforma CENPRE Carreiras: lá você filtra por área, modalidade e fonte (CENPRE, NUBE ou outros parceiros) e se candidata em poucos cliques."
+    },
+    {
+      "question": "Como funciona o Termo de Compromisso de Estágio (TCE)?",
+      "answer": "O TCE formaliza a relação de estágio entre você, a empresa concedente e a UCAM/CENPRE, conforme a Lei nº 11.788/2008. O estágio só começa após a assinatura das três partes."
+    },
+    {
+      "question": "Qual a diferença entre estágio obrigatório e não obrigatório?",
+      "answer": "O obrigatório faz parte da matriz curricular e é requisito para concluir o curso; o não obrigatório é opcional e complementa a formação. Os dois exigem TCE."
+    }
+  ],
+  "contato": {
+    "emailGeral": "atendimento.cenpre@ucam-campos.br",
+    "emailConvenio": "convenio.estagio@ucam-campos.br",
+    "telefone": "(22) 2726-2419",
+    "whatsapp": "(22) 99618-0786"
+  }
+}
