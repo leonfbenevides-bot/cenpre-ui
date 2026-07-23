@@ -43,6 +43,15 @@ pessoa/sessão, fotos em ângulos/momentos diferentes. Isso muda como eu uso:
   visual de recorte ali (ver nota abaixo). Os CTAs das 9 subpáginas e da Home ficam sem
   foto por enquanto; se quiser CTA com foto, mande fotos **com fundo completo** (não
   recorte) dedicadas a esse uso.
+- **23/07/2026 — 6 fotos com fundo completo recebidas e usadas**: nos cards de Blog da
+  Biblioteca de Conteúdos (página completa + resumo nas duas homes) e, reaproveitando a
+  foto de "captar talentos" (equipe colaborando em escritório), na foto de encerramento
+  do "Guia do Estágio" — substituiu `guia-estagio-equipe.jpg` (quadro-branco com texto
+  ilegível), que foi removida do repo. Esse reaproveitamento é uma exceção pontual à
+  regra de "nunca repetir a mesma foto em duas seções": as duas seções nunca aparecem
+  juntas na mesma visualização (Guia do Estágio só existe na aba Aluno da Home; a foto
+  de "captar talentos" só aparece na Biblioteca quando a aba é Empresa). Ainda falta
+  foto dedicada para o CTA de fechamento de Empresas Conveniadas.
 
 ## Tipos de imagem e specs
 

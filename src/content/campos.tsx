@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import heroAlunoBg from "../assets/hero-aluno-bg.jpg";
 import heroAlunoModel from "../assets/hero-aluno-model.webp";
-import guiaEstagioEquipe from "../assets/guia-estagio-equipe.jpg";
+import guiaEstagioEquipe from "../assets/blog-plataforma-captar-talentos.jpg";
 import newsCiclo from "../assets/news-1.jpg";
 import newsCurriculo from "../assets/news-2.jpg";
 import newsEstagio from "../assets/news-3.jpg";

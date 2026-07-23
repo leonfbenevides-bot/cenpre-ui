@@ -355,7 +355,7 @@ export function TemplateUnidade({ content }: TemplateUnidadeProps) {
             <div className="relative mt-16 overflow-hidden rounded-card">
               <img
                 src={guiaEstagio.imagem}
-                alt="Equipe do CENPRE orientando estudantes"
+                alt="Equipe colaborando em ambiente profissional"
                 className="h-[325px] w-full object-cover"
               />
             </div>

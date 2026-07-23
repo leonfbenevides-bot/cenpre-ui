@@ -677,7 +677,7 @@ export function HomeRedesign({
                 <div className="relative mt-16 overflow-hidden rounded-3xl shadow-2xl">
                   <img
                     src={guiaEstagio.imagem}
-                    alt="Equipe do CENPRE orientando estudantes"
+                    alt="Equipe colaborando em ambiente profissional"
                     className="h-[325px] w-full object-cover"
                   />
                 </div>
