@@ -93,13 +93,16 @@ export function CadastroConvenioRedesign({ content }: CadastroConvenioRedesignPr
           title="Formalize o convênio da sua empresa em poucos passos."
           actions={
             <>
-              <Button size="lg">Cadastrar minha empresa</Button>
+              <Button size="lg" asChild>
+                <a href={rotas.plataforma}>Cadastrar minha empresa</a>
+              </Button>
               <Button
                 size="lg"
                 variant="ghost"
+                asChild
                 className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
               >
-                Fale com a gente
+                <a href="mailto:convenio.estagio@ucam-campos.br">Fale com a gente</a>
               </Button>
             </>
           }

@@ -5,7 +5,7 @@ import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import { ShieldCheckIcon, HandHeartIcon } from "../components/Icons";
 import type { ParceiroContent } from "../content/types";
-import { PageShell, Breadcrumb, HeroPill } from "./shared";
+import { PageShell, Breadcrumb, HeroPill, rotas } from "./shared";
 
 export interface PorQueSerParceiroRedesignProps {
   content: ParceiroContent;
@@ -63,13 +63,16 @@ export function PorQueSerParceiroRedesign({ content }: PorQueSerParceiroRedesign
           title="Fortaleça sua marca entre os talentos UCAM."
           actions={
             <>
-              <Button size="lg">Cadastrar minha empresa</Button>
+              <Button size="lg" asChild>
+                <a href={rotas.plataforma}>Cadastrar minha empresa</a>
+              </Button>
               <Button
                 size="lg"
                 variant="ghost"
+                asChild
                 className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
               >
-                Fale com a gente
+                <a href="mailto:convenio.estagio@ucam-campos.br">Fale com a gente</a>
               </Button>
             </>
           }

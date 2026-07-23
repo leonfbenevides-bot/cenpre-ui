@@ -7,7 +7,7 @@ import { AccordionList } from "../components/Accordion";
 import { CheckIcon, SparklesIcon, UploadIcon, FileTextIcon } from "../components/Icons";
 import { cn } from "@/lib/cn";
 import type { CurriculoContent } from "../content/types";
-import { PageShell, Breadcrumb, HeroPill } from "./shared";
+import { PageShell, Breadcrumb, HeroPill, rotas } from "./shared";
 
 function Caminho({
   badge,
@@ -121,13 +121,16 @@ export function CurriculoRedesign({ content }: CurriculoRedesignProps) {
           title="Pronto para montar um currículo que se destaca?"
           actions={
             <>
-              <Button size="lg">Acessar a plataforma</Button>
+              <Button size="lg" asChild>
+                <a href={rotas.plataforma}>Acessar a plataforma</a>
+              </Button>
               <Button
                 size="lg"
                 variant="ghost"
+                asChild
                 className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
               >
-                Fale com a gente
+                <a href="mailto:atendimento.cenpre@ucam-campos.br">Fale com a gente</a>
               </Button>
             </>
           }

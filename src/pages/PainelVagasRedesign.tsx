@@ -8,7 +8,7 @@ import { Pagination } from "../components/Pagination";
 import { SearchIcon, MapPinIcon, SendIcon } from "../components/Icons";
 import { cn } from "@/lib/cn";
 import type { VagasContent } from "../content/types";
-import { PageShell, Breadcrumb, HeroPill } from "./shared";
+import { PageShell, Breadcrumb, HeroPill, rotas } from "./shared";
 
 const POR_PAGINA = 6;
 
@@ -120,13 +120,16 @@ export function PainelVagasRedesign({ content }: PainelVagasRedesignProps) {
           title="Mais do que uma plataforma completa, nós acompanhamos todas as etapas."
           actions={
             <>
-              <Button size="lg">Acessar a plataforma</Button>
+              <Button size="lg" asChild>
+                <a href={rotas.plataforma}>Acessar a plataforma</a>
+              </Button>
               <Button
                 size="lg"
                 variant="ghost"
+                asChild
                 className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
               >
-                Fale conosco
+                <a href="mailto:atendimento.cenpre@ucam-campos.br">Fale conosco</a>
               </Button>
             </>
           }

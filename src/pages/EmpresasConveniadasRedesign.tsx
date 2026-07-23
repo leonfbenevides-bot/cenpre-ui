@@ -148,13 +148,16 @@ export function EmpresasConveniadasRedesign({
           imageAlt="Profissional em ambiente de trabalho"
           actions={
             <>
-              <Button size="lg">Cadastrar minha empresa</Button>
+              <Button size="lg" asChild>
+                <a href={rotas.plataforma}>Cadastrar minha empresa</a>
+              </Button>
               <Button
                 size="lg"
                 variant="ghost"
+                asChild
                 className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
               >
-                Por que ser parceiro?
+                <a href={rotas.porQueSerParceiro}>Por que ser parceiro?</a>
               </Button>
             </>
           }

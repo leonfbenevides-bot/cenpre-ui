@@ -480,8 +480,12 @@ export function HomeRedesign({
               </h2>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Button variant="secondary">{numeros.primaryLabel}</Button>
-              <Button variant="ghost">{numeros.secondaryLabel}</Button>
+              <Button variant="secondary" asChild>
+                <a href={rotas.vagas}>{numeros.primaryLabel}</a>
+              </Button>
+              <Button variant="ghost" asChild>
+                <a href={rotas.plataforma}>{numeros.secondaryLabel}</a>
+              </Button>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ash-300 bg-ash-300 lg:grid-cols-4">
@@ -638,9 +642,10 @@ export function HomeRedesign({
                   </div>
                   <Button
                     variant="secondary"
+                    asChild
                     className="border-magenta-700 text-magenta-700 hover:bg-white"
                   >
-                    {guiaEstagio.ctaLabel}
+                    <a href={rotas.orientacoesEstagio}>{guiaEstagio.ctaLabel}</a>
                   </Button>
                 </div>
                 <div className="mt-10">
@@ -1009,8 +1014,10 @@ export function HomeRedesign({
                       ))}
                     </ul>
                   </div>
-                  <Button className="shrink-0">
-                    {plataformaFeatures.documentosNecessarios.ctaLabel}
+                  <Button asChild className="shrink-0">
+                    <a href={rotas.plataforma}>
+                      {plataformaFeatures.documentosNecessarios.ctaLabel}
+                    </a>
                   </Button>
                 </div>
               </div>
@@ -1047,13 +1054,16 @@ export function HomeRedesign({
                 imageAlt="Profissional em ambiente de trabalho"
                 actions={
                   <>
-                    <Button size="lg">Acessar a plataforma</Button>
+                    <Button size="lg" asChild>
+                      <a href={rotas.plataforma}>Acessar a plataforma</a>
+                    </Button>
                     <Button
                       size="lg"
                       variant="ghost"
+                      asChild
                       className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
                     >
-                      Fale com a gente
+                      <a href="mailto:atendimento.cenpre@ucam-campos.br">Fale com a gente</a>
                     </Button>
                   </>
                 }
@@ -1150,9 +1160,10 @@ export function HomeRedesign({
                   </div>
                   <Button
                     variant="secondary"
+                    asChild
                     className="border-magenta-700 text-magenta-700 hover:bg-white"
                   >
-                    Quero saber mais
+                    <a href={rotas.cadastroConvenio}>Quero saber mais</a>
                   </Button>
                 </div>
                 <div className="mt-10">
@@ -1404,13 +1415,16 @@ export function HomeRedesign({
                 imageAlt="Estudantes da UCAM em ambiente colaborativo"
                 actions={
                   <>
-                    <Button size="lg">Cadastrar minha empresa</Button>
+                    <Button size="lg" asChild>
+                      <a href={rotas.plataforma}>Cadastrar minha empresa</a>
+                    </Button>
                     <Button
                       size="lg"
                       variant="ghost"
+                      asChild
                       className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
                     >
-                      Fale com a gente
+                      <a href="mailto:convenio.estagio@ucam-campos.br">Fale com a gente</a>
                     </Button>
                   </>
                 }
