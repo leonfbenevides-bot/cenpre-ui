@@ -432,6 +432,15 @@ export const campos: UnidadeContent = {
       href: rotas.artigo,
       image: newsEstagio,
     },
+    {
+      author: "Equipe CENPRE",
+      date: "11 mai 2025",
+      title: "Orienta Candido: do currículo à contratação",
+      excerpt:
+        "Encontro de orientação de carreira do CENPRE com dicas práticas para cada etapa da jornada até a contratação.",
+      tags: ["Orienta Candido"],
+      href: rotas.artigo,
+    },
   ],
 
   bibliotecaResumo: {

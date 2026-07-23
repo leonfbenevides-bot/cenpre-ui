@@ -4,6 +4,7 @@ import { Card } from "../components/Card";
 import { TabsPills } from "../components/Tabs";
 import { AccordionList } from "../components/Accordion";
 import { SectionHeading } from "../components/SectionHeading";
+import { Button } from "../components/Button";
 import { FileTextIcon, LandmarkIcon, SchoolIcon, ClipboardListIcon } from "../components/Icons";
 import type { OrientacoesContent } from "../content/types";
 import { PageShell, Breadcrumb, HeroPill } from "./shared";
@@ -17,7 +18,7 @@ export interface OrientacoesEstagioProps {
  * escolas e cursos (condicionalidades) · documentos por etapa (DocCards).
  */
 export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
-  const { hero, lei, tiposEstagio, escolas, etapas, faq } = content;
+  const { hero, lei, tiposEstagio, escolas, etapas, intramuros, faq } = content;
   return (
     <PageShell>
       <PageHero
@@ -95,6 +96,40 @@ export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {etapas.map((et) => (
               <DocCard key={et.label} label={et.label} icon={et.icon} items={et.items} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Estágio Intramuros */}
+      <section className="bg-magenta-100/60 py-16">
+        <div className="mx-auto max-w-content px-6 md:px-gutter">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <SectionHeading
+              eyebrow={intramuros.eyebrow}
+              title={intramuros.title}
+              subtitle={intramuros.description}
+            />
+            <Button
+              variant="secondary"
+              asChild
+              className="border-magenta-700 text-magenta-700 hover:bg-white"
+            >
+              <a href="mailto:atendimento.cenpre@ucam-campos.br">{intramuros.ctaLabel}</a>
+            </Button>
+          </div>
+          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {intramuros.destaques.map((d) => (
+              <Card key={d.title}>
+                <span
+                  className="grid h-11 w-11 place-items-center rounded-chip bg-magenta-100 text-magenta-700"
+                  aria-hidden
+                >
+                  {d.icon}
+                </span>
+                <h3 className="mt-4 text-base font-semibold text-charcoal-500">{d.title}</h3>
+                <p className="mt-1.5 text-[14px] leading-relaxed text-charcoal-400">{d.text}</p>
+              </Card>
             ))}
           </div>
         </div>

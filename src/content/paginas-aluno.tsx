@@ -6,6 +6,10 @@ import {
   CheckIcon,
   HandHeartIcon,
   LandmarkIcon,
+  BuildingIcon,
+  UsersIcon,
+  WalletIcon,
+  AwardIcon,
 } from "../components/Icons";
 import type { OrientacoesContent, CurriculoContent } from "./types";
 
@@ -99,6 +103,36 @@ export const orientacoes: OrientacoesContent = {
       items: ["Emissão de termo de rescisão", "Avaliação final do estágio"],
     },
   ],
+
+  intramuros: {
+    eyebrow: "Estágio Intramuros",
+    title: "Seu primeiro estágio pode ser dentro da própria UCAM",
+    description:
+      "O programa Estágio Intramuros oferece vagas de estágio nos diversos setores da própria universidade — uma porta de entrada para quem ainda não teve a primeira experiência profissional.",
+    destaques: [
+      {
+        icon: <BuildingIcon size={20} />,
+        title: "Onde acontece",
+        text: "Nos diversos setores administrativos e acadêmicos da própria UCAM.",
+      },
+      {
+        icon: <UsersIcon size={20} />,
+        title: "Quem pode participar",
+        text: "Alunos regularmente matriculados em busca do seu primeiro estágio.",
+      },
+      {
+        icon: <WalletIcon size={20} />,
+        title: "Desconto na mensalidade",
+        text: "Estagiários intramuros recebem bolsa em forma de desconto na mensalidade.",
+      },
+      {
+        icon: <AwardIcon size={20} />,
+        title: "Treinamentos trimestrais",
+        text: "Encontros periódicos de capacitação para apoiar o crescimento profissional.",
+      },
+    ],
+    ctaLabel: "Quero saber mais",
+  },
 
   faq: {
     eyebrow: "Perguntas frequentes",

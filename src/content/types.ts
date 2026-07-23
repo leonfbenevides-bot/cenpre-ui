@@ -183,6 +183,14 @@ export interface OrientacoesContent {
   escolas: { icon: ReactNode; nome: string; cursos: string; badge?: string; href: string }[];
   /** DocCards "O que você precisa em cada etapa". */
   etapas: { label: string; icon: ReactNode; items: string[] }[];
+  /** Faixa "Estágio Intramuros" — 1º estágio nos setores internos da UCAM. */
+  intramuros: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    destaques: { icon: ReactNode; title: string; text: string }[];
+    ctaLabel: string;
+  };
   /** FAQ agrupada "Estágio não obrigatório: tudo o que você precisa saber". */
   faq: {
     eyebrow: string;
