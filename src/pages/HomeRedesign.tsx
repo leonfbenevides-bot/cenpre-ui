@@ -247,19 +247,17 @@ export function HomeRedesign({
     },
   ];
 
-  const slides = isAluno ? alunoSlides : empresaSlides;
-  const statStrip = isAluno
-    ? ["Estágios & vagas", "Convênios", "Currículo & carreira", "Plataforma oficial UCAM"]
-    : ["Convênios", "Divulgação de vagas", "Captação de talentos", "Suporte do CENPRE"];
+  // O hero (banners + faixa de estatísticas) é o mesmo independente da aba
+  // selecionada — só o conteúdo abaixo do seletor de perfil muda. Combina os
+  // slides de aluno e empresa num carrossel único e fixo.
+  const slides = [...alunoSlides, ...empresaSlides];
+  const statStrip = ["Estágios & vagas", "Convênios", "Currículo & carreira", "Suporte do CENPRE"];
 
   const [i, setI] = useState(0);
   const count = slides.length;
   const go = useCallback((n: number) => setI(((n % count) + count) % count), [count]);
 
-  // Trocar de perfil reinicia o carrossel do hero (slides diferentes por perfil).
-  useEffect(() => setI(0), [perfil]);
-
-  // Auto-avanço (reinicia o timer quando `i` ou `perfil` mudam).
+  // Auto-avanço (reinicia o timer quando `i` muda).
   useEffect(() => {
     const t = setTimeout(() => setI((x) => (x + 1) % count), 6500);
     return () => clearTimeout(t);
@@ -361,47 +359,52 @@ export function HomeRedesign({
           </header>
 
           {/* Conteúdo do hero (troca por slide) */}
-          <div className="relative z-10 mx-auto flex w-full max-w-container flex-1 flex-col justify-center px-6 pb-10 pt-8 md:px-gutter">
-            <div key={`txt-${perfil}-${i}`} className="max-w-2xl">
-              <Reveal
-                as="p"
-                delay={0}
-                className="mb-6 flex items-center gap-2.5 text-sm font-medium uppercase tracking-[0.2em] text-white/70"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-magenta-500" />
-                {slide.kicker}
-              </Reveal>
-              <Reveal
-                as="h1"
-                delay={90}
-                className="font-editorial text-[clamp(2.35rem,5vw,4.25rem)] font-semibold leading-[1] tracking-[-0.02em]"
-              >
-                {slide.title}
-              </Reveal>
-              <Reveal
-                as="p"
-                delay={180}
-                className="mt-7 max-w-xl text-lg leading-relaxed text-white/75"
-              >
-                {slide.sub}
-              </Reveal>
-              <Reveal delay={260} className="mt-9 flex flex-wrap items-center gap-4">
-                <Button size="lg" asChild className="shadow-lg shadow-magenta-900/30">
-                  <a href={slide.primaryHref}>{slide.primary}</a>
-                </Button>
-                <a
-                  href={slide.secondaryHref}
-                  className="group inline-flex items-center gap-2 text-[15px] font-semibold text-white"
+          <div className="relative z-10 mx-auto flex w-full max-w-container flex-1 flex-col px-6 pb-10 pt-8 md:px-gutter">
+            {/* Zona de texto centralizada — cresce pra preencher o espaço
+                disponível, empurrando os controles sempre pra mesma altura
+                (evita "pulo" quando o texto do slide muda de tamanho). */}
+            <div className="flex flex-1 flex-col justify-center">
+              <div key={`txt-${perfil}-${i}`} className="max-w-2xl">
+                <Reveal
+                  as="p"
+                  delay={0}
+                  className="mb-6 flex items-center gap-2.5 text-sm font-medium uppercase tracking-[0.2em] text-white/70"
                 >
-                  {slide.secondary}
-                  <span className="grid h-9 w-9 place-items-center rounded-full border border-white/25 transition-colors group-hover:border-white/60 group-hover:bg-white/10">
-                    <ArrowRightIcon size={16} />
-                  </span>
-                </a>
-              </Reveal>
+                  <span className="h-1.5 w-1.5 rounded-full bg-magenta-500" />
+                  {slide.kicker}
+                </Reveal>
+                <Reveal
+                  as="h1"
+                  delay={90}
+                  className="font-editorial text-[clamp(2.35rem,5vw,4.25rem)] font-semibold leading-[1] tracking-[-0.02em]"
+                >
+                  {slide.title}
+                </Reveal>
+                <Reveal
+                  as="p"
+                  delay={180}
+                  className="mt-7 max-w-xl text-lg leading-relaxed text-white/75"
+                >
+                  {slide.sub}
+                </Reveal>
+                <Reveal delay={260} className="mt-9 flex flex-wrap items-center gap-4">
+                  <Button size="lg" asChild className="shadow-lg shadow-magenta-900/30">
+                    <a href={slide.primaryHref}>{slide.primary}</a>
+                  </Button>
+                  <a
+                    href={slide.secondaryHref}
+                    className="group inline-flex items-center gap-2 text-[15px] font-semibold text-white"
+                  >
+                    {slide.secondary}
+                    <span className="grid h-9 w-9 place-items-center rounded-full border border-white/25 transition-colors group-hover:border-white/60 group-hover:bg-white/10">
+                      <ArrowRightIcon size={16} />
+                    </span>
+                  </a>
+                </Reveal>
+              </div>
             </div>
 
-            {/* Controles do carrossel */}
+            {/* Controles do carrossel — altura fixa, fora da zona centralizada */}
             <div className="mt-12 flex items-center gap-5">
               <div
                 className="flex items-center gap-2"
