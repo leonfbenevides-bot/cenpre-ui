@@ -35,9 +35,6 @@ import heroScene2 from "../assets/hero-scene-2.jpg";
 import heroScene3 from "../assets/hero-aluno-campus.jpg";
 import empHero1 from "../assets/hero-empresa-bg.jpg";
 import empHero2 from "../assets/hero-office.jpg";
-// Cutouts avulsos para os banners de CTA (sem par "fundo" usado em outra seção).
-import ctaImgAluno from "../assets/hero-aluno-model.webp";
-import ctaImgEmpresa from "../assets/hero-student-2.webp";
 // Conjuntos casados (mesma sessão/modelo) — usados só em colagens, nunca soltos.
 import studentHero1 from "../assets/student-hero-1.jpg";
 import studentHero2 from "../assets/student-hero-2.jpg";
@@ -1006,16 +1003,10 @@ export function HomeRedesign({
               <div className="relative overflow-hidden rounded-[28px] bg-charcoal-500 px-8 py-16 text-white md:px-16 md:py-20">
                 <div
                   aria-hidden
-                  className="absolute -right-16 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full opacity-40 blur-3xl"
+                  className="absolute -right-20 -top-20 h-80 w-80 rounded-full opacity-40 blur-3xl"
                   style={{
                     background: "radial-gradient(circle, rgba(180,54,91,0.7), transparent 70%)",
                   }}
-                />
-                <img
-                  src={ctaImgAluno}
-                  alt=""
-                  aria-hidden
-                  className="pointer-events-none absolute inset-y-0 right-6 hidden h-full w-[34%] object-contain object-bottom drop-shadow-[0_24px_40px_rgba(0,0,0,0.4)] md:right-10 lg:block"
                 />
                 <p className="relative mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                   Comece agora
@@ -1376,16 +1367,10 @@ export function HomeRedesign({
               <div className="relative overflow-hidden rounded-[28px] bg-charcoal-500 px-8 py-16 text-white md:px-16 md:py-20">
                 <div
                   aria-hidden
-                  className="absolute -right-16 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full opacity-40 blur-3xl"
+                  className="absolute -right-20 -top-20 h-80 w-80 rounded-full opacity-40 blur-3xl"
                   style={{
                     background: "radial-gradient(circle, rgba(180,54,91,0.7), transparent 70%)",
                   }}
-                />
-                <img
-                  src={ctaImgEmpresa}
-                  alt=""
-                  aria-hidden
-                  className="pointer-events-none absolute inset-y-0 right-6 hidden h-full w-[34%] object-contain object-bottom drop-shadow-[0_24px_40px_rgba(0,0,0,0.4)] md:right-10 lg:block"
                 />
                 <p className="relative mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                   Seja parceiro

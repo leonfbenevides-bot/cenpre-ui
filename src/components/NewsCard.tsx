@@ -1,3 +1,4 @@
+import { ImageIcon } from "lucide-react";
 import { Tag } from "./Tag";
 import { cn } from "@/lib/cn";
 
@@ -49,7 +50,12 @@ export function NewsCard({
             className="aspect-[16/10] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
           />
         ) : (
-          <div className="aspect-[16/10] w-full" aria-hidden />
+          <div
+            className="grid aspect-[16/10] w-full place-items-center bg-gradient-to-br from-ash-200 to-ash-300 text-charcoal-200"
+            aria-hidden
+          >
+            <ImageIcon size={22} />
+          </div>
         )}
       </div>
       <p className="text-xs text-charcoal-200">

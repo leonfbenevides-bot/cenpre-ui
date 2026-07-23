@@ -8,7 +8,6 @@ import { AccordionList } from "../components/Accordion";
 import { ArrowRightIcon, ClipboardListIcon, PenLineIcon, ClockIcon } from "../components/Icons";
 import type { CadastroConvenioContent } from "../content/types";
 import { PageShell, Breadcrumb, HeroPill, rotas } from "./shared";
-import ctaImg from "../assets/hero-student-2.webp";
 
 export interface CadastroConvenioRedesignProps {
   content: CadastroConvenioContent;
@@ -92,7 +91,6 @@ export function CadastroConvenioRedesign({ content }: CadastroConvenioRedesignPr
         <EditorialCTA
           eyebrow="Comece agora"
           title="Formalize o convênio da sua empresa em poucos passos."
-          image={ctaImg}
           actions={
             <>
               <Button size="lg">Cadastrar minha empresa</Button>

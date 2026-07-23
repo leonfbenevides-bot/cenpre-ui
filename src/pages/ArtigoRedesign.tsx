@@ -7,7 +7,6 @@ import { Button } from "../components/Button";
 import { ImageIcon } from "lucide-react";
 import type { ArtigoContent } from "../content/types";
 import { PageShell, Breadcrumb } from "./shared";
-import ctaImg from "../assets/hero-student-2.webp";
 
 export interface ArtigoRedesignProps {
   content: ArtigoContent;
@@ -150,7 +149,6 @@ export function ArtigoRedesign({ content }: ArtigoRedesignProps) {
         <EditorialCTA
           eyebrow="Continue explorando"
           title="Mais conteúdos como esse na Biblioteca do CENPRE."
-          image={ctaImg}
           actions={
             <Button size="lg" asChild>
               <a href="/conteudos/biblioteca">Ver biblioteca de conteúdos</a>

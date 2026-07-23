@@ -8,7 +8,6 @@ import { CheckIcon, SparklesIcon, UploadIcon, FileTextIcon } from "../components
 import { cn } from "@/lib/cn";
 import type { CurriculoContent } from "../content/types";
 import { PageShell, Breadcrumb, HeroPill } from "./shared";
-import ctaImg from "../assets/hero-empresa-model.webp";
 
 function Caminho({
   badge,
@@ -120,7 +119,6 @@ export function CurriculoRedesign({ content }: CurriculoRedesignProps) {
         <EditorialCTA
           eyebrow="Comece agora"
           title="Pronto para montar um currículo que se destaca?"
-          image={ctaImg}
           actions={
             <>
               <Button size="lg">Acessar a plataforma</Button>

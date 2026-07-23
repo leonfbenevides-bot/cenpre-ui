@@ -9,7 +9,6 @@ import { Input } from "../components/Input";
 import { SearchIcon, ArrowRightIcon } from "../components/Icons";
 import type { ConveniadasContent, EmpresaContent } from "../content/types";
 import { PageShell, Breadcrumb } from "./shared";
-import ctaImg from "../assets/hero-aluno-model.webp";
 
 export interface EmpresasConveniadasRedesignProps {
   content: ConveniadasContent;
@@ -144,7 +143,6 @@ export function EmpresasConveniadasRedesign({
         <EditorialCTA
           eyebrow="Seja parceiro"
           title="Sua empresa ainda não é conveniada? Vamos mudar isso."
-          image={ctaImg}
           actions={
             <>
               <Button size="lg">Cadastrar minha empresa</Button>

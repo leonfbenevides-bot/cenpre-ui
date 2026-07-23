@@ -9,7 +9,6 @@ import { SearchIcon, MapPinIcon, SendIcon } from "../components/Icons";
 import { cn } from "@/lib/cn";
 import type { VagasContent } from "../content/types";
 import { PageShell, Breadcrumb, HeroPill } from "./shared";
-import ctaImg from "../assets/hero-aluno-model.webp";
 
 const POR_PAGINA = 6;
 
@@ -119,7 +118,6 @@ export function PainelVagasRedesign({ content }: PainelVagasRedesignProps) {
         <EditorialCTA
           eyebrow="Plataforma CENPRE"
           title="Mais do que uma plataforma completa, nós acompanhamos todas as etapas."
-          image={ctaImg}
           actions={
             <>
               <Button size="lg">Acessar a plataforma</Button>

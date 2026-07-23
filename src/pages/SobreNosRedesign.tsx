@@ -5,7 +5,6 @@ import { Button } from "../components/Button";
 import { ArrowRightIcon } from "../components/Icons";
 import type { SobreNosContent } from "../content/types";
 import { PageShell, Breadcrumb } from "./shared";
-import ctaImg from "../assets/hero-aluno-model.webp";
 
 export interface SobreNosRedesignProps {
   content: SobreNosContent;
@@ -46,7 +45,6 @@ export function SobreNosRedesign({ content }: SobreNosRedesignProps) {
         <EditorialCTA
           eyebrow="Faça parte dessa história"
           title="Alunos, egressos e empresas — juntos, movemos o mercado de trabalho."
-          image={ctaImg}
           actions={
             <>
               <Button size="lg">Acessar a plataforma</Button>

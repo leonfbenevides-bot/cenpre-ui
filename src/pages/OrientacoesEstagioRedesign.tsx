@@ -10,7 +10,6 @@ import { AccordionList } from "../components/Accordion";
 import { FileTextIcon, LandmarkIcon, SchoolIcon, ClipboardListIcon } from "../components/Icons";
 import type { OrientacoesContent } from "../content/types";
 import { PageShell, Breadcrumb, HeroPill } from "./shared";
-import ctaImg from "../assets/hero-student-2.webp";
 
 export interface OrientacoesEstagioRedesignProps {
   content: OrientacoesContent;
@@ -140,7 +139,6 @@ export function OrientacoesEstagioRedesign({ content }: OrientacoesEstagioRedesi
         <EditorialCTA
           eyebrow="Comece agora"
           title="Dúvidas sobre o seu estágio? Fale com o CENPRE."
-          image={ctaImg}
           actions={
             <>
               <Button size="lg">Acessar a plataforma</Button>

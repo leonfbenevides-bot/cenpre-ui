@@ -5,7 +5,6 @@ import { NewsCard } from "../components/NewsCard";
 import { TabsPills } from "../components/Tabs";
 import type { BibliotecaContent } from "../content/types";
 import { PageShell, Breadcrumb, FormatoPillLabel, FormatoEmptyState } from "./shared";
-import ctaImg from "../assets/hero-empresa-model.webp";
 
 export interface BibliotecaConteudosRedesignProps {
   content: BibliotecaContent;
@@ -54,7 +53,6 @@ export function BibliotecaConteudosRedesign({ content }: BibliotecaConteudosRede
         <EditorialCTA
           eyebrow="Plataforma CENPRE"
           title="Mais do que uma plataforma completa, nós acompanhamos todas as etapas."
-          image={ctaImg}
           actions={
             <>
               <Button size="lg">Acessar a plataforma</Button>

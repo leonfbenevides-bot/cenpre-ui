@@ -99,18 +99,18 @@ repo como fonte de conteúdo completo (é de lá que a coluna Redesign puxa
 handoff visual — se precisar ver uma, importe o componente direto ou recrie a
 story temporariamente):
 
-| Página                                         | Redesign (usar)                | Fiel ao Figma (sem story) | Conteúdo                       |
-| ----------------------------------------------- | ------------------------------- | -------------------------- | ------------------------------- |
-| Home Aluno + Empresa (tab por estado)          | `HomeRedesign`                  | `TemplateUnidade`/`HomeEmpresa` | `content/campos.tsx` + `content/empresa.tsx` |
-| Orientações de Estágio                         | `OrientacoesEstagioRedesign`    | `OrientacoesEstagio`       | `content/paginas-aluno.tsx`    |
-| Currículo                                      | `CurriculoRedesign`             | `Curriculo`                | `content/paginas-aluno.tsx`    |
-| Empresas conveniadas                           | `EmpresasConveniadasRedesign`   | `EmpresasConveniadas`      | `content/paginas-empresa.tsx` + `parceiros` de `content/empresa.tsx` |
-| Cadastro de Convênio                           | `CadastroConvenioRedesign`      | `CadastroConvenio`         | `content/paginas-empresa.tsx`  |
-| Por que ser parceiro                           | `PorQueSerParceiroRedesign`     | `PorQueSerParceiro`        | `content/paginas-empresa.tsx`  |
-| Vagas e Oportunidades (busca/filtro/paginação) | `PainelVagasRedesign`           | `PainelVagas`              | `content/paginas-conteudo.tsx` |
-| Artigo / notícia                               | `ArtigoRedesign`                | `Artigo`                   | `content/paginas-conteudo.tsx` |
-| Biblioteca de Conteúdos                        | `BibliotecaConteudosRedesign`   | `BibliotecaConteudos`      | `content/paginas-conteudo.tsx` |
-| Sobre nós                                      | `SobreNosRedesign`              | `SobreNos`                 | `content/paginas-conteudo.tsx` |
+| Página                                         | Redesign (usar)               | Fiel ao Figma (sem story)       | Conteúdo                                                             |
+| ---------------------------------------------- | ----------------------------- | ------------------------------- | -------------------------------------------------------------------- |
+| Home Aluno + Empresa (tab por estado)          | `HomeRedesign`                | `TemplateUnidade`/`HomeEmpresa` | `content/campos.tsx` + `content/empresa.tsx`                         |
+| Orientações de Estágio                         | `OrientacoesEstagioRedesign`  | `OrientacoesEstagio`            | `content/paginas-aluno.tsx`                                          |
+| Currículo                                      | `CurriculoRedesign`           | `Curriculo`                     | `content/paginas-aluno.tsx`                                          |
+| Empresas conveniadas                           | `EmpresasConveniadasRedesign` | `EmpresasConveniadas`           | `content/paginas-empresa.tsx` + `parceiros` de `content/empresa.tsx` |
+| Cadastro de Convênio                           | `CadastroConvenioRedesign`    | `CadastroConvenio`              | `content/paginas-empresa.tsx`                                        |
+| Por que ser parceiro                           | `PorQueSerParceiroRedesign`   | `PorQueSerParceiro`             | `content/paginas-empresa.tsx`                                        |
+| Vagas e Oportunidades (busca/filtro/paginação) | `PainelVagasRedesign`         | `PainelVagas`                   | `content/paginas-conteudo.tsx`                                       |
+| Artigo / notícia                               | `ArtigoRedesign`              | `Artigo`                        | `content/paginas-conteudo.tsx`                                       |
+| Biblioteca de Conteúdos                        | `BibliotecaConteudosRedesign` | `BibliotecaConteudos`           | `content/paginas-conteudo.tsx`                                       |
+| Sobre nós                                      | `SobreNosRedesign`            | `SobreNos`                      | `content/paginas-conteudo.tsx`                                       |
 
 O que é comum às páginas vive em `src/pages/shared.tsx`: `PageShell` (Header +
 PlatformCTA + Footer — passe `platformCta={false}` e adicione seu próprio
@@ -138,14 +138,14 @@ decisões em aberto), não construir telas.
 
 ## 6. Decisões em aberto (responder antes de codar o site)
 
-| #   | Decisão                                                                   | Dono           | Recomendação                                                                                                                |
-| --- | ------------------------------------------------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Stack do site final                                                       | Dev + Leonardo | **Next.js (App Router) + Tailwind**, SSG por unidade; a lib entra copy-in com o preset                                      |
-| 2   | Fonte das vagas: integração Symplicity (API/feed) ou curadoria manual?    | UCAM/CENPRE    | Começar com curadoria manual (campo `vagas` do content) + link "ver todas" para o Symplicity; integrar depois se houver API |
-| 3   | CMS para notícias/FAQ/unidades ou conteúdo em código?                     | Dev + UCAM     | Fase 1 em código (arquivos `content/`); fase 2 CMS headless usando `UnidadeContent` como schema                             |
-| 4   | Hospedagem e domínio (subdomínio ucam?)                                   | UCAM TI        | Vercel/Netlify para começar; definir domínio cedo por causa de SEO                                                          |
-| 5   | Banco de imagens institucional para novas unidades/seções                | CENPRE         | Home e as 9 subpáginas já têm fotos reais (ver [IMAGENS.md](./IMAGENS.md)) — mas o estoque de fotos avulsas está no limite (cutouts sendo reaproveitados entre páginas diferentes); cada unidade nova ou seção com placeholder cinza (ex.: cards da Biblioteca de Conteúdos) vai precisar de fotos novas |
-| 6   | Formulários (fale conosco, cadastro de convênio): para onde vão os dados? | UCAM/CENPRE    | E-mail via serviço (Resend/Formspree) na fase 1; `ContactForm` já expõe `onSubmit`                                          |
+| #   | Decisão                                                                   | Dono           | Recomendação                                                                                                                                                                                                                                                                                             |
+| --- | ------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Stack do site final                                                       | Dev + Leonardo | **Next.js (App Router) + Tailwind**, SSG por unidade; a lib entra copy-in com o preset                                                                                                                                                                                                                   |
+| 2   | Fonte das vagas: integração Symplicity (API/feed) ou curadoria manual?    | UCAM/CENPRE    | Começar com curadoria manual (campo `vagas` do content) + link "ver todas" para o Symplicity; integrar depois se houver API                                                                                                                                                                              |
+| 3   | CMS para notícias/FAQ/unidades ou conteúdo em código?                     | Dev + UCAM     | Fase 1 em código (arquivos `content/`); fase 2 CMS headless usando `UnidadeContent` como schema                                                                                                                                                                                                          |
+| 4   | Hospedagem e domínio (subdomínio ucam?)                                   | UCAM TI        | Vercel/Netlify para começar; definir domínio cedo por causa de SEO                                                                                                                                                                                                                                       |
+| 5   | Banco de imagens institucional para novas unidades/seções                 | CENPRE         | Home e as 9 subpáginas já têm fotos reais (ver [IMAGENS.md](./IMAGENS.md)) — mas o estoque de fotos avulsas está no limite (cutouts sendo reaproveitados entre páginas diferentes); cada unidade nova ou seção com placeholder cinza (ex.: cards da Biblioteca de Conteúdos) vai precisar de fotos novas |
+| 6   | Formulários (fale conosco, cadastro de convênio): para onde vão os dados? | UCAM/CENPRE    | E-mail via serviço (Resend/Formspree) na fase 1; `ContactForm` já expõe `onSubmit`                                                                                                                                                                                                                       |
 
 ## 7. Storybook publicado (handoff visual canônico)
 
