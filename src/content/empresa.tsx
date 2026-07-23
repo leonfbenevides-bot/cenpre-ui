@@ -67,10 +67,26 @@ export const empresa: EmpresaContent = {
       answer:
         "O convênio é o instrumento jurídico que formaliza a parceria entre a empresa e a UCAM, autorizando a empresa a receber estagiários. É regulado pela Lei Nº 11.788/2008 e estabelece as responsabilidades de cada parte durante o período de estágio.",
     },
-    { question: "2 - Como cadastrar minha empresa" },
-    { question: "3 - Quem deve assinar o convênio" },
-    { question: "4 - Quais documentos são necessários" },
-    { question: "5 - Prazo de homologação e liberação de vagas" },
+    {
+      question: "2 - Como cadastrar minha empresa",
+      answer:
+        'Cadastre a empresa na Plataforma CENPRE Carreiras e solicite o convênio na aba "Estágio" → "Módulo de Estágio" → "Convênio" → "Novo Convênio", selecionando o Responsável Legal e, em "Campus", a Universidade Candido Mendes. A vigência pode ser indeterminada.',
+    },
+    {
+      question: "3 - Quem deve assinar o convênio",
+      answer:
+        "O Responsável Legal indicado no contrato social ou estatuto da empresa (ou atualizado na Receita). A assinatura é digital: informe o CPF do Responsável Legal e valide com o token enviado por e-mail.",
+    },
+    {
+      question: "4 - Quais documentos são necessários",
+      answer:
+        "CNPJ, razão social e endereço da empresa; nome completo, CPF e e-mail do Responsável Legal; e o Contrato Social ou Estatuto que comprove que essa pessoa pode representar a empresa.",
+    },
+    {
+      question: "5 - Prazo de homologação e liberação de vagas",
+      answer:
+        "Após a assinatura da empresa, a equipe do CENPRE homologa o convênio em até 5 dias úteis. Com o convênio homologado, a empresa já pode cadastrar vagas e acessar currículos na plataforma.",
+    },
   ],
 
   parceiros: [

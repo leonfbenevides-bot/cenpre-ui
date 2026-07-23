@@ -3,14 +3,12 @@ import { EditorialHeading } from "../components/EditorialHeading";
 import { EditorialCTA } from "../components/EditorialCTA";
 import { Button } from "../components/Button";
 import { DocCard } from "../components/DocCard";
-import { Tag } from "../components/Tag";
 import { Card } from "../components/Card";
 import { TabsPills } from "../components/Tabs";
 import { AccordionList } from "../components/Accordion";
 import { FileTextIcon, LandmarkIcon, SchoolIcon, ClipboardListIcon } from "../components/Icons";
 import type { OrientacoesContent } from "../content/types";
 import { PageShell, Breadcrumb, HeroPill, rotas } from "./shared";
-import { cn } from "@/lib/cn";
 
 export interface OrientacoesEstagioRedesignProps {
   content: OrientacoesContent;
@@ -70,51 +68,26 @@ export function OrientacoesEstagioRedesign({ content }: OrientacoesEstagioRedesi
           <EditorialHeading
             eyebrow="Estágio obrigatório"
             title="Por escola e curso"
-            subtitle="O estágio obrigatório é definido no projeto pedagógico do curso. As condicionalidades por escola chegam em breve."
+            subtitle="Cursos com estágio obrigatório em cada área. Demais cursos: consulte a coordenação do seu curso."
           />
           <ul className="mt-10 flex flex-col gap-3">
-            {escolas.map((e) => {
-              // Escolas com badge (hoje, todas "Em produção") ainda não têm página de
-              // condicionalidades — cartão não-clicável em vez de link morto.
-              const pronta = !e.badge;
-              const Comp = pronta ? "a" : "div";
-              return (
-                <li key={e.nome}>
-                  <Comp
-                    {...(pronta ? { href: e.href } : { "aria-disabled": true })}
-                    className={cn(
-                      "group flex items-center gap-4 rounded-card border border-ash-200 bg-white px-5 py-4 shadow-card transition-all",
-                      pronta
-                        ? "hover:-translate-y-0.5 hover:border-magenta-300 hover:shadow-card-hover"
-                        : "opacity-60",
-                    )}
-                  >
-                    <span
-                      className="grid h-10 w-10 shrink-0 place-items-center rounded-chip bg-magenta-100 text-magenta-700"
-                      aria-hidden
-                    >
-                      {e.icon}
-                    </span>
-                    <span className="flex-1">
-                      <span
-                        className={cn(
-                          "block text-sm font-semibold text-charcoal-500",
-                          pronta && "group-hover:text-magenta-700",
-                        )}
-                      >
-                        {e.nome}
-                      </span>
-                      <span className="text-[13px] text-charcoal-200">{e.cursos}</span>
-                    </span>
-                    {e.badge && (
-                      <Tag tone="neutral" size="sm" className="shrink-0">
-                        {e.badge}
-                      </Tag>
-                    )}
-                  </Comp>
-                </li>
-              );
-            })}
+            {escolas.map((e) => (
+              <li
+                key={e.nome}
+                className="flex items-center gap-4 rounded-card border border-ash-200 bg-white px-5 py-4 shadow-card"
+              >
+                <span
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-chip bg-magenta-100 text-magenta-700"
+                  aria-hidden
+                >
+                  {e.icon}
+                </span>
+                <span className="flex-1">
+                  <span className="block text-sm font-semibold text-charcoal-500">{e.nome}</span>
+                  <span className="text-[13px] text-charcoal-200">{e.cursos}</span>
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
       </section>

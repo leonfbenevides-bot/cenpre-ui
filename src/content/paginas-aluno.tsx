@@ -1,10 +1,11 @@
 import {
-  GraduationCapIcon,
   BriefcaseIcon,
   FileTextIcon,
   ClipboardListIcon,
   ClockIcon,
   CheckIcon,
+  HandHeartIcon,
+  LandmarkIcon,
 } from "../components/Icons";
 import type { OrientacoesContent, CurriculoContent } from "./types";
 
@@ -37,41 +38,40 @@ export const orientacoes: OrientacoesContent = {
     ],
   },
 
+  // Cursos com estágio obrigatório por área — fonte: levantamento do CENPRE (13/07/2026).
+  // Demais cursos de cada área (não listados aqui) não têm estágio obrigatório; o
+  // não obrigatório continua fortemente recomendado nesses casos.
   escolas: [
     {
-      icon: <GraduationCapIcon size={20} />,
-      nome: "Escola de Saúde",
-      cursos: "Biomedicina · Educação Física · Estética e Cosmética · Fisioterapia · Nutrição",
-      badge: "Em produção",
+      icon: <HandHeartIcon size={20} />,
+      nome: "Área da Saúde",
+      cursos: "Biomedicina · Educação Física · Fisioterapia · Nutrição",
       href: "#",
     },
     {
       icon: <FileTextIcon size={20} />,
-      nome: "Escola de Educação e Humanidades",
-      cursos: "Pedagogia · Letras · Psicologia · História · Geografia · Filosofia",
-      badge: "Em produção",
+      nome: "Área de Educação e Humanidades",
+      cursos:
+        "Pedagogia · Letras – Inglês · Letras – Português · História · Jornalismo · Serviço Social",
       href: "#",
     },
     {
       icon: <BriefcaseIcon size={20} />,
-      nome: "Escola de Gestão",
-      cursos: "Administração · Ciências Contábeis · Ciências Econômicas · Recursos Humanos",
-      badge: "Em produção",
+      nome: "Área de Gestão",
+      cursos: "Administração · Ciências Contábeis",
       href: "#",
     },
     {
       icon: <ClipboardListIcon size={20} />,
-      nome: "Escola de Engenharia e Tecnologia",
+      nome: "Área de Engenharia e Tecnologia",
       cursos:
-        "Engenharia Civil · Engenharia de Produção · Sistemas de Informação · Análise e Desenvolvimento",
-      badge: "Em produção",
+        "Engenharia Civil · Engenharia da Computação · Engenharia de Produção · Engenharia Elétrica · Engenharia Mecânica",
       href: "#",
     },
     {
-      icon: <GraduationCapIcon size={20} />,
-      nome: "Escola Jurídica",
-      cursos: "Direito",
-      badge: "Em produção",
+      icon: <LandmarkIcon size={20} />,
+      nome: "Área Jurídica",
+      cursos: "Direito (a partir do 7º período, nos Núcleos de Práticas Jurídicas ou no FUCAM)",
       href: "#",
     },
   ],
