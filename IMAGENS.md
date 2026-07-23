@@ -50,8 +50,15 @@ pessoa/sessão, fotos em ângulos/momentos diferentes. Isso muda como eu uso:
   ilegível), que foi removida do repo. Esse reaproveitamento é uma exceção pontual à
   regra de "nunca repetir a mesma foto em duas seções": as duas seções nunca aparecem
   juntas na mesma visualização (Guia do Estágio só existe na aba Aluno da Home; a foto
-  de "captar talentos" só aparece na Biblioteca quando a aba é Empresa). Ainda falta
-  foto dedicada para o CTA de fechamento de Empresas Conveniadas.
+  de "captar talentos" só aparece na Biblioteca quando a aba é Empresa).
+- **CTA de Empresas Conveniadas — placeholder genérico (23/07/2026):** o usuário mandou
+  uma foto candidata (`magnific_crie-novas-imagens-de-um-_62U4ZsdiJO`) mas ela tinha uma
+  tela de fundo com texto legível "TechCorp Inovação" e crachá "Estagiário - TechCorp"
+  (nome de empresa fictício visível) — rejeitada por marca/texto falso embutido, mesmo
+  problema do quadro-branco. O usuário optou por não usar essa e pediu uma foto "boa e
+  genérica" como placeholder temporário; usei a mesma foto de retrato em data center já
+  usada num card da Biblioteca (`blog-checklist-convenio.jpg`, `imageFit="cover"`).
+  Trocar quando chegar foto dedicada sem texto/marca embutidos.
 
 ## Tipos de imagem e specs
 

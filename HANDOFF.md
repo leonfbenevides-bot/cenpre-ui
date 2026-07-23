@@ -49,9 +49,11 @@ usa um seletor de perfil Aluno/Empresa no topo (slot `aside` do `Header`).
 > (`ImageMosaic`), nunca espalhados como banners individuais; heros de subpágina
 > **não** têm foto (bloco tipográfico via `EditorialPageHero`) porque o estoque de
 > fotos avulsas boas já foi consumido pelos heros da Home. `EditorialCTA` suporta
-> `image` (cutout), mas **não está em uso** — o usuário rejeitou o visual de recorte
-> nos CTAs (23/07/2026); todos ficam só com texto + glow até chegar foto com fundo
-> completo dedicada a esse uso.
+> `image` com `imageFit="cover"` (foto com fundo completo) ou `"contain"` (cutout) —
+> o usuário rejeitou o visual de recorte nos CTAs (23/07/2026), então **só o modo
+> `cover` está em uso**, e só no CTA de Empresas Conveniadas (foto placeholder
+> genérica, ver [IMAGENS.md](./IMAGENS.md)). Os demais CTAs ficam só com texto + glow
+> até chegar foto dedicada com fundo completo.
 
 ## 2. O que já está pronto (e o que é entregável)
 
@@ -141,14 +143,14 @@ decisões em aberto), não construir telas.
 
 ## 6. Decisões em aberto (responder antes de codar o site)
 
-| #   | Decisão                                                                   | Dono           | Recomendação                                                                                                                                                                                                                                                                     |
-| --- | ------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Stack do site final                                                       | Dev + Leonardo | **Next.js (App Router) + Tailwind**, SSG por unidade; a lib entra copy-in com o preset                                                                                                                                                                                           |
-| 2   | Fonte das vagas: integração Symplicity (API/feed) ou curadoria manual?    | UCAM/CENPRE    | Começar com curadoria manual (campo `vagas` do content) + link "ver todas" para o Symplicity; integrar depois se houver API                                                                                                                                                      |
-| 3   | CMS para notícias/FAQ/unidades ou conteúdo em código?                     | Dev + UCAM     | Fase 1 em código (arquivos `content/`); fase 2 CMS headless usando `UnidadeContent` como schema                                                                                                                                                                                  |
-| 4   | Hospedagem e domínio (subdomínio ucam?)                                   | UCAM TI        | Vercel/Netlify para começar; definir domínio cedo por causa de SEO                                                                                                                                                                                                               |
-| 5   | Banco de imagens institucional para novas unidades/seções e CTAs          | CENPRE         | Home, as 9 subpáginas, os 6 cards de Blog da Biblioteca de Conteúdos e a foto de encerramento do "Guia do Estágio" já têm fotos reais (ver [IMAGENS.md](./IMAGENS.md)); falta só foto **com fundo completo** (não recorte) dedicada ao CTA de fechamento de Empresas Conveniadas |
-| 6   | Formulários (fale conosco, cadastro de convênio): para onde vão os dados? | UCAM/CENPRE    | E-mail via serviço (Resend/Formspree) na fase 1; `ContactForm` já expõe `onSubmit`                                                                                                                                                                                               |
+| #   | Decisão                                                                   | Dono           | Recomendação                                                                                                                                                                                                                                                                                 |
+| --- | ------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Stack do site final                                                       | Dev + Leonardo | **Next.js (App Router) + Tailwind**, SSG por unidade; a lib entra copy-in com o preset                                                                                                                                                                                                       |
+| 2   | Fonte das vagas: integração Symplicity (API/feed) ou curadoria manual?    | UCAM/CENPRE    | Começar com curadoria manual (campo `vagas` do content) + link "ver todas" para o Symplicity; integrar depois se houver API                                                                                                                                                                  |
+| 3   | CMS para notícias/FAQ/unidades ou conteúdo em código?                     | Dev + UCAM     | Fase 1 em código (arquivos `content/`); fase 2 CMS headless usando `UnidadeContent` como schema                                                                                                                                                                                              |
+| 4   | Hospedagem e domínio (subdomínio ucam?)                                   | UCAM TI        | Vercel/Netlify para começar; definir domínio cedo por causa de SEO                                                                                                                                                                                                                           |
+| 5   | Banco de imagens institucional para novas unidades/seções e CTAs          | CENPRE         | Home, as 9 subpáginas, os 6 cards de Blog da Biblioteca de Conteúdos, a foto de encerramento do "Guia do Estágio" e o CTA de Empresas Conveniadas já têm fotos reais (ver [IMAGENS.md](./IMAGENS.md)) — a do CTA é **placeholder genérico** (23/07/2026), trocar quando chegar foto dedicada |
+| 6   | Formulários (fale conosco, cadastro de convênio): para onde vão os dados? | UCAM/CENPRE    | E-mail via serviço (Resend/Formspree) na fase 1; `ContactForm` já expõe `onSubmit`                                                                                                                                                                                                           |
 
 ## 7. Storybook publicado (handoff visual canônico)
 

@@ -9,6 +9,7 @@ import { Input } from "../components/Input";
 import { SearchIcon, ArrowRightIcon } from "../components/Icons";
 import type { ConveniadasContent, EmpresaContent } from "../content/types";
 import { PageShell, Breadcrumb, rotas } from "./shared";
+import ctaImg from "../assets/blog-checklist-convenio.jpg";
 
 export interface EmpresasConveniadasRedesignProps {
   content: ConveniadasContent;
@@ -143,6 +144,8 @@ export function EmpresasConveniadasRedesign({
         <EditorialCTA
           eyebrow="Seja parceiro"
           title="Sua empresa ainda não é conveniada? Vamos mudar isso."
+          image={ctaImg}
+          imageAlt="Profissional em ambiente de trabalho"
           actions={
             <>
               <Button size="lg">Cadastrar minha empresa</Button>
