@@ -678,7 +678,7 @@ export function HomeRedesign({
                   <img
                     src={guiaEstagio.imagem}
                     alt="Equipe colaborando em ambiente profissional"
-                    className="h-[325px] w-full object-cover"
+                    className="h-[325px] w-full object-cover object-top"
                   />
                 </div>
               </div>
