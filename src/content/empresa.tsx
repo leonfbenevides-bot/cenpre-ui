@@ -3,6 +3,9 @@ import type { EmpresaContent } from "./types";
 import { campos } from "./campos";
 import heroEmpresaBg from "../assets/hero-empresa-bg.jpg";
 import heroEmpresaModel from "../assets/hero-empresa-model.webp";
+import blogCaptarTalentos from "../assets/blog-plataforma-captar-talentos.jpg";
+import blogChecklistConvenio from "../assets/blog-checklist-convenio.jpg";
+import blogSupervisaoEstagiarios from "../assets/blog-supervisao-estagiarios.jpg";
 
 /**
  * Conteúdo da home Empresa — copy extraído do Figma UCAM SITE (frames
@@ -110,6 +113,7 @@ export const empresa: EmpresaContent = {
         excerpt: "Do cadastro à triagem de currículos: um guia prático para o RH da sua empresa.",
         tags: ["Plataforma", "RH"],
         href: "#",
+        image: blogCaptarTalentos,
       },
       {
         formato: "Blog",
@@ -119,6 +123,7 @@ export const empresa: EmpresaContent = {
         excerpt: "TCE, plano de atividades e seguro: organize a documentação e ganhe agilidade.",
         tags: ["Convênio", "Documentos"],
         href: "#",
+        image: blogChecklistConvenio,
       },
       {
         formato: "Blog",
@@ -128,6 +133,7 @@ export const empresa: EmpresaContent = {
         excerpt: "O papel do supervisor, avaliações semestrais e boas práticas de acompanhamento.",
         tags: ["Estágio", "Gestão"],
         href: "#",
+        image: blogSupervisaoEstagiarios,
       },
     ],
   },

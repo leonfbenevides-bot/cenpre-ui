@@ -1,6 +1,9 @@
 import type { VagasContent, ArtigoContent, SobreNosContent, BibliotecaContent } from "./types";
 import { campos } from "./campos";
 import { empresa } from "./empresa";
+import blogPlataformaDiaADia from "../assets/blog-plataforma-dia-a-dia.jpg";
+import blogChecklistDocumentos from "../assets/blog-checklist-documentos.jpg";
+import blogCurriculoRecrutadores from "../assets/blog-curriculo-recrutadores.jpg";
 
 /** Painel de vagas — listagem com busca e filtro por fonte. */
 export const vagas: VagasContent = {
@@ -152,6 +155,7 @@ export const biblioteca: BibliotecaContent = {
         "Cadastro de currículo, busca de vagas e acompanhamento de candidaturas em um só lugar.",
       tags: ["Plataforma"],
       href: "#",
+      image: blogPlataformaDiaADia,
     },
     {
       formato: "Blog",
@@ -162,6 +166,7 @@ export const biblioteca: BibliotecaContent = {
         "TCE, termo de compromisso e seguro contra acidentes — confira o que é exigido antes do primeiro dia.",
       tags: ["Estágio"],
       href: "#",
+      image: blogChecklistDocumentos,
     },
     {
       formato: "Blog",
@@ -172,6 +177,7 @@ export const biblioteca: BibliotecaContent = {
         "Os pontos que mais pesam na triagem, segundo quem recebe centenas de currículos por vaga.",
       tags: ["Carreira"],
       href: "#",
+      image: blogCurriculoRecrutadores,
     },
     ...empresa.biblioteca.itens,
   ],

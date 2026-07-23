@@ -23,6 +23,9 @@ import guiaEstagioEquipe from "../assets/guia-estagio-equipe.jpg";
 import newsCiclo from "../assets/news-1.jpg";
 import newsCurriculo from "../assets/news-2.jpg";
 import newsEstagio from "../assets/news-3.jpg";
+import blogPlataformaDiaADia from "../assets/blog-plataforma-dia-a-dia.jpg";
+import blogChecklistDocumentos from "../assets/blog-checklist-documentos.jpg";
+import blogCurriculoRecrutadores from "../assets/blog-curriculo-recrutadores.jpg";
 import depoimentoRafael from "../assets/avatars/depoimento-rafael.png";
 import depoimentoAndressa from "../assets/avatars/depoimento-andressa.png";
 import depoimentoMarcos from "../assets/avatars/depoimento-marcos.png";
@@ -445,6 +448,7 @@ export const campos: UnidadeContent = {
           "Cadastro de currículo, busca de vagas e acompanhamento de candidaturas em um só lugar.",
         tags: ["Plataforma"],
         href: "#",
+        image: blogPlataformaDiaADia,
       },
       {
         formato: "Blog",
@@ -455,6 +459,7 @@ export const campos: UnidadeContent = {
           "TCE, termo de compromisso e seguro contra acidentes — confira o que é exigido antes do primeiro dia.",
         tags: ["Estágio"],
         href: "#",
+        image: blogChecklistDocumentos,
       },
       {
         formato: "Blog",
@@ -465,6 +470,7 @@ export const campos: UnidadeContent = {
           "Os pontos que mais pesam na triagem, segundo quem recebe centenas de currículos por vaga.",
         tags: ["Carreira"],
         href: "#",
+        image: blogCurriculoRecrutadores,
       },
     ],
   },
