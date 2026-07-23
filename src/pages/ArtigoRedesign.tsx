@@ -15,7 +15,7 @@ export interface ArtigoRedesignProps {
 
 /**
  * PILOTO — versão "Editorial Aspiracional" do Artigo. Mesmo conteúdo/props da
- * versão fiel ao Figma (`Artigo.tsx`) — hero escuro com tipografia Fraunces,
+ * versão fiel ao Figma (`Artigo.tsx`) — hero escuro com tipografia display,
  * corpo idêntico, encerramento com EditorialCTA.
  */
 export function ArtigoRedesign({ content }: ArtigoRedesignProps) {

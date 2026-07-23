@@ -30,8 +30,9 @@ usa um seletor de perfil Aluno/Empresa no topo (slot `aside` do `Header`).
 >
 > O Figma (link acima) é a **fonte de conteúdo/copy**, não mais o alvo visual final.
 > A partir de 22/07/2026 a direção visual aprovada é o piloto **"Editorial
-> Aspiracional"**: tipografia display **Fraunces** (`font-editorial`, ver §Design
-> tokens do [README](./README.md)), fotografia cinematográfica full-bleed,
+> Aspiracional"**: tipografia display **Work Sans** em escala maior/peso mais forte
+> (`font-editorial`, ver §Design tokens do [README](./README.md)), fotografia
+> cinematográfica full-bleed,
 > composições/colagens de fotos, faixas animadas (`Marquee`) e paleta mais
 > contrastada (charcoal-500 + magenta + glow). As páginas "fiéis ao Figma" listadas
 > na tabela do §4 (`TemplateUnidade`, `HomeEmpresa`, `OrientacoesEstagio` etc.)

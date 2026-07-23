@@ -58,7 +58,7 @@ import ctaAlunoImg from "../assets/blog-checklist-convenio.jpg";
 import ctaEmpresaImg from "../assets/blog-checklist-documentos.jpg";
 
 /**
- * PILOTO — Home unificada no visual "Editorial Aspiracional" (Fraunces,
+ * PILOTO — Home unificada no visual "Editorial Aspiracional" (Work Sans display,
  * fotografia cinematográfica). "Sou aluno" × "Sou empresa" é UMA página: a
  * tab troca o conteúdo por estado local, sem navegação — Header, hero
  * (fotos próprias por perfil), faixa de números e footer ficam idênticos.

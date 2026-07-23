@@ -17,7 +17,7 @@ export default meta;
 type Story = StoryObj<typeof HomeRedesign>;
 
 /**
- * PILOTO da direção "Editorial Aspiracional": tipografia display Fraunces,
+ * PILOTO da direção "Editorial Aspiracional": tipografia display Work Sans,
  * fotografia cinematográfica, composição editorial. "Sou aluno" × "Sou
  * empresa" é uma página só — a tab (no hero e na faixa de perfil) troca o
  * conteúdo inteiro por estado, incluindo o hero, sem reload. Uma única story

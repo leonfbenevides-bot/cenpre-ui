@@ -36,15 +36,15 @@ import { Button, JobCard, AccordionList } from "cenpre-ui"; // ou "@/index" no m
 
 Extraídos do arquivo Figma "UCAM SITE". Definidos em `tailwind.config.ts` (classes Tailwind) e em `src/styles/globals.css` (CSS vars para uso fora do Tailwind).
 
-| Grupo                    | Tokens                                                                                                                                                                          |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Marca (magenta)**      | `100 #fff0f5` · `200 #ffdde8` · `300 #fcb9ce` · `400 #f494b2` · `500 #ea7095` · `600 #d64e76` · **`700 #b4365b` (primária)** · `800 #922243` · `900 #70132f` · `1000 #530e23`   |
-| **Ash (neutros claros)** | `100 #f9fafb` · `200 #f1f3f5` · `300 #e2e6e9` · `400 #d6dce0` · `600 #939eaa`                                                                                                   |
-| **Charcoal (texto)**     | `100 #758493` · `200 #566574` · `300 #415260` · `400 #3c4b57` (corpo) · `500 #303e49` (títulos)                                                                                 |
-| **Spacing**              | escala `4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 48 · 56 · 64 · 80 · 96` (px) — `spacing.token-*`                                                                                  |
-| **Radius**               | `chip 8px` · `card 16px` · `pill 100px`                                                                                                                                         |
-| **Fonte**                | **Work Sans** (títulos/display — `font-display`) · **Inter** (corpo/UI — `font-sans`, padrão) · **Fraunces** (display editorial — `font-editorial`, só nas páginas `*Redesign`) |
-| **Ícones**               | [Lucide](https://lucide.dev/icons/) (`lucide-react`) — padrão shadcn                                                                                                            |
+| Grupo                    | Tokens                                                                                                                                                                        |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Marca (magenta)**      | `100 #fff0f5` · `200 #ffdde8` · `300 #fcb9ce` · `400 #f494b2` · `500 #ea7095` · `600 #d64e76` · **`700 #b4365b` (primária)** · `800 #922243` · `900 #70132f` · `1000 #530e23` |
+| **Ash (neutros claros)** | `100 #f9fafb` · `200 #f1f3f5` · `300 #e2e6e9` · `400 #d6dce0` · `600 #939eaa`                                                                                                 |
+| **Charcoal (texto)**     | `100 #758493` · `200 #566574` · `300 #415260` · `400 #3c4b57` (corpo) · `500 #303e49` (títulos)                                                                               |
+| **Spacing**              | escala `4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 48 · 56 · 64 · 80 · 96` (px) — `spacing.token-*`                                                                                |
+| **Radius**               | `chip 8px` · `card 16px` · `pill 100px`                                                                                                                                       |
+| **Fonte**                | **Work Sans** (títulos/display — `font-display` e `font-editorial`) · **Inter** (corpo/UI — `font-sans`, padrão)                                                              |
+| **Ícones**               | [Lucide](https://lucide.dev/icons/) (`lucide-react`) — padrão shadcn                                                                                                          |
 
 Uso em Tailwind: `bg-magenta-700`, `text-charcoal-500`, `border-ash-300`, `rounded-card`, `p-token-24`.
 
