@@ -361,7 +361,7 @@ export function HomeRedesign({
           </header>
 
           {/* Conteúdo do hero (troca por slide) */}
-          <div className="relative z-10 mx-auto flex w-full max-w-container flex-1 flex-col justify-end px-6 pb-10 pt-8 md:px-gutter">
+          <div className="relative z-10 mx-auto flex w-full max-w-container flex-1 flex-col justify-center px-6 pb-10 pt-8 md:px-gutter">
             <div key={`txt-${perfil}-${i}`} className="max-w-2xl">
               <Reveal
                 as="p"
@@ -734,8 +734,8 @@ export function HomeRedesign({
                     Orientação de carreira, documentação, convênios e vagas — tudo acompanhado de
                     perto pela equipe do CENPRE.
                   </p>
-                  <Button size="lg" className="mt-8">
-                    Conheça o CENPRE
+                  <Button size="lg" asChild className="mt-8">
+                    <a href={rotas.sobreNos}>Conheça o CENPRE</a>
                   </Button>
                 </div>
                 {/* Mosaico (composição das imagens da mesma estudante) */}

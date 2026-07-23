@@ -5,6 +5,7 @@ import { rotas } from "../pages/shared";
 import blogPlataformaDiaADia from "../assets/blog-plataforma-dia-a-dia.jpg";
 import blogChecklistDocumentos from "../assets/blog-checklist-documentos.jpg";
 import blogCurriculoRecrutadores from "../assets/blog-curriculo-recrutadores.jpg";
+import newsCiclo from "../assets/news-1.jpg";
 
 /** Painel de vagas — listagem com busca e filtro por fonte. */
 export const vagas: VagasContent = {
@@ -90,6 +91,7 @@ export const artigoExemplo: ArtigoContent = {
   author: "André Pacheco",
   date: "19 de novembro de 2024",
   readTime: "5 min de leitura",
+  cover: newsCiclo,
   body: [
     {
       type: "p",
