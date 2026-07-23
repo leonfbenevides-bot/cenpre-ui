@@ -59,6 +59,12 @@ pessoa/sessão, fotos em ângulos/momentos diferentes. Isso muda como eu uso:
   genérica" como placeholder temporário; usei a mesma foto de retrato em data center já
   usada num card da Biblioteca (`blog-checklist-convenio.jpg`, `imageFit="cover"`).
   Trocar quando chegar foto dedicada sem texto/marca embutidos.
+- **CTAs de fechamento da Home — imagem adicionada (23/07/2026):** os dois CTAs finais
+  da Home (aluno e empresa) passaram a usar `EditorialCTA` com `image`/`imageFit="cover"`
+  em vez do bloco só-texto. Fotos reaproveitadas das que já existiam no repo
+  (`blog-checklist-convenio.jpg` no CTA aluno, `blog-checklist-documentos.jpg` no CTA
+  empresa) — seguro porque aluno/empresa são abas mutuamente exclusivas da mesma página
+  (nunca renderizam juntas), mesmo raciocínio já usado no Guia do Estágio.
 
 ## Tipos de imagem e specs
 

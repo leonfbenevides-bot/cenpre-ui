@@ -8,6 +8,7 @@ import { SectionHeading } from "../components/SectionHeading";
 import { FileTextIcon, LandmarkIcon, SchoolIcon, ClipboardListIcon } from "../components/Icons";
 import type { OrientacoesContent } from "../content/types";
 import { PageShell, Breadcrumb, HeroPill } from "./shared";
+import { cn } from "@/lib/cn";
 
 export interface OrientacoesEstagioProps {
   content: OrientacoesContent;
@@ -69,32 +70,46 @@ export function OrientacoesEstagio({ content }: OrientacoesEstagioProps) {
           subtitle="O estágio obrigatório é definido no projeto pedagógico do curso. Clique na sua escola para ver as condicionalidades."
         />
         <ul className="mt-8 flex flex-col gap-3">
-          {escolas.map((e) => (
-            <li key={e.nome}>
-              <a
-                href={e.href}
-                className="group flex items-center gap-4 rounded-card border border-ash-200 bg-ash-100 px-5 py-4 transition-colors hover:border-ash-300 hover:bg-ash-200"
-              >
-                <span
-                  className="grid h-10 w-10 shrink-0 place-items-center rounded-chip bg-magenta-100 text-magenta-700"
-                  aria-hidden
+          {escolas.map((e) => {
+            // Escolas com badge (hoje, todas "Em produção") ainda não têm página de
+            // condicionalidades — cartão não-clicável em vez de link morto.
+            const pronta = !e.badge;
+            const Comp = pronta ? "a" : "div";
+            return (
+              <li key={e.nome}>
+                <Comp
+                  {...(pronta ? { href: e.href } : { "aria-disabled": true })}
+                  className={cn(
+                    "group flex items-center gap-4 rounded-card border border-ash-200 bg-ash-100 px-5 py-4 transition-colors",
+                    pronta ? "hover:border-ash-300 hover:bg-ash-200" : "opacity-60",
+                  )}
                 >
-                  {e.icon}
-                </span>
-                <span className="flex-1">
-                  <span className="block text-sm font-semibold text-charcoal-500 group-hover:text-magenta-700">
-                    {e.nome}
+                  <span
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-chip bg-magenta-100 text-magenta-700"
+                    aria-hidden
+                  >
+                    {e.icon}
                   </span>
-                  <span className="text-[13px] text-charcoal-200">{e.cursos}</span>
-                </span>
-                {e.badge && (
-                  <Tag tone="brand" size="sm" className="shrink-0">
-                    {e.badge}
-                  </Tag>
-                )}
-              </a>
-            </li>
-          ))}
+                  <span className="flex-1">
+                    <span
+                      className={cn(
+                        "block text-sm font-semibold text-charcoal-500",
+                        pronta && "group-hover:text-magenta-700",
+                      )}
+                    >
+                      {e.nome}
+                    </span>
+                    <span className="text-[13px] text-charcoal-200">{e.cursos}</span>
+                  </span>
+                  {e.badge && (
+                    <Tag tone="neutral" size="sm" className="shrink-0">
+                      {e.badge}
+                    </Tag>
+                  )}
+                </Comp>
+              </li>
+            );
+          })}
         </ul>
       </section>
 

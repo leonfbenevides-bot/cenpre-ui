@@ -1,6 +1,7 @@
 import { HandshakeIcon, SparklesIcon, ClipboardListIcon, FaqIcon } from "../components/Icons";
 import type { EmpresaContent } from "./types";
 import { campos } from "./campos";
+import { rotas } from "../pages/shared";
 import heroEmpresaBg from "../assets/hero-empresa-bg.jpg";
 import heroEmpresaModel from "../assets/hero-empresa-model.webp";
 import blogCaptarTalentos from "../assets/blog-plataforma-captar-talentos.jpg";
@@ -32,7 +33,7 @@ export const empresa: EmpresaContent = {
       description:
         "Lista de empresas conveniadas, processo de formalização e gestão do contrato de estágio com suporte do CENPRE.",
       cta: "Ver convênios",
-      href: "#",
+      href: rotas.empresasConveniadas,
     },
     {
       icon: <SparklesIcon size={22} />,
@@ -40,7 +41,7 @@ export const empresa: EmpresaContent = {
       description:
         "Benefícios exclusivos: captação de talentos, fortalecimento da marca empregadora e acesso à rede UCAM.",
       cta: "Saiba mais",
-      href: "#",
+      href: rotas.porQueSerParceiro,
     },
     {
       icon: <ClipboardListIcon size={22} />,
@@ -48,7 +49,7 @@ export const empresa: EmpresaContent = {
       description:
         "Passo a passo para formalizar o convênio com a UCAM e começar a receber currículos e candidaturas.",
       cta: "Como funciona",
-      href: "#",
+      href: rotas.cadastroConvenio,
     },
     {
       icon: <FaqIcon size={22} />,
@@ -56,7 +57,7 @@ export const empresa: EmpresaContent = {
       description:
         "Dúvidas sobre documentação, assinatura, prazos e gestão de estagiários? As respostas estão aqui.",
       cta: "Ver FAQ",
-      href: "#",
+      href: `${rotas.cadastroConvenio}#faq`,
     },
   ],
 
@@ -112,7 +113,7 @@ export const empresa: EmpresaContent = {
         title: "Como aproveitar a Plataforma CENPRE para captar talentos",
         excerpt: "Do cadastro à triagem de currículos: um guia prático para o RH da sua empresa.",
         tags: ["Plataforma", "RH"],
-        href: "#",
+        href: rotas.artigo,
         image: blogCaptarTalentos,
       },
       {
@@ -122,7 +123,7 @@ export const empresa: EmpresaContent = {
         title: "Checklist de documentos: o que ter em mãos para iniciar o convênio",
         excerpt: "TCE, plano de atividades e seguro: organize a documentação e ganhe agilidade.",
         tags: ["Convênio", "Documentos"],
-        href: "#",
+        href: rotas.artigo,
         image: blogChecklistConvenio,
       },
       {
@@ -132,7 +133,7 @@ export const empresa: EmpresaContent = {
         title: "Supervisão: o que sua empresa precisa saber sobre estagiários",
         excerpt: "O papel do supervisor, avaliações semestrais e boas práticas de acompanhamento.",
         tags: ["Estágio", "Gestão"],
-        href: "#",
+        href: rotas.artigo,
         image: blogSupervisaoEstagiarios,
       },
     ],

@@ -17,6 +17,7 @@ import {
   LayoutGrid,
   Headset,
 } from "lucide-react";
+import { rotas } from "../pages/shared";
 import heroAlunoBg from "../assets/hero-aluno-bg.jpg";
 import heroAlunoModel from "../assets/hero-aluno-model.webp";
 import guiaEstagioEquipe from "../assets/blog-plataforma-captar-talentos.jpg";
@@ -82,7 +83,7 @@ export const campos: UnidadeContent = {
       description:
         "Estágio obrigatório e não obrigatório, documentos, certificados e prazos e orientações por curso.",
       cta: "Saiba mais",
-      href: "#",
+      href: rotas.orientacoesEstagio,
     },
     {
       icon: <BriefcaseIcon size={22} />,
@@ -90,7 +91,7 @@ export const campos: UnidadeContent = {
       description:
         "Acesso a vagas, estágios, empregos e oportunidades por meio da plataforma CENPRE e parceiros.",
       cta: "Saiba mais",
-      href: "#",
+      href: rotas.vagas,
     },
     {
       icon: <FileTextIcon size={22} />,
@@ -98,14 +99,14 @@ export const campos: UnidadeContent = {
       description:
         "Cadastro, orientação profissional e atualização na criação de currículo para novas oportunidades.",
       cta: "Saiba mais",
-      href: "#",
+      href: rotas.curriculo,
     },
     {
       icon: <SparklesIcon size={22} />,
       title: "Ainda com dúvidas?",
       description: "Nossa equipe está pronta para te ajudar em qualquer etapa do processo.",
       cta: "Fale com a gente",
-      href: "#",
+      href: "mailto:atendimento.cenpre@ucam-campos.br",
     },
   ],
 
@@ -183,7 +184,7 @@ export const campos: UnidadeContent = {
       company: "Marketing",
       location: "Rio de Janeiro | RJ",
       salary: "R$ 1.000,00 + Benefícios",
-      href: "#",
+      href: rotas.plataforma,
     },
     {
       area: "Marketing",
@@ -193,7 +194,7 @@ export const campos: UnidadeContent = {
       company: "Administração",
       location: "Rio de Janeiro | RJ",
       salary: "R$ 1.000,00 + Benefícios",
-      href: "#",
+      href: rotas.plataforma,
     },
     {
       area: "Saúde",
@@ -203,7 +204,7 @@ export const campos: UnidadeContent = {
       company: "Saúde",
       location: "Rio de Janeiro | RJ",
       salary: "R$ 900,00 + Benefícios",
-      href: "#",
+      href: rotas.plataforma,
     },
     {
       area: "Administração",
@@ -213,7 +214,7 @@ export const campos: UnidadeContent = {
       company: "Administração",
       location: "Campos dos Goytacazes | RJ",
       salary: "R$ 800,00 + VT",
-      href: "#",
+      href: rotas.plataforma,
     },
     {
       area: "Engenharia",
@@ -223,7 +224,7 @@ export const campos: UnidadeContent = {
       company: "Engenharia",
       location: "Campos dos Goytacazes | RJ",
       salary: "R$ 1.100,00 + Benefícios",
-      href: "#",
+      href: rotas.plataforma,
     },
     {
       area: "Educação",
@@ -233,7 +234,7 @@ export const campos: UnidadeContent = {
       company: "Educação",
       location: "Campos dos Goytacazes | RJ",
       salary: "R$ 700,00 + Benefícios",
-      href: "#",
+      href: rotas.plataforma,
     },
   ],
 
@@ -408,7 +409,7 @@ export const campos: UnidadeContent = {
       excerpt:
         "O ciclo reuniu estudantes de diferentes cursos em encontros voltados ao desenvolvimento acadêmico.",
       tags: ["Estudo", "UCAM"],
-      href: "#",
+      href: rotas.artigo,
       image: newsCiclo,
     },
     {
@@ -418,7 +419,7 @@ export const campos: UnidadeContent = {
       excerpt:
         "Identifique os deslizes mais frequentes e saiba como corrigir antes da próxima candidatura.",
       tags: ["Currículo", "Carreira"],
-      href: "#",
+      href: rotas.artigo,
       image: newsCurriculo,
     },
     {
@@ -428,7 +429,7 @@ export const campos: UnidadeContent = {
       excerpt:
         "Carga horária, bolsa-auxílio e documentação têm regras diferentes entre as modalidades.",
       tags: ["Estágio", "Orientação"],
-      href: "#",
+      href: rotas.artigo,
       image: newsEstagio,
     },
   ],
@@ -447,7 +448,7 @@ export const campos: UnidadeContent = {
         excerpt:
           "Cadastro de currículo, busca de vagas e acompanhamento de candidaturas em um só lugar.",
         tags: ["Plataforma"],
-        href: "#",
+        href: rotas.artigo,
         image: blogPlataformaDiaADia,
       },
       {
@@ -458,7 +459,7 @@ export const campos: UnidadeContent = {
         excerpt:
           "TCE, termo de compromisso e seguro contra acidentes — confira o que é exigido antes do primeiro dia.",
         tags: ["Estágio"],
-        href: "#",
+        href: rotas.artigo,
         image: blogChecklistDocumentos,
       },
       {
@@ -469,7 +470,7 @@ export const campos: UnidadeContent = {
         excerpt:
           "Os pontos que mais pesam na triagem, segundo quem recebe centenas de currículos por vaga.",
         tags: ["Carreira"],
-        href: "#",
+        href: rotas.artigo,
         image: blogCurriculoRecrutadores,
       },
     ],

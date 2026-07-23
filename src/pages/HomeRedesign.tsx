@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, type ReactNode, type MouseEvent } from "react";
 import { Button } from "../components/Button";
+import { EditorialCTA } from "../components/EditorialCTA";
 import { FeatureCard } from "../components/FeatureCard";
 import { JobCard } from "../components/JobCard";
 import { NewsCard } from "../components/NewsCard";
@@ -52,6 +53,9 @@ import avatar1 from "../assets/avatar-1.jpg";
 import emp1 from "../assets/emp-1.jpg";
 import emp2 from "../assets/emp-2.jpg";
 import emp3 from "../assets/emp-3.jpg";
+// CTAs de fechamento — fotos com fundo completo (nunca do mesmo conjunto acima).
+import ctaAlunoImg from "../assets/blog-checklist-convenio.jpg";
+import ctaEmpresaImg from "../assets/blog-checklist-documentos.jpg";
 
 /**
  * PILOTO — Home unificada no visual "Editorial Aspiracional" (Fraunces,
@@ -343,12 +347,12 @@ export function HomeRedesign({
                 </a>
               ))}
             </nav>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-6">
               <a
-                href={rotas.plataforma}
+                href={rotas.vagas}
                 className="hidden text-sm text-white/70 transition-colors hover:text-white sm:block"
               >
-                Entrar
+                Ver oportunidades
               </a>
               <Button asChild className="bg-white text-charcoal-500 hover:bg-white/90">
                 <a href={rotas.plataforma}>Acessar plataforma</a>
@@ -1036,31 +1040,24 @@ export function HomeRedesign({
 
             {/* ============================ CTA ============================ */}
             <section className="mx-auto max-w-container px-6 py-20 md:px-gutter">
-              <div className="relative overflow-hidden rounded-[28px] bg-charcoal-500 px-8 py-16 text-white md:px-16 md:py-20">
-                <div
-                  aria-hidden
-                  className="absolute -right-20 -top-20 h-80 w-80 rounded-full opacity-40 blur-3xl"
-                  style={{
-                    background: "radial-gradient(circle, rgba(180,54,91,0.7), transparent 70%)",
-                  }}
-                />
-                <p className="relative mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-                  Comece agora
-                </p>
-                <h2 className="relative max-w-xl font-editorial text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.015em]">
-                  Dê o próximo passo na sua carreira com o CENPRE.
-                </h2>
-                <div className="relative mt-8 flex flex-wrap gap-4">
-                  <Button size="lg">Acessar a plataforma</Button>
-                  <Button
-                    size="lg"
-                    variant="ghost"
-                    className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
-                  >
-                    Fale com a gente
-                  </Button>
-                </div>
-              </div>
+              <EditorialCTA
+                eyebrow="Comece agora"
+                title="Dê o próximo passo na sua carreira com o CENPRE."
+                image={ctaAlunoImg}
+                imageAlt="Profissional em ambiente de trabalho"
+                actions={
+                  <>
+                    <Button size="lg">Acessar a plataforma</Button>
+                    <Button
+                      size="lg"
+                      variant="ghost"
+                      className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
+                    >
+                      Fale com a gente
+                    </Button>
+                  </>
+                }
+              />
             </section>
           </>
         ) : (
@@ -1400,31 +1397,24 @@ export function HomeRedesign({
 
             {/* ============================ CTA ============================ */}
             <section className="mx-auto max-w-container px-6 py-20 md:px-gutter">
-              <div className="relative overflow-hidden rounded-[28px] bg-charcoal-500 px-8 py-16 text-white md:px-16 md:py-20">
-                <div
-                  aria-hidden
-                  className="absolute -right-20 -top-20 h-80 w-80 rounded-full opacity-40 blur-3xl"
-                  style={{
-                    background: "radial-gradient(circle, rgba(180,54,91,0.7), transparent 70%)",
-                  }}
-                />
-                <p className="relative mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-                  Seja parceiro
-                </p>
-                <h2 className="relative max-w-2xl font-editorial text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.015em]">
-                  Conecte sua empresa aos melhores talentos da UCAM.
-                </h2>
-                <div className="relative mt-8 flex flex-wrap gap-4">
-                  <Button size="lg">Cadastrar minha empresa</Button>
-                  <Button
-                    size="lg"
-                    variant="ghost"
-                    className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
-                  >
-                    Fale com a gente
-                  </Button>
-                </div>
-              </div>
+              <EditorialCTA
+                eyebrow="Seja parceiro"
+                title="Conecte sua empresa aos melhores talentos da UCAM."
+                image={ctaEmpresaImg}
+                imageAlt="Estudantes da UCAM em ambiente colaborativo"
+                actions={
+                  <>
+                    <Button size="lg">Cadastrar minha empresa</Button>
+                    <Button
+                      size="lg"
+                      variant="ghost"
+                      className="border border-white/30 text-white hover:bg-white/10 hover:text-white"
+                    >
+                      Fale com a gente
+                    </Button>
+                  </>
+                }
+              />
             </section>
           </>
         )}

@@ -123,7 +123,7 @@ PlatformCTA + Footer — passe `platformCta={false}` e adicione seu próprio
 `Breadcrumb`, `TopicCard`, `ContactLines`, `SiteFooter`, `FormatoEmptyState`
 (empty state ilustrado das abas de formato sem conteúdo). Use-o ao compor
 páginas novas. O trabalho restante do dev é **plugar rotas + dados reais** (ver
-decisões em aberto), não construir telas.
+decisões de arquitetura), não construir telas.
 
 ## 5. Checklist de qualidade (definição de pronto por página)
 
@@ -141,16 +141,19 @@ decisões em aberto), não construir telas.
 - [ ] Story criada (páginas em `Páginas/…`, blocos em suas categorias).
 - [ ] `npm run typecheck` limpo.
 
-## 6. Decisões em aberto (responder antes de codar o site)
+## 6. Decisões de arquitetura (definidas em 23/07/2026)
 
-| #   | Decisão                                                                   | Dono           | Recomendação                                                                                                                                                                                                                                                                                 |
-| --- | ------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Stack do site final                                                       | Dev + Leonardo | **Next.js (App Router) + Tailwind**, SSG por unidade; a lib entra copy-in com o preset                                                                                                                                                                                                       |
-| 2   | Fonte das vagas: integração Symplicity (API/feed) ou curadoria manual?    | UCAM/CENPRE    | Começar com curadoria manual (campo `vagas` do content) + link "ver todas" para o Symplicity; integrar depois se houver API                                                                                                                                                                  |
-| 3   | CMS para notícias/FAQ/unidades ou conteúdo em código?                     | Dev + UCAM     | Fase 1 em código (arquivos `content/`); fase 2 CMS headless usando `UnidadeContent` como schema                                                                                                                                                                                              |
-| 4   | Hospedagem e domínio (subdomínio ucam?)                                   | UCAM TI        | Vercel/Netlify para começar; definir domínio cedo por causa de SEO                                                                                                                                                                                                                           |
-| 5   | Banco de imagens institucional para novas unidades/seções e CTAs          | CENPRE         | Home, as 9 subpáginas, os 6 cards de Blog da Biblioteca de Conteúdos, a foto de encerramento do "Guia do Estágio" e o CTA de Empresas Conveniadas já têm fotos reais (ver [IMAGENS.md](./IMAGENS.md)) — a do CTA é **placeholder genérico** (23/07/2026), trocar quando chegar foto dedicada |
-| 6   | Formulários (fale conosco, cadastro de convênio): para onde vão os dados? | UCAM/CENPRE    | E-mail via serviço (Resend/Formspree) na fase 1; `ContactForm` já expõe `onSubmit`                                                                                                                                                                                                           |
+Batidas para não travar o início do desenvolvimento — o dev pode assumir o que está na
+coluna "Decisão" como definitivo, salvo item 4 (ver nota abaixo).
+
+| #   | Tema                                                             | Decisão                                                                                                                                                                                                                                                                                      |
+| --- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Stack do site final                                              | **Next.js (App Router) + Tailwind**, SSG por unidade; a lib entra copy-in com o preset                                                                                                                                                                                                       |
+| 2   | Fonte das vagas                                                  | Curadoria manual (campo `vagas` do content) + link "ver todas" para o Symplicity; integração via API fica para uma fase futura, se/quando o Symplicity oferecer feed                                                                                                                         |
+| 3   | CMS para notícias/FAQ/unidades                                   | Fase 1 em código (arquivos `content/`); fase 2 CMS headless usando `UnidadeContent` como schema                                                                                                                                                                                              |
+| 4   | Hospedagem e domínio                                             | Vercel/Netlify para começar. **Único item que segue pendente de fato** — não é decisão de projeto, depende do TI da UCAM ter/liberar o subdomínio (ex. `carreiras.ucam-campos.br`); definir cedo por causa de SEO                                                                            |
+| 5   | Banco de imagens institucional para novas unidades/seções e CTAs | Home, as 9 subpáginas, os 6 cards de Blog da Biblioteca de Conteúdos, a foto de encerramento do "Guia do Estágio" e o CTA de Empresas Conveniadas já têm fotos reais (ver [IMAGENS.md](./IMAGENS.md)) — a do CTA é **placeholder genérico** (23/07/2026), trocar quando chegar foto dedicada |
+| 6   | Formulários (fale conosco, cadastro de convênio)                 | E-mail via serviço (Resend/Formspree) na fase 1, enviando para os contatos já em `content/campos.tsx` (`contato.emailGeral`/`emailConvenio`); `ContactForm` já expõe `onSubmit`                                                                                                              |
 
 ## 7. Storybook publicado (handoff visual canônico)
 

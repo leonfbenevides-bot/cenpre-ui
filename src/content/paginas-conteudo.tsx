@@ -1,6 +1,7 @@
 import type { VagasContent, ArtigoContent, SobreNosContent, BibliotecaContent } from "./types";
 import { campos } from "./campos";
 import { empresa } from "./empresa";
+import { rotas } from "../pages/shared";
 import blogPlataformaDiaADia from "../assets/blog-plataforma-dia-a-dia.jpg";
 import blogChecklistDocumentos from "../assets/blog-checklist-documentos.jpg";
 import blogCurriculoRecrutadores from "../assets/blog-curriculo-recrutadores.jpg";
@@ -23,7 +24,7 @@ export const vagas: VagasContent = {
       company: "Direito",
       location: "Campos dos Goytacazes | RJ",
       salary: "R$ 1.200,00 + Benefícios",
-      href: "#",
+      href: rotas.plataforma,
     },
     {
       area: "Tecnologia",
@@ -33,7 +34,7 @@ export const vagas: VagasContent = {
       company: "Tecnologia",
       location: "Remoto",
       salary: "R$ 1.100,00 + Benefícios",
-      href: "#",
+      href: rotas.plataforma,
     },
     {
       area: "Engenharia",
@@ -43,7 +44,7 @@ export const vagas: VagasContent = {
       company: "Engenharia",
       location: "Campos dos Goytacazes | RJ",
       salary: "R$ 950,00 + Benefícios",
-      href: "#",
+      href: rotas.plataforma,
     },
     {
       area: "Educação",
@@ -53,7 +54,7 @@ export const vagas: VagasContent = {
       company: "Educação",
       location: "Campos dos Goytacazes | RJ",
       salary: "R$ 800,00 + Benefícios",
-      href: "#",
+      href: rotas.plataforma,
     },
     {
       area: "Saúde",
@@ -63,7 +64,7 @@ export const vagas: VagasContent = {
       company: "Saúde",
       location: "Macaé | RJ",
       salary: "R$ 1.000,00 + Benefícios",
-      href: "#",
+      href: rotas.plataforma,
     },
     {
       area: "Administração",
@@ -73,7 +74,7 @@ export const vagas: VagasContent = {
       company: "Administração",
       location: "Campos dos Goytacazes | RJ",
       salary: "A combinar",
-      href: "#",
+      href: rotas.plataforma,
     },
   ],
 };
@@ -133,7 +134,7 @@ export const sobreNos: SobreNosContent = {
     "Agora, contamos também com a Plataforma CENPRE Carreiras: um ambiente digital que centraliza oportunidades, serviços e a gestão de estágios, fortalecendo a conexão entre nossos talentos e o mercado de trabalho.",
   ],
   ctaLabel: "Fazer contato",
-  href: "#",
+  href: "mailto:atendimento.cenpre@ucam-campos.br",
 };
 
 /** Biblioteca de conteúdos — listagem com pills por formato. */
@@ -154,7 +155,7 @@ export const biblioteca: BibliotecaContent = {
       excerpt:
         "Cadastro de currículo, busca de vagas e acompanhamento de candidaturas em um só lugar.",
       tags: ["Plataforma"],
-      href: "#",
+      href: rotas.artigo,
       image: blogPlataformaDiaADia,
     },
     {
@@ -165,7 +166,7 @@ export const biblioteca: BibliotecaContent = {
       excerpt:
         "TCE, termo de compromisso e seguro contra acidentes — confira o que é exigido antes do primeiro dia.",
       tags: ["Estágio"],
-      href: "#",
+      href: rotas.artigo,
       image: blogChecklistDocumentos,
     },
     {
@@ -176,7 +177,7 @@ export const biblioteca: BibliotecaContent = {
       excerpt:
         "Os pontos que mais pesam na triagem, segundo quem recebe centenas de currículos por vaga.",
       tags: ["Carreira"],
-      href: "#",
+      href: rotas.artigo,
       image: blogCurriculoRecrutadores,
     },
     ...empresa.biblioteca.itens,
