@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, type ReactNode } from "react";
+import { useState, useEffect, useCallback, type ReactNode, type MouseEvent } from "react";
 import { Button } from "../components/Button";
 import { FeatureCard } from "../components/FeatureCard";
 import { JobCard } from "../components/JobCard";
@@ -27,6 +27,7 @@ import {
   FormatoEmptyState,
   Marquee,
   CompactNewsCard,
+  rotas,
 } from "./shared";
 // Fotos avulsas para o hero — cada uma é de uma cena/modelo diferente (nunca do
 // mesmo conjunto casado usado nas colagens abaixo).
@@ -78,7 +79,9 @@ interface Slide {
   image: string;
   alt: string;
   primary: string;
+  primaryHref: string;
   secondary: string;
+  secondaryHref: string;
 }
 
 function Reveal({
@@ -163,7 +166,9 @@ export function HomeRedesign({
       image: heroScene1,
       alt: "Estudante da UCAM estudando entre plantas",
       primary: "Tenho interesse",
+      primaryHref: rotas.plataforma,
       secondary: "Explorar vagas",
+      secondaryHref: rotas.vagas,
     },
     {
       kicker: "Estágios · Vagas · Convênios",
@@ -178,7 +183,9 @@ export function HomeRedesign({
       image: heroScene2,
       alt: "Estudante da UCAM em laboratório",
       primary: "Tenho interesse",
+      primaryHref: rotas.plataforma,
       secondary: "Explorar vagas",
+      secondaryHref: rotas.vagas,
     },
     {
       kicker: "Currículo · Carreira · Suporte",
@@ -193,7 +200,9 @@ export function HomeRedesign({
       image: heroScene3,
       alt: "Estudante da UCAM em trajes formais no campus",
       primary: "Tenho interesse",
+      primaryHref: rotas.plataforma,
       secondary: "Explorar vagas",
+      secondaryHref: rotas.vagas,
     },
   ];
 
@@ -211,7 +220,9 @@ export function HomeRedesign({
       image: empHero1,
       alt: "Profissional em ambiente de trabalho",
       primary: empHero.primaryLabel,
+      primaryHref: rotas.cadastroConvenio,
       secondary: empHero.secondaryLabel,
+      secondaryHref: rotas.porQueSerParceiro,
     },
     {
       kicker: "Estágio · Emprego · Marca empregadora",
@@ -226,7 +237,9 @@ export function HomeRedesign({
       image: empHero2,
       alt: "Profissional em escritório",
       primary: "Cadastrar minha empresa",
+      primaryHref: rotas.cadastroConvenio,
       secondary: "Ver como funciona",
+      secondaryHref: rotas.cadastroConvenio,
     },
   ];
 
@@ -249,6 +262,25 @@ export function HomeRedesign({
   }, [i, count]);
 
   const slide = slides[i];
+
+  // Nav do hero: "Alunos e Egressos"/"Empresas" trocam o perfil (a página é
+  // uma só); os demais levam a rotas reais.
+  const navHrefs = [rotas.inicio, "#perfil", "#perfil", rotas.vagas, rotas.conteudos];
+  const navClickHandlers: (((e: MouseEvent) => void) | undefined)[] = [
+    undefined,
+    (e) => {
+      e.preventDefault();
+      setPerfil("aluno");
+      document.getElementById("perfil")?.scrollIntoView({ behavior: "smooth" });
+    },
+    (e) => {
+      e.preventDefault();
+      setPerfil("empresa");
+      document.getElementById("perfil")?.scrollIntoView({ behavior: "smooth" });
+    },
+    undefined,
+    undefined,
+  ];
 
   return (
     <div className="bg-white text-charcoal-500">
@@ -299,7 +331,8 @@ export function HomeRedesign({
               {navLinks.map((l, idx) => (
                 <a
                   key={l}
-                  href="/"
+                  href={navHrefs[idx]}
+                  onClick={navClickHandlers[idx]}
                   className={`text-sm transition-colors hover:text-white ${
                     (isAluno && idx === 0) || (!isAluno && idx === 2)
                       ? "text-white"
@@ -312,13 +345,13 @@ export function HomeRedesign({
             </nav>
             <div className="flex items-center gap-3">
               <a
-                href="/"
+                href={rotas.plataforma}
                 className="hidden text-sm text-white/70 transition-colors hover:text-white sm:block"
               >
                 Entrar
               </a>
-              <Button className="bg-white text-charcoal-500 hover:bg-white/90">
-                Acessar plataforma
+              <Button asChild className="bg-white text-charcoal-500 hover:bg-white/90">
+                <a href={rotas.plataforma}>Acessar plataforma</a>
               </Button>
             </div>
           </header>
@@ -349,11 +382,11 @@ export function HomeRedesign({
                 {slide.sub}
               </Reveal>
               <Reveal delay={260} className="mt-9 flex flex-wrap items-center gap-4">
-                <Button size="lg" className="shadow-lg shadow-magenta-900/30">
-                  {slide.primary}
+                <Button size="lg" asChild className="shadow-lg shadow-magenta-900/30">
+                  <a href={slide.primaryHref}>{slide.primary}</a>
                 </Button>
                 <a
-                  href="/"
+                  href={slide.secondaryHref}
                   className="group inline-flex items-center gap-2 text-[15px] font-semibold text-white"
                 >
                   {slide.secondary}
@@ -464,7 +497,8 @@ export function HomeRedesign({
 
         {/* Seletor de perfil — UMA página, o conteúdo abaixo troca por estado. */}
         <div
-          className="border-y border-ash-300 bg-white"
+          id="perfil"
+          className="scroll-mt-20 border-y border-ash-300 bg-white"
           role="tablist"
           aria-label="Perfil de navegação"
         >
@@ -626,7 +660,9 @@ export function HomeRedesign({
                                 </p>
                               </div>
                               <a
-                                href="/"
+                                href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/lei/l11788.htm"
+                                target="_blank"
+                                rel="noreferrer"
                                 className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-magenta-700 hover:text-magenta-800"
                               >
                                 {item.legislacao.linkLabel} <ArrowRightIcon size={15} />
@@ -1153,7 +1189,7 @@ export function HomeRedesign({
                     </p>
                   </div>
                   <a
-                    href="/"
+                    href="mailto:convenio.estagio@ucam-campos.br"
                     className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-white hover:text-white/80"
                   >
                     Falar com a equipe <ArrowRightIcon size={15} />
@@ -1197,10 +1233,10 @@ export function HomeRedesign({
                         {p.vagasAbertas} {p.vagasAbertas === 1 ? "vaga aberta" : "vagas abertas"}
                       </span>
                       <a
-                        href={p.href}
+                        href={rotas.vagas}
                         className="inline-flex items-center gap-1 text-magenta-700 hover:text-magenta-800"
                       >
-                        Ver perfil <ArrowRightIcon size={14} />
+                        Ver vagas <ArrowRightIcon size={14} />
                       </a>
                     </div>
                   </div>

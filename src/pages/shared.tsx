@@ -36,7 +36,15 @@ export const rotas = {
   vagas: "/vagas",
   conteudos: "/conteudos",
   biblioteca: "/conteudos/biblioteca",
+  artigo: "/conteudos/artigo",
+  sobreNos: "/institucional/sobre-nos",
+  // Aluno/Egresso
+  orientacoesEstagio: "/aluno/orientacoes-de-estagio",
+  curriculo: "/aluno/curriculo",
+  // Empresa
   cadastroConvenio: "/empresa/cadastro-de-convenio",
+  empresasConveniadas: "/empresa/conveniadas",
+  porQueSerParceiro: "/empresa/por-que-ser-parceiro",
   plataforma: "https://ucam-csm.symplicity.com/",
 } as const;
 
@@ -562,28 +570,28 @@ export function SiteFooter({ contato = contatoPadrao }: { contato?: UnidadeConte
         {
           title: "Aluno / Egresso",
           links: [
-            { label: "Estágio", href: "#" },
-            { label: "Currículo", href: "#" },
-            { label: "Vagas e oportunidades", href: "#" },
-            { label: "Convênios", href: "#" },
+            { label: "Estágio", href: rotas.orientacoesEstagio },
+            { label: "Currículo", href: rotas.curriculo },
+            { label: "Vagas e oportunidades", href: rotas.vagas },
+            { label: "Convênios", href: `${rotas.orientacoesEstagio}#convenio` },
           ],
         },
         {
           title: "Empresa",
           links: [
-            { label: "Por que ser parceiro", href: "#" },
-            { label: "Cadastro de convênio", href: "#" },
-            { label: "Empresas conveniadas", href: "#" },
-            { label: "Perguntas de empresas", href: "#" },
+            { label: "Por que ser parceiro", href: rotas.porQueSerParceiro },
+            { label: "Cadastro de convênio", href: rotas.cadastroConvenio },
+            { label: "Empresas conveniadas", href: rotas.empresasConveniadas },
+            { label: "Perguntas de empresas", href: `${rotas.cadastroConvenio}#faq` },
           ],
         },
         {
           title: "Institucional",
           links: [
-            { label: "Sobre nós", href: "#" },
-            { label: "Biblioteca de conteúdos", href: "#" },
-            { label: "Perguntas frequentes", href: "#" },
-            { label: "Plataforma CENPRE", href: "#" },
+            { label: "Sobre nós", href: rotas.sobreNos },
+            { label: "Biblioteca de conteúdos", href: rotas.biblioteca },
+            { label: "Perguntas frequentes", href: `${rotas.inicio}#faq` },
+            { label: "Plataforma CENPRE", href: rotas.plataforma },
           ],
         },
       ]}

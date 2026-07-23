@@ -8,7 +8,7 @@ import { Avatar } from "../components/Avatar";
 import { Input } from "../components/Input";
 import { SearchIcon, ArrowRightIcon } from "../components/Icons";
 import type { ConveniadasContent, EmpresaContent } from "../content/types";
-import { PageShell, Breadcrumb } from "./shared";
+import { PageShell, Breadcrumb, rotas } from "./shared";
 
 export interface EmpresasConveniadasRedesignProps {
   content: ConveniadasContent;
@@ -73,10 +73,10 @@ export function EmpresasConveniadasRedesign({
                   {p.vagasAbertas} {p.vagasAbertas === 1 ? "vaga aberta" : "vagas abertas"}
                 </span>
                 <a
-                  href={p.href}
+                  href={rotas.vagas}
                   className="inline-flex items-center gap-1 text-magenta-700 hover:text-magenta-800"
                 >
-                  Ver perfil <ArrowRightIcon size={14} />
+                  Ver vagas <ArrowRightIcon size={14} />
                 </a>
               </div>
             </div>

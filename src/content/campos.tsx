@@ -394,7 +394,7 @@ export const campos: UnidadeContent = {
       "Agora, contamos também com a Plataforma CENPRE Carreiras: um ambiente digital que centraliza oportunidades, serviços e a gestão de estágios, fortalecendo a conexão entre nossos talentos e o mercado de trabalho.",
     ],
     ctaLabel: "Conheça nossa história",
-    href: "#",
+    href: "/institucional/sobre-nos",
   },
 
   noticias: [
@@ -473,7 +473,7 @@ export const campos: UnidadeContent = {
     title: "Perguntas Frequentes sobre o CENPRE",
     description: "Tire suas dúvidas sobre estágio, documentos e bolsa-auxílio.",
     ctaLabel: "Saber mais sobre",
-    href: "#",
+    href: "/aluno/orientacoes-de-estagio#faq",
   },
   faq: [
     {

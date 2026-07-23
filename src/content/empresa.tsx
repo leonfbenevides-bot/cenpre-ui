@@ -94,7 +94,7 @@ export const empresa: EmpresaContent = {
       "Para as empresas, o CENPRE é a porta de entrada para a rede UCAM: convênios, divulgação de vagas, captação de estagiários e acompanhamento em todas as etapas do processo, com respaldo jurídico e agilidade na documentação.",
     ],
     ctaLabel: "Fique por dentro",
-    href: "#",
+    href: "/institucional/sobre-nos",
   },
 
   noticias: campos.noticias,
